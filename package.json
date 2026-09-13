@@ -1,0 +1,36 @@
+{
+  "name": "yuanbao-model-price-board",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "npm run validate:data && astro check && astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "validate:data": "node --import tsx scripts/validate-data.ts && node --import tsx scripts/validate-performance.ts",
+    "validate:build": "node --import tsx scripts/validate-build.ts",
+    "prices:check": "node --import tsx scripts/check-prices.ts",
+    "performance:update": "node --import tsx scripts/update-performance.ts",
+    "prices:update": "node --import tsx scripts/update-prices.ts",
+    "prices:record-manual": "node --import tsx scripts/record-manual-price.ts",
+    "prices:add-reviewed": "node --import tsx scripts/add-reviewed-prices.ts",
+    "validate:workflows": "node --import tsx scripts/validate-workflows.ts"
+  },
+  "dependencies": {
+    "astro": "^5.13.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@types/node": "^22.18.0",
+    "parse5": "^7.3.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "yaml": "^2.9.1"
+  }
+}

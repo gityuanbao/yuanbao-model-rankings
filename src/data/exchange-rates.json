@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "base": "USD",
+  "quote": "CNY",
+  "rate": 7,
+  "updatedAt": "2026-09-12T00:00:00Z",
+  "source": {
+    "type": "manual_reference",
+    "label": "v2.0 人工设定的参考换算参数（docs/IMPLEMENTATION.md）",
+    "url": null
+  },
+  "note": "美元按固定参考汇率 $1 = ¥7.00 估算，非实时汇率；结算以厂商原币价格为准。"
+}

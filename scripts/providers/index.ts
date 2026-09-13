@@ -1,0 +1,15 @@
+import deepseek from './deepseek';
+import qwen from './qwen';
+import minimax from './minimax';
+import baidu from './baidu';
+import tencent from './tencent';
+import openai from './openai';
+import anthropic from './anthropic';
+import google from './google';
+import xai from './xai';
+import doubao from './doubao';
+import glm from './glm';
+import kimi from './kimi';
+import { providerIds } from '../../src/lib/schema';
+export const adapters = [openai, anthropic, google, xai, deepseek, doubao, qwen, kimi, glm, minimax, baidu, tencent];
+if (adapters.length !== providerIds.length || new Set(adapters.map(a => a.providerId)).size !== providerIds.length) throw new Error('Provider Adapter 白名单不完整');

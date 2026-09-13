@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-12T06:39:23.401Z",
+  "automaticProviders": [
+    {
+      "provider": "deepseek",
+      "parsedModels": 2,
+      "error": null
+    },
+    {
+      "provider": "alibaba",
+      "parsedModels": 6,
+      "error": null
+    },
+    {
+      "provider": "minimax",
+      "parsedModels": 2,
+      "error": null
+    },
+    {
+      "provider": "baidu",
+      "parsedModels": 2,
+      "error": null
+    },
+    {
+      "provider": "tencent",
+      "parsedModels": 1,
+      "error": null
+    }
+  ],
+  "manualProviders": [
+    {
+      "provider": "openai",
+      "reason": "HTTP 403，保留上次有效价格"
+    },
+    {
+      "provider": "anthropic",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    {
+      "provider": "google",
+      "reason": "fetch failed"
+    },
+    {
+      "provider": "xai",
+      "reason": "fetch failed"
+    },
+    {
+      "provider": "bytedance",
+      "reason": "直连仅返回动态页面壳，无可验证的完整标准价格表。v2.0 搜索索引价格转为 unknown，保留历史但退出默认榜。"
+    },
+    {
+      "provider": "moonshot",
+      "reason": "尚无通过直接读取和 Fixture 验证的公开费率表；保持白名单待适配，不新增推测价格。"
+    },
+    {
+      "provider": "zhipu",
+      "reason": "直连仅返回动态页面壳，无法确认标准价和官方免费依据。v2.0 搜索索引价格转为 unknown，保留历史但退出默认榜。"
+    }
+  ],
+  "priceDataChanged": false,
+  "pendingNewModels": 34,
+  "sha256": {
+    "src/data/catalog.json": "2e5b92b1ce52187bf2ced0a0eeb51e51af5001a9518ef0cf3aceafa1fac1d64a",
+    "src/data/price-history.json": "8c2f20dd03ed1148ee23090c8299f6144683aaa18e44e8be776c18580a985d7c"
+  },
+  "remoteWorkflowRun": null,
+  "pagesUrl": null,
+  "remoteBlocker": "目标 GitHub 仓库尚未指定；当前仓库没有远端。"
+}

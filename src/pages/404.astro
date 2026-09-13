@@ -1,0 +1,5 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pathFor } from '../lib/render';
+---
+<Layout title="页面不存在 · 源宝 AI 模型价格榜"><main id="main" class="detail-shell empty-state"><div class="eyebrow">404</div><h1>这个页面暂时找不到</h1><p style="margin:20px">链接可能不完整，回到排行榜继续查看模型。</p><a class="primary-button" href={pathFor(import.meta.env.BASE_URL)}>返回价格排行榜</a></main></Layout>

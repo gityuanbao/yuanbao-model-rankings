@@ -1,0 +1,157 @@
+---
+import prompt from '../../docs/鹈鹕测试_统一提示词_v2.0.txt?raw';
+
+const criteria = [
+  { name: '角色与结构', points: 15, description: '鹈鹕可辨认；自行车连接与骑姿合理；角色和橙色工具包全程一致。三项各 5 分。' },
+  { name: '骑行动作', points: 25, description: '两脚跟随各自踏板 10 分；曲柄与踏板协调、车轮绕轴且转向正确、骑行与地面运动配合，各 5 分。' },
+  { name: '核心事件', points: 30, description: '红灯停绿灯走；前后轮依次过减速带，车、鸟和包随之起伏；到站先停稳再挥翅。三项各 10 分。' },
+  { name: '时间与连续性', points: 15, description: '阶段顺序和时间正确，20 秒后停帧；切换自然；无闪烁、瞬移或部件脱离。三项各 5 分。' },
+  { name: '运行与画面', points: 15, description: '原始 HTML 自动播放，符合 SVG 与资源要求；800 × 600 内主体和动作清楚；配色线条协调。三项各 5 分。' },
+];
+const tiers = [
+  { id: 'hang', label: '夯', range: '90–100 分', description: '骑行成立，送宝事件完成度高。' },
+  { id: 'top', label: '顶级', range: '75 至不足 90 分', description: '完成度高，有少量细节瑕疵。' },
+  { id: 'good', label: '人上人', range: '60 至不足 75 分', description: '核心任务成立，仍有明显不足。' },
+  { id: 'npc', label: 'NPC', range: '40 至不足 60 分', description: '能看懂主题，但关键动作或形态出了问题。' },
+  { id: 'la', label: '拉', range: '不足 40 分', description: '静态、严重失败，或没有合格作品。' },
+];
+---
+<details id="pelican-method" class="pelican-method">
+  <summary id="pelican-method-summary">测试与评分说明 <span class="method-version">v2.0</span></summary>
+  <div class="method-content">
+    <p class="method-intro">源宝鹈鹕送宝挑战：一次生成，让鹈鹕骑车带着工具包，等红灯、过减速带，再到社区小站挥翅致意。比较本次作品的完成度，仅供娱乐，不代表模型的综合能力。</p>
+
+    <section aria-labelledby="pelican-how-title">
+      <h3 id="pelican-how-title">我们怎么测</h3>
+      <ul>
+        <li><strong>每款只生成一次。</strong>新开对话，复制同一段完整提示词，只发送一次。不追问、不重新生成、不修改代码。</li>
+        <li><strong>使用最高推理档位。</strong>无法设置最高档时使用默认档，记录实际型号、平台、日期和档位截图。不同厂商的“最高档”不代表相同计算预算。</li>
+        <li><strong>记录工具条件。</strong>尽量关闭联网、代码执行和自动修复；无法关闭时如实注明，带工具的结果单独标识与比较。</li>
+        <li><strong>统一看原作。</strong>使用同一台电脑、同一浏览器观看完整的 800 × 600、20 秒动画。评分以原始 HTML 为准，GIF 或录屏只用于展示，转码问题不扣模型的分。</li>
+        <li><strong>由 AI 助手评分。</strong>测试者交回原作与型号信息，无需自己打分。AI 助手逐项给分并说明扣分时间点，源宝复核作品与记录后发布；无法判断的项目标为待核实，不猜分。</li>
+        <li><strong>请求未完成不打 0 分。</strong>网络中断、没有权限等导致未收到完整回答，记为待补测；收到完整回答却没有有效作品，才按作品失败计分。</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="pelican-score-title">
+      <h3 id="pelican-score-title">100 分，既看骑行，也看事情有没有做完</h3>
+      <table class="method-score-table">
+        <caption class="sr-only">鹈鹕送宝动画的五个评分维度，包含 16 个小项，总分 100 分</caption>
+        <thead><tr><th scope="col">评分项</th><th scope="col">分值</th><th scope="col">看什么</th></tr></thead>
+        <tbody>{criteria.map(item => <tr><th scope="row">{item.name}</th><td>{item.points}</td><td>{item.description}</td></tr>)}</tbody>
+      </table>
+      <p>没做到给 0，做到一部分给一半，完整做到给满分：10 分项给 0 / 5 / 10；5 分项给 0 / 2.5 / 5。关键时间允许约半秒误差；简洁画法也能得满分。先合计 16 项，再应用下面的分数上限。</p>
+    </section>
+
+    <section aria-labelledby="pelican-tier-title">
+      <h3 id="pelican-tier-title">从夯到拉，怎么定档</h3>
+      <dl class="method-tier-list">{tiers.map(tier => <div class={`pelican-tier-${tier.id}`}><dt>{tier.label}</dt><dd><strong>{tier.range}</strong><span>{tier.description}</span></dd></div>)}</dl>
+      <ul class="method-score-limits">
+        <li><strong>0 分：</strong>原作无法运行，或完整回答没有有效作品。</li>
+        <li><strong>最高 39 分：</strong>只有静态画面。</li>
+        <li><strong>最高 59 分：</strong>没有连续踩踏，或红绿灯、过减速带、到站挥翅中有两项得 0 分。</li>
+        <li><strong>“夯”还有门槛：</strong>总分至少 90，骑行动作至少 20 / 25，核心事件至少 25 / 30；未达到任一要求时最高 89 分。</li>
+      </ul>
+      <p>触发多个限制时取最低上限，最终分取合计分与上限中的较小值。同分视为并列，展示顺序不代表额外的能力差距。请求未完成或证据不足的记录暂不定档。</p>
+    </section>
+
+    <details id="pelican-prompt" class="method-prompt">
+      <summary>查看完整测试提示词</summary>
+      <div class="method-prompt-actions"><p>每个模型收到完全相同的题目。</p><button id="pelican-copy-prompt" class="outline-button" type="button" hidden>复制提示词</button></div>
+      <p id="pelican-copy-status" class="method-copy-status" role="status" aria-live="polite"></p>
+      <pre id="pelican-prompt-text" tabindex="0" aria-label="完整测试提示词">{prompt.trim()}</pre>
+    </details>
+
+    <p class="method-source">鹈鹕骑车题材灵感来自 <a href="https://github.com/simonw/pelican-bicycle" target="_blank" rel="noopener noreferrer">Simon Willison 的 SVG 测试 ↗</a>。送宝剧情、单次流程与评分标准由源宝项目制定，当前规则为 v2.0（2026-09-13）；不同规则版本的成绩不混排。</p>
+  </div>
+</details>
+
+<script>
+  const method = document.querySelector<HTMLDetailsElement>('#pelican-method')!;
+  const prompt = document.querySelector<HTMLDetailsElement>('#pelican-prompt')!;
+  const summary = document.querySelector<HTMLElement>('#pelican-method-summary')!;
+  const link = document.querySelector<HTMLAnchorElement>('[data-pelican-method-link]');
+  link?.addEventListener('click', event => {
+    if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    method.open = true;
+    summary.focus({ preventScroll: true });
+  });
+  function openFromHash() {
+    if (location.hash === '#pelican-method' || location.hash === '#pelican-prompt') {
+      method.open = true;
+      if (location.hash === '#pelican-prompt') prompt.open = true;
+    }
+  }
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+
+  const copy = document.querySelector<HTMLButtonElement>('#pelican-copy-prompt')!;
+  const text = document.querySelector<HTMLElement>('#pelican-prompt-text')!;
+  const status = document.querySelector<HTMLElement>('#pelican-copy-status')!;
+  copy.hidden = false;
+  copy.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(text.textContent ?? '');
+      status.textContent = '提示词已复制。';
+    } catch {
+      text.focus({ preventScroll: true });
+      const selection = window.getSelection();
+      if (selection) {
+        const range = document.createRange();
+        range.selectNodeContents(text);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        status.textContent = '自动复制不可用，已选中提示词，请手动复制。';
+      } else {
+        status.textContent = '自动复制不可用，请选中下方提示词手动复制。';
+      }
+    }
+  });
+</script>
+
+<style>
+  .pelican-method { border-top: 1px solid var(--line); padding: 19px 26px; color: var(--muted); font-size: 13px; }
+  .pelican-method > summary { cursor: pointer; font-size: 13px; padding: 8px 0; min-height: 40px; }
+  .method-version { float: right; color: #86868b; font-size: 11px; }
+  .method-content { max-width: 860px; margin-top: 24px; line-height: 1.9; }
+  .method-intro { color: var(--ink); font-size: 14px; }
+  .method-content section { margin-top: 28px; }
+  .method-content h3 { color: var(--ink); font-size: 15px; font-weight: 600; margin-bottom: 12px; letter-spacing: -.02em; }
+  .method-content ul { margin: 0 0 12px; padding-left: 20px; }
+  .method-content li + li { margin-top: 9px; }
+  .method-content strong { color: #515154; font-weight: 550; }
+  .method-score-table { width: 100%; min-width: 0; margin-bottom: 14px; font-size: 12px; }
+  .method-score-table :is(th, td) { height: auto; text-align: left; vertical-align: top; white-space: normal; padding: 11px 12px 11px 0; border-bottom: 1px solid #f0f0f3; }
+  .method-score-table th:first-child { width: 126px; font-weight: 550; }
+  .method-score-table :is(th, td):nth-child(2) { width: 48px; font-variant-numeric: tabular-nums; }
+  .method-score-table :is(th, td):last-child { padding-right: 0; }
+  .method-score-table tbody th { color: #515154; }
+  .method-tier-list { margin: 0 0 18px; padding: 0; }
+  .method-tier-list > div { display: grid; grid-template-columns: 70px minmax(0, 1fr); align-items: baseline; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f3; }
+  .method-tier-list dt { color: var(--tier-ink); font-weight: 600; }
+  .method-tier-list dd { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .method-tier-list dd strong { min-width: 130px; font-variant-numeric: tabular-nums; }
+  .method-prompt { margin-top: 28px; padding: 16px 18px; border-radius: 12px; background: #f5f5f7; }
+  .method-prompt summary { cursor: pointer; color: var(--ink); font-weight: 550; min-height: 40px; padding: 8px 0; }
+  .method-prompt-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+  .method-prompt-actions button { margin-left: auto; }
+  .method-copy-status { font-size: 12px; color: var(--blue); }
+  .method-copy-status:empty { display: none; }
+  .method-prompt pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: 16px 0 0; font: inherit; font-size: 12px; color: #515154; user-select: text; }
+  .method-source { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12px; }
+  .method-source a { color: var(--blue); }
+  @media (max-width: 680px) {
+    .pelican-method { padding: 18px; font-size: 12px; }
+    .method-content { margin-top: 20px; }
+    .method-intro { font-size: 13px; }
+    .method-content h3 { font-size: 14px; }
+    .method-score-table { font-size: 11px; }
+    .method-score-table th:first-child { width: 80px; }
+    .method-score-table :is(th, td):nth-child(2) { width: 36px; }
+    .method-score-table :is(th, td) { padding-right: 8px; }
+    .method-tier-list > div { grid-template-columns: 58px minmax(0, 1fr); }
+    .method-tier-list dd { display: block; }
+    .method-tier-list dd span { display: block; }
+    .method-prompt { padding: 14px; }
+  }
+</style>

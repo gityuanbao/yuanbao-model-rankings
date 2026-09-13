@@ -1,0 +1,26 @@
+---
+import type { Model } from '../lib/schema';
+import data from '../data/price-history.json';
+import { historySchema } from '../lib/pricing-metadata';
+import { money } from '../lib/ranking';
+interface Props { model: Model }
+const { model } = Astro.props;
+const events = historySchema.parse(data).models.find(m => m.modelId === model.id)?.events ?? [];
+const previous = events.length > 1 ? events.at(-2) : undefined;
+const latestChange = [...events].reverse().find(e => e.reason === 'price_change');
+const symbol = (currency: string) => currency === 'USD' ? '$' : '¥';
+const change = (old: number | undefined, value: number) => old === undefined ? '尚无历史变价' : old === value ? '持平' : old === 0 ? '由免费改为收费' : `${value < old ? '↓' : '↑'} ${Math.abs((value - old) / old * 100).toFixed(2)}%`;
+---
+<section class="detail-box" aria-labelledby="price-history-title">
+  <h2 id="price-history-title">价格变化与历史</h2>
+  <p>按官方原币 / 百万 Token 记录基础档价格，汇率变化不计为厂商调价。</p>
+  <div class="history-summary">
+    {(['input', 'output'] as const).map((field, index) => <div><span>当前{index ? '输出' : '输入'}价</span><strong>{symbol(model.currency)}{money(model.rates[0][field])}</strong><small>{previous ? `上次 ${symbol(previous.currency)}${money(previous.rates[0][field])} · ${previous.currency === model.currency ? change(previous.rates[0][field],model.rates[0][field]) : '币种变化，比例不直接比较'}` : '开始记录后尚无价格变化'}</small></div>)}
+  </div>
+  <p>{latestChange ? `${latestChange.effectiveAt ? '最近官方生效日期' : '最近检测到变价'}：${(latestChange.effectiveAt ?? latestChange.detectedAt).slice(0,10)}${latestChange.effectiveAt ? '' : '（官网未明确生效时间）'}` : '尚无已核验的价格变化事件；首次快照不代表一次调价。'}</p>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="官方价格历史时间轴">
+    <table><thead><tr><th scope="col">日期 / 事件</th><th scope="col" class="numeric">输入价</th><th scope="col" class="numeric">输出价</th><th scope="col">变化 / 来源</th></tr></thead><tbody>
+      {[...events].reverse().map((event, index) => { const older=events[events.length-index-2]; return <tr><td><time datetime={event.effectiveAt ?? event.detectedAt}>{(event.effectiveAt ?? event.detectedAt).slice(0,10)}</time><small class="history-note">{event.reason === 'initial_snapshot' ? '首次记录' : event.effectiveAt ? '官方生效' : '检测到变化'}{event.verification === 'unverified' ? ' · 待核验旧记录' : ''}</small></td><td class="numeric">{symbol(event.currency)}{money(event.rates[0].input)}</td><td class="numeric">{symbol(event.currency)}{money(event.rates[0].output)}</td><td><small>{event.reason === 'initial_snapshot' ? '基线快照' : older?.currency === event.currency ? `输入 ${change(older?.rates[0].input,event.rates[0].input)} / 输出 ${change(older?.rates[0].output,event.rates[0].output)}` : '原币变更'}</small><a class="source-link history-note" href={event.sourceUrl} target="_blank" rel="noopener noreferrer">官方来源 ↗</a><details><summary>完整阶梯记录</summary><ul>{event.rates.map(r=><li>输入 ≤ {r.upToInputTokens.toLocaleString('zh-CN')}：输入 {symbol(event.currency)}{money(r.input)}，输出 {symbol(event.currency)}{money(r.output)}，缓存 {r.cacheRead === null ? '未核验' : `${symbol(event.currency)}${money(r.cacheRead)}`}；Batch {r.batchFactor ?? '未收录'}，低峰 {r.offPeakFactor ?? '未收录'}{r.promotion ? `，促销 ${r.promotion.startsAt} 至 ${r.promotion.endsAt}` : ''}</li>)}</ul></details></td></tr>; })}
+    </tbody></table>
+  </div>
+</section>

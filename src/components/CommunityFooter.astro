@@ -1,0 +1,63 @@
+---
+import { pathFor } from '../lib/render';
+const base = import.meta.env.BASE_URL;
+---
+<footer class="community-footer" aria-labelledby="community-title">
+  <div class="community-inner">
+    <div class="community-message">
+      <h2 id="community-title">让每个人，都用得上 AI。</h2>
+      <p>我希望和你一起，做一个人人都能参与、都能受益的 AI 社区。分享好用的工具，把复杂的知识讲明白，让更多人用得上、用得起 AI。</p>
+      <p class="community-invitation">欢迎带着好奇心来，我们一起慢慢探索。</p>
+    </div>
+    <div class="community-author">
+      <div class="community-signature">
+        <img class="community-avatar" src={pathFor(base, 'gityuanbao-avatar.jpg')} alt="" width="52" height="52" loading="lazy" decoding="async" />
+        <div><strong>嗨，我是源宝。</strong><span>很高兴在这里遇见你。</span></div>
+      </div>
+      <nav class="community-links" aria-label="源宝的主页">
+        <a href="https://github.com/gityuanbao" target="_blank" rel="noopener noreferrer">
+          <img src={pathFor(base, 'logos/github.svg')} alt="" width="20" height="20" loading="lazy" />
+          <span>GitHub 主页</span><span class="community-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="community-bilibili" href="https://space.bilibili.com/38061207" target="_blank" rel="noopener noreferrer">
+          <img src={pathFor(base, 'logos/bilibili.svg')} alt="" width="20" height="20" loading="lazy" />
+          <span>B站主页</span><span class="community-arrow" aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<style>
+  .community-footer { background: #fff; border-top: 1px solid #e8e8ed; }
+  .community-inner { max-width: 1200px; margin: 0 auto; padding: 48px 40px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 72px; align-items: center; }
+  .community-message { max-width: 600px; }
+  h2 { font-size: clamp(24px, 2.3vw, 30px); line-height: 1.4; letter-spacing: -.04em; font-weight: 600; }
+  .community-message p { margin-top: 16px; color: #6e6e73; font-size: 15px; line-height: 1.9; text-wrap: pretty; }
+  .community-message .community-invitation { margin-top: 10px; color: #515154; }
+  .community-signature { display: flex; align-items: center; gap: 14px; }
+  .community-avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
+  .community-signature strong { display: block; font-size: 17px; font-weight: 600; }
+  .community-signature span { display: block; margin-top: 3px; font-size: 14px; color: #6e6e73; }
+  .community-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .community-links a { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 10px 15px; border: 1px solid #e8e8ed; border-radius: 999px; background: #fafafa; color: #1d1d1f; font-size: 13px; transition: background .2s, border-color .2s, transform .3s var(--ease); }
+  .community-links img { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; }
+  .community-arrow { color: #86868b; transition: transform .3s var(--ease); }
+  .community-links a:hover { background: #f0f0f3; border-color: #d2d2d7; transform: translateY(-2px); }
+  .community-links .community-bilibili:hover { background: #fff0f5; border-color: #ffc3d8; }
+  .community-links a:hover .community-arrow { transform: translate(1px, -1px); }
+  @media (max-width: 900px) {
+    .community-inner { padding: 36px 24px; gap: 32px; grid-template-columns: 1fr; }
+    .community-author { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .community-links { margin-top: 0; }
+  }
+  @media (max-width: 640px) {
+    .community-inner { padding: 32px 20px; gap: 26px; }
+    .community-message p { font-size: 14px; }
+    .community-author { display: block; }
+    .community-links { margin-top: 20px; }
+    .community-links a { padding: 10px 13px; gap: 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .community-links a:hover, .community-links a:hover .community-arrow { transform: none; }
+  }
+</style>

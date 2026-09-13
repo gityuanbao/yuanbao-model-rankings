@@ -1,0 +1,65 @@
+.performance-leader { padding-bottom: 0; }
+.performance-leader .champion-model { align-items: center; }
+.performance-leader-mode { color: var(--muted); font-size: 12px; margin: 6px 0 0 36px; min-height: 18px; }
+.performance-leader .champion-price { margin-top: 6px; font-variant-numeric: tabular-nums; }
+.performance-date { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 26px 18px; color: var(--muted); font-size: 12px; }
+.performance-date time { margin-left: 5px; font-variant-numeric: tabular-nums; }
+.performance-date a { color: var(--muted); }
+.performance-table { min-width: 680px; width: 100%; }
+.performance-table th:first-child { width: 80px; }
+.performance-table td:last-child { padding-right: 22px; }
+.performance-model { display: flex; gap: 12px; align-items: center; min-width: 190px; }
+.performance-model > span:last-child { min-width: 0; }
+.performance-model strong { display: block; font-size: 14px; font-weight: 600; color: var(--ink); }
+.performance-model-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; font-size: 11px; color: var(--muted); margin-top: 5px; font-weight: 400; }
+.performance-mode { font-size: 11px; background: #f1f0f7; color: #6b627f; padding: 2px 5px; border-radius: 4px; }
+.performance-score strong { display: block; font-weight: 600; font-size: 19px; letter-spacing: -.045em; }
+.performance-interval { display: block; font-size: 10px; margin-top: 3px; color: var(--muted); letter-spacing: 0; }
+.performance-votes, .performance-original-rank { font-size: 12px; color: var(--muted); }
+.performance-method { border-top: 1px solid var(--line); padding: 19px 26px; color: var(--muted); font-size: 12px; }
+.performance-method summary { cursor: pointer; width: fit-content; padding: 8px 0; min-height: 40px; }
+.performance-method > div { margin-top: 16px; max-width: 780px; line-height: 1.9; }
+.performance-method p + p { margin-top: 12px; }
+.performance-method a { color: var(--blue); }
+.performance-page #performance-leaders:empty { display: none; }
+@media (max-width: 900px) and (min-width: 681px) {
+  .performance-page .filter-body { display: block; }
+  .performance-page .provider-filter { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2px 14px; margin-top: 14px; }
+  .performance-page .all-providers { border: 0; margin-bottom: 0; }
+  .performance-page .search-box { max-width: 350px; }
+}
+@media (max-width: 680px) {
+  .performance-date { padding: 0 18px 16px; font-size: 12px; flex-wrap: wrap; }
+  .performance-date a { display: inline-flex; align-items: center; min-height: 40px; }
+  .performance-method { padding: 18px; }
+  .performance-page .mobile-cost strong { font-size: 19px; }
+  .performance-page .mobile-model strong { font-size: 13px; overflow-wrap: anywhere; }
+  .performance-page .mobile-model-text > span { font-size: 12px; }
+  .performance-page .mobile-rank small { white-space: nowrap; }
+  .performance-page .champion-price { font-size: 32px; }
+  .performance-page .champion-model { font-size: 14px; }
+  .performance-page .filter-body { display: block; }
+  .performance-page .provider-filter { margin-top: 18px; }
+}
+
+.agent-signals { margin-top:10px; color:var(--muted); font-size:11px; font-weight:400; text-align:left; }
+.agent-signals summary { cursor:pointer; color:var(--blue); }
+.agent-signals dl { display:grid; gap:7px; padding:10px 0; min-width:240px; }
+.agent-signals dl div { display:flex; justify-content:space-between; gap:16px; }
+.agent-signals dd { margin:0; color:var(--ink); font-variant-numeric:tabular-nums; }
+.agent-signals small { color:var(--muted); }
+.agent-signals p { font-size:10px; max-width:260px; white-space:normal; }
+.performance-scope-note { padding:0 26px 16px; color:var(--muted); font-size:12px; line-height:1.7; }
+@media(max-width:640px) {
+  .performance-page .mobile-result-main { grid-template-columns: 26px minmax(0,1fr) auto; }
+  .performance-scope-note { padding:0 18px 14px; font-size:12px; }
+  .agent-signals { font-size:12px; }
+  .agent-signals dl { min-width:0; }
+  .agent-signals dl div { flex-wrap:wrap; gap:4px 12px; }
+  .agent-signals p { font-size:12px; }
+}
+
+.performance-category-bar .sort-control { display: none; margin-left: auto; }
+@media (max-width:640px) {
+  .performance-category-bar .sort-control { display: inline-flex; }
+}

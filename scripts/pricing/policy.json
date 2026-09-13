@@ -1,0 +1,6 @@
+{
+  "maxRelativeChange": 0.6,
+  "minimumRemainingRatio": 0.2,
+  "providerAnomalyFraction": 0.5,
+  "staleAfterDays": 7
+}

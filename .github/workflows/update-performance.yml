@@ -1,0 +1,103 @@
+name: Update Arena performance leaderboard
+on:
+  schedule:
+    - cron: '43 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pricing-update
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      ASTRO_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - name: Remember checked-out revision
+        id: base
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - uses: actions/configure-pages@v5
+        id: pages
+      - name: Restore latest matching price verification
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await require('./scripts/github/restore-state.cjs')({github, context});
+      - name: Apply matching price freshness
+        run: |
+          if [ -f reports/prior-state.zip ]; then
+            unzip -p reports/prior-state.zip verification.json > reports/previous-verification.json
+          fi
+          node --import tsx scripts/restore-price-state.ts
+      - name: Fetch and validate Arena data, test and build changed snapshot
+        id: update
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+        run: npm run performance:update -- --apply
+      - name: Reject a stale checkout before deployment
+        if: steps.update.outputs.changed == 'true'
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+        run: |
+          git fetch origin "$DEFAULT_BRANCH"
+          test "$(git rev-parse FETCH_HEAD)" = "$BASE_SHA"
+      - name: Prepare a nonempty performance data commit
+        if: steps.update.outputs.changed == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/data/performance.json src/data/performance-categories.json data/performance/history.json data/performance/categories-history.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'chore(performance): update official Arena snapshot'
+      - name: Preserve validated candidate for recovery
+        if: steps.update.outputs.changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-candidate-data
+          path: |
+            src/data/performance.json
+            src/data/performance-categories.json
+            data/performance/history.json
+            data/performance/categories-history.json
+          retention-days: 90
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.update.outputs.changed == 'true'
+        with:
+          path: dist
+      - uses: actions/deploy-pages@v4
+        if: steps.update.outputs.changed == 'true'
+        id: deployment
+      - name: Publish data commit after successful Pages deployment
+        if: steps.update.outputs.changed == 'true' && steps.deployment.outcome == 'success'
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: git push origin "HEAD:$DEFAULT_BRANCH"
+      - name: Save sync evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-update-report
+          path: reports/performance-update.json
+          if-no-files-found: ignore
+          retention-days: 90

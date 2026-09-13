@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-12T09:49:58.949Z",
+  "catalogHash": "b97039e4774714ecbbc41db0c42e69e8fc883147eba13b618ab087abad4dcd75",
+  "providers": {
+    "openai": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.189Z",
+      "lastSuccessAt": null,
+      "verification": "unverified",
+      "reason": "HTTP 403，保留上次有效价格"
+    },
+    "anthropic": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": null,
+      "verification": "unverified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "google": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": null,
+      "verification": "unverified",
+      "reason": "fetch failed"
+    },
+    "xai": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:46.706Z",
+      "lastSuccessAt": null,
+      "verification": "unverified",
+      "reason": "fetch failed"
+    },
+    "deepseek": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:46.707Z",
+      "lastSuccessAt": "2026-09-12T09:49:46.707Z",
+      "verification": "auto_verified",
+      "reason": "成功 2；待审核 0；缺失 0；新模型待收录 0"
+    },
+    "bytedance": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:46.710Z",
+      "lastSuccessAt": "2026-09-12T09:49:46.710Z",
+      "verification": "auto_verified",
+      "reason": "成功 6；待审核 0；缺失 0；新模型待收录 1"
+    },
+    "alibaba": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "成功 15；待审核 0；缺失 0；新模型待收录 39"
+    },
+    "moonshot": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.211Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.211Z",
+      "verification": "auto_verified",
+      "reason": "成功 4；待审核 0；缺失 0；新模型待收录 0"
+    },
+    "zhipu": {
+      "status": "manual_review",
+      "lastCheckedAt": "2026-09-12T09:49:57.213Z",
+      "lastSuccessAt": null,
+      "verification": "auto_verified",
+      "reason": "成功 4；待审核 0；缺失 1；新模型待收录 4"
+    },
+    "minimax": {
+      "status": "manual_review",
+      "lastCheckedAt": "2026-09-12T09:49:58.246Z",
+      "lastSuccessAt": "2026-09-12T06:39:22.757Z",
+      "verification": "auto_verified",
+      "reason": "成功 2；待审核 0；缺失 1；新模型待收录 5"
+    },
+    "baidu": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:58.246Z",
+      "lastSuccessAt": "2026-09-12T09:49:58.246Z",
+      "verification": "auto_verified",
+      "reason": "成功 2；待审核 0；缺失 0；新模型待收录 2"
+    },
+    "tencent": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:58.247Z",
+      "lastSuccessAt": "2026-09-12T09:49:58.247Z",
+      "verification": "auto_verified",
+      "reason": "成功 1；待审核 0；缺失 0；新模型待收录 6"
+    }
+  },
+  "models": {
+    "qwen-flash": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-7-flash": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-8-flash": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-8-max": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-max": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen-flash-singapore": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "deepseek-flash": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:46.707Z",
+      "lastSuccessAt": "2026-09-12T09:49:46.707Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "deepseek-v4-pro": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:46.707Z",
+      "lastSuccessAt": "2026-09-12T09:49:46.707Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "gpt-5-6-luna": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.189Z",
+      "lastSuccessAt": null,
+      "verification": "manual_verified",
+      "reason": "HTTP 403，保留上次有效价格"
+    },
+    "claude-haiku-4-5": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": null,
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "claude-sonnet-5": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": null,
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "claude-opus-5": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": null,
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "claude-sonnet-4": {
+      "status": "deprecated",
+      "lastCheckedAt": null,
+      "lastSuccessAt": null,
+      "verification": "manual_verified",
+      "reason": "v2.0 人工核验快照，等待自动检查"
+    },
+    "gemini-2-5-flash-lite": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": null,
+      "verification": "manual_verified",
+      "reason": "fetch failed"
+    },
+    "grok-4-6": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:46.706Z",
+      "lastSuccessAt": null,
+      "verification": "manual_verified",
+      "reason": "fetch failed"
+    },
+    "doubao-seed-2-0-mini": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:46.710Z",
+      "lastSuccessAt": "2026-09-12T09:49:46.710Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "doubao-seed-2-0-lite": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:46.710Z",
+      "lastSuccessAt": "2026-09-12T09:49:46.710Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "glm-4-7-flash": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:57.213Z",
+      "lastSuccessAt": "2026-09-12T09:49:17.240Z",
+      "verification": "manual_verified",
+      "reason": "官方免费型号由人工核验免费依据，自动更新不发布零价"
+    },
+    "glm-4-7-flashx": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.213Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.213Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "minimax-m2-7": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:58.246Z",
+      "lastSuccessAt": "2026-09-12T09:49:58.246Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "minimax-m2-7-highspeed": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:58.246Z",
+      "lastSuccessAt": "2026-09-12T09:49:58.246Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "ernie-4-5-turbo-32k": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:58.246Z",
+      "lastSuccessAt": "2026-09-12T09:49:58.246Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "ernie-4-5-turbo-128k-preview": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:58.246Z",
+      "lastSuccessAt": "2026-09-12T09:49:58.246Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "hunyuan-a13b": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:58.247Z",
+      "lastSuccessAt": "2026-09-12T09:49:58.247Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "gpt-6-astra": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.189Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "HTTP 403，保留上次有效价格"
+    },
+    "gpt-5-6-terra": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.189Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "HTTP 403，保留上次有效价格"
+    },
+    "gpt-5-5": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.189Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "HTTP 403，保留上次有效价格"
+    },
+    "gpt-5-4": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.189Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "HTTP 403，保留上次有效价格"
+    },
+    "gpt-5-4-mini": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.189Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "HTTP 403，保留上次有效价格"
+    },
+    "gpt-5-3-codex": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.189Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "HTTP 403，保留上次有效价格"
+    },
+    "claude-fable-5-1": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "claude-fable-5": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "claude-opus-4-8": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "claude-opus-4-7": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "claude-opus-4-6": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "claude-opus-4-5": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "claude-sonnet-4-6": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "claude-sonnet-4-5": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "本次直连重定向至地区不可用页面；人工核对第一方 API 的 Base Input、Output 和缓存读取列，不绕过地区限制。"
+    },
+    "gemini-3-5-flash": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "fetch failed"
+    },
+    "gemini-3-5-flash-lite": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "fetch failed"
+    },
+    "gemini-3-1-flash-lite": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "fetch failed"
+    },
+    "gemini-3-flash-preview": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "fetch failed"
+    },
+    "gemini-2-5-flash": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "fetch failed"
+    },
+    "gemini-3-1-pro-preview": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "fetch failed"
+    },
+    "gemini-2-5-pro": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:36.206Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "fetch failed"
+    },
+    "qwen3-7-max": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-7-max-preview": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-6-max-preview": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-6-flash": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-7-plus": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-6-plus": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-coder-plus": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-coder-flash": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "qwen3-coder-next": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.210Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.210Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "minimax-m3": {
+      "status": "stale",
+      "lastCheckedAt": "2026-09-12T09:49:58.246Z",
+      "lastSuccessAt": "2026-09-12T08:43:24.260Z",
+      "verification": "manual_verified",
+      "reason": "M3 含标准/优先服务、划线旧价与 512K 阶梯，当前保留人工核验的完整费率，不套用 M2 解析器"
+    },
+    "kimi-k3": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.211Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.211Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "kimi-k2-7-code": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.211Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.211Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "kimi-k2-7-code-highspeed": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.211Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.211Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "kimi-k2-6": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.211Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.211Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "glm-5-3": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.213Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.213Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "glm-5-3-flash": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.213Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.213Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "glm-5-2": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:57.213Z",
+      "lastSuccessAt": "2026-09-12T09:49:57.213Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "doubao-seed-2-1-pro": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:46.710Z",
+      "lastSuccessAt": "2026-09-12T09:49:46.710Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "doubao-seed-2-1-turbo": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:46.710Z",
+      "lastSuccessAt": "2026-09-12T09:49:46.710Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "doubao-seed-2-0-pro": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:46.710Z",
+      "lastSuccessAt": "2026-09-12T09:49:46.710Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    },
+    "doubao-seed-2-0-code": {
+      "status": "fresh",
+      "lastCheckedAt": "2026-09-12T09:49:46.710Z",
+      "lastSuccessAt": "2026-09-12T09:49:46.710Z",
+      "verification": "auto_verified",
+      "reason": "标准输入、输出和已适配计费条件核验成功"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PriceHistory from '../../components/PriceHistory.astro';
+import { verificationText } from '../../lib/pricing-metadata';
+import { catalog } from '../../lib/catalog';
+import { defaultFilters, money, quote, scenarios, statusLabels, tokens } from '../../lib/ranking';
+import { mark, pathFor } from '../../lib/render';
+
+export function getStaticPaths() { return catalog.models.map(model => ({ params: { id: model.id }, props: { model } })); }
+const { model } = Astro.props;
+const provider = catalog.providers.find(p => p.id === model.providerId)!;
+const source = catalog.sources.find(s => s.id === model.sourceId)!;
+const base = import.meta.env.BASE_URL;
+const first = model.rates[0];
+const fx = model.currency === 'USD' ? catalog.meta.usdToCny : 1;
+const nativeSymbol = model.currency === 'USD' ? '$' : '¥';
+const estimate = quote(model, defaultFilters, catalog.meta.usdToCny)!;
+---
+<Layout title={`${model.name} API 价格与计费详情 · 源宝 AI 模型价格榜`} description={`${model.name} 的官方 API 输入、输出、缓存读取费率，人民币换算、长度阶梯与官方来源。`}>
+  <main id="main" class="detail-shell" data-model={model.id}>
+    <nav class="breadcrumb" aria-label="面包屑"><a id="back-to-board" href={pathFor(base)}>← 返回排行榜</a><span>/</span><span>{provider.shortName}</span></nav>
+    <div class="detail-heading"><Fragment set:html={mark(catalog, provider.id, base)} /><div><div class="detail-kicker"><span>{provider.name}</span><span>·</span><span>{statusLabels[model.status]}</span></div><h1>{model.name}</h1></div></div>
+    <p class="detail-description">{model.description}</p>
+    <div class="detail-actions"><a class="primary-button" href={source.url} target="_blank" rel="noopener noreferrer">查看官方定价 ↗</a><code>{model.apiId}</code><span class="muted" style="font-size:12px">核验于 <time datetime={model.verification?.lastSuccessAt ?? model.verifiedAt}>{model.verification?.lastSuccessAt?.slice(0,10) ?? model.verifiedAt}</time></span></div>
+    <p class:list={['verification-notice', model.verification?.status !== 'fresh' && 'verification-caution']}>{verificationText(model.verification, model.verifiedAt)}{model.verification?.status === 'stale' ? '。最近检查未能确认新价格，继续展示上一次有效数据。' : model.verification?.status === 'manual_review' ? '。检测到待确认的变化，当前仍使用上一次有效价格。' : model.verification?.status === 'unknown' ? '。尚未确认有效官方价格，此记录不参与默认排名。' : ''}</p>
+    {model.status === 'retired' && <p class="detail-notice">该模型已从厂商第一方 API 下架。此页面保留历史价格与官方来源，首页默认隐藏该模型。</p>}
+    {model.status === 'deprecated' && <p class="detail-notice">该服务仅面向已购买的存量用户，原平台已停止新购。新用户请核对厂商当前服务及费率。</p>}
+    {source.retrieval === 'search-index' && <p class="detail-notice">这条旧记录仅有官方定价页的搜索索引，尚未确认官网现价。按 v2.1 规则退出默认排名，保留页面供历史参考。</p>}
+    <div class="eyebrow">基础标准费率 · {first.label}</div>
+    <section class="detail-prices" aria-label="基础标准费率">
+      {[['输入价格', first.input], ['输出价格', first.output], ['缓存读取', first.cacheRead]].map(([label, value]) => <article class="detail-price-card"><h2>{label}</h2><strong>{value === null ? '未核验' : `¥${money(Number(value) * fx)}`}</strong><p>每百万 Token{model.currency === 'USD' && value !== null ? ` · 原价 $${money(Number(value))}` : ''}</p></article>)}
+    </section>
+    <div class="detail-grid"><div>
+      <section class="detail-box" aria-labelledby="calculator-title"><h2 id="calculator-title">算一算，这次调用多少钱</h2><p>调整输入、输出 Token 数，自动匹配本模型的长度阶梯。</p><form id="detail-calculator" class="custom-tokens"><label for="detail-input">输入 Token<input id="detail-input" type="number" min="0" max="10000000" step="1" required value="1000" /></label><label for="detail-output">输出 Token<input id="detail-output" type="number" min="0" max="10000000" step="1" required value="1000" /></label><button type="submit" class="primary-button">计算成本</button></form>
+        <div class="billing-bar" style="padding:16px 0 0"><label for="detail-billing">计费方式</label><select id="detail-billing"><option value="standard">标准费率</option><option value="cache">缓存读取</option><option value="batch">Batch 批量优惠</option><option value="offpeak">低峰优惠</option><option value="promotion">限时优惠</option></select><label id="detail-cache-control" hidden>命中比例 <input id="detail-cache" type="number" min="0" max="100" step="1" value="50" style="width:58px;padding:4px" /> %</label></div>
+        <div class="detail-cost" role="status" aria-live="polite"><span id="detail-cost-label">本次任务预估成本</span><strong id="detail-cost-value">¥{money(estimate.task, true)}</strong><p id="detail-cost-formula">1,000 × ¥{money(estimate.input)} ÷ 1,000,000 + 1,000 × ¥{money(estimate.output)} ÷ 1,000,000</p></div><p id="detail-calculation-note">仅含文本 Token 费用。实际输入、输出用量以厂商账单为准。</p>
+      </section>
+      <section class="detail-box"><h2>官方原币费率表</h2><p>单位：{model.currency === 'USD' ? '美元' : '人民币'} / 百万 Token。按本次请求输入量选择一档，对全部 Token 应用该档费率。</p><div class="table-scroll" tabindex="0" role="region" aria-label="原币长度阶梯费率表"><table><thead><tr><th scope="col">输入长度</th><th scope="col" class="numeric">标准输入</th><th scope="col" class="numeric">标准输出</th><th scope="col" class="numeric">缓存读取</th><th scope="col" class="numeric">Batch 折扣</th></tr></thead><tbody>{model.rates.map((rate, index) => <tr><td>{index ? `${tokens(model.rates[index - 1].upToInputTokens)} < 输入 ≤ ` : '输入 ≤ '}{tokens(rate.upToInputTokens)}</td><td class="numeric">{nativeSymbol}{money(rate.input)}</td><td class="numeric">{nativeSymbol}{money(rate.output)}</td><td class="numeric">{rate.cacheRead === null ? '未核验' : `${nativeSymbol}${money(rate.cacheRead)}`}</td><td class="numeric">{rate.batchFactor === null ? '未收录' : `${rate.batchFactor * 10} 折`}</td></tr>)}</tbody></table></div></section>
+      <PriceHistory model={model} />
+      <section class="detail-box"><h2>计价说明与使用条件</h2><ul>{model.zeroPriceReason && <li>{model.zeroPriceReason}</li>}{model.notes.map(note => <li>{note}</li>)}<li>缓存是复用已处理的输入内容。这里只估算命中后的读取费用，不包含首次写入或存储费。</li><li>Batch 指异步批量处理。低峰与限时优惠有适用条件，必须主动选择；不同优惠不自动叠加。</li><li>未收录或未核验的优惠使用标准费率，未知价格不按 0 处理。</li><li>{catalog.meta.exchangeRateNote}</li></ul></section>
+    </div><aside><section class="detail-box"><h2>模型信息</h2><dl class="spec-list"><div><dt>厂商</dt><dd>{provider.name}</dd></div><div><dt>状态</dt><dd>{statusLabels[model.status]}</dd></div><div><dt>{model.contextScope === 'input' ? '输入上下文上限' : '上下文窗口'}</dt><dd>{tokens(model.contextTokens)}{model.contextTokens !== null && ' Token'}</dd></div>{model.maxInputTokens != null && <div><dt>最大输入</dt><dd>{tokens(model.maxInputTokens)} Token</dd></div>}<div><dt>最大输出</dt><dd>{tokens(model.maxOutputTokens)}{model.maxOutputTokens !== null && ' Token'}</dd></div><div><dt>服务地区</dt><dd>{model.regionLabel}</dd></div><div><dt>适用场景（编辑标注）</dt><dd>{model.useCases.map(value => scenarios[value].name).join(' / ')}</dd></div><div><dt>官方计价币种</dt><dd>{model.currency === 'USD' ? '美元 USD' : '人民币 CNY'}</dd></div></dl></section><section class="detail-box"><h2>数据来源</h2><a class="source-link" href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a><p>{source.notes}</p><dl class="spec-list"><div><dt>最后核验</dt><dd><time datetime={model.verification?.lastSuccessAt ?? model.verifiedAt}>{model.verification?.lastSuccessAt?.slice(0,10) ?? model.verifiedAt}</time>{source.retrieval === 'search-index' && '（搜索索引）'}</dd></div></dl>{model.specSource && <p><a class="source-link" href={model.specSource} target="_blank" rel="noopener noreferrer">官方模型规格 ↗</a></p>}</section></aside></div>
+  </main>
+</Layout>
+<script>
+  import '../../scripts/detail';
+</script>

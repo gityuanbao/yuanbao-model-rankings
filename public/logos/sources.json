@@ -1,0 +1,120 @@
+{
+  "library": "Lobe Icons",
+  "repository": "https://github.com/lobehub/lobe-icons",
+  "retrievedAt": "2026-09-12",
+  "license": "MIT",
+  "icons": [
+    {
+      "provider": "openai",
+      "icon": "openai",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/openai.svg",
+      "gitBlobSha": "78caf4fa20ffb0ae8ebefd74408871c11c1c7fd2",
+      "bytes": 1687,
+      "variant": "brand-default"
+    },
+    {
+      "provider": "anthropic",
+      "icon": "claude",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/claude-color.svg",
+      "gitBlobSha": "62dc0db12dafd49c6232d9275c671237dea6a10a",
+      "bytes": 1696,
+      "variant": "color"
+    },
+    {
+      "provider": "google",
+      "icon": "gemini",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/gemini-color.svg",
+      "gitBlobSha": "62681dfa7cf3db2940b527ed3cbcee7bacbb1b9b",
+      "bytes": 2836,
+      "variant": "color"
+    },
+    {
+      "provider": "xai",
+      "icon": "xai",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/xai.svg",
+      "gitBlobSha": "536e713902f68124e76a7f15e31455c5eb69247a",
+      "bytes": 372,
+      "variant": "brand-default"
+    },
+    {
+      "provider": "deepseek",
+      "icon": "deepseek",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/deepseek-color.svg",
+      "gitBlobSha": "3fc2302406e22f064f3efda71d8a7bcf0fc1dd41",
+      "bytes": 2164,
+      "variant": "color"
+    },
+    {
+      "provider": "bytedance",
+      "icon": "doubao",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/doubao-color.svg",
+      "gitBlobSha": "e2511454cfd1fb336b9421123f30cbb8fb401eb3",
+      "bytes": 1153,
+      "variant": "color"
+    },
+    {
+      "provider": "alibaba",
+      "icon": "qwen",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/qwen-color.svg",
+      "gitBlobSha": "f2d0ada1616a6297ea2919b8b08c116ad2dbd8b5",
+      "bytes": 2044,
+      "variant": "color"
+    },
+    {
+      "provider": "moonshot",
+      "icon": "kimi",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/kimi-color.svg",
+      "gitBlobSha": "83878fa284769ca2729c272a310cce3a375b5746",
+      "bytes": 773,
+      "variant": "color-light-background",
+      "transformation": "Use a dark K glyph on the light page background; keep the original blue accent and all paths.",
+      "localSha256": "132a66ba7fb942286cf035f33d9a5591ec607e40b2b9d8551a11806b9c8eadb9"
+    },
+    {
+      "provider": "zhipu",
+      "icon": "zhipu",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/zhipu-color.svg",
+      "gitBlobSha": "0c6e61cea8afc110c0bfcb63894b584a9e1e4df1",
+      "bytes": 3597,
+      "variant": "color"
+    },
+    {
+      "provider": "minimax",
+      "icon": "minimax",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/minimax-color.svg",
+      "gitBlobSha": "beb7adb86ec70eb994e17e95fbae1a08ef70c31d",
+      "bytes": 1570,
+      "variant": "color"
+    },
+    {
+      "provider": "baidu",
+      "icon": "baidu",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/baidu-color.svg",
+      "gitBlobSha": "ead7f89822e32eae78cf7c97c5183e2507812873",
+      "bytes": 1384,
+      "variant": "color"
+    },
+    {
+      "provider": "tencent",
+      "icon": "hunyuan",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/hunyuan-color.svg",
+      "gitBlobSha": "42edd6cd94c43c3d4ca6ef2fce956a6b24455040",
+      "bytes": 1115,
+      "variant": "color"
+    }
+  ],
+  "socialIcons": [
+    {
+      "name": "github",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/github.svg",
+      "gitBlobSha": "7a51b8e0ee1054826a64377e6b75d8090f93e406",
+      "bytes": 907
+    },
+    {
+      "name": "bilibili",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/bilibili-color.svg",
+      "gitBlobSha": "214eb60f17e52f6174d5d37949ae15fb001951ac",
+      "bytes": 850
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { catalog } from '../lib/catalog';
+import { performance } from '../lib/performance-data';
+import { arenaSource } from '../lib/performance-schema';
+import { performanceCategories, performanceCategoryIds } from '../lib/performance-categories';
+import { defaultPerformanceFilters, getPerformanceRows } from '../lib/performance';
+import { renderPerformanceLeaders, renderPerformanceMobile, renderPerformanceRows } from '../lib/performance-render';
+import { mark, pathFor } from '../lib/render';
+import '../styles/performance.css';
+const base = import.meta.env.BASE_URL;
+const rows = getPerformanceRows(performance,catalog,defaultPerformanceFilters);
+const providers = catalog.providers.filter(provider=>rows.some(row=>row.providerId===provider.id));
+const sourceUrl = performance.sourceUrl ?? arenaSource.url;
+const rounded = performance.models[0]?.scorePrecision === 'rounded';
+const stale = Date.now()-Date.parse(performance.publishedAt)>30*24*60*60*1000;
+---
+<Layout title="性能排行榜 · 源宝" description="主流大模型性能排行榜，参考 Arena 官方综合文本、网页编程、视觉理解和智能体榜单。按能力查看模型成绩、测试模式及原始来源。">
+  <main id="main" class="page-shell performance-page" data-base={base}>
+    <section class="page-intro" aria-labelledby="page-title">
+      <div class="intro-copy"><h1 id="page-title">谁更出色，<span>让回答说话。</span></h1><p>主流大模型 · 按能力查看权威榜单</p></div>
+      <div class="provider-gallery" aria-label="性能榜收录厂商">{providers.map(provider=><a class="provider-gallery-item" data-performance-provider={provider.id} href={`${pathFor(base,'performance/')}?providers=${provider.id}#ranking-title`} aria-label={`查看${provider.shortName}性能排名`} title={provider.name}><Fragment set:html={mark(catalog,provider.id,base)} /><span class="provider-tooltip" aria-hidden="true">{provider.shortName}</span></a>)}</div>
+    </section>
+    <section id="performance-leaders" class="champions" aria-label="当前分类与筛选的三个领先模型" set:html={renderPerformanceLeaders(rows,catalog,base)} />
+    <div class="board-layout">
+      <aside class="filters-sidebar" aria-label="筛选性能排行榜">
+        <details id="performance-filters" open>
+          <summary class="filter-summary"><span>筛选模型</span><span class="filter-expand">展开 / 收起</span></summary>
+          <div class="filter-body">
+            <div class="filter-heading"><button type="button" class="text-button" id="performance-reset">重置</button></div>
+            <label class="search-box"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="performance-search" type="search" aria-label="搜索模型或厂商" placeholder="搜索模型或厂商" maxlength="100" /></label>
+            <fieldset class="provider-filter"><legend>主流厂商 <span>{providers.length}</span></legend>
+              <label class="checkbox-row all-providers"><input type="checkbox" id="performance-all" checked /><span>全部厂商</span><span class="filter-count" id="performance-total">{rows.length}</span></label>
+              {providers.map(provider=><label class="checkbox-row"><input type="checkbox" name="performance-provider" value={provider.id} /><Fragment set:html={mark(catalog,provider.id,base)} /><span>{provider.shortName}</span><span class="filter-count" data-performance-provider-count={provider.id}>{rows.filter(row=>row.providerId===provider.id).length}</span></label>)}
+            </fieldset>
+          </div>
+        </details>
+      </aside>
+      <section class="ranking-panel" aria-labelledby="ranking-title">
+        <div class="ranking-header"><h2 id="ranking-title">性能排行榜 <span class="count-pill" id="performance-count">{rows.length}</span></h2><button id="share" class="outline-button" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9M11 5H5v14h14v-6"/></svg>分享当前榜单</button></div>
+        <div class="scenario-bar performance-category-bar">
+          <span class="control-label">能力分类</span>
+          <div class="scenario-buttons" role="group" aria-label="选择性能榜分类">{performanceCategoryIds.map(category=><button type="button" data-performance-category={category} aria-pressed={category==='text'} title={performanceCategories[category].description}>{performanceCategories[category].label}</button>)}</div>
+          <label class="sort-control" for="performance-order"><select id="performance-order" aria-label="性能排序方向"><option value="desc">得分从高到低</option><option value="asc">得分从低到高</option></select></label>
+          <span id="performance-category-label" class="sr-only">Arena · 综合文本</span>
+        </div>
+        <div class="performance-date"><span id="performance-published">榜单日期 <time datetime={performance.publishedAt}>{performance.publishedAt}</time>{stale ? ' · 本站快照超过 30 天，待重新核验' : ''}</span><a href="#performance-method">评分说明</a></div>
+        <p id="performance-agent-note" class="performance-scope-note" hidden>按 Arena 官方综合顺序排列；净提升及能力信号为相对基准的估计效应，不能当作任务成功率。</p>
+        <div class="table-scroll leaderboard-scroll" tabindex="0" role="region" aria-label="模型性能表，可横向滚动"><table class="performance-table"><caption class="sr-only">精选主流模型的分类成绩，不同分类独立比较；本站排名与原榜名次分别显示</caption><thead><tr><th scope="col" id="performance-rank-heading"><abbr title="保留上游先后顺序；官网同整数分不推断为并列。筛选和显示方向不改变名次">本站排名</abbr></th><th scope="col">模型</th><th scope="col" class="numeric" id="performance-score-heading" aria-sort="descending"><button type="button" id="performance-sort-score" aria-label="按 Arena 得分切换排序方向"><span id="performance-sort-label">Arena 得分</span> <span id="performance-sort-arrow">↓</span></button></th><th scope="col" class="numeric" id="performance-sample-heading">对战票数</th><th scope="col" class="numeric" id="performance-reference-heading">原榜名次</th><th scope="col">来源</th></tr></thead><tbody id="performance-body" set:html={renderPerformanceRows(rows,catalog,base)} /></table></div>
+        <div id="performance-mobile" class="mobile-results" aria-label="模型排名与得分" set:html={renderPerformanceMobile(rows,catalog,base)} />
+        <div id="performance-empty" class="empty-state" hidden><div class="empty-icon" aria-hidden="true">⌕</div><h3>没有找到符合条件的模型</h3><p>试试其他模型名称，或减少筛选条件。</p><button type="button" class="outline-button" id="performance-empty-reset">清除筛选</button></div>
+        <p class="sr-only" id="performance-summary" role="status" aria-live="polite">显示 {rows.length} 条模型与测试配置</p>
+        <details id="performance-method" class="performance-method"><summary>关于评分与收录</summary><div>
+          <p>来源：<a id="performance-method-source" href={sourceUrl} target="_blank" rel="noopener noreferrer">Arena · 综合文本</a>。本站整理主流厂商的模型名称，保留官方成绩、测试模式及原榜名次；数据来源方不为本站背书。</p>
+          <p id="performance-method-description">{performanceCategories.text.method}</p>
+          <p id="performance-precision-note">{rounded ? '当前官网仅展示整数分及 ± 区间；本站保留原榜排序，不把相同整数分推断为并列，也不编造未公开的小数。' : '分数下方为 95% 置信区间，小分差不一定代表稳定胜出。'}</p>
+          <p id="performance-exclusions" hidden></p>
+          <p>四类榜单分别衡量文本、网页编程、视觉理解和智能体能力，各类分数不可跨榜比较。覆盖现有 12 家主流厂商已上榜的官方模型系列，不同版本和测试档位分开收录。某分类未上榜的模型不会用其他分类的分数补齐。</p>
+          <p>榜单日期为上游发布时间。每 6 小时尝试独立同步；官网拒绝请求、缺项、日期倒退或指标异常时保留该分类上一份有效快照。<a id="performance-snapshot-link" href={pathFor(base,'data/performance.json')}>查看本站数据快照 ↗</a><span id="performance-license" hidden={rounded}> · 公开数据集采用 <a href={arenaSource.licenseUrl} target="_blank" rel="noopener noreferrer">CC BY 4.0</a> 许可。</span></p>
+        </div></details>
+      </section>
+    </div>
+    <noscript><p class="data-footnote">当前显示默认性能榜。启用 JavaScript 后可使用搜索、筛选和排序。</p></noscript>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="share-dialog" aria-labelledby="share-title"><div class="dialog-heading"><h2 id="share-title">分享当前榜单</h2><button id="close-share" type="button" aria-label="关闭分享窗口">×</button></div><p>复制下方链接，当前分类、筛选条件和排序方向将一并保留。</p><input id="share-url" type="text" readonly aria-label="当前榜单分享链接" /><button id="select-share" class="primary-button" type="button">选中链接</button></dialog>
+</Layout>
+<script>
+  import '../scripts/performance';
+</script>

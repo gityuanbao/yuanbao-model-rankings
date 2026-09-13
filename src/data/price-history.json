@@ -1,0 +1,2341 @@
+{
+  "schemaVersion": 1,
+  "models": [
+    {
+      "modelId": "qwen-flash",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "14ea725c5ebec27def1bc270",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 0.15,
+              "output": 1.5,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 0.6,
+              "output": 6,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 1.2,
+              "output": 12,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-7-flash",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "5175131808512d580ee0973a",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 0.2,
+              "output": 0.8,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 0.6,
+              "output": 2.4,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 1.2,
+              "output": 4.8,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-8-flash",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "d9b1069db3be88c48590659d",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 0.8,
+              "output": 2.7,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-8-max",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "19353622423d5dbbda18266d",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 12,
+              "output": 36,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-max",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "e93ead46132b4bcb3aab056c",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 2.5,
+              "output": 10,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 4,
+              "output": 16,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 7,
+              "output": 28,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen-flash-singapore",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "c02785468af36fba18dfa438",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 0.367,
+              "output": 2.936,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 1.835,
+              "output": 14.678,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "deepseek-flash",
+      "providerId": "deepseek",
+      "events": [
+        {
+          "id": "126fe0cca29d99820a69141c",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.006,
+              "batchFactor": null,
+              "offPeakFactor": 0.5,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "deepseek-v4-pro",
+      "providerId": "deepseek",
+      "events": [
+        {
+          "id": "4d0c766974d4beac0c9a3386",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 1.32,
+              "output": 3.96,
+              "cacheRead": 0.044,
+              "batchFactor": null,
+              "offPeakFactor": 0.5,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gpt-5-6-luna",
+      "providerId": "openai",
+      "events": [
+        {
+          "id": "8a5faaa605525c7256137a8f",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 272,000 Token",
+              "upToInputTokens": 272000,
+              "input": 0.2,
+              "output": 1.2,
+              "cacheRead": 0.02,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,050,000 Token",
+              "upToInputTokens": 1050000,
+              "input": 0.4,
+              "output": 1.8,
+              "cacheRead": 0.04,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://developers.openai.com/api/docs/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-haiku-4-5",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "ffbd16afde15b66a486910ec",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 1,
+              "output": 5,
+              "cacheRead": 0.1,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-sonnet-5",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "6ec0c8073f81d064a39fb87b",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 2,
+              "output": 10,
+              "cacheRead": 0.2,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-opus-5",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "d8469c217e2b4b6295097100",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 5,
+              "output": 25,
+              "cacheRead": 0.5,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-sonnet-4",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "2d6a5791abf0579aad39b190",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 3,
+              "output": 15,
+              "cacheRead": 0.3,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gemini-2-5-flash-lite",
+      "providerId": "google",
+      "events": [
+        {
+          "id": "13b5f44f573cc27157d56576",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,048,576 Token",
+              "upToInputTokens": 1048576,
+              "input": 0.1,
+              "output": 0.4,
+              "cacheRead": 0.01,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "grok-4-6",
+      "providerId": "xai",
+      "events": [
+        {
+          "id": "69209e49c7d3b30d08aec8ae",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 2,
+              "output": 6,
+              "cacheRead": 0.5,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.x.ai/developers/models/grok-4.6",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "doubao-seed-2-0-mini",
+      "providerId": "bytedance",
+      "events": [
+        {
+          "id": "8b574a2f1e813a7aa8d61de3",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 0.2,
+              "output": 2,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 0.4,
+              "output": 4,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 0.8,
+              "output": 8,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://www.volcengine.com/docs/84458/1585097?lang=zh&redirect=1",
+          "reason": "initial_snapshot",
+          "verification": "unverified",
+          "changeTypes": []
+        },
+        {
+          "id": "372a75cd38f21d25ff354521",
+          "detectedAt": "2026-09-12T09:49:17.094Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 0.2,
+              "output": 2,
+              "cacheRead": 0.04,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 0.4,
+              "output": 4,
+              "cacheRead": 0.08,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 0.8,
+              "output": 8,
+              "cacheRead": 0.16,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.volcengine.com/docs/82379/1544106",
+          "reason": "price_change",
+          "verification": "manual_verified",
+          "changeTypes": [
+            "manual_price_change",
+            "source_change"
+          ]
+        }
+      ]
+    },
+    {
+      "modelId": "doubao-seed-2-0-lite",
+      "providerId": "bytedance",
+      "events": [
+        {
+          "id": "999c292d45bd136adc8df414",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 0.6,
+              "output": 3.6,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 0.9,
+              "output": 5.4,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 1.8,
+              "output": 10.8,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://www.volcengine.com/docs/84458/1585097?lang=zh&redirect=1",
+          "reason": "initial_snapshot",
+          "verification": "unverified",
+          "changeTypes": []
+        },
+        {
+          "id": "3be45eb54fce523863126b81",
+          "detectedAt": "2026-09-12T09:49:17.168Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 0.6,
+              "output": 3.6,
+              "cacheRead": 0.12,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 0.9,
+              "output": 5.4,
+              "cacheRead": 0.18,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 1.8,
+              "output": 10.8,
+              "cacheRead": 0.36,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.volcengine.com/docs/82379/1544106",
+          "reason": "price_change",
+          "verification": "manual_verified",
+          "changeTypes": [
+            "manual_price_change",
+            "source_change"
+          ]
+        }
+      ]
+    },
+    {
+      "modelId": "glm-4-7-flash",
+      "providerId": "zhipu",
+      "events": [
+        {
+          "id": "80e67521922990dfff0bdcab",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://bigmodel.cn/pricing",
+          "reason": "initial_snapshot",
+          "verification": "unverified",
+          "changeTypes": []
+        },
+        {
+          "id": "7a52f79e65c2306ae88b31c8",
+          "detectedAt": "2026-09-12T09:49:17.240Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.bigmodel.cn/cn/guide/start/pricing.md",
+          "reason": "price_change",
+          "verification": "manual_verified",
+          "changeTypes": [
+            "source_change"
+          ]
+        }
+      ]
+    },
+    {
+      "modelId": "glm-4-7-flashx",
+      "providerId": "zhipu",
+      "events": [
+        {
+          "id": "45e2c193f2bd386f9820b7ba",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 0.5,
+              "output": 3,
+              "cacheRead": 0.1,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://bigmodel.cn/pricing",
+          "reason": "initial_snapshot",
+          "verification": "unverified",
+          "changeTypes": []
+        },
+        {
+          "id": "d4350a80771c5c6d6f56e553",
+          "detectedAt": "2026-09-12T09:49:17.310Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 0.5,
+              "output": 3,
+              "cacheRead": 0.1,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.bigmodel.cn/cn/guide/start/pricing.md",
+          "reason": "price_change",
+          "verification": "manual_verified",
+          "changeTypes": [
+            "source_change"
+          ]
+        }
+      ]
+    },
+    {
+      "modelId": "minimax-m2-7",
+      "providerId": "minimax",
+      "events": [
+        {
+          "id": "980c35f90a443bbefaa5ec39",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 204,800 Token",
+              "upToInputTokens": 204800,
+              "input": 2.1,
+              "output": 8.4,
+              "cacheRead": 0.42,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.minimax.cn/docs/guides/pricing-paygo",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "minimax-m2-7-highspeed",
+      "providerId": "minimax",
+      "events": [
+        {
+          "id": "fd8b3c0f2a15b1d72b660227",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 204,800 Token",
+              "upToInputTokens": 204800,
+              "input": 4.2,
+              "output": 16.8,
+              "cacheRead": 0.42,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.minimax.cn/docs/guides/pricing-paygo",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "ernie-4-5-turbo-32k",
+      "providerId": "baidu",
+      "events": [
+        {
+          "id": "da65718a7fff3e9ae86740e5",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 0.8,
+              "output": 3.2,
+              "cacheRead": 0.2,
+              "batchFactor": 0.4,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://cloud.baidu.com/doc/qianfan/s/wmh4sv6ya",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "ernie-4-5-turbo-128k-preview",
+      "providerId": "baidu",
+      "events": [
+        {
+          "id": "74c623ddf5b34c643e633959",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 0.8,
+              "output": 3.2,
+              "cacheRead": 0.2,
+              "batchFactor": 0.4,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://cloud.baidu.com/doc/qianfan/s/wmh4sv6ya",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "hunyuan-a13b",
+      "providerId": "tencent",
+      "events": [
+        {
+          "id": "6802b37f33b687d45fb0dff6",
+          "detectedAt": "2026-09-12T00:00:00Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 0.5,
+              "output": 2,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://cloud.tencent.cn/document/product/1729/97731",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "providerId": "openai",
+      "events": [
+        {
+          "id": "919f6e6db43a09ca2460f49e",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 272,000 Token",
+              "upToInputTokens": 272000,
+              "input": 10,
+              "output": 50,
+              "cacheRead": 1,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,050,000 Token",
+              "upToInputTokens": 1050000,
+              "input": 20,
+              "output": 75,
+              "cacheRead": 2,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gpt-5-6-terra",
+      "providerId": "openai",
+      "events": [
+        {
+          "id": "27af4c87163c4db7d771cb76",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 272,000 Token",
+              "upToInputTokens": 272000,
+              "input": 2,
+              "output": 12,
+              "cacheRead": 0.2,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,050,000 Token",
+              "upToInputTokens": 1050000,
+              "input": 4,
+              "output": 18,
+              "cacheRead": 0.4,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-5.6-terra",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gpt-5-5",
+      "providerId": "openai",
+      "events": [
+        {
+          "id": "b3ace89c4fd62d4db70a3997",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 272,000 Token",
+              "upToInputTokens": 272000,
+              "input": 5,
+              "output": 30,
+              "cacheRead": 0.5,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,050,000 Token",
+              "upToInputTokens": 1050000,
+              "input": 10,
+              "output": 45,
+              "cacheRead": 1,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-5.5",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gpt-5-4",
+      "providerId": "openai",
+      "events": [
+        {
+          "id": "9cdc56eb75d65359e6a8fd6b",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 272,000 Token",
+              "upToInputTokens": 272000,
+              "input": 2.5,
+              "output": 15,
+              "cacheRead": 0.25,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,050,000 Token",
+              "upToInputTokens": 1050000,
+              "input": 5,
+              "output": 22.5,
+              "cacheRead": 0.5,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-5.4",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gpt-5-4-mini",
+      "providerId": "openai",
+      "events": [
+        {
+          "id": "6c0e12b4529cc5ca7b4c0774",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 400,000 Token",
+              "upToInputTokens": 400000,
+              "input": 0.75,
+              "output": 4.5,
+              "cacheRead": 0.075,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gpt-5-3-codex",
+      "providerId": "openai",
+      "events": [
+        {
+          "id": "d60ae0ebbc2726decbf64bbd",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 400,000 Token",
+              "upToInputTokens": 400000,
+              "input": 1.75,
+              "output": 14,
+              "cacheRead": 0.175,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-5.3-codex",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-fable-5-1",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "271cbc09578984d342b913a4",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 10,
+              "output": 50,
+              "cacheRead": 0.25,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-fable-5",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "1c896685aad9f35baa2ba030",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 10,
+              "output": 50,
+              "cacheRead": 1,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-opus-4-8",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "b7ace3a6496f6d910447962f",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 5,
+              "output": 25,
+              "cacheRead": 0.5,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-opus-4-7",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "a066043bba2563be22c7085a",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 5,
+              "output": 25,
+              "cacheRead": 0.5,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-opus-4-6",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "182f3e6014fc75e9a52d6cf9",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 5,
+              "output": 25,
+              "cacheRead": 0.5,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-opus-4-5",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "28150e4406df30c6b15cb73c",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 5,
+              "output": 25,
+              "cacheRead": 0.5,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-sonnet-4-6",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "278a74202aacab23c125f7a5",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 3,
+              "output": 15,
+              "cacheRead": 0.3,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "claude-sonnet-4-5",
+      "providerId": "anthropic",
+      "events": [
+        {
+          "id": "cd4bac5df97dbe53d8fed4d6",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 3,
+              "output": 15,
+              "cacheRead": 0.3,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gemini-3-5-flash",
+      "providerId": "google",
+      "events": [
+        {
+          "id": "44b6bd18eff6532e79e597bf",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,048,576 Token",
+              "upToInputTokens": 1048576,
+              "input": 1.5,
+              "output": 9,
+              "cacheRead": 0.15,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gemini-3-5-flash-lite",
+      "providerId": "google",
+      "events": [
+        {
+          "id": "245fbe3ff918e9019e8e29b5",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,048,576 Token",
+              "upToInputTokens": 1048576,
+              "input": 0.3,
+              "output": 2.5,
+              "cacheRead": 0.03,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gemini-3-1-flash-lite",
+      "providerId": "google",
+      "events": [
+        {
+          "id": "38199118dff24fb9f72d8503",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,048,576 Token",
+              "upToInputTokens": 1048576,
+              "input": 0.25,
+              "output": 1.5,
+              "cacheRead": 0.025,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gemini-3-flash-preview",
+      "providerId": "google",
+      "events": [
+        {
+          "id": "6708b00938f4a9ad7fff3d06",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,048,576 Token",
+              "upToInputTokens": 1048576,
+              "input": 0.5,
+              "output": 3,
+              "cacheRead": 0.05,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gemini-2-5-flash",
+      "providerId": "google",
+      "events": [
+        {
+          "id": "815f8cc59192d32740057ecf",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 1,048,576 Token",
+              "upToInputTokens": 1048576,
+              "input": 0.3,
+              "output": 2.5,
+              "cacheRead": 0.03,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gemini-3-1-pro-preview",
+      "providerId": "google",
+      "events": [
+        {
+          "id": "f9bea363d0edeb21f571e119",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 2,
+              "output": 12,
+              "cacheRead": 0.2,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,048,576 Token",
+              "upToInputTokens": 1048576,
+              "input": 4,
+              "output": 18,
+              "cacheRead": 0.4,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "gemini-2-5-pro",
+      "providerId": "google",
+      "events": [
+        {
+          "id": "5d2bb6b157526a5047397a4f",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "USD",
+          "rates": [
+            {
+              "label": "输入不超过 200,000 Token",
+              "upToInputTokens": 200000,
+              "input": 1.25,
+              "output": 10,
+              "cacheRead": 0.125,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,048,576 Token",
+              "upToInputTokens": 1048576,
+              "input": 2.5,
+              "output": 15,
+              "cacheRead": 0.25,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-7-max",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "0bdb6e8cdd00761a2d043b8f",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 12,
+              "output": 36,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-7-max-preview",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "671b25bd9c6b0784de519a45",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 12,
+              "output": 36,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-6-max-preview",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "4c48bbeb61a6412edebace53",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 9,
+              "output": 54,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 15,
+              "output": 90,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-6-flash",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "5cb7e43db932bc507ba1a348",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 1.2,
+              "output": 7.2,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 4.8,
+              "output": 28.8,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-7-plus",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "3e2f1ac23f3ddc88f830202e",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 2,
+              "output": 8,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 6,
+              "output": 24,
+              "cacheRead": null,
+              "batchFactor": 0.5,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-6-plus",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "b630592e9a3292a60be2e480",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 2,
+              "output": 12,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 8,
+              "output": 48,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-coder-plus",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "622f3f63da4dcf1db30be8d6",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 4,
+              "output": 16,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 6,
+              "output": 24,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 10,
+              "output": 40,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 20,
+              "output": 200,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-coder-flash",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "79d6d1833760087f1bb7bd62",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 1,
+              "output": 4,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 1.5,
+              "output": 6,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 2.5,
+              "output": 10,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 5,
+              "output": 25,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "qwen3-coder-next",
+      "providerId": "alibaba",
+      "events": [
+        {
+          "id": "a4e1fbabaeb38724c85400b8",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 1,
+              "output": 4,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 1.5,
+              "output": 6,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 2.5,
+              "output": 10,
+              "cacheRead": null,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "minimax-m3",
+      "providerId": "minimax",
+      "events": [
+        {
+          "id": "5c47d115be6715df77a2d80a",
+          "detectedAt": "2026-09-12T08:43:24.260Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 512,000 Token",
+              "upToInputTokens": 512000,
+              "input": 2.1,
+              "output": 8.4,
+              "cacheRead": 0.42,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 4.2,
+              "output": 16.8,
+              "cacheRead": 0.84,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.minimax.cn/docs/guides/pricing-paygo",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "kimi-k3",
+      "providerId": "moonshot",
+      "events": [
+        {
+          "id": "bb1270595726275841e5db5c",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 1,048,576 Token",
+              "upToInputTokens": 1048576,
+              "input": 20,
+              "output": 100,
+              "cacheRead": 2,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.kimi.com/docs/pricing/chat.md",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "kimi-k2-7-code",
+      "providerId": "moonshot",
+      "events": [
+        {
+          "id": "52c8fa47d25bc45cebc1b12f",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 262,144 Token",
+              "upToInputTokens": 262144,
+              "input": 6.5,
+              "output": 27,
+              "cacheRead": 1.3,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.kimi.com/docs/pricing/chat.md",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "kimi-k2-7-code-highspeed",
+      "providerId": "moonshot",
+      "events": [
+        {
+          "id": "5c51999737d8847c46d46481",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 262,144 Token",
+              "upToInputTokens": 262144,
+              "input": 13,
+              "output": 54,
+              "cacheRead": 2.6,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.kimi.com/docs/pricing/chat.md",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "kimi-k2-6",
+      "providerId": "moonshot",
+      "events": [
+        {
+          "id": "24468e0079671e9fa732de32",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 262,144 Token",
+              "upToInputTokens": 262144,
+              "input": 6.5,
+              "output": 27,
+              "cacheRead": 1.1,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://platform.kimi.com/docs/pricing/chat.md",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "glm-5-3",
+      "providerId": "zhipu",
+      "events": [
+        {
+          "id": "9adf2755915f63de4b8446d6",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 8,
+              "output": 28,
+              "cacheRead": 2,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.bigmodel.cn/cn/guide/start/pricing.md",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "glm-5-3-flash",
+      "providerId": "zhipu",
+      "events": [
+        {
+          "id": "134f5294ee01245a82af6c8e",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 0.8,
+              "output": 2.8,
+              "cacheRead": 0.23,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.bigmodel.cn/cn/guide/start/pricing.md",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "glm-5-2",
+      "providerId": "zhipu",
+      "events": [
+        {
+          "id": "fff45d72f11730dd4bac6df9",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 1,000,000 Token",
+              "upToInputTokens": 1000000,
+              "input": 8,
+              "output": 28,
+              "cacheRead": 2,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.bigmodel.cn/cn/guide/start/pricing.md",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "doubao-seed-2-1-pro",
+      "providerId": "bytedance",
+      "events": [
+        {
+          "id": "86ae235eb4a996bfec51446a",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 6,
+              "output": 30,
+              "cacheRead": 1.2,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.volcengine.com/docs/82379/1544106",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "doubao-seed-2-1-turbo",
+      "providerId": "bytedance",
+      "events": [
+        {
+          "id": "c9eba18a597d0bb8335cd431",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 3,
+              "output": 15,
+              "cacheRead": 0.6,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.volcengine.com/docs/82379/1544106",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "doubao-seed-2-0-pro",
+      "providerId": "bytedance",
+      "events": [
+        {
+          "id": "0f00c23a1f7f900aa6d29a35",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 3.2,
+              "output": 16,
+              "cacheRead": 0.64,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 4.8,
+              "output": 24,
+              "cacheRead": 0.96,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 9.6,
+              "output": 48,
+              "cacheRead": 1.92,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.volcengine.com/docs/82379/1544106",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    },
+    {
+      "modelId": "doubao-seed-2-0-code",
+      "providerId": "bytedance",
+      "events": [
+        {
+          "id": "cba50acbdeb154b24cac686b",
+          "detectedAt": "2026-09-12T09:45:43.552Z",
+          "effectiveAt": null,
+          "currency": "CNY",
+          "rates": [
+            {
+              "label": "输入不超过 32,000 Token",
+              "upToInputTokens": 32000,
+              "input": 3.2,
+              "output": 16,
+              "cacheRead": 0.64,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 128,000 Token",
+              "upToInputTokens": 128000,
+              "input": 4.8,
+              "output": 24,
+              "cacheRead": 0.96,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            },
+            {
+              "label": "输入不超过 256,000 Token",
+              "upToInputTokens": 256000,
+              "input": 9.6,
+              "output": 48,
+              "cacheRead": 1.92,
+              "batchFactor": null,
+              "offPeakFactor": null,
+              "promotion": null
+            }
+          ],
+          "sourceUrl": "https://docs.volcengine.com/docs/82379/1544106",
+          "reason": "initial_snapshot",
+          "verification": "manual_verified",
+          "changeTypes": []
+        }
+      ]
+    }
+  ]
+}

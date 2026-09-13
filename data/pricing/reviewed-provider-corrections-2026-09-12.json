@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-12T09:45:43.552Z",
+  "sources": [
+    {
+      "id": "kimi-official-pricing",
+      "providerId": "moonshot",
+      "title": "Kimi 官方中国区 API 定价",
+      "url": "https://platform.kimi.com/docs/pricing/chat.md",
+      "retrieval": "page",
+      "notes": "官方 Markdown 原文的 DocTable 数据；人民币每百万 Token，标准输入取缓存未命中列。"
+    },
+    {
+      "id": "glm-official-pricing",
+      "providerId": "zhipu",
+      "title": "智谱官方 API 定价文档",
+      "url": "https://docs.bigmodel.cn/cn/guide/start/pricing.md",
+      "retrieval": "page",
+      "notes": "官方开发文档的 API 按量定价；标准输入、输出与缓存命中分别记录。缓存存储限时免费不视作模型调用免费。"
+    },
+    {
+      "id": "doubao-ark-pricing",
+      "providerId": "bytedance",
+      "title": "火山方舟官方 API 模型价格",
+      "url": "https://docs.volcengine.com/docs/82379/1544106",
+      "retrieval": "page",
+      "notes": "官网公开文档接口返回的模型价格表，采用中国区常规在线推理、非音频输入。低延迟、TPM 保障包、批量推理与扣子价格不混入标准费率。"
+    }
+  ],
+  "models": [
+    {
+      "model": {
+        "id": "doubao-seed-2-0-mini",
+        "name": "豆包 Seed 2.0 Mini",
+        "apiId": "doubao-seed-2.0-mini",
+        "providerId": "bytedance",
+        "status": "active",
+        "region": "mainland",
+        "regionLabel": "中国大陆",
+        "description": "火山方舟官方服务，按请求输入长度分档计费。",
+        "useCases": [
+          "chat",
+          "long",
+          "code"
+        ],
+        "contextTokens": 256000,
+        "contextScope": "combined",
+        "maxOutputTokens": 128000,
+        "currency": "CNY",
+        "sourceId": "doubao-ark-pricing",
+        "specSource": "https://docs.volcengine.com/docs/82379/1330310",
+        "verifiedAt": "2026-09-12",
+        "notes": [
+          "已从扣子搜索索引迁移为火山方舟官方常规在线推理价；文本输入价与音频输入价分开。",
+          "最大输入 224K、总上下文 256K、最大回答 128K；展示标识为价格系列，实际调用以控制台模型 ID 为准。",
+          "缓存读取已核验，不含缓存存储费；批量优惠未纳入。"
+        ],
+        "zeroPriceReason": null,
+        "rates": [
+          {
+            "label": "输入不超过 32,000 Token",
+            "upToInputTokens": 32000,
+            "input": 0.2,
+            "output": 2,
+            "cacheRead": 0.04,
+            "batchFactor": null,
+            "offPeakFactor": null,
+            "promotion": null
+          },
+          {
+            "label": "输入不超过 128,000 Token",
+            "upToInputTokens": 128000,
+            "input": 0.4,
+            "output": 4,
+            "cacheRead": 0.08,
+            "batchFactor": null,
+            "offPeakFactor": null,
+            "promotion": null
+          },
+          {
+            "label": "输入不超过 256,000 Token",
+            "upToInputTokens": 256000,
+            "input": 0.8,
+            "output": 8,
+            "cacheRead": 0.16,
+            "batchFactor": null,
+            "offPeakFactor": null,
+            "promotion": null
+          }
+        ],
+        "maxInputTokens": 224000
+      },
+      "reason": "已直接核对 火山方舟官方 API 模型价格 的标准费率、币种、缓存列和长度限制。"
+    },
+    {
+      "model": {
+        "id": "doubao-seed-2-0-lite",
+        "name": "豆包 Seed 2.0 Lite",
+        "apiId": "doubao-seed-2.0-lite",
+        "providerId": "bytedance",
+        "status": "active",
+        "region": "mainland",
+        "regionLabel": "中国大陆",
+        "description": "火山方舟官方服务，按请求输入长度分档计费。",
+        "useCases": [
+          "chat",
+          "long",
+          "code"
+        ],
+        "contextTokens": 256000,
+        "contextScope": "combined",
+        "maxOutputTokens": 128000,
+        "currency": "CNY",
+        "sourceId": "doubao-ark-pricing",
+        "specSource": "https://docs.volcengine.com/docs/82379/1330310",
+        "verifiedAt": "2026-09-12",
+        "notes": [
+          "已从扣子搜索索引迁移为火山方舟官方常规在线推理价；文本输入价与音频输入价分开。",
+          "最大输入 224K、总上下文 256K、最大回答 128K；展示标识为价格系列，实际调用以控制台模型 ID 为准。",
+          "缓存读取已核验，不含缓存存储费；批量优惠未纳入。"
+        ],
+        "zeroPriceReason": null,
+        "rates": [
+          {
+            "label": "输入不超过 32,000 Token",
+            "upToInputTokens": 32000,
+            "input": 0.6,
+            "output": 3.6,
+            "cacheRead": 0.12,
+            "batchFactor": null,
+            "offPeakFactor": null,
+            "promotion": null
+          },
+          {
+            "label": "输入不超过 128,000 Token",
+            "upToInputTokens": 128000,
+            "input": 0.9,
+            "output": 5.4,
+            "cacheRead": 0.18,
+            "batchFactor": null,
+            "offPeakFactor": null,
+            "promotion": null
+          },
+          {
+            "label": "输入不超过 256,000 Token",
+            "upToInputTokens": 256000,
+            "input": 1.8,
+            "output": 10.8,
+            "cacheRead": 0.36,
+            "batchFactor": null,
+            "offPeakFactor": null,
+            "promotion": null
+          }
+        ],
+        "maxInputTokens": 224000
+      },
+      "reason": "已直接核对 火山方舟官方 API 模型价格 的标准费率、币种、缓存列和长度限制。"
+    },
+    {
+      "model": {
+        "id": "glm-4-7-flash",
+        "name": "GLM-4.7 Flash",
+        "apiId": "glm-4.7-flash",
+        "providerId": "zhipu",
+        "status": "active",
+        "region": "mainland",
+        "regionLabel": "中国大陆",
+        "description": "智谱提供的免费 API 模型，适用于轻量任务体验。",
+        "useCases": [
+          "chat",
+          "long",
+          "code"
+        ],
+        "contextTokens": 200000,
+        "contextScope": "combined",
+        "maxOutputTokens": null,
+        "currency": "CNY",
+        "sourceId": "glm-official-pricing",
+        "specSource": null,
+        "verifiedAt": "2026-09-12",
+        "notes": [
+          "标准输入、输出和缓存命中价已从智谱官方 API 定价文档直接核验；缓存存储限时免费不作为标准价依据。",
+          "免费依据由人工核验；自动更新不发布零价，配额与并发以官方平台为准。"
+        ],
+        "zeroPriceReason": "智谱官方 API 定价文档“更多文本模型”中，GLM-4.7-Flash 输入、输出和缓存命中均明确标注“免费”；缓存存储的“限时免费”为独立列。",
+        "rates": [
+          {
+            "label": "输入不超过 200,000 Token",
+            "upToInputTokens": 200000,
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "batchFactor": null,
+            "offPeakFactor": null,
+            "promotion": null
+          }
+        ]
+      },
+      "reason": "已直接核对 智谱官方 API 定价文档 的标准费率、币种、缓存列和长度限制。"
+    },
+    {
+      "model": {
+        "id": "glm-4-7-flashx",
+        "name": "GLM-4.7 FlashX",
+        "apiId": "glm-4.7-flashx",
+        "providerId": "zhipu",
+        "status": "active",
+        "region": "mainland",
+        "regionLabel": "中国大陆",
+        "description": "智谱 FlashX 系列的按量付费版本。",
+        "useCases": [
+          "chat",
+          "long",
+          "code"
+        ],
+        "contextTokens": 200000,
+        "contextScope": "combined",
+        "maxOutputTokens": null,
+        "currency": "CNY",
+        "sourceId": "glm-official-pricing",
+        "specSource": null,
+        "verifiedAt": "2026-09-12",
+        "notes": [
+          "标准输入、输出和缓存命中价已从智谱官方 API 定价文档直接核验；缓存存储限时免费不作为标准价依据。"
+        ],
+        "zeroPriceReason": null,
+        "rates": [
+          {
+            "label": "输入不超过 200,000 Token",
+            "upToInputTokens": 200000,
+            "input": 0.5,
+            "output": 3,
+            "cacheRead": 0.1,
+            "batchFactor": null,
+            "offPeakFactor": null,
+            "promotion": null
+          }
+        ]
+      },
+      "reason": "已直接核对 智谱官方 API 定价文档 的标准费率、币种、缓存列和长度限制。"
+    }
+  ]
+}

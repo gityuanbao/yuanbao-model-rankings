@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { catalog } from '../lib/catalog';
+import { defaultFilters, getRows, money } from '../lib/ranking';
+import { mark, pathFor, renderChampions, renderMobileRows, renderRows, renderTableHead, renderPriceCoverage } from '../lib/render';
+const base = import.meta.env.BASE_URL;
+const { rows } = getRows(catalog, defaultFilters);
+const coverage = renderPriceCoverage(catalog, defaultFilters, base);
+---
+<Layout>
+  <main id="main" class="page-shell" data-base={base}>
+    <section class="page-intro" aria-labelledby="page-title">
+      <div class="intro-copy"><h1 id="page-title">每一次调用，<span>都心中有数。</span></h1><p>主流模型，官方价格。找到更适合你的 API 成本。</p></div>
+      <div class="provider-gallery" aria-label="支持的 12 家模型厂商">{catalog.providers.map(provider => <a class="provider-gallery-item" data-provider-shortcut={provider.id} href={`${pathFor(base)}?providers=${provider.id}#ranking-title`} aria-label={`查看${provider.shortName}模型`} title={provider.name}><Fragment set:html={mark(catalog, provider.id, base)} /><span class="provider-tooltip" aria-hidden="true">{provider.shortName}</span></a>)}</div>
+    </section>
+    <section id="champions" class="champions" aria-label="当前筛选下的价格冠军" set:html={renderChampions(rows, catalog, defaultFilters, base)} />
+    <div class="board-layout">
+      <aside class="filters-sidebar" aria-label="筛选排行榜">
+        <details id="filter-panel" open>
+          <summary class="filter-summary"><span>筛选模型</span><span class="filter-expand">展开 / 收起</span></summary>
+          <div class="filter-body">
+            <div class="filter-heading"><button type="button" class="text-button" id="reset-filters">重置</button></div>
+            <label class="search-box"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" aria-label="搜索模型或厂商" placeholder="搜索模型或厂商" maxlength="100" /></label>
+            <fieldset class="provider-filter"><legend>模型厂商 <span>{catalog.providers.length}</span></legend>
+              <label class="checkbox-row all-providers"><input type="checkbox" id="all-providers" checked /><span>全部厂商</span><span class="filter-count">{rows.length}</span></label>
+              {catalog.providers.map(provider => <label class="checkbox-row"><input type="checkbox" name="provider" value={provider.id} /><Fragment set:html={mark(catalog, provider.id, base)} /><span>{provider.shortName}</span><span class="filter-count">{rows.filter(row => row.model.providerId === provider.id).length || '暂无'}</span></label>)}
+            </fieldset>
+            <div class="filter-field"><label for="max-price" id="max-price-label">输入价格上限</label><div class="price-input"><span>¥</span><input id="max-price" type="number" min="0" max="1000000000" step="any" placeholder="不限" inputmode="decimal" /></div><span class="field-help" id="max-price-unit">每百万 Token</span></div>
+            <div class="filter-field"><label for="min-context">上下文窗口</label><select id="min-context"><option value="0">不限长度</option><option value="32000">至少 32K</option><option value="128000">至少 128K</option><option value="200000">至少 200K</option><option value="256000">至少 256K</option><option value="1000000">至少 1M</option></select></div>
+            <div class="filter-field"><label for="model-status">模型状态</label><select id="model-status"><option value="available">可用模型（已确认）</option><option value="active">正式可用</option><option value="preview">预览版</option><option value="deprecated">即将下架 / 仅存量</option><option value="retired">已下架</option><option value="all">全部（含下架与未确认）</option></select></div>
+            <div class="filter-field"><label for="region">服务地区</label><select id="region"><option value="all">全部地区</option><option value="mainland">中国大陆</option><option value="global">全球</option><option value="us">美国</option><option value="singapore">新加坡</option></select></div>
+            <div class="filter-field"><label for="use-case">模型适用方向</label><select id="use-case"><option value="all">全部方向</option><option value="chat">日常聊天</option><option value="long">长文本</option><option value="code">AI 编程</option></select></div>
+          </div>
+        </details>
+      </aside>
+      <section class="ranking-panel" aria-labelledby="ranking-title">
+        <div class="ranking-header price-ranking-header">
+          <h2 id="ranking-title">价格排行榜 <span class="count-pill" id="result-count">{rows.length}</span></h2>
+          <button id="share" class="outline-button" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9M11 5H5v14h14v-6"/></svg>分享当前榜单</button>
+        </div>
+        <div id="price-coverage" class="price-coverage" role="status" hidden={!coverage} set:html={coverage} />
+        <div class="scenario-bar"><span class="control-label">任务用量</span><div class="scenario-buttons" role="group" aria-label="任务用量预设"><button type="button" data-scenario="chat" aria-pressed="true">日常聊天</button><button type="button" data-scenario="long" aria-pressed="false">长文本</button><button type="button" data-scenario="code" aria-pressed="false">AI 编程</button><button type="button" data-scenario="custom" aria-pressed="false">自定义</button></div><span class="scenario-summary" id="scenario-summary">1,000 输入 + 1,000 输出 Token</span></div>
+        <form id="token-form" class="custom-tokens" hidden><label for="input-tokens">输入 Token<input id="input-tokens" type="number" min="0" max="10000000" step="1" value="1000" required /></label><span aria-hidden="true">+</span><label for="output-tokens">输出 Token<input id="output-tokens" type="number" min="0" max="10000000" step="1" value="1000" required /></label><button type="submit" class="primary-button">更新计算</button></form>
+        <div class="billing-bar"><label for="billing">计费方式</label><select id="billing"><option value="standard">标准费率</option><option value="cache">纳入缓存读取优惠</option><option value="batch">纳入 Batch 批量优惠</option><option value="offpeak">纳入低峰优惠</option><option value="promotion">纳入有效限时优惠</option></select><label id="cache-control" hidden>缓存命中比例 <input id="cache-percent" type="number" min="0" max="100" value="50" step="1" /> %</label><span id="billing-note" hidden></span></div>
+        <div class="price-mobile-sort-controls">
+          <label class="mobile-metric-control" for="sort-metric"><span class="sr-only">排序指标</span><select id="sort-metric"><option value="input">输入价格</option><option value="output">输出价格</option><option value="task">任务成本</option></select></label>
+          <label class="sort-control" for="sort-order"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 4v16m-4-4 4 4 4-4M16 20V4m-4 4 4-4 4 4" /></svg><select id="sort-order" aria-label="价格排序方向"><option value="asc">价格从低到高</option><option value="desc">价格从高到低</option></select></label>
+        </div>
+        <div class="price-unit-note" id="price-unit-note"><span>输入 / 输出 / 缓存：¥ / 百万 Token；任务成本：¥ / 次</span><span>美元按固定参考汇率 $1 = ¥{money(catalog.meta.usdToCny)} 换算，非实时汇率</span></div>
+        <div class="table-scroll leaderboard-scroll" tabindex="0" role="region" aria-label="模型价格表，可横向滚动" aria-describedby="price-unit-note"><table id="leaderboard"><caption class="sr-only">模型 API 人民币费率、任务成本、相对最低价和官方来源</caption><thead id="table-head" set:html={renderTableHead('input')} /><tbody id="table-body" set:html={renderRows(rows, catalog, defaultFilters, base)} /></table></div>
+        <div id="mobile-results" class="mobile-results" aria-label="模型排名与价格" aria-describedby="price-unit-note" set:html={renderMobileRows(rows, catalog, defaultFilters, base)} />
+        <div id="empty-state" class="empty-state" hidden><div class="empty-icon" aria-hidden="true">⌕</div><h3>没有找到符合条件的模型</h3><p>尝试减少筛选条件，或调整任务的 Token 数量。</p><button id="empty-reset" type="button" class="outline-button">清除所有筛选</button></div>
+        <div class="table-footer sr-only" id="results-footer"><span id="results-summary" role="status" aria-live="polite">显示 {rows.length} 条模型费率</span></div>
+      </section>
+    </div>
+    <noscript><p class="data-footnote">当前显示默认排行榜。启用浏览器 JavaScript 可使用筛选、场景计算和分享；模型详情与官方链接仍可直接访问。</p></noscript>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="share-dialog"><div class="dialog-heading"><h2>分享当前榜单</h2><button id="close-share" type="button" aria-label="关闭分享窗口">×</button></div><p>复制下方链接，筛选条件、排序方向和任务参数将一并保留。</p><input id="share-url" type="text" readonly aria-label="当前榜单分享链接" /><button id="select-share" class="primary-button" type="button">选中链接</button></dialog>
+</Layout>
+<script>
+  import '../scripts/leaderboard';
+</script>
