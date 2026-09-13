@@ -15,7 +15,7 @@ const sourceUrl = performance.sourceUrl ?? arenaSource.url;
 const rounded = performance.models[0]?.scorePrecision === 'rounded';
 const stale = Date.now()-Date.parse(performance.publishedAt)>30*24*60*60*1000;
 ---
-<Layout title="性能排行榜 · 源宝" description="主流大模型性能排行榜，参考 Arena 官方综合文本、网页编程、视觉理解和智能体榜单。按能力查看模型成绩、测试模式及原始来源。">
+<Layout title="性能排行榜 · 源宝模型排行榜" description="主流大模型性能排行榜，参考 Arena 官方综合文本、网页编程、视觉理解和智能体榜单。按能力查看模型成绩、测试模式及原始来源。">
   <main id="main" class="page-shell performance-page" data-base={base}>
     <section class="page-intro" aria-labelledby="page-title">
       <div class="intro-copy"><h1 id="page-title">谁更出色，<span>让回答说话。</span></h1><p>主流大模型 · 按能力查看权威榜单</p></div>

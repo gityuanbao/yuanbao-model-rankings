@@ -158,5 +158,5 @@ jobs:
     steps:
       - name: Flag manual attention without blocking healthy-provider deployment
         run: |
-          echo '::error::部分厂商需要人工处理；已阻止异常价格，保留旧价。请查看 Workflow Summary、pricing-review artifact 和审核 PR。'
+          echo '::error::部分厂商需要人工处理；已阻止异常价格，保留旧价。请查看 Workflow Summary 和 pricing-review artifact。'
           exit 1

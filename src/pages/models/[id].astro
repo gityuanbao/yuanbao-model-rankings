@@ -16,7 +16,7 @@ const fx = model.currency === 'USD' ? catalog.meta.usdToCny : 1;
 const nativeSymbol = model.currency === 'USD' ? '$' : '¥';
 const estimate = quote(model, defaultFilters, catalog.meta.usdToCny)!;
 ---
-<Layout title={`${model.name} API 价格与计费详情 · 源宝 AI 模型价格榜`} description={`${model.name} 的官方 API 输入、输出、缓存读取费率，人民币换算、长度阶梯与官方来源。`}>
+<Layout title={`${model.name} API 价格与计费详情 · 源宝模型排行榜`} description={`${model.name} 的官方 API 输入、输出、缓存读取费率，人民币换算、长度阶梯与官方来源。`}>
   <main id="main" class="detail-shell" data-model={model.id}>
     <nav class="breadcrumb" aria-label="面包屑"><a id="back-to-board" href={pathFor(base)}>← 返回排行榜</a><span>/</span><span>{provider.shortName}</span></nav>
     <div class="detail-heading"><Fragment set:html={mark(catalog, provider.id, base)} /><div><div class="detail-kicker"><span>{provider.name}</span><span>·</span><span>{statusLabels[model.status]}</span></div><h1>{model.name}</h1></div></div>
