@@ -10,10 +10,6 @@ export function getPelicanShowcaseEntries(board: PelicanBoard) {
     id: entry.id, name: entry.name, providerId: entry.providerId,
     artifact: entry.artifact ? { src: entry.artifact.src, download: entry.artifact.download } : null,
     note: entry.showcaseNote ?? null,
-    test: {
-      platform: entry.test.platform, effort: entry.test.effort, date: entry.test.date,
-      promptStatus: entry.test.promptStatus, promptText: entry.test.promptText,
-    },
   }] : []);
 }
 export type PelicanShowcaseEntry = ReturnType<typeof getPelicanShowcaseEntries>[number];
@@ -40,11 +36,6 @@ export function renderPelicanShowcase(rows: PelicanShowcaseEntry[], catalog: Cat
     return `<li class="pelican-showcase-entry" id="pelican-entry-${e(entry.id)}" data-model-id="${e(entry.id)}">
       <div class="pelican-work-info"><div class="pelican-model">${mark(catalog, entry.providerId, base)}<div><h3>${e(entry.name)}</h3><span>${e(provider.shortName)}</span></div></div>
       ${entry.note ? `<p class="pelican-material-note">${e(entry.note)}</p>` : ''}
-      <details class="pelican-test-record"><summary>测试记录</summary><dl class="pelican-test-info">
-        <div><dt>测试平台</dt><dd>${e(entry.test.platform ?? '待补充')}</dd></div>
-        <div><dt>实际档位</dt><dd>${e(entry.test.effort ?? '待补充')}</dd></div>
-        <div><dt>测试日期</dt><dd>${e(entry.test.date ?? '待补充')}</dd></div>
-        <div><dt>型号记录</dt><dd>按回传表收录</dd></div>
-      </dl>${entry.test.promptStatus === 'variant' ? `<p class="pelican-material-note">提示词措辞有差异：${e(entry.test.promptText ?? '')}</p>` : ''}</details></div>${artwork}</li>`;
+      </div>${artwork}</li>`;
   }).join('')}</ul>`;
 }

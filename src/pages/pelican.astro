@@ -14,14 +14,14 @@ const board = pelicanSchema.parse(data);
 const rows = getPelicanShowcaseEntries(board);
 const providers = catalog.providers;
 ---
-<Layout title="鹈鹕测试榜 · 源宝模型排行榜" description="查看白猫骑车 HTML 原作，小窗预览、点击放大。当前按提交顺序展示，暂不评分和排名，仅供娱乐。">
+<Layout title="大模型科目三 · 源宝模型排行榜" description="查看白猫骑车 HTML 原作，小窗预览、点击放大。当前按提交顺序展示，暂不评分和排名，仅供娱乐。">
   <main id="main" class="page-shell pelican-page" data-base={base}>
     <section class="page-intro" aria-labelledby="page-title">
-      <div class="intro-copy"><h1 id="page-title">鹈鹕测试，<span>看看模型的作品</span></h1><p>仅供娱乐</p></div>
-      <div class="provider-gallery" aria-label="鹈鹕测试榜模型厂商">{providers.map(provider => <a class="provider-gallery-item" data-pelican-provider={provider.id} href={`${pathFor(base, 'pelican/')}?providers=${provider.id}#ranking-title`} aria-label={`查看${provider.shortName}鹈鹕测试`} title={provider.name}><Fragment set:html={mark(catalog, provider.id, base)} /><span class="provider-tooltip" aria-hidden="true">{provider.shortName}</span></a>)}</div>
+      <div class="intro-copy"><h1 id="page-title">大模型科目三，<span>从夯到拉</span></h1><p>仅供娱乐</p></div>
+      <div class="provider-gallery" aria-label="大模型科目三模型厂商">{providers.map(provider => <a class="provider-gallery-item" data-pelican-provider={provider.id} href={`${pathFor(base, 'pelican/')}?providers=${provider.id}#ranking-title`} aria-label={`查看${provider.shortName}的大模型科目三作品`} title={provider.name}><Fragment set:html={mark(catalog, provider.id, base)} /><span class="provider-tooltip" aria-hidden="true">{provider.shortName}</span></a>)}</div>
     </section>
     <div class="board-layout">
-      <aside class="filters-sidebar" aria-label="筛选鹈鹕测试榜">
+      <aside class="filters-sidebar" aria-label="筛选大模型科目三">
         <details id="pelican-filters" open>
           <summary class="filter-summary"><span>筛选模型</span><span class="filter-expand">展开 / 收起</span></summary>
           <div class="filter-body">

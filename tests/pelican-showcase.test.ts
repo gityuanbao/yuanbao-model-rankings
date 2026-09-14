@@ -9,7 +9,7 @@ test('showcase preserves submission order and does not expose historical assessm
   const board = pelicanSchema.parse(data);
   const entries = getPelicanShowcaseEntries(board);
   assert.deepEqual(entries.map(entry => entry.id), board.entries.map(entry => entry.id));
-  assert.doesNotMatch(JSON.stringify(entries), /"assessment"|"criteria"|"score"|\.mp4|\.webp|\.gif/);
+  assert.doesNotMatch(JSON.stringify(entries), /"assessment"|"criteria"|"score"|"test"|\.mp4|\.webp|\.gif/);
   const filters = { ...defaultPelicanFilters, providers: ['openai'] };
   const expected = entries.filter(entry => entry.providerId === 'openai');
   assert.deepEqual(getPelicanShowcaseRows(entries, catalog, filters), expected);
@@ -21,7 +21,7 @@ test('showcase renders isolated HTML thumbnails and download links without numer
   const html = renderPelicanShowcase(entries, catalog, '/rankings/');
   assert.equal((html.match(/data-pelican-thumbnail=/g) ?? []).length, 14);
   assert.equal((html.match(/sandbox="allow-scripts"/g) ?? []).length, 14);
-  assert.doesNotMatch(html, /<video|\.gif|\.mp4|\.webp|allow-same-origin|pelican-score|第一名|从夯到拉/);
+  assert.doesNotMatch(html, /<video|\.gif|\.mp4|\.webp|allow-same-origin|pelican-score|第一名|从夯到拉|测试记录|pelican-test-record/);
   assert.match(html, /data-source="\/rankings\/pelican-originals\/gpt-6-astra.html.txt"/);
   assert.match(html, /download="gpt-6-astra.html"/);
   const absent = renderPelicanShowcase([{ ...entries[0], artifact: null }], catalog, '/');

@@ -19,10 +19,8 @@ function render(animate = true) {
   const positions = animate ? captureRows() : new Map<string, DOMRect>();
   const rows = getPelicanShowcaseRows(entries, catalog, state);
   const works = byId('pelican-works');
-  const expanded = [...works.querySelectorAll<HTMLDetailsElement>('.pelican-test-record[open]')].map(detail => detail.closest<HTMLElement>('[data-model-id]')!.dataset.modelId);
   disposePreviews();
   works.innerHTML = renderPelicanShowcase(rows, catalog, base);
-  works.querySelectorAll<HTMLDetailsElement>('.pelican-test-record').forEach(detail => detail.open = expanded.includes(detail.closest<HTMLElement>('[data-model-id]')!.dataset.modelId));
   disposePreviews = mountPelicanThumbnails(works);
   byId('pelican-count').textContent = String(rows.length);
   byId('pelican-summary').textContent = `显示 ${rows.length} 份 HTML 作品，按提交顺序展示，暂不评分和排名`;

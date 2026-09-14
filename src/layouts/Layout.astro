@@ -4,7 +4,7 @@ import '../styles/design.css';
 import CommunityFooter from '../components/CommunityFooter.astro';
 import { pathFor } from '../lib/render';
 interface Props { title?: string; description?: string }
-const { title = '价格排行榜 · 源宝模型排行榜', description = '比较主流 AI 模型的官方 API 价格、任务成本与性能，关注源宝鹈鹕测试。让每个人都用得上、用得起 AI。' } = Astro.props;
+const { title = '价格排行榜 · 源宝模型排行榜', description = '比较主流 AI 模型的官方 API 价格、任务成本与性能，关注源宝的大模型科目三。让每个人都用得上、用得起 AI。' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
 ---
@@ -30,7 +30,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
     <header class="site-header">
       <div class="header-inner">
         <div class="wordmark"><a class="brand-avatar-link" href="https://space.bilibili.com/38061207" target="_blank" rel="noopener noreferrer" aria-label="访问源宝的 B 站主页（新窗口打开）" title="源宝的 B 站主页"><img class="brand-avatar" src={pathFor(base, 'gityuanbao-avatar.jpg')} alt="" width="34" height="34" /></a><span>源宝模型排行榜</span></div>
-        <nav aria-label="主导航"><a class:list={{ active: Astro.url.pathname === pathFor(base) }} aria-current={Astro.url.pathname === pathFor(base) ? 'page' : undefined} href={pathFor(base)}>价格排行榜</a><a class:list={{ active: Astro.url.pathname === pathFor(base, 'performance/') }} aria-current={Astro.url.pathname === pathFor(base, 'performance/') ? 'page' : undefined} href={pathFor(base, 'performance/')}>性能排行榜</a><a class:list={{ active: Astro.url.pathname === pathFor(base, 'pelican/') }} aria-current={Astro.url.pathname === pathFor(base, 'pelican/') ? 'page' : undefined} href={pathFor(base, 'pelican/')}>鹈鹕测试榜</a></nav>
+        <nav aria-label="主导航"><a class:list={{ active: Astro.url.pathname === pathFor(base) }} aria-current={Astro.url.pathname === pathFor(base) ? 'page' : undefined} href={pathFor(base)}>价格排行榜</a><a class:list={{ active: Astro.url.pathname === pathFor(base, 'performance/') }} aria-current={Astro.url.pathname === pathFor(base, 'performance/') ? 'page' : undefined} href={pathFor(base, 'performance/')}>性能排行榜</a><a class:list={{ active: Astro.url.pathname === pathFor(base, 'pelican/') }} aria-current={Astro.url.pathname === pathFor(base, 'pelican/') ? 'page' : undefined} href={pathFor(base, 'pelican/')}>大模型科目三</a></nav>
       </div>
     </header>
     <slot />

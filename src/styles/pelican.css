@@ -168,10 +168,6 @@ dialog.pelican-original-dialog { box-sizing: border-box; width: min(1030px, calc
 .pelican-html-artwork figcaption { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 9px; }
 .pelican-html-artwork figcaption a { display: inline-flex; align-items: center; min-height: 40px; color: var(--muted); font-size: 12px; }
 .pelican-html-artwork figcaption a:hover { color: var(--blue); }
-.pelican-test-record { margin-top: 8px; font-size: 12px; }
-.pelican-test-record summary { color: var(--muted); cursor: pointer; padding: 10px 0; }
-.pelican-test-record summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
-.pelican-test-record .pelican-test-info { padding: 14px; }
 .pelican-material-note { color: var(--muted); font-size: 12px; line-height: 1.7; margin: 10px 0; }
 .pelican-html-missing { display: grid; place-items: center; min-height: 180px; color: var(--muted); background: #f5f5f7; border-radius: 12px; font-size: 13px; }
 @media (max-width: 1100px) and (min-width: 901px) {
@@ -181,5 +177,4 @@ dialog.pelican-original-dialog { box-sizing: border-box; width: min(1030px, calc
   .pelican-showcase-entry { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 20px 18px; }
   .pelican-showcase .pelican-model { min-height: 42px; }
   .pelican-showcase .pelican-model h3 { font-size: 15px; }
-  .pelican-test-record { margin-top: 0; }
 }

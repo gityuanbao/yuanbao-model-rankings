@@ -256,26 +256,23 @@ test('性能评分说明可通过普通点击、首次 hash 和后续 hash 直�
   assert.equal(method.open, true);
 });
 
-test('鹈鹕作品展示：筛选重绘保留可见作品的测试记录，空结果可恢复', async () => {
+test('大模型科目三：筛选更新作品且不显示测试记录，空结果可恢复', async () => {
   const fixture = fixtureBoard([pelicanFixture('openai-pending', 'openai'), pelicanFixture('moonshot-pending', 'moonshot')]);
   const app = client(boards[2], '', fixture);
   const works = app.element('pelican-works');
-  const before = works.querySelectorAll('.pelican-test-record');
-  assert.equal(before.length, 2);
-  before[0].open = true;
+  const ids = () => works.querySelectorAll('[data-model-id]').map(row => row.dataset.modelId);
+  assert.deepEqual(ids(), ['openai-pending', 'moonshot-pending']);
+  assert.doesNotMatch(works.innerHTML, /测试记录|pelican-test-record/);
   app.provider.checked = true;
   await app.provider.emit('change');
-  const after = works.querySelectorAll('.pelican-test-record');
-  assert.equal(after.length, 1);
-  assert.equal(after[0].open, true);
-  assert.notEqual(after[0], before[0]);
+  assert.deepEqual(ids(), ['openai-pending']);
   assert.match(app.element('pelican-summary').textContent, /暂不评分和排名/);
   await app.type('no matching model'); app.tick(250);
-  assert.equal(works.querySelectorAll('.pelican-test-record').length, 0);
+  assert.deepEqual(ids(), []);
   assert.equal(app.element('pelican-empty').hidden, false);
   assert.equal(app.element('pelican-list').hidden, true);
   await app.element('pelican-empty-reset').emit('click');
-  assert.equal(works.querySelectorAll('.pelican-test-record').length, 2);
+  assert.deepEqual(ids(), ['openai-pending', 'moonshot-pending']);
   assert.equal(app.element('pelican-empty').hidden, true);
 });
 
