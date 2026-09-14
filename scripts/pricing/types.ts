@@ -35,4 +35,4 @@ export interface ProviderAdapter {
   parse(raw: RawPricingSnapshot, models: Model[]): ParsedPricing;
   validate(items: NormalizedPrice[]): ValidationResult;
 }
-export interface ProviderRun { providerId: ProviderId; mode: ProviderAdapter['mode']; checkedAt: string; parsed?: ParsedPricing; error?: string }
+export interface ProviderRun { providerId: ProviderId; mode: ProviderAdapter['mode']; checkedAt: string; parsed?: ParsedPricing; error?: string; manualReason?: string }

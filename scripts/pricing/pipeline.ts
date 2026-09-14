@@ -31,6 +31,7 @@ export function evaluateUpdates(input: {catalog:Catalog;history:PriceHistory;ver
   const policy=policySchema.parse(input.policy??defaultPolicy); const approvals=new Set(input.approvals??[]); const usedApprovals=new Set<string>();
   const reviews:Review[]=[], applied:PipelineResult['applied']=[];
   for(const run of input.runs){
+    if(run.mode==='manual')continue;
     const models=original.models.filter(m=>m.providerId===run.providerId&&m.status!=='retired');
     const providerBefore=verification.providers[run.providerId]??fallback();
     if(run.error||!run.parsed){

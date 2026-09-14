@@ -101,3 +101,11 @@ jobs:
           path: reports/performance-update.json
           if-no-files-found: ignore
           retention-days: 90
+      - name: Save public source diagnostics for a manual investigation
+        if: always() && github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-source-diagnostics
+          path: reports/performance-source-*.json
+          if-no-files-found: ignore
+          retention-days: 7

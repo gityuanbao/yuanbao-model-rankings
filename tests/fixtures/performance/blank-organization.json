@@ -1,0 +1,15 @@
+{
+  "sourceUrl": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/viewer/text_style_control/latest?p=2",
+  "note": "官方视图可见的最小数据片段；2026-09-02 历史行，仅作空组织字段回归，不用于更新生产成绩。",
+  "row": {
+    "model_name": "yi-lightning",
+    "organization": "",
+    "category": "overall",
+    "rating": 1328.083733,
+    "rating_lower": 1323.138072,
+    "rating_upper": 1333.029395,
+    "vote_count": 27332,
+    "rank": 230,
+    "leaderboard_publish_date": "2026-09-02"
+  }
+}

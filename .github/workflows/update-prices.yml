@@ -156,7 +156,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions: {}
     steps:
-      - name: Flag manual attention without blocking healthy-provider deployment
+      - name: Report pending reviews separately from automatic fetch failures
+        env:
+          FAILED_COUNT: ${{ needs.update.outputs.failed_count }}
         run: |
-          echo '::error::部分厂商需要人工处理；已阻止异常价格，保留旧价。请查看 Workflow Summary 和 pricing-review artifact。'
-          exit 1
+          if [ "$FAILED_COUNT" != '0' ]; then
+            echo '::error::自动抓取发生故障，受影响厂商保留旧价。请查看 Workflow Summary 和 pricing-review artifact。'
+            exit 1
+          fi
+          echo '::warning::存在待人工核对的候选，已保留旧价；这不是抓取或部署失败。请查看 Workflow Summary 和 pricing-review artifact。'

@@ -1,9 +1,14 @@
 import { z } from 'zod';
 import { arenaSource, performanceSnapshotSchema, selectionSchema, type PerformanceSelection, type PerformanceSnapshot } from '../../src/lib/performance-schema';
-import { providerFor, selectionFor } from './selection';
+import { isMainstreamModel, organizations, providerFor, selectionFor } from './selection';
+import { assertRetainedModels, PerformanceReviewError } from './diagnostics';
 
 const rawRowSchema = z.object({
-  model_name:z.string().min(1), organization:z.string().min(1), category:z.literal('overall'),
+  // The official dataset also contains out-of-scope models with a blank
+  // organization (for example yi-lightning). Keep those raw rows for complete
+  // pagination/date validation; require an organization before selecting any
+  // configured or mainstream-family model below. Never infer its provider.
+  model_name:z.string().min(1), organization:z.string().trim(), category:z.literal('overall'),
   rating:z.number().finite().positive(), rating_lower:z.number().finite().positive().nullable(), rating_upper:z.number().finite().positive().nullable(),
   score_precision:z.literal('rounded').optional(), uncertainty:z.number().finite().nonnegative().optional(), preliminary:z.boolean().optional(),
   vote_count:z.number().int().positive(), rank:z.number().int().positive(), leaderboard_publish_date:z.string(),
@@ -17,9 +22,24 @@ export function parseArenaImport(input:unknown) {
 export function normalizeArena(raw:unknown[], selection:PerformanceSelection, now:string, retrieval:PerformanceSnapshot['retrieval']='official-api', sourceUrl:PerformanceSnapshot['sourceUrl']=arenaSource.url):PerformanceSnapshot {
   selectionSchema.parse(selection);
   if (!raw.length) throw new Error('官方榜单为空，保留有效快照');
-  const rows = raw.map(row => rawRowSchema.parse(row));
+  const rows = raw.map((row, index) => {
+    const parsed = rawRowSchema.safeParse(row);
+    if (parsed.success) return parsed.data;
+    const sourceModel = row && typeof row === 'object' && 'model_name' in row ? row.model_name : undefined;
+    throw new PerformanceReviewError(`官方文本记录校验失败：第 ${index + 1} 条${typeof sourceModel === 'string' ? ` ${sourceModel}` : ''}；${parsed.error.issues.map(issue => issue.path.join('.')).join('、')}`, {
+      kind: 'invalid_source_row', rowIndex: index, sourceModel,
+      issues: parsed.error.issues.map(issue => ({ field: issue.path.join('.'), message: issue.message })),
+    });
+  });
   if (new Set(rows.map(r=>r.model_name)).size !== rows.length) throw new Error('官方榜单存在重复模型');
   if (new Set(rows.map(r=>r.leaderboard_publish_date)).size !== 1) throw new Error('分页期间榜单发生变化，拒绝混合日期');
+  for (const row of rows) {
+    const requiresProvider = selection.models.some(model => model.sourceModel === row.model_name) ||
+      [...new Set(Object.values(organizations))].some(provider => isMainstreamModel(row.model_name, provider));
+    if (!row.organization && requiresProvider) throw new PerformanceReviewError(`官方文本型号 ${row.model_name} 缺少 organization，不能确认厂商，保留有效快照`, {
+      kind: 'missing_organization', sourceModel: row.model_name, sourceRank: row.rank,
+    });
+  }
   for(const model of selection.models)if(!rows.some(row=>row.model_name===model.sourceModel))throw new Error(`官方榜单缺少 ${model.sourceModel}，需核对版本，保留有效快照`);
   const selected=rows.flatMap(row=>{
     const provider=providerFor(row.organization);
@@ -63,10 +83,11 @@ export function acceptSnapshot(previous:PerformanceSnapshot | null, candidate:Pe
   performanceSnapshotSchema.parse(candidate);
   if (!previous) return true;
   if (candidate.publishedAt < previous.publishedAt) throw new Error('来源日期倒退，保留当前榜单');
+  assertRetainedModels(previous, candidate);
   for (const model of previous.models) {
     const next = candidate.models.find(m=>m.id === model.id);
     if (!next) throw new Error('收录模型被删除，需人工核对');
-    if (next.sourceModel !== model.sourceModel || next.providerId !== model.providerId) throw new Error('模型映射改变，需人工核对');
+    if (next.sourceModel !== model.sourceModel || next.providerId !== model.providerId) throw new PerformanceReviewError(`模型映射改变，需人工核对：${model.sourceModel} → ${next.sourceModel}`, { kind:'identity_changed', previous:{id:model.id,sourceModel:model.sourceModel,providerId:model.providerId},candidate:{id:next.id,sourceModel:next.sourceModel,providerId:next.providerId} });
     if (Math.abs(next.score-model.score)>100) throw new Error(`${model.name} 得分变化超过 100 分，需人工核对评测口径`);
   }
   return JSON.stringify([previous.publishedAt,previous.models]) !== JSON.stringify([candidate.publishedAt,candidate.models]);

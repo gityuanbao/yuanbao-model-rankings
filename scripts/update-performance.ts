@@ -4,6 +4,7 @@ import { arenaSource, performanceHistorySchema, performanceSnapshotSchema, selec
 import { categoryHistorySchema, categorySnapshotsSchema, categoryForSource, performanceCategoryIds, type PerformanceCategory } from '../src/lib/performance-categories';
 import { acceptSnapshot, fetchArena, normalizeArena, parseArenaImport } from './performance/arena';
 import { acceptCategorySnapshot, fetchCategory, normalizeCategory } from './performance/categories';
+import { PerformanceReviewError } from './performance/diagnostics';
 import { atomicWrite, json, readJson, stageAndValidate, withLock } from './pricing/io';
 
 const apply=process.argv.includes('--apply');
@@ -36,6 +37,9 @@ await withLock(process.cwd(),async()=>{
           results.push({category,status:changed?'candidate':'unchanged',changed,publishedAt:candidate.publishedAt,models:candidate.models.length,retrieval:candidate.retrieval});
         } else {
           const source=imported??await fetchCategory(category);
+          // Public source table only, for diagnosing identity/coverage differences.
+          // This is an ignored report, never a replacement for the production snapshot.
+          await atomicWrite(`reports/performance-source-${category}.json`,json(source));
           const candidate=normalizeCategory(source,selection,now,imported?'reviewed-official-page':'official-page');
           const index=categories.snapshots.findIndex(s=>categoryForSource(s.sourceId)===category);
           const changed=acceptCategorySnapshot(categories.snapshots[index],candidate);
@@ -44,7 +48,7 @@ await withLock(process.cwd(),async()=>{
         }
       } catch(error){
         const reason=error instanceof Error?`${error.message}${error.cause instanceof Error?` (${error.cause.message})`:''}`:String(error);
-        results.push({category,status:'failed',changed:false,reason});
+        results.push({category,status:'failed',changed:false,reason,...(error instanceof PerformanceReviewError?{details:error.details}:{})});
         console.error(`${category} 同步失败，保留该分类原数据与历史：${reason}`);
       }
     }

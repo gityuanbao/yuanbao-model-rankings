@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { categorySnapshotSchema, performanceCategories, agentSignalLabels, type CategorySnapshot, type AgentModel, type AgentSignal } from '../../src/lib/performance-categories';
 import type { PerformanceModel, PerformanceSelection } from '../../src/lib/performance-schema';
 import { providerFor, selectionFor } from './selection';
+import { assertRetainedModels, PerformanceReviewError } from './diagnostics';
 
 const scoredHeaders=['Rank','Rank Spread','Model','Score','Votes','Price $/M','Context'];
 const agentHeaders=['Rank','Model','Net Improvement','Confirmed Success','Praise vs Complaint','Steerability','Bash Recovery','Tool Hallucination','Sessions','Cost/Task (P50)','Output Tokens/Task (P50)','Price $/M'];
@@ -15,9 +16,13 @@ export const categoryImportSchema=z.object({category:z.enum(['code','vision','ag
 export type CategoryImport=z.infer<typeof categoryImportSchema>;
 const integer=(value:string)=>{if(!/^\d{1,3}(?:,\d{3})*$|^\d+$/.test(value))throw new Error('票数/会话数格式异常');return Number(value.replaceAll(',',''));};
 const orgPattern=/^(.+?)\s+(OpenAI|Anthropic|Google|xAI|SpaceXAI|DeepSeek|Bytedance|ByteDance|Alibaba|Moonshot(?:AI)?|Z\.ai|Zhipu|MiniMax|Baidu|Tencent)\s*·/i;
-export function categorySelection(cell:string, selection:PerformanceSelection) {
+export function parseMainstreamModelCell(cell:string) {
   const parts=cell.match(orgPattern);if(!parts)return;
-  const sourceModel=parts[1].trim();const providerId=providerFor(parts[2]);
+  return {sourceModel:parts[1].trim(),providerId:providerFor(parts[2])};
+}
+export function categorySelection(cell:string, selection:PerformanceSelection) {
+  const identity=parseMainstreamModelCell(cell);if(!identity)return;
+  const {sourceModel,providerId}=identity;
   // Agent uses display names with spaces. Preserve its exact source identity separately.
   const normalized=sourceModel.toLowerCase().replace(/\s*\((xhigh|high|medium|low|max)\)/g,'-$1').replace(/\s+/g,'-');
   const selected=selectionFor(normalized,providerId,selection);if(!selected)return;
@@ -59,10 +64,11 @@ export function acceptCategorySnapshot(previous:CategorySnapshot|null,candidate:
   if(!previous)return true;
   if(previous.sourceId!==candidate.sourceId)throw new Error('禁止跨分类覆盖成绩');
   if(candidate.publishedAt<previous.publishedAt)throw new Error('来源日期倒退');
+  assertRetainedModels(previous,candidate);
   for(const model of previous.models){
     const next=candidate.models.find(m=>m.id===model.id);
     if(!next)throw new Error('已收录模型被删除，需人工核对');
-    if(next.sourceModel!==model.sourceModel || next.providerId!==model.providerId)throw new Error('模型映射改变，需人工核对');
+    if(next.sourceModel!==model.sourceModel || next.providerId!==model.providerId)throw new PerformanceReviewError(`模型映射改变，需人工核对：${model.sourceModel} → ${next.sourceModel}`,{kind:'identity_changed',previous:{id:model.id,sourceModel:model.sourceModel,providerId:model.providerId},candidate:{id:next.id,sourceModel:next.sourceModel,providerId:next.providerId}});
     if('score' in model && 'score' in next && Math.abs(model.score-next.score)>100)throw new Error('得分变化超过 100 分，需人工核对');
     if('signals' in model && 'signals' in next && Object.keys(agentSignalLabels).some(key=>Math.abs(model.signals[key as AgentSignal].value-next.signals[key as AgentSignal].value)>20))throw new Error('Agent 信号变化超过 20 个百分点，需人工核对');
   }
@@ -72,7 +78,7 @@ type Node=DefaultTreeAdapterMap['node'];
 const children=(node:Node):Node[]=>'childNodes' in node?node.childNodes:[];
 const text=(node:Node):string=>'value' in node?node.value:children(node).map(text).join(' ');
 const elements=(node:Node,tag:string):Node[]=>[...('tagName' in node && node.tagName===tag?[node]:[]),...children(node).flatMap(child=>elements(child,tag))];
-export function parseCategoryHtml(html:string,category:CategoryImport['category']):CategoryImport {
+export function parseLeaderboardHtml(html:string,category:keyof typeof performanceCategories) {
   const doc=parse(html);const tables=elements(doc,'table');
   const expected=category==='agent'?agentHeaders:scoredHeaders;
   const clean=(node:Node)=>text(node).replace(/\s+/g,' ').trim();
@@ -83,7 +89,10 @@ export function parseCategoryHtml(html:string,category:CategoryImport['category'
   const dates=[...new Set(content.match(/\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{1,2}, \d{4}\b/g))];
   const counts=[...new Set([...content.matchAll(/\b([\d,]+) models\b/g)].map(m=>integer(m[1])))];
   if(dates.length!==1 || counts.length!==1)throw new Error('无法确定榜单发布日期或完整记录数');
-  return categoryImportSchema.parse({category,sourceUrl:performanceCategories[category].url,publishedAt:new Date(dates[0]+' UTC').toISOString().slice(0,10),sourceRowCount:counts[0],headers:expected,rows});
+  return {category,sourceUrl:performanceCategories[category].url,publishedAt:new Date(dates[0]+' UTC').toISOString().slice(0,10),sourceRowCount:counts[0],headers:expected,rows};
+}
+export function parseCategoryHtml(html:string,category:CategoryImport['category']):CategoryImport {
+  return categoryImportSchema.parse(parseLeaderboardHtml(html,category));
 }
 export async function fetchCategory(category:CategoryImport['category'],fetcher:typeof fetch=fetch){
   const response=await fetcher(performanceCategories[category].url,{signal:AbortSignal.timeout(20_000),redirect:'error',headers:{Accept:'text/html'}});
