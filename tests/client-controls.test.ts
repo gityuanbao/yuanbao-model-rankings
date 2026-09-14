@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
+import { parseFragment, type DefaultTreeAdapterMap } from 'parse5';
 import { catalog } from '../src/lib/catalog';
 import { performanceBoards } from '../src/lib/performance-data';
 import { performanceCategories } from '../src/lib/performance-categories';
@@ -18,12 +19,25 @@ import * as pelicanRender from '../src/lib/pelican-render';
 // Execute the real clients with deterministic DOM/event/timer doubles. This covers
 // the input -> filter -> history/share integration, not just query serialization.
 class ElementDouble {
-  value = ''; textContent = ''; innerHTML = ''; hidden = false; checked = false; open = false;
+  value = ''; textContent = ''; hidden = false; checked = false; open = false; disabled = false; title = '';
+  private html = ''; private renderedChildren: ElementDouble[] | null = null;
+  parentElement: ElementDouble | null = null;
   dataset: Record<string, string> = {}; attributes = new Map<string, string>();
   listeners = new Map<string, ((event: any) => unknown)[]>();
   children = new Map<string, ElementDouble>(); options = [{ value: '0', textContent: '' }, { value: 'asc', textContent: '' }];
-  classList = { toggle() {} }; focused = false;
+  classList = {
+    toggle: (name: string, force?: boolean) => {
+      const classes = new Set((this.attributes.get('class') ?? '').split(/\s+/).filter(Boolean));
+      const active = force ?? !classes.has(name);
+      if (active) classes.add(name); else classes.delete(name);
+      this.attributes.set('class', [...classes].join(' '));
+      return active;
+    },
+    contains: (name: string) => (this.attributes.get('class') ?? '').split(/\s+/).includes(name),
+  }; focused = false;
   constructor(public id: string) {}
+  get innerHTML() { return this.html; }
+  set innerHTML(value: string) { this.html = value; this.renderedChildren = null; }
   addEventListener(type: string, callback: (event: any) => unknown) { this.listeners.set(type, [...(this.listeners.get(type) ?? []), callback]); }
   async emit(type: string, patch: Record<string, unknown> = {}) {
     const event = { button: 0, target: this, preventDefault() {}, ...patch };
@@ -33,20 +47,56 @@ class ElementDouble {
   removeAttribute(name: string) { this.attributes.delete(name); }
   hasAttribute(name: string) { return this.attributes.has(name); }
   getAttribute(name: string) { return this.attributes.get(name); }
-  querySelector(selector: string) { if (!this.children.has(selector)) this.children.set(selector, new ElementDouble(selector)); return this.children.get(selector)!; }
-  closest() { return null; }
+  private matchesSelector(selector: string) {
+    const match = selector.match(/^(?:\.([\w-]+))?(?:\[([\w-]+)(?:="([^"]*)")?\])?$/);
+    if (!match) return false;
+    if (match[1] && !(this.attributes.get('class') ?? '').split(/\s+/).includes(match[1])) return false;
+    if (match[2] === 'open') return this.open;
+    if (match[2] && !this.hasAttribute(match[2])) return false;
+    return match[3] === undefined || this.getAttribute(match[2]) === match[3];
+  }
+  private rendered() {
+    if (this.renderedChildren === null) {
+      const convert = (node: DefaultTreeAdapterMap['childNode'], parent: ElementDouble): ElementDouble[] => {
+        if (!('tagName' in node)) return [];
+        const child = node.tagName === 'video' ? new VideoElementDouble(node.tagName) : new ElementDouble(node.tagName);
+        child.parentElement = parent;
+        for (const { name, value } of node.attrs) {
+          child.attributes.set(name, value);
+          if (name.startsWith('data-')) child.dataset[name.slice(5).replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())] = value;
+          if (name === 'id') child.id = value;
+        }
+        child.hidden = child.hasAttribute('hidden'); child.open = child.hasAttribute('open');
+        child.renderedChildren = node.childNodes.flatMap(node => convert(node, child));
+        return [child];
+      };
+      this.renderedChildren = parseFragment(this.html).childNodes.flatMap(node => convert(node, this));
+    }
+    return this.renderedChildren;
+  }
+  querySelectorAll(selector: string): ElementDouble[] {
+    return this.rendered().flatMap(child => [...(child.matchesSelector(selector) ? [child] : []), ...child.querySelectorAll(selector)]);
+  }
+  querySelector(selector: string) {
+    const rendered = this.querySelectorAll(selector)[0];
+    if (rendered) return rendered;
+    if (!this.children.has(selector)) this.children.set(selector, new ElementDouble(selector));
+    return this.children.get(selector)!;
+  }
+  closest(selector: string): ElementDouble | null { return this.matchesSelector(selector) ? this : this.parentElement?.closest(selector) ?? null; }
   focus() { this.focused = true; }
   select() {} scrollIntoView() {} showModal() {} close() {} reportValidity() { return true; }
   add(option: { value: string; textContent: string }) { this.options.push(option); }
   append(item: string | ElementDouble) { this.textContent += typeof item === 'string' ? item : item.textContent; }
 }
+class VideoElementDouble extends ElementDouble {}
 const boards = [
   { name: '价格榜', file: 'leaderboard', pathname: '/', search: 'search', provider: 'provider', reset: 'reset-filters', share: 'share', panel: 'filter-panel' },
   { name: '性能榜', file: 'performance', pathname: '/performance/', search: 'performance-search', provider: 'performance-provider', reset: 'performance-reset', share: 'share', panel: 'performance-filters' },
   { name: '鹈鹕榜', file: 'pelican', pathname: '/pelican/', search: 'pelican-search', provider: 'pelican-provider', reset: 'pelican-reset', share: 'pelican-share', panel: 'pelican-filters' },
 ] as const;
 
-function client(board: typeof boards[number], hash = '') {
+function client(board: typeof boards[number], hash = '', pelicanData: unknown = data) {
   const elements = new Map<string, ElementDouble>();
   const element = (id: string) => { if (!elements.has(id)) elements.set(id, new ElementDouble(id)); return elements.get(id)!; };
   element('main').dataset.base = '/';
@@ -75,8 +125,8 @@ function client(board: typeof boards[number], hash = '') {
   const timers = new Map<number, { at: number; callback: () => void }>();
   const context = vm.createContext({
     ...ranking, ...urlState, ...priceRender, ...performance, ...performanceRender, ...pelican, ...pelicanRender,
-    catalog, performanceBoards, performanceCategories, data, document, window, location,
-    URL, URLSearchParams, Map, Option: class { constructor(public textContent: string, public value: string) {} },
+    catalog, performanceBoards, performanceCategories, data: pelicanData, document, window, location,
+    URL, URLSearchParams, Map, HTMLVideoElement: VideoElementDouble, Option: class { constructor(public textContent: string, public value: string) {} },
     history: { replaceState: navigate, pushState: navigate },
     navigator: { clipboard: { async writeText(text: string) { copied = text; } } },
     matchMedia: (query: string) => query.includes('900px') ? mobile : { matches: true },
@@ -184,4 +234,69 @@ test('性能评分说明可通过普通点击、首次 hash 和后续 hash 直�
   assert.equal(method.open, false);
   app.location.hash = '#performance-method'; await app.window.emit('hashchange');
   assert.equal(method.open, true);
+});
+
+test('鹈鹕榜：筛选重绘仅恢复仍可见作品已展开的评分明细', async () => {
+  const app = client(boards[2]);
+  const tiers = app.element('pelican-tiers');
+  const before = tiers.querySelectorAll('.pelican-assessment');
+  assert.equal(before.length, data.entries.length);
+  const retainedId = before[0].closest('[data-model-id]')!.dataset.modelId;
+  before[0].open = true;
+  app.provider.checked = true;
+  await app.provider.emit('change');
+  const after = tiers.querySelectorAll('.pelican-assessment');
+  const retained = after.find(detail => detail.closest('[data-model-id]')!.dataset.modelId === retainedId)!;
+  assert.notEqual(retained, before[0], '重绘必须创建新节点，不能依赖旧节点状态');
+  assert.equal(retained.open, true);
+  assert.equal(after.filter(detail => detail.open).length, 1);
+  assert.equal(app.element('pelican-order').disabled, true);
+  assert.match(app.element('pelican-summary').textContent, /按提交顺序展示，暂不排名/);
+  await app.type('no matching model'); app.tick(250);
+  assert.equal(tiers.querySelectorAll('.pelican-assessment').length, 0);
+  assert.equal(app.element('pelican-empty').hidden, false);
+  assert.equal(app.element('pelican-list').hidden, true);
+});
+
+test('鹈鹕榜：作品媒体出错显示可读反馈，加载恢复后消失且不改变观察分', async () => {
+  const app = client(boards[2]);
+  const tiers = app.element('pelican-tiers');
+  const video = tiers.querySelectorAll('[data-pelican-video]')[0];
+  assert.ok(video instanceof VideoElementDouble);
+  const fallback = video.closest('.pelican-media')!.querySelector('[data-pelican-media-error]');
+  const htmlBefore = tiers.innerHTML;
+  assert.equal(fallback.hidden, true);
+  await app.document.emit('error', { target: video });
+  assert.equal(fallback.hidden, false);
+  assert.equal(tiers.innerHTML, htmlBefore, '媒体故障不可重写作品评分或名单');
+  await app.document.emit('loadeddata', { target: video });
+  assert.equal(fallback.hidden, true);
+  await app.document.emit('error', { target: new ElementDouble('unrelated-image') });
+  assert.equal(fallback.hidden, true, '非作品视频的事件不可触发当前作品反馈');
+});
+
+test('鹈鹕榜：混合成绩筛到待核验作品时同步移除档位列，重置后恢复', async () => {
+  const source = pelican.pelicanSchema.parse(data);
+  const formal = structuredClone(source.entries.find(entry => entry.providerId === 'openai'))!;
+  assert.ok(pelican.isPelicanV3Entry(formal));
+  formal.assessment.status = 'verified';
+  formal.assessment.ownerConfirmed = true;
+  for (const criterion of formal.assessment.criteria) if (criterion.score === null) criterion.score = pelican.pelicanCriteria.find(item => item.id === criterion.id)!.maximum;
+  formal.test = { ...formal.test, platform: '测试平台', effort: '最高', date: '2026-09-14', tools: 'none', codeModified: false, identityStatus: 'verified', firstAttempt: true, promptStatus: 'exact', promptText: pelican.pelicanPrompt };
+  const pending = source.entries.find(entry => entry.providerId === 'moonshot')!;
+  const mixed = pelican.pelicanSchema.parse({ schemaVersion: 2, ruleVersion: '3.0', entries: [formal, pending] });
+  const app = client(boards[2], '', mixed);
+  const header = app.element('pelican-list').querySelector('.pelican-column-head');
+  assert.equal(header.classList.contains('pelican-column-head-pending'), false);
+  assert.match(header.innerHTML, /<span>档位<\/span>/);
+  assert.equal(app.element('pelican-order').disabled, false);
+  await app.type('Kimi'); app.tick(250);
+  assert.equal(header.classList.contains('pelican-column-head-pending'), true);
+  assert.doesNotMatch(header.innerHTML, /档位/);
+  assert.match(header.innerHTML, /模型与评分.*测试作品/);
+  assert.equal(app.element('pelican-order').disabled, true);
+  await app.element('pelican-reset').emit('click');
+  assert.equal(header.classList.contains('pelican-column-head-pending'), false);
+  assert.match(header.innerHTML, /<span>档位<\/span>/);
+  assert.equal(app.element('pelican-order').disabled, false);
 });

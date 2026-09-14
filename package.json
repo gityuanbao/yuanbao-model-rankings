@@ -12,7 +12,7 @@
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check",
     "test": "node --import tsx --test tests/*.test.ts",
-    "validate:data": "node --import tsx scripts/validate-data.ts && node --import tsx scripts/validate-performance.ts",
+    "validate:data": "node --import tsx scripts/validate-data.ts && node --import tsx scripts/validate-performance.ts && node --import tsx scripts/validate-pelican.ts",
     "validate:build": "node --import tsx scripts/validate-build.ts",
     "prices:check": "node --import tsx scripts/check-prices.ts",
     "performance:update": "node --import tsx scripts/update-performance.ts",

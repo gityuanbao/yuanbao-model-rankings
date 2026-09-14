@@ -1,68 +1,63 @@
 ---
-import prompt from '../../docs/鹈鹕测试_统一提示词_v2.0.txt?raw';
+import prompt from '../../docs/鹈鹕测试_统一提示词_v3.0.txt?raw';
 
 const criteria = [
-  { name: '角色与结构', points: 15, description: '鹈鹕可辨认；自行车连接与骑姿合理；角色和橙色工具包全程一致。三项各 5 分。' },
-  { name: '骑行动作', points: 25, description: '两脚跟随各自踏板 10 分；曲柄与踏板协调、车轮绕轴且转向正确、骑行与地面运动配合，各 5 分。' },
-  { name: '核心事件', points: 30, description: '红灯停绿灯走；前后轮依次过减速带，车、鸟和包随之起伏；到站先停稳再挥翅。三项各 10 分。' },
-  { name: '时间与连续性', points: 15, description: '阶段顺序和时间正确，20 秒后停帧；切换自然；无闪烁、瞬移或部件脱离。三项各 5 分。' },
-  { name: '运行与画面', points: 15, description: '原始 HTML 自动播放，符合 SVG 与资源要求；800 × 600 内主体和动作清楚；配色线条协调。三项各 5 分。' },
+  { name: '白猫形象', points: 20, description: '不靠标题也能认出猫，形态协调；主体明显为白色。两项各 10 分，阴影和少量彩色装饰不扣分。' },
+  { name: '自行车结构', points: 20, description: '双轮、车架、车把和车座让人认出自行车；部件连接合理，无明显悬空或错接。两项各 10 分。' },
+  { name: '骑车关系', points: 30, description: '身体有自然支撑；前爪能扶把或控制车把；后爪、腿和脚踏构成合理骑姿，有踩踏时接触连贯。三项各 10 分。' },
+  { name: '画面完成度', points: 20, description: '构图、比例与遮挡不影响理解；线条、配色与细节协调。两项各 10 分，简洁画法也能满分。' },
+  { name: '网页与 SVG', points: 10, description: '原始 HTML 能展示有效作品；猫与自行车主要由 SVG 绘制。两项各 5 分，须查看原作或完整代码。' },
 ];
 const tiers = [
-  { id: 'hang', label: '夯', range: '90–100 分', description: '骑行成立，送宝事件完成度高。' },
-  { id: 'top', label: '顶级', range: '75 至不足 90 分', description: '完成度高，有少量细节瑕疵。' },
-  { id: 'good', label: '人上人', range: '60 至不足 75 分', description: '核心任务成立，仍有明显不足。' },
-  { id: 'npc', label: 'NPC', range: '40 至不足 60 分', description: '能看懂主题，但关键动作或形态出了问题。' },
-  { id: 'la', label: '拉', range: '不足 40 分', description: '静态、严重失败，或没有合格作品。' },
+  { id: 'hang', label: '夯', range: '90–100 分', description: '形象、结构和骑车关系完成度高。' },
+  { id: 'top', label: '顶级', range: '75 至不足 90 分', description: '整体完成度高，有少量细节瑕疵。' },
+  { id: 'good', label: '人上人', range: '60 至不足 75 分', description: '主题成立，仍有明显不足。' },
+  { id: 'npc', label: 'NPC', range: '40 至不足 60 分', description: '能看懂主题，结构或骑姿有较多问题。' },
+  { id: 'la', label: '拉', range: '不足 40 分', description: '完成度较低，或原作确认没有有效作品。' },
 ];
 ---
 <details id="pelican-method" class="pelican-method">
-  <summary id="pelican-method-summary">测试与评分说明 <span class="method-version">v2.0</span></summary>
+  <summary id="pelican-method-summary">测试与评分说明 <span class="method-version">v3.0 · 白猫骑车</span></summary>
   <div class="method-content">
-    <p class="method-intro">源宝鹈鹕送宝挑战：一次生成，让鹈鹕骑车带着工具包，等红灯、过减速带，再到社区小站挥翅致意。比较本次作品的完成度，仅供娱乐，不代表模型的综合能力。</p>
+    <p class="method-intro">这次只给一句“白猫骑车”的题目，看模型自己怎样处理形象、结构和骑姿。榜单仍叫“鹈鹕测试榜”，只比较这次作品的完成度，仅供娱乐，不代表模型的综合能力。</p>
 
     <section aria-labelledby="pelican-how-title">
       <h3 id="pelican-how-title">我们怎么测</h3>
       <ul>
-        <li><strong>每款只生成一次。</strong>新开对话，复制同一段完整提示词，只发送一次。不追问、不重新生成、不修改代码。</li>
+        <li><strong>每款只生成一次。</strong>新开对话，发送同一句提示词，不把评分表发给模型。不追问、不重新生成、不修改代码。</li>
         <li><strong>使用最高推理档位。</strong>无法设置最高档时使用默认档，记录实际型号、平台、日期和档位截图。不同厂商的“最高档”不代表相同计算预算。</li>
-        <li><strong>记录工具条件。</strong>尽量关闭联网、代码执行和自动修复；无法关闭时如实注明，带工具的结果单独标识与比较。</li>
-        <li><strong>统一看原作。</strong>使用同一台电脑、同一浏览器观看完整的 800 × 600、20 秒动画。评分以原始 HTML 为准，GIF 或录屏只用于展示，转码问题不扣模型的分。</li>
-        <li><strong>由 AI 助手评分。</strong>测试者交回原作与型号信息，无需自己打分。AI 助手逐项给分并说明扣分时间点，源宝复核作品与记录后发布；无法判断的项目标为待核实，不猜分。</li>
-        <li><strong>请求未完成不打 0 分。</strong>网络中断、没有权限等导致未收到完整回答，记为待补测；收到完整回答却没有有效作品，才按作品失败计分。</li>
+        <li><strong>记录测试条件。</strong>记录工具是否开启、代码是否改过；工具无法关闭时如实注明。尽量用同一台电脑和同一浏览器查看原作，录制或转码问题不扣模型的分。</li>
+        <li><strong>由 AI 助手评分，源宝复核。</strong>按作品逐项给分，扣分写出具体原因。看不清或材料不足的项目先待核实，不猜分。</li>
+        <li><strong>请求未完成不打 0 分。</strong>网络、权限或超时导致没有完整回答，记待补测。确认完整原作没有有效画面，且排除保存和环境问题后，才记作品失败 0 分。</li>
       </ul>
     </section>
 
     <section aria-labelledby="pelican-score-title">
-      <h3 id="pelican-score-title">100 分，既看骑行，也看事情有没有做完</h3>
+      <h3 id="pelican-score-title">100 分，重点看结构和骑车关系</h3>
       <table class="method-score-table">
-        <caption class="sr-only">鹈鹕送宝动画的五个评分维度，包含 16 个小项，总分 100 分</caption>
+        <caption class="sr-only">白猫骑车的五个评分维度，包含 11 个小项，总分 100 分</caption>
         <thead><tr><th scope="col">评分项</th><th scope="col">分值</th><th scope="col">看什么</th></tr></thead>
         <tbody>{criteria.map(item => <tr><th scope="row">{item.name}</th><td>{item.points}</td><td>{item.description}</td></tr>)}</tbody>
       </table>
-      <p>没做到给 0，做到一部分给一半，完整做到给满分：10 分项给 0 / 5 / 10；5 分项给 0 / 2.5 / 5。关键时间允许约半秒误差；简洁画法也能得满分。先合计 16 项，再应用下面的分数上限。</p>
+      <p>没有做到给 0，基本成立但有明显缺陷给一半，达成要求给满分：10 分项给 0 / 5 / 10；5 分项给 0 / 2.5 / 5。一个问题只扣最直接相关的一项，不重复扣分。</p>
+      <p><strong>没有要求动画，静态作品也能拿高分。</strong>若有动画，其中可见的结构或接触错误按对应项判断。合理透视、卡通夸张、简洁背景不扣分；围巾、按钮或装饰多少不单独加分。</p>
+      <p><strong>只有 GIF 时，先看画面观察分 / 90。</strong>网页与 SVG 的 10 分必须核验原始 HTML 或完整代码。待核验不算 0，不按 90 分折算成 100 分；原作和记录核验、源宝复核完成前，不发布正式总分或档位。</p>
     </section>
 
     <section aria-labelledby="pelican-tier-title">
       <h3 id="pelican-tier-title">从夯到拉，怎么定档</h3>
       <dl class="method-tier-list">{tiers.map(tier => <div class={`pelican-tier-${tier.id}`}><dt>{tier.label}</dt><dd><strong>{tier.range}</strong><span>{tier.description}</span></dd></div>)}</dl>
-      <ul class="method-score-limits">
-        <li><strong>0 分：</strong>原作无法运行，或完整回答没有有效作品。</li>
-        <li><strong>最高 39 分：</strong>只有静态画面。</li>
-        <li><strong>最高 59 分：</strong>没有连续踩踏，或红绿灯、过减速带、到站挥翅中有两项得 0 分。</li>
-        <li><strong>“夯”还有门槛：</strong>总分至少 90，骑行动作至少 20 / 25，核心事件至少 25 / 30；未达到任一要求时最高 89 分。</li>
-      </ul>
-      <p>触发多个限制时取最低上限，最终分取合计分与上限中的较小值。同分视为并列，展示顺序不代表额外的能力差距。请求未完成或证据不足的记录暂不定档。</p>
+      <p>全部 11 项核验后直接相加，不设剧情、动作或静态作品的分数上限。同分并列，展示顺序不代表额外的能力差距。证据不足的作品可以先展示，暂不进入正式排名。</p>
     </section>
 
     <details id="pelican-prompt" class="method-prompt">
       <summary>查看完整测试提示词</summary>
-      <div class="method-prompt-actions"><p>每个模型收到完全相同的题目。</p><button id="pelican-copy-prompt" class="outline-button" type="button" hidden>复制提示词</button></div>
+      <div class="method-prompt-actions"><p>保留这批实际使用的原句，只复制这一句。</p><button id="pelican-copy-prompt" class="outline-button" type="button" hidden>复制提示词</button></div>
       <p id="pelican-copy-status" class="method-copy-status" role="status" aria-live="polite"></p>
       <pre id="pelican-prompt-text" tabindex="0" aria-label="完整测试提示词">{prompt.trim()}</pre>
     </details>
 
-    <p class="method-source">鹈鹕骑车题材灵感来自 <a href="https://github.com/simonw/pelican-bicycle" target="_blank" rel="noopener noreferrer">Simon Willison 的 SVG 测试 ↗</a>。送宝剧情、单次流程与评分标准由源宝项目制定，当前规则为 v2.0（2026-09-13）；不同规则版本的成绩不混排。</p>
+    <p class="method-source">“鹈鹕测试榜”名称沿用 <a href="https://github.com/simonw/pelican-bicycle" target="_blank" rel="noopener noreferrer">Simon Willison 的 SVG 题材灵感 ↗</a>；本批改测白猫骑车。当前规则为源宝 v3.0（2026-09-14），评分标准在收到这批作品后补充，评分前固定口径，不为拉开差距改权重。不同题目或规则版本不混排。</p>
   </div>
 </details>
 

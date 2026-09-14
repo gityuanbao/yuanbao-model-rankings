@@ -1,4 +1,2308 @@
 {
-  "schemaVersion": 1,
-  "entries": []
+  "schemaVersion": 2,
+  "ruleVersion": "3.0",
+  "entries": [
+    {
+      "id": "gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "providerId": "openai",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/gpt-6-astra.mp4",
+        "poster": "media/pelican/gpt-6-astra.webp",
+        "width": 1138,
+        "height": 986
+      },
+      "test": {
+        "modelLabel": "GPT-6 Astra",
+        "platform": "ChatGPT Work",
+        "effort": "极高",
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "exact",
+        "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：GPT-6 Astra。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 10,
+            "reason": "脸、尖耳、胡须和尾巴能辨认出猫，躯干与肢体轮廓清楚。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.28,
+              3.72,
+              5.36,
+              6.92
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.28,
+              3.72,
+              5.36,
+              6.92
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.28,
+              3.72,
+              5.36,
+              6.92
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.28,
+              3.72,
+              5.36,
+              6.92
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.28,
+              3.72,
+              5.36,
+              6.92
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.28,
+              3.72,
+              5.36,
+              6.92
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 10,
+            "reason": "采样帧中后腿随脚踏位置变化，脚与踏板保持可见接触。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.28,
+              3.72,
+              5.36,
+              6.92
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.28,
+              3.72,
+              5.36,
+              6.92
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.28,
+              3.72,
+              5.36,
+              6.92
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "claude-fable-5-1",
+      "name": "Claude Fable 5.1",
+      "providerId": "anthropic",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/claude-fable-5-1.mp4",
+        "poster": "media/pelican/claude-fable-5-1.webp",
+        "width": 1280,
+        "height": 792
+      },
+      "test": {
+        "modelLabel": "Claude Fable 5.1",
+        "platform": null,
+        "effort": "Max",
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "exact",
+        "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：Claude Fable 5.1。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 10,
+            "reason": "脸、尖耳、胡须和尾巴能辨认出猫，躯干与肢体轮廓清楚。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.68,
+              3.48
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.68,
+              3.48
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.68,
+              3.48
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 5,
+            "reason": "前轮与车把之间没有可见的前叉连接，前轮像独立放在车架前方。",
+            "evidenceTimes": [
+              0,
+              0.52,
+              1.16,
+              1.88,
+              2.68,
+              3.48
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.68,
+              3.48
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.68,
+              3.48
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 5,
+            "reason": "腿在摆动，但小圆形脚爪留在曲柄附近，部分时刻腿末端与脚爪、踏板分开。",
+            "evidenceTimes": [
+              0.52,
+              1.16,
+              1.88
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.68,
+              3.48
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.68,
+              3.48
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "gemini-3-8-flash",
+      "name": "Gemini 3.8 Flash",
+      "providerId": "google",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/gemini-3-8-flash.mp4",
+        "poster": "media/pelican/gemini-3-8-flash.webp",
+        "width": 1280,
+        "height": 702
+      },
+      "test": {
+        "modelLabel": "Gemini 3.8 Flash",
+        "platform": null,
+        "effort": null,
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "unknown",
+        "promptText": null,
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图未显示型号与档位，仍需补充测试记录。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 5,
+            "reason": "能认出猫，但头与领结、躯干之间一直有明显空隙，像分开的图形。",
+            "evidenceTimes": [
+              0,
+              0.88,
+              1.92,
+              3.12,
+              4.56,
+              5.88
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.88,
+              1.92,
+              3.12,
+              4.56,
+              5.88
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.88,
+              1.92,
+              3.12,
+              4.56,
+              5.88
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              0.88,
+              1.92,
+              3.12,
+              4.56,
+              5.88
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车架上管或后斜管重叠，有可见承托；不因车座部分遮挡或后爪问题在本项重复扣分。",
+            "evidenceTimes": [
+              0.0,
+              0.88,
+              1.92,
+              3.12,
+              4.56,
+              5.88
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.88,
+              1.92,
+              3.12,
+              4.56,
+              5.88
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 5,
+            "reason": "后爪停在曲柄上方，黑色踏板独自转动，多处采样中脚没有跟上踏板。",
+            "evidenceTimes": [
+              0,
+              0.88,
+              1.92,
+              3.12
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.88,
+              1.92,
+              3.12,
+              4.56,
+              5.88
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.88,
+              1.92,
+              3.12,
+              4.56,
+              5.88
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "deepseek-v4-1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "providerId": "deepseek",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/deepseek-v4-1-flash.mp4",
+        "poster": "media/pelican/deepseek-v4-1-flash.webp",
+        "width": 878,
+        "height": 824
+      },
+      "test": {
+        "modelLabel": "DeepSeek V4.1 Flash",
+        "platform": null,
+        "effort": "Max",
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "unknown",
+        "promptText": null,
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：DeepSeek-V41-Flash。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 10,
+            "reason": "脸、尖耳、胡须和尾巴能辨认出猫，躯干与肢体轮廓清楚。",
+            "evidenceTimes": [
+              0.0,
+              0.68,
+              1.52,
+              2.48,
+              3.56,
+              4.6
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.68,
+              1.52,
+              2.48,
+              3.56,
+              4.6
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.68,
+              1.52,
+              2.48,
+              3.56,
+              4.6
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              0.68,
+              1.52,
+              2.48,
+              3.56,
+              4.6
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              0.68,
+              1.52,
+              2.48,
+              3.56,
+              4.6
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.68,
+              1.52,
+              2.48,
+              3.56,
+              4.6
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 10,
+            "reason": "采样帧中后腿随脚踏位置变化，脚与踏板保持可见接触。",
+            "evidenceTimes": [
+              0.0,
+              0.68,
+              1.52,
+              2.48,
+              3.56,
+              4.6
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.68,
+              1.52,
+              2.48,
+              3.56,
+              4.6
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.68,
+              1.52,
+              2.48,
+              3.56,
+              4.6
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "qwen3-8-max-0902",
+      "name": "Qwen3.8 Max 0902",
+      "providerId": "alibaba",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/qwen3-8-max-0902.mp4",
+        "poster": "media/pelican/qwen3-8-max-0902.webp",
+        "width": 1280,
+        "height": 772
+      },
+      "test": {
+        "modelLabel": "Qwen3.8 Max 0902",
+        "platform": "TraeWork",
+        "effort": null,
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "exact",
+        "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：Qwen3.8-Max。",
+          "0902 后缀来自回传表，截图未显示具体日期版本。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 5,
+            "reason": "能认出猫，但耳朵与圆形头部之间有明显空隙，部分时刻两只耳朵像悬在头上。",
+            "evidenceTimes": [
+              0.64,
+              2.36,
+              3.4,
+              4.4
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.64,
+              1.44,
+              2.36,
+              3.4,
+              4.4
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.64,
+              1.44,
+              2.36,
+              3.4,
+              4.4
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              0.64,
+              1.44,
+              2.36,
+              3.4,
+              4.4
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              0.64,
+              1.44,
+              2.36,
+              3.4,
+              4.4
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.64,
+              1.44,
+              2.36,
+              3.4,
+              4.4
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 10,
+            "reason": "采样帧中后腿随脚踏位置变化，脚与踏板保持可见接触。",
+            "evidenceTimes": [
+              0.0,
+              0.64,
+              1.44,
+              2.36,
+              3.4,
+              4.4
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.64,
+              1.44,
+              2.36,
+              3.4,
+              4.4
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.64,
+              1.44,
+              2.36,
+              3.4,
+              4.4
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "providerId": "moonshot",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/kimi-k3.mp4",
+        "poster": "media/pelican/kimi-k3.webp",
+        "width": 1010,
+        "height": 878
+      },
+      "test": {
+        "modelLabel": "Kimi K3",
+        "platform": "WorkBuddy",
+        "effort": null,
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "exact",
+        "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：Kimi-K3。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 5,
+            "reason": "能认出猫，但耳朵与头顶之间有明显空隙，未连成完整头部轮廓。",
+            "evidenceTimes": [
+              0.44,
+              1.04,
+              1.64,
+              2.4
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.44,
+              1.04,
+              1.64,
+              2.4,
+              3.08
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.44,
+              1.04,
+              1.64,
+              2.4,
+              3.08
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              0.44,
+              1.04,
+              1.64,
+              2.4,
+              3.08
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车架上管或后斜管重叠，有可见承托；不因车座部分遮挡或后爪问题在本项重复扣分。",
+            "evidenceTimes": [
+              0.0,
+              0.44,
+              1.04,
+              1.64,
+              2.4,
+              3.08
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.44,
+              1.04,
+              1.64,
+              2.4,
+              3.08
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 5,
+            "reason": "后腿伸向脚踏区域，但两只脚基本停在原位置，转动踏板多次从脚边经过。",
+            "evidenceTimes": [
+              0.44,
+              1.64,
+              2.4,
+              3.08
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.44,
+              1.04,
+              1.64,
+              2.4,
+              3.08
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.44,
+              1.04,
+              1.64,
+              2.4,
+              3.08
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "glm-5-3",
+      "name": "GLM-5.3",
+      "providerId": "zhipu",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/glm-5-3.mp4",
+        "poster": "media/pelican/glm-5-3.webp",
+        "width": 1010,
+        "height": 942
+      },
+      "test": {
+        "modelLabel": "GLM-5.3",
+        "platform": "WorkBuddy",
+        "effort": null,
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "variant",
+        "promptText": "做一个白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：GLM-5.3。",
+          "实际提示词措辞与统一题目有差异，本作品仅作观察展示，暂不参加同题正式排名。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 10,
+            "reason": "脸、尖耳、胡须和尾巴能辨认出猫，躯干与肢体轮廓清楚。",
+            "evidenceTimes": [
+              0.0,
+              0.48,
+              1.08,
+              1.76,
+              2.56,
+              3.32
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.48,
+              1.08,
+              1.76,
+              2.56,
+              3.32
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.48,
+              1.08,
+              1.76,
+              2.56,
+              3.32
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 5,
+            "reason": "爪下的车把与前叉上端之间有一段空隙，转向部件没有连起来。",
+            "evidenceTimes": [
+              0,
+              0.48,
+              1.08,
+              1.76
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              0.48,
+              1.08,
+              1.76,
+              2.56,
+              3.32
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.48,
+              1.08,
+              1.76,
+              2.56,
+              3.32
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 5,
+            "reason": "一条后腿停在曲柄右上方，小白色脚爪却随踏板单独移动，腿与爪会分开。",
+            "evidenceTimes": [
+              0.48,
+              1.76,
+              3.32
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.48,
+              1.08,
+              1.76,
+              2.56,
+              3.32
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.48,
+              1.08,
+              1.76,
+              2.56,
+              3.32
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "doubao-seed-2-1-pro",
+      "name": "Doubao Seed 2.1 Pro",
+      "providerId": "bytedance",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/doubao-seed-2-1-pro.mp4",
+        "poster": "media/pelican/doubao-seed-2-1-pro.webp",
+        "width": 1280,
+        "height": 1144
+      },
+      "test": {
+        "modelLabel": "Doubao Seed 2.1 Pro",
+        "platform": null,
+        "effort": null,
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "exact",
+        "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图未显示型号与档位，仍需补充测试记录。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 10,
+            "reason": "脸、尖耳、胡须和尾巴能辨认出猫，躯干与肢体轮廓清楚。",
+            "evidenceTimes": [
+              0.0,
+              0.6,
+              1.32,
+              2.12,
+              3.08,
+              3.96
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.6,
+              1.32,
+              2.12,
+              3.08,
+              3.96
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.6,
+              1.32,
+              2.12,
+              3.08,
+              3.96
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              0.6,
+              1.32,
+              2.12,
+              3.08,
+              3.96
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              0.6,
+              1.32,
+              2.12,
+              3.08,
+              3.96
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.6,
+              1.32,
+              2.12,
+              3.08,
+              3.96
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 10,
+            "reason": "采样帧中后腿随脚踏位置变化，脚与踏板保持可见接触。",
+            "evidenceTimes": [
+              0.0,
+              0.6,
+              1.32,
+              2.12,
+              3.08,
+              3.96
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.6,
+              1.32,
+              2.12,
+              3.08,
+              3.96
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.6,
+              1.32,
+              2.12,
+              3.08,
+              3.96
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "minimax-m3",
+      "name": "MiniMax M3",
+      "providerId": "minimax",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/minimax-m3.mp4",
+        "poster": "media/pelican/minimax-m3.webp",
+        "width": 1280,
+        "height": 830
+      },
+      "test": {
+        "modelLabel": "MiniMax M3",
+        "platform": "TraeWork",
+        "effort": null,
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "exact",
+        "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：MiniMax-M3。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 10,
+            "reason": "脸、尖耳、胡须和尾巴能辨认出猫，躯干与肢体轮廓清楚。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.76,
+              3.56
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.76,
+              3.56
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.76,
+              3.56
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 5,
+            "reason": "轮辐会离开轮轴：0.52 秒出现在轮子下方，0.76 秒又移到车把上方。",
+            "evidenceTimes": [
+              0.52,
+              0.6,
+              0.68,
+              0.76
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.76,
+              3.56
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 5,
+            "reason": "前爪搭在车把立管和车架交界附近，离上方两端的握把还有明显距离。",
+            "evidenceTimes": [
+              0,
+              0.52,
+              1.88,
+              3.56
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 5,
+            "reason": "后爪停在曲柄轴附近，踏板在外侧自行转动，脚没有随踏板移动。",
+            "evidenceTimes": [
+              0,
+              0.52,
+              1.88,
+              2.76,
+              3.56
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.76,
+              3.56
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.52,
+              1.16,
+              1.88,
+              2.76,
+              3.56
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "grok-4-6",
+      "name": "Grok 4.6",
+      "providerId": "xai",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/grok-4-6.mp4",
+        "poster": "media/pelican/grok-4-6.webp",
+        "width": 1020,
+        "height": 820
+      },
+      "test": {
+        "modelLabel": "Grok 4.6",
+        "platform": "WorkBuddy",
+        "effort": null,
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "exact",
+        "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：Hetune / grok-4.6。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 5,
+            "reason": "能认出猫，但白色尾巴末端与躯干之间一直留有可见空隙。",
+            "evidenceTimes": [
+              0,
+              0.72,
+              1.64,
+              3.84
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.72,
+              1.64,
+              2.64,
+              3.84,
+              4.96
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.72,
+              1.64,
+              2.64,
+              3.84,
+              4.96
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              0.72,
+              1.64,
+              2.64,
+              3.84,
+              4.96
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              0.72,
+              1.64,
+              2.64,
+              3.84,
+              4.96
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.72,
+              1.64,
+              2.64,
+              3.84,
+              4.96
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 0,
+            "reason": "后爪留在后轮附近，踏板在身体下方另一处转动；采样中没有形成脚踩踏板的关系。",
+            "evidenceTimes": [
+              0,
+              0.72,
+              1.64,
+              2.64,
+              3.84,
+              4.96
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.72,
+              1.64,
+              2.64,
+              3.84,
+              4.96
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.72,
+              1.64,
+              2.64,
+              3.84,
+              4.96
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "gpt-5-6-sol",
+      "name": "GPT-5.6 Sol",
+      "providerId": "openai",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/gpt-5-6-sol.mp4",
+        "poster": "media/pelican/gpt-5-6-sol.webp",
+        "width": 688,
+        "height": 884
+      },
+      "test": {
+        "modelLabel": "GPT-5.6 Sol",
+        "platform": "ChatGPT Work",
+        "effort": "极高",
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "exact",
+        "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：GPT-5.6 Sol。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 10,
+            "reason": "脸、尖耳、胡须和尾巴能辨认出猫，躯干与肢体轮廓清楚。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.32,
+              3.76,
+              5.44,
+              7.04
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.32,
+              3.76,
+              5.44,
+              7.04
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.32,
+              3.76,
+              5.44,
+              7.04
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.32,
+              3.76,
+              5.44,
+              7.04
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.32,
+              3.76,
+              5.44,
+              7.04
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.32,
+              3.76,
+              5.44,
+              7.04
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 10,
+            "reason": "采样帧中后腿随脚踏位置变化，脚与踏板保持可见接触。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.32,
+              3.76,
+              5.44,
+              7.04
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.32,
+              3.76,
+              5.44,
+              7.04
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              1.04,
+              2.32,
+              3.76,
+              5.44,
+              7.04
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "providerId": "anthropic",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/claude-opus-5.mp4",
+        "poster": "media/pelican/claude-opus-5.webp",
+        "width": 578,
+        "height": 530
+      },
+      "test": {
+        "modelLabel": "Claude Opus 5",
+        "platform": null,
+        "effort": "Max",
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "exact",
+        "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：Claude Opus 5。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 10,
+            "reason": "脸、尖耳、胡须和尾巴能辨认出猫，躯干与肢体轮廓清楚。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.84,
+              1.36,
+              2.0,
+              2.56
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.84,
+              1.36,
+              2.0,
+              2.56
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.84,
+              1.36,
+              2.0,
+              2.56
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.84,
+              1.36,
+              2.0,
+              2.56
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.84,
+              1.36,
+              2.0,
+              2.56
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.84,
+              1.36,
+              2.0,
+              2.56
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 10,
+            "reason": "采样帧中后腿随脚踏位置变化，脚与踏板保持可见接触。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.84,
+              1.36,
+              2.0,
+              2.56
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.84,
+              1.36,
+              2.0,
+              2.56
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.84,
+              1.36,
+              2.0,
+              2.56
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "gemini-3-1-pro-preview",
+      "name": "Gemini 3.1 Pro Preview",
+      "providerId": "google",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/gemini-3-1-pro-preview.mp4",
+        "poster": "media/pelican/gemini-3-1-pro-preview.webp",
+        "width": 1280,
+        "height": 902
+      },
+      "test": {
+        "modelLabel": "Gemini 3.1 Pro Preview",
+        "platform": null,
+        "effort": null,
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "unknown",
+        "promptText": null,
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图未显示型号与档位，仍需补充测试记录。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 10,
+            "reason": "可见的脸、胡须、白色躯干和尾巴可以辨认出猫；头顶裁切单列为待核实。",
+            "evidenceTimes": [
+              0,
+              0.36,
+              0.8,
+              1.32
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.8,
+              1.32,
+              1.92,
+              2.48
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.8,
+              1.32,
+              1.92,
+              2.48
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.8,
+              1.32,
+              1.92,
+              2.48
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.8,
+              1.32,
+              1.92,
+              2.48
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.8,
+              1.32,
+              1.92,
+              2.48
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 0,
+            "reason": "后腿一直向车座后方伸出，与下方旋转踏板相距明显，采样中没有踩踏关系。",
+            "evidenceTimes": [
+              0,
+              0.36,
+              0.8,
+              1.32,
+              1.92,
+              2.48
+            ]
+          },
+          {
+            "id": "composition",
+            "score": null,
+            "reason": "GIF 和截图中头顶、耳朵均在画面上边界外；需原始 HTML 排除预览窗口或录制裁切影响，暂不扣分。",
+            "evidenceTimes": [
+              0,
+              0.36,
+              0.8,
+              1.32,
+              1.92,
+              2.48
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.8,
+              1.32,
+              1.92,
+              2.48
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    },
+    {
+      "id": "deepseek-v4-pro-0813",
+      "name": "DeepSeek V4 Pro 0813",
+      "providerId": "deepseek",
+      "ruleVersion": "3.0",
+      "media": {
+        "type": "video",
+        "src": "media/pelican/deepseek-v4-pro-0813.mp4",
+        "poster": "media/pelican/deepseek-v4-pro-0813.webp",
+        "width": 1140,
+        "height": 1072
+      },
+      "test": {
+        "modelLabel": "DeepSeek V4 Pro 0813",
+        "platform": "DeepSeek Harness",
+        "effort": "Max",
+        "date": null,
+        "tools": "unknown",
+        "codeModified": null,
+        "identityStatus": "submitted",
+        "firstAttempt": null,
+        "promptStatus": "exact",
+        "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+        "notes": [
+          "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
+          "截图型号标签：DeepSeek-V4-Pro。",
+          "0813 后缀来自回传表，截图未显示具体日期版本。"
+        ]
+      },
+      "assessment": {
+        "status": "provisional",
+        "reviewedAt": "2026-09-14",
+        "reviewer": "AI",
+        "criteria": [
+          {
+            "id": "cat_shape",
+            "score": 10,
+            "reason": "脸、尖耳、胡须和尾巴能辨认出猫，躯干与肢体轮廓清楚。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.76,
+              1.24,
+              1.84,
+              2.36
+            ]
+          },
+          {
+            "id": "cat_white",
+            "score": 10,
+            "reason": "头部和躯干主体为白色，阴影与彩色装饰不影响白猫辨认。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.76,
+              1.24,
+              1.84,
+              2.36
+            ]
+          },
+          {
+            "id": "bike_identity",
+            "score": 10,
+            "reason": "双轮、车架、车座和车把能辨认成自行车。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.76,
+              1.24,
+              1.84,
+              2.36
+            ]
+          },
+          {
+            "id": "bike_connections",
+            "score": 10,
+            "reason": "可见的轮轴、车架和前叉有连接，未发现明显错接。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.76,
+              1.24,
+              1.84,
+              2.36
+            ]
+          },
+          {
+            "id": "rider_support",
+            "score": 10,
+            "reason": "躯干与车座或车架有可见的承托关系。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.76,
+              1.24,
+              1.84,
+              2.36
+            ]
+          },
+          {
+            "id": "front_paws",
+            "score": 10,
+            "reason": "可见前爪伸向车把并搭在握持处，能看出扶把关系。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.76,
+              1.24,
+              1.84,
+              2.36
+            ]
+          },
+          {
+            "id": "rear_paws",
+            "score": 10,
+            "reason": "采样帧中后腿随脚踏位置变化，脚与踏板保持可见接触。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.76,
+              1.24,
+              1.84,
+              2.36
+            ]
+          },
+          {
+            "id": "composition",
+            "score": 10,
+            "reason": "猫与自行车主体完整、比例可读，没有影响理解的遮挡。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.76,
+              1.24,
+              1.84,
+              2.36
+            ]
+          },
+          {
+            "id": "visual_finish",
+            "score": 10,
+            "reason": "线条和配色风格一致，主体与背景能清楚区分。",
+            "evidenceTimes": [
+              0.0,
+              0.36,
+              0.76,
+              1.24,
+              1.84,
+              2.36
+            ]
+          },
+          {
+            "id": "html_render",
+            "score": null,
+            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "evidenceTimes": []
+          },
+          {
+            "id": "svg_source",
+            "score": null,
+            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "evidenceTimes": []
+          }
+        ],
+        "ownerConfirmed": false
+      }
+    }
+  ]
 }

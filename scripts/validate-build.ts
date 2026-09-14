@@ -22,7 +22,7 @@ for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
   assert.match(html, /<html lang="zh-CN"/, `${file} 必须使用简体中文`);
   assert.ok(html.includes(`href="${base}pelican/"`), `${file} 必须包含鹈鹕测试榜导航`);
-  for (const match of html.matchAll(/\b(href|src)="([^"]+)"/g)) {
+  for (const match of html.matchAll(/\b(href|src|poster)="([^"]+)"/g)) {
     const [, attribute, raw] = match;
     const value = raw.replace(/&amp;/g, '&');
     if (value.startsWith('#')) continue;

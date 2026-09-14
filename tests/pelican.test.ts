@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import data from '../src/data/pelican.json';
-import { defaultPelicanFilters, getPelicanLeaders, getPelicanRows, getPelicanTiers, parsePelicanFilters, pelicanSchema, serializePelicanFilters } from '../src/lib/pelican';
+import { defaultPelicanFilters, getPelicanLeaders, getPelicanRows, getPelicanTier, getPelicanTiers, parsePelicanFilters, pelicanSchema, serializePelicanFilters } from '../src/lib/pelican';
 import { renderPelicanLeaders, renderPelicanTiers } from '../src/lib/pelican-render';
 import { catalog } from '../src/lib/catalog';
 
@@ -48,7 +48,7 @@ test('厂商多选、中文厂商搜索和型号搜索只筛选测试数据，�
   const original = structuredClone(board);
   const selected = getPelicanRows(board, catalog, { ...defaultPelicanFilters, providers: ['openai', 'moonshot'] });
   assert.deepEqual(selected.map(entry => entry.id), ['gpt-test', 'kimi-test', 'gpt-lower']);
-  assert.deepEqual(selected.map(entry => entry.tier), ['hang', 'top', 'la']);
+  assert.deepEqual(selected.map(getPelicanTier), ['hang', 'top', 'la']);
   assert.equal(getPelicanRows(board, catalog, { ...defaultPelicanFilters, query: '千问' })[0].id, 'qwen-test');
   assert.equal(getPelicanRows(board, catalog, { ...defaultPelicanFilters, query: 'kimi-k3' })[0].id, 'kimi-test');
   assert.equal(getPelicanRows(board, catalog, { ...defaultPelicanFilters, query: '未录入' }).length, 0);
@@ -75,15 +75,15 @@ test('鹈鹕榜筛选 URL 能恢复搜索、厂商和方向，排除未知参数
   assert.equal(parsePelicanFilters('?q=' + 'a'.repeat(200)).query.length, 100);
 });
 
-test('无数据或不足三名时保留三个大卡片，不虚构模型、成绩或 GIF', () => {
+test('无正式数据时用状态卡，不足三名时不虚构额外名次', () => {
   const empty = renderPelicanLeaders([], catalog, '/', false);
   assert.equal((empty.match(/class="champion-card /g) ?? []).length, 3);
-  assert.equal((empty.match(/待公布/g) ?? []).length, 3);
+  for (const label of ['本次作品', '待原作核验', '正式上榜']) assert.ok(empty.includes(label));
   assert.doesNotMatch(empty, /<img|href=|fixture/);
-  for (const label of ['第一名', '第二名', '第三名']) assert.ok(empty.includes(label));
+  assert.doesNotMatch(empty, /第一名|第二名|第三名/);
   const partial = renderPelicanLeaders(board.entries.slice(0, 1), catalog, '/', true);
   assert.equal((partial.match(/class="champion-card /g) ?? []).length, 3);
-  assert.equal((partial.match(/暂无符合条件的模型/g) ?? []).length, 2);
+  assert.equal((partial.match(/暂无更多独立名次/g) ?? []).length, 2);
 });
 
 test('等级列保持五档、支持反向展示，过滤后不输出数字名次或未选模型', () => {

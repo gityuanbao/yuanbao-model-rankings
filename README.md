@@ -8,7 +8,7 @@
 
 - 价格：12 家厂商、66 条费率与永久详情，默认显示 64 条。输入、输出、任务成本排序；筛选、场景用量、自定义计算、优惠选项、分享与 URL 恢复。
 - 性能：综合文本 241、网页编程 103、视觉理解 113、智能体 36 条模型/配置记录。各自保留官方指标、日期、名次，不跨分类拼分。
-- 鹈鹕：从夯到拉的作品榜及[送宝挑战 v2 规则](docs/PELICAN-BENCHMARK-v2.md)。当前没有真实结果，等待源宝交回首批作品；不生成演示成绩。
+- 鹈鹕：采用[白猫骑车 v3 规则](docs/PELICAN-BENCHMARK-v3.md)，已收到 14 份真实作品并展示 AI 画面初评；原作技术核验与源宝确认待完成，正式上榜 0 条。观察分为 /90，不折算正式总分或档位。
 - 统一彩色厂商 Logo、冠军卡、桌面/手机布局和社区页脚。标志资源及许可见 [Logo 说明](public/logos/README.md)。
 - 价格自动更新、异常审核、追加历史及 Pages 自动构建发布；覆盖与失败边界见下文。
 
@@ -47,7 +47,7 @@ BASE_PATH=/yuanbao-model-rankings/ npm run validate:build
 | `src/data/price-history.json` | 追加式历史，当前 66 模型 / 70 事件 |
 | `src/data/performance*.json` | 四个独立性能分类快照 |
 | `data/performance/` | 性能历史及来源配置 |
-| `src/data/pelican.json` | 真实作品索引，目前为空 |
+| `src/data/pelican.json` | 14 份白猫作品、逐项观察分、证据与待核验状态 |
 | `src/lib/`、`src/scripts/` | 校验、计价、排序与页面交互 |
 | `scripts/providers/`、`scripts/pricing/` | 独立厂商 Adapter、安全门槛、历史与事务 |
 | `.github/workflows/` | CI、Pages、价格和性能更新 |
@@ -110,4 +110,4 @@ npm run build
 
 性能 **Update Arena performance leaderboard** 每 6 小时尝试更新，也可手动触发。`npm run performance:update` 默认只出报告，追加 `--apply` 才进入更新事务。文本数据集失败时独立读取完整 Arena 官方文本页，两者不拼接；每个来源均需通过完整性、身份、日期和分数变化校验。失败分类保留旧快照并报错；通过校验的分类仍可发布并追加历史。2026-09-14 实跑已成功检查四类榜单、更新文本与视觉、完成 Pages 部署；具体日期与证据见[修复记录](docs/WORKFLOW-FIX-2026-09-14.md)。
 
-鹈鹕采用[统一提示词](docs/鹈鹕测试_统一提示词_v2.0.txt)：每款只生成一次，最高可设置档，不能设置时默认。测试者交回原作及配置信息，AI 逐项评分，源宝复核发布。首批仍需完成真实测试及导入字段扩展，网站没有在线上传或自动评分后台。
+鹈鹕采用[白猫骑车统一提示词](docs/鹈鹕测试_统一提示词_v3.0.txt)：每款只生成一次，最高可设置档，不能设置时默认。本批已收到 14 组 GIF 和截图；AI 按 [v3 规则](docs/PELICAN-BENCHMARK-v3.md)给出画面初评，原始 HTML / 完整代码对应的 10 分和缺失测试记录保留待核验，源宝确认后才进入正式排名。评分标准为收件后补充；静态不直接扣分，同分并列，不与 v2 送宝题目混排。维护方式见[鹈鹕榜说明](docs/PELICAN-BOARD.md)，网站没有在线上传或自动评分后台。
