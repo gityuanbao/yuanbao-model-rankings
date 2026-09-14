@@ -1,4 +1,4 @@
-import { adapter, amount, candidate, one, perModel } from './shared';
+import { adapter, amount, candidate, one, perModel, ManualPricingRequiredError } from './shared';
 import { markdownTables, rateLabel } from './markdown';
 
 export default adapter('zhipu', 'https://docs.bigmodel.cn/cn/guide/start/pricing.md', (raw, models) => {
@@ -18,7 +18,11 @@ export default adapter('zhipu', 'https://docs.bigmodel.cn/cn/guide/start/pricing
     const upper = limit ? Number(limit[1]) * (limit[2] === 'M' ? 1_000_000 : 1000) : NaN;
     if (upper !== model.contextTokens) throw new Error('智谱上下文或阶梯变化，需人工核对');
     const input = value('输入单价（元/百万 Tokens）'), output = value('输出单价（元/百万 Tokens）');
-    if (input === '免费' || output === '免费') throw new Error('官方免费型号由人工核验免费依据，自动更新不发布零价');
+    if (input === '免费' || output === '免费') {
+      const knownFree = model.apiId === 'glm-4.7-flash' && model.zeroPriceReason && model.rates.every(rate => rate.input === 0 && rate.output === 0);
+      const reason = '官方免费型号由人工核验免费依据，自动更新不发布零价';
+      throw knownFree ? new ManualPricingRequiredError(reason) : new Error(reason);
+    }
     const cache = value('缓存命中（元/百万 Tokens）');
     return candidate(raw, model, [{ label: model.rates.find(rate => rate.upToInputTokens === upper)?.label ?? rateLabel(upper), upToInputTokens: upper,
       input: amount(input, 'CNY'), output: amount(output, 'CNY'), cacheRead: cache === '不支持' ? null : amount(cache, 'CNY'), batchFactor: null, offPeakFactor: null, promotion: null }], {

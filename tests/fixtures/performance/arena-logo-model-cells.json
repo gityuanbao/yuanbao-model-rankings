@@ -1,0 +1,90 @@
+{
+  "provenance": {
+    "runUrl": "https://github.com/gityuanbao/yuanbao-model-rankings/actions/runs/34806045214",
+    "capturedAt": "2026-09-14",
+    "artifact": "performance-source-diagnostics",
+    "note": "Exact model cells selected from the official-page parser artifacts. Expected identities come from the previously reviewed snapshots. This is a partial regression fixture, never a complete import or captured HTML."
+  },
+  "entries": [
+    {
+      "category": "code",
+      "sourceUrl": "https://arena.ai/leaderboard/code",
+      "publishedAt": "2026-09-11",
+      "sourceRank": 2,
+      "modelCell": "Anthropic claude-fable-5.1-max Anthropic · Proprietary",
+      "expectedSourceModel": "claude-fable-5.1-max",
+      "expectedProviderId": "anthropic",
+      "expectedId": "claude-fable-5-1-max"
+    },
+    {
+      "category": "code",
+      "sourceUrl": "https://arena.ai/leaderboard/code",
+      "publishedAt": "2026-09-11",
+      "sourceRank": 11,
+      "modelCell": "Tencent hy4-preview Tencent · Apache 2.0",
+      "expectedSourceModel": "hy4-preview",
+      "expectedProviderId": "tencent",
+      "expectedId": "arena-hy4-preview-7c1e5ed7"
+    },
+    {
+      "category": "code",
+      "sourceUrl": "https://arena.ai/leaderboard/code",
+      "publishedAt": "2026-09-11",
+      "sourceRank": 38,
+      "modelCell": "Bytedance seed-2.1-pro-preview Bytedance · Proprietary",
+      "expectedSourceModel": "seed-2.1-pro-preview",
+      "expectedProviderId": "bytedance",
+      "expectedId": "arena-seed-2-1-pro-preview-a795322a"
+    },
+    {
+      "category": "vision",
+      "sourceUrl": "https://arena.ai/leaderboard/vision",
+      "publishedAt": "2026-09-13",
+      "sourceRank": 1,
+      "modelCell": "Anthropic claude-fable-5 Anthropic · Proprietary",
+      "expectedSourceModel": "claude-fable-5",
+      "expectedProviderId": "anthropic",
+      "expectedId": "claude-fable-5"
+    },
+    {
+      "category": "agent",
+      "sourceUrl": "https://arena.ai/leaderboard/agent",
+      "publishedAt": "2026-09-09",
+      "sourceRank": 1,
+      "modelCell": "Anthropic Claude Fable 5.1 (Max) Anthropic · Proprietary",
+      "expectedSourceModel": "Claude Fable 5.1 (Max)",
+      "expectedProviderId": "anthropic",
+      "expectedId": "claude-fable-5-1-max"
+    },
+    {
+      "category": "agent",
+      "sourceUrl": "https://arena.ai/leaderboard/agent",
+      "publishedAt": "2026-09-09",
+      "sourceRank": 10,
+      "modelCell": "Tencent Hy4 preview Tencent · Apache 2.0",
+      "expectedSourceModel": "Hy4 preview",
+      "expectedProviderId": "tencent",
+      "expectedId": "arena-hy4-preview-7c1e5ed7"
+    },
+    {
+      "category": "agent",
+      "sourceUrl": "https://arena.ai/leaderboard/agent",
+      "publishedAt": "2026-09-09",
+      "sourceRank": 14,
+      "modelCell": "DeepSeek V4 Pro (High) (0813) DeepSeek · MIT",
+      "expectedSourceModel": "DeepSeek V4 Pro (High) (0813)",
+      "expectedProviderId": "deepseek",
+      "expectedId": "arena-deepseek-v4-pro-high-0813-75f974ac"
+    },
+    {
+      "category": "agent",
+      "sourceUrl": "https://arena.ai/leaderboard/agent",
+      "publishedAt": "2026-09-09",
+      "sourceRank": 34,
+      "modelCell": "Minimax M3 MiniMax · MiniMax Community License",
+      "expectedSourceModel": "Minimax M3",
+      "expectedProviderId": "minimax",
+      "expectedId": "minimax-m3"
+    }
+  ]
+}

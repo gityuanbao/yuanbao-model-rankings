@@ -70,8 +70,10 @@ export function adapter(providerId: ProviderId, sourceUrl: string, parser: Provi
 export function manual(providerId: ProviderId, sourceUrl: string, reason: string): ProviderAdapter {
   return { ...adapter(providerId, sourceUrl, () => { throw new Error(reason); }), mode: 'manual', reason };
 }
+// Only explicitly unsupported, known pricing cases may use this marker.
+export class ManualPricingRequiredError extends Error {}
 export function perModel(models: Model[], parseModel: (model: Model) => NormalizedPrice, discoveries: ParsedPricing['discoveries'] = []): ParsedPricing {
   const result: ParsedPricing = { items: [], issues: [], discoveries };
-  for (const model of models.filter(m => m.status !== 'retired')) { try { result.items.push(parseModel(model)); } catch (error) { result.issues.push({ modelId: model.id, reason: error instanceof Error ? error.message : String(error) }); } }
+  for (const model of models.filter(m => m.status !== 'retired')) { try { result.items.push(parseModel(model)); } catch (error) { result.issues.push({ modelId: model.id, reason: error instanceof Error ? error.message : String(error), kind: error instanceof ManualPricingRequiredError ? 'manual_required' : 'parse_error' }); } }
   return result;
 }

@@ -2,7 +2,7 @@ import { parse, type DefaultTreeAdapterMap } from 'parse5';
 import { z } from 'zod';
 import { categorySnapshotSchema, performanceCategories, agentSignalLabels, type CategorySnapshot, type AgentModel, type AgentSignal } from '../../src/lib/performance-categories';
 import type { PerformanceModel, PerformanceSelection } from '../../src/lib/performance-schema';
-import { providerFor, selectionFor } from './selection';
+import { isMainstreamModel, providerFor, selectionFor } from './selection';
 import { assertRetainedModels, PerformanceReviewError } from './diagnostics';
 
 const scoredHeaders=['Rank','Rank Spread','Model','Score','Votes','Price $/M','Context'];
@@ -16,15 +16,26 @@ export const categoryImportSchema=z.object({category:z.enum(['code','vision','ag
 export type CategoryImport=z.infer<typeof categoryImportSchema>;
 const integer=(value:string)=>{if(!/^\d{1,3}(?:,\d{3})*$|^\d+$/.test(value))throw new Error('票数/会话数格式异常');return Number(value.replaceAll(',',''));};
 const orgPattern=/^(.+?)\s+(OpenAI|Anthropic|Google|xAI|SpaceXAI|DeepSeek|Bytedance|ByteDance|Alibaba|Moonshot(?:AI)?|Z\.ai|Zhipu|MiniMax|Baidu|Tencent)\s*·/i;
+const normalizedModelName=(sourceModel:string)=>sourceModel.toLowerCase().replace(/\s*\((xhigh|high|medium|low|max)\)/g,'-$1').replace(/\s+/g,'-');
 export function parseMainstreamModelCell(cell:string) {
   const parts=cell.match(orgPattern);if(!parts)return;
-  return {sourceModel:parts[1].trim(),providerId:providerFor(parts[2])};
+  let sourceModel=parts[1].trim();
+  const providerId=providerFor(parts[2]);
+  // Some official logos expose their organization as SVG title text before
+  // the name. Remove a repeated organization only when it restores a known
+  // family. DeepSeek and MiniMax display names legitimately start with it.
+  const logoPrefix=`${parts[2]} `;
+  if(!isMainstreamModel(normalizedModelName(sourceModel),providerId) && sourceModel.toLowerCase().startsWith(logoPrefix.toLowerCase())){
+    const withoutLogo=sourceModel.slice(logoPrefix.length).trim();
+    if(isMainstreamModel(normalizedModelName(withoutLogo),providerId))sourceModel=withoutLogo;
+  }
+  return {sourceModel,providerId};
 }
 export function categorySelection(cell:string, selection:PerformanceSelection) {
   const identity=parseMainstreamModelCell(cell);if(!identity)return;
   const {sourceModel,providerId}=identity;
   // Agent uses display names with spaces. Preserve its exact source identity separately.
-  const normalized=sourceModel.toLowerCase().replace(/\s*\((xhigh|high|medium|low|max)\)/g,'-$1').replace(/\s+/g,'-');
+  const normalized=normalizedModelName(sourceModel);
   const selected=selectionFor(normalized,providerId,selection);if(!selected)return;
   return {...selected,sourceModel};
 }
@@ -76,7 +87,7 @@ export function acceptCategorySnapshot(previous:CategorySnapshot|null,candidate:
 }
 type Node=DefaultTreeAdapterMap['node'];
 const children=(node:Node):Node[]=>'childNodes' in node?node.childNodes:[];
-const text=(node:Node):string=>'value' in node?node.value:children(node).map(text).join(' ');
+const text=(node:Node):string=>'tagName' in node && ['svg','title','script','style'].includes(node.tagName)?'':'value' in node?node.value:children(node).map(text).join(' ');
 const elements=(node:Node,tag:string):Node[]=>[...('tagName' in node && node.tagName===tag?[node]:[]),...children(node).flatMap(child=>elements(child,tag))];
 export function parseLeaderboardHtml(html:string,category:keyof typeof performanceCategories) {
   const doc=parse(html);const tables=elements(doc,'table');

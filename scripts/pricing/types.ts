@@ -25,7 +25,8 @@ export const normalizedPriceSchema = z.object({
   item.rates.forEach((rate, i) => { if (i && rate.upToInputTokens <= item.rates[i - 1].upToInputTokens) fail('输入阶梯重复或倒序'); });
 });
 export type NormalizedPrice = z.infer<typeof normalizedPriceSchema>;
-export interface ParseIssue { modelId: string; reason: string }
+// Older adapters may omit kind; an unclassified issue is always a parsing error.
+export interface ParseIssue { modelId: string; reason: string; kind?: 'manual_required' | 'parse_error' }
 export interface Discovery { apiId: string; sourceUrl: string; label: string }
 export interface ParsedPricing { items: NormalizedPrice[]; issues: ParseIssue[]; discoveries: Discovery[] }
 export interface ValidationResult { valid: boolean; errors: string[] }

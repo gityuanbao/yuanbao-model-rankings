@@ -161,7 +161,7 @@ jobs:
           FAILED_COUNT: ${{ needs.update.outputs.failed_count }}
         run: |
           if [ "$FAILED_COUNT" != '0' ]; then
-            echo '::error::自动抓取发生故障，受影响厂商保留旧价。请查看 Workflow Summary 和 pricing-review artifact。'
+            echo '::error::自动抓取或价格解析发生故障，受影响型号保留旧价。请查看 Workflow Summary 和 pricing-review artifact。'
             exit 1
           fi
           echo '::warning::存在待人工核对的候选，已保留旧价；这不是抓取或部署失败。请查看 Workflow Summary 和 pricing-review artifact。'

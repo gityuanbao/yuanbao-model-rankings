@@ -22,6 +22,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     env:
       ASTRO_TELEMETRY_DISABLED: '1'
+    outputs:
+      failed_count: ${{ steps.update.outputs.failed_count }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -109,3 +111,12 @@ jobs:
           path: reports/performance-source-*.json
           if-no-files-found: ignore
           retention-days: 7
+  attention:
+    needs: update
+    if: always() && needs.update.result == 'success' && needs.update.outputs.failed_count != '' && needs.update.outputs.failed_count != '0'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report categories that failed while valid categories were preserved
+        run: |
+          echo '::error::部分性能分类同步失败，已保留其旧成绩；通过校验的分类可正常发布。请查看 performance-update-report。'
+          exit 1

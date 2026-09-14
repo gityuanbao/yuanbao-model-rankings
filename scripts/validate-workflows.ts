@@ -12,6 +12,11 @@ assert.ok(performanceSteps.some(s=>s.run==='npm run performance:update -- --appl
 for(const step of performanceSteps.filter(s=>s.uses?.includes('pages-artifact')||s.uses?.includes('deploy-pages')||s.run?.includes('git commit')))assert.match(step.if??'',/changed == 'true'/);
 assert.ok(performanceSteps.some(s=>s.run?.includes('git diff --cached --quiet')));
 assert.match(performanceSteps.find(s=>s.run?.startsWith('git push'))?.if??'',/deployment.outcome == 'success'/);
+assert.equal(performance.jobs.update.outputs.failed_count,'${{ steps.update.outputs.failed_count }}');
+assert.equal(performance.jobs.attention.needs,'update');
+assert.match(performance.jobs.attention.if,/needs.update.result == 'success'/);
+assert.match(performance.jobs.attention.if,/failed_count != '0'/);
+assert.ok(performance.jobs.attention.steps.some((s:{run?:string})=>s.run?.includes('exit 1')));
 assert.equal(update.on.schedule[0].cron,'17 */6 * * *');assert.ok(update.on.workflow_dispatch);
 assert.deepEqual(update.concurrency,{group:'pricing-update','cancel-in-progress':false});assert.equal(deploy.concurrency.group,update.concurrency.group);
 const steps=update.jobs.update.steps as {name?:string;run?:string;uses?:string;if?:string}[];
