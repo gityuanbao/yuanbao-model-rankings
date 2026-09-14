@@ -1,42 +1,35 @@
 import { catalog } from '../lib/catalog';
-import data from '../data/pelican.json';
-import { defaultPelicanFilters, getPelicanCounts, getPelicanRows, parsePelicanFilters, pelicanSchema, serializePelicanFilters, type PelicanFilters } from '../lib/pelican';
-import { renderPelicanLeaders, renderPelicanTiers } from '../lib/pelican-render';
+import { defaultPelicanFilters, parsePelicanFilters, serializePelicanFilters, type PelicanFilters } from '../lib/pelican';
+import { getPelicanShowcaseRows, renderPelicanShowcase, type PelicanShowcaseEntry } from '../lib/pelican-showcase';
+import { mountPelicanThumbnails } from './pelican-thumbnails';
 import { captureRows, animateRows } from './motion';
 import { bindSearch, bindResponsiveFilters } from './controls';
 
-const board = pelicanSchema.parse(data);
+const entries = JSON.parse(document.getElementById('pelican-showcase-data')!.textContent!) as PelicanShowcaseEntry[];
 const byId = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const base = byId('main').dataset.base!;
 const search = byId<HTMLInputElement>('pelican-search');
-let state = parsePelicanFilters(location.search);
+const readState = (): PelicanFilters => ({ ...parsePelicanFilters(location.search), order: 'desc' });
+let state = readState();
+if (new URLSearchParams(location.search).has('order')) history.replaceState(null, '', `${location.pathname}${serializePelicanFilters(state)}${location.hash}`);
+let disposePreviews = () => {};
 const searchInput = bindSearch(search, query => update({ query }, true));
 
 function render(animate = true) {
   const positions = animate ? captureRows() : new Map<string, DOMRect>();
-  const rows = getPelicanRows(board, catalog, state);
-  const counts = getPelicanCounts(rows);
-  const columnHead = byId('pelican-list').querySelector<HTMLElement>('.pelican-column-head')!;
-  columnHead.classList.toggle('pelican-column-head-pending', !counts.ranked);
-  columnHead.innerHTML = `${counts.ranked ? '<span>档位</span>' : ''}<span>模型与评分</span><span>测试作品</span>`;
-  const tiers = byId('pelican-tiers');
-  const expanded = [...tiers.querySelectorAll<HTMLDetailsElement>('.pelican-assessment[open]')].map(detail => detail.closest<HTMLElement>('[data-model-id]')!.dataset.modelId);
-  tiers.innerHTML = renderPelicanTiers(rows, catalog, base, state.order);
-  tiers.querySelectorAll<HTMLDetailsElement>('.pelican-assessment').forEach(detail => detail.open = expanded.includes(detail.closest<HTMLElement>('[data-model-id]')!.dataset.modelId));
-  tiers.dataset.order = state.order;
-  byId('pelican-leaders').innerHTML = renderPelicanLeaders(rows, catalog, base, board.entries.length > 0);
-  byId('pelican-leaders').setAttribute('aria-label', counts.ranked ? '当前筛选的领先作品，同分并列' : '当前筛选的作品和核验状态');
+  const rows = getPelicanShowcaseRows(entries, catalog, state);
+  const works = byId('pelican-works');
+  const expanded = [...works.querySelectorAll<HTMLDetailsElement>('.pelican-test-record[open]')].map(detail => detail.closest<HTMLElement>('[data-model-id]')!.dataset.modelId);
+  disposePreviews();
+  works.innerHTML = renderPelicanShowcase(rows, catalog, base);
+  works.querySelectorAll<HTMLDetailsElement>('.pelican-test-record').forEach(detail => detail.open = expanded.includes(detail.closest<HTMLElement>('[data-model-id]')!.dataset.modelId));
+  disposePreviews = mountPelicanThumbnails(works);
   byId('pelican-count').textContent = String(rows.length);
-  byId('pelican-summary').textContent = counts.ranked
-    ? `显示 ${counts.ranked} 份已评分作品，${state.order === 'desc' ? '从夯到拉' : '从拉到夯'}${counts.provisional ? `；另有 ${counts.provisional} 份作品待核验` : ''}`
-    : `显示 ${counts.provisional} 份待核验作品，按提交顺序展示，暂不排名`;
-  const empty = rows.length === 0 && (board.entries.length > 0 || !!state.query || state.providers.length > 0);
+  byId('pelican-summary').textContent = `显示 ${rows.length} 份 HTML 作品，按提交顺序展示，暂不评分和排名`;
+  const empty = rows.length === 0 && (entries.length > 0 || !!state.query || state.providers.length > 0);
   byId('pelican-empty').hidden = !empty;
   byId('pelican-list').hidden = empty;
   byId<HTMLInputElement>('pelican-all').checked = !state.providers.length;
-  byId<HTMLSelectElement>('pelican-order').value = state.order;
-  byId<HTMLSelectElement>('pelican-order').disabled = !counts.ranked;
-  byId<HTMLSelectElement>('pelican-order').title = counts.ranked ? '作品评分的档位顺序；待核验作品始终按提交顺序展示' : '评分证据齐全后可按档位排序';
   if (document.activeElement !== search && !searchInput.composing) search.value = state.query;
   document.querySelectorAll<HTMLInputElement>('[name="pelican-provider"]').forEach(input => input.checked = state.providers.includes(input.value));
   if (animate) animateRows(positions);
@@ -53,27 +46,17 @@ byId('pelican-reset').addEventListener('click', reset);
 byId('pelican-empty-reset').addEventListener('click', reset);
 byId('pelican-all').addEventListener('change', () => update({ providers: [] }));
 document.querySelectorAll<HTMLInputElement>('[name="pelican-provider"]').forEach(input => input.addEventListener('change', () => update({ providers: [...document.querySelectorAll<HTMLInputElement>('[name="pelican-provider"]:checked')].map(box => box.value) })));
-byId<HTMLSelectElement>('pelican-order').addEventListener('change', event => update({ order: (event.target as HTMLSelectElement).value === 'asc' ? 'asc' : 'desc' }));
 document.querySelectorAll<HTMLAnchorElement>('[data-pelican-provider]').forEach(link => link.addEventListener('click', event => {
   if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
   update({ providers: [link.dataset.pelicanProvider!] });
   byId('ranking-title').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
 }));
-window.addEventListener('popstate', () => { state = parsePelicanFilters(location.search); searchInput.restore(state.query); render(); });
+window.addEventListener('popstate', () => { state = readState(); searchInput.restore(state.query); render(); });
 bindResponsiveFilters(byId<HTMLDetailsElement>('pelican-filters'));
 
-// Media failures are presentation failures, never model assessment failures.
-document.addEventListener('error', event => {
-  if (!(event.target instanceof HTMLVideoElement) || !event.target.hasAttribute('data-pelican-video')) return;
-  const fallback = event.target.closest('.pelican-media')?.querySelector<HTMLElement>('[data-pelican-media-error]');
-  if (fallback) fallback.hidden = false;
-}, true);
-document.addEventListener('loadeddata', event => {
-  if (!(event.target instanceof HTMLVideoElement) || !event.target.hasAttribute('data-pelican-video')) return;
-  const fallback = event.target.closest('.pelican-media')?.querySelector<HTMLElement>('[data-pelican-media-error]');
-  if (fallback) fallback.hidden = true;
-}, true);
+window.addEventListener('pagehide', () => disposePreviews());
+window.addEventListener('pageshow', event => { if (event.persisted) render(false); });
 
 let toastTimer: ReturnType<typeof setTimeout>;
 byId('pelican-share').addEventListener('click', async () => {

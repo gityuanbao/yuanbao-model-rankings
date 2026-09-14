@@ -150,3 +150,36 @@ dialog.pelican-original-dialog { box-sizing: border-box; width: min(1030px, calc
   .pelican-original-dialog .dialog-heading h2 { font-size: 16px; }
 }
 .pelican-pending-reason { color: var(--muted); font-size: 12px; line-height: 1.65; margin: 8px 0 0; }
+
+/* The current board is a submission-order showcase, without a rank column. */
+.pelican-showcase-entry { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 32px; padding: 26px; align-items: center; }
+.pelican-showcase-entry + .pelican-showcase-entry { border-top: 1px solid var(--line); }
+.pelican-work-info { min-width: 0; }
+.pelican-showcase .pelican-model h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
+.pelican-html-artwork { min-width: 0; margin: 0; }
+.pelican-thumbnail { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #f5f5f7; border: 1px solid var(--line); border-radius: 12px; }
+.pelican-thumbnail iframe { position: absolute; top: 0; left: 0; width: 960px; height: 720px; max-width: none; border: 0; transform-origin: top left; pointer-events: none; }
+.pelican-thumbnail-status { position: absolute; inset: 0; display: grid; place-content: center; padding: 24px; color: var(--muted); font-size: 13px; text-align: center; pointer-events: none; }
+.pelican-thumbnail-status[hidden] { display: none; }
+.pelican-thumbnail-open { position: absolute; inset: 0; width: 100%; border: 0; padding: 14px; background: transparent; cursor: zoom-in; display: flex; align-items: flex-end; justify-content: flex-end; }
+.pelican-thumbnail-open span { padding: 6px 10px; border-radius: 7px; background: #ffffffed; color: var(--ink); box-shadow: 0 1px 8px #0001; font-size: 11px; opacity: 0; transition: opacity .2s; }
+.pelican-thumbnail-open:is(:hover, :focus-visible) span { opacity: 1; }
+.pelican-thumbnail-open:focus-visible { outline: 3px solid var(--blue); outline-offset: -4px; border-radius: 12px; }
+.pelican-html-artwork figcaption { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 9px; }
+.pelican-html-artwork figcaption a { display: inline-flex; align-items: center; min-height: 40px; color: var(--muted); font-size: 12px; }
+.pelican-html-artwork figcaption a:hover { color: var(--blue); }
+.pelican-test-record { margin-top: 8px; font-size: 12px; }
+.pelican-test-record summary { color: var(--muted); cursor: pointer; padding: 10px 0; }
+.pelican-test-record summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.pelican-test-record .pelican-test-info { padding: 14px; }
+.pelican-material-note { color: var(--muted); font-size: 12px; line-height: 1.7; margin: 10px 0; }
+.pelican-html-missing { display: grid; place-items: center; min-height: 180px; color: var(--muted); background: #f5f5f7; border-radius: 12px; font-size: 13px; }
+@media (max-width: 1100px) and (min-width: 901px) {
+  .pelican-showcase-entry { grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: 20px; }
+}
+@media (max-width: 640px) {
+  .pelican-showcase-entry { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 20px 18px; }
+  .pelican-showcase .pelican-model { min-height: 42px; }
+  .pelican-showcase .pelican-model h3 { font-size: 15px; }
+  .pelican-test-record { margin-top: 0; }
+}

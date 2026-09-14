@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import ts from 'typescript';
 import { parseFragment, type DefaultTreeAdapterMap } from 'parse5';
 import { pathFor } from '../src/lib/render';
+import { previewDocument } from '../src/lib/pelican-preview';
 
 class ElementDouble {
   dataset: Record<string, string> = {};
@@ -49,11 +50,12 @@ function harness() {
   const entries = ['first', 'second'].map(id => ({
     id, name: `作品 ${id}`, ruleVersion: '3.0', artifact: { src: `pelican-originals/${id}.html.txt`, download: `pelican-originals/${id}.zip` },
   }));
+  element('pelican-showcase-data').textContent = JSON.stringify(entries);
   const source = readFileSync(new URL('../src/scripts/pelican-original.ts', import.meta.url), 'utf8').replace(/^import .*$/gm, '');
   const context = vm.createContext({
     data: { entries }, pelicanSchema: { parse: (value: unknown) => value },
     isPelicanV3Entry: (entry: typeof entries[number]) => entry.ruleVersion === '3.0', pathFor,
-    document, AbortController,
+    document, AbortController, previewDocument,
     ResizeObserver: class { constructor(_callback: () => void) {} observe() {} },
     fetch: (url: string, options: { signal: AbortSignal }) => new Promise((resolve, reject) => requests.push({ url, signal: options.signal, resolve, reject })),
   });

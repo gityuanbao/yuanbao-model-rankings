@@ -692,7 +692,8 @@
         "htmlVerifiedAt": "2026-09-14",
         "svgVerified": true,
         "runStatus": "passed"
-      }
+      },
+      "showcaseNote": "与 DeepSeek V4 Pro 0813 收到的 HTML 相同，附件对应关系待确认。"
     },
     {
       "id": "qwen3-8-max-0902",
@@ -2241,7 +2242,8 @@
         "htmlVerifiedAt": "2026-09-14",
         "svgVerified": true,
         "runStatus": "passed"
-      }
+      },
+      "showcaseNote": "这里展示本次补交的 HTML；它与此前录屏不同，版本对应关系待确认。"
     },
     {
       "id": "deepseek-v4-pro-0813",
@@ -2417,7 +2419,8 @@
         "htmlVerifiedAt": "2026-09-14",
         "svgVerified": true,
         "runStatus": "passed"
-      }
+      },
+      "showcaseNote": "与 DeepSeek V4.1 Flash 收到的 HTML 相同，附件对应关系待确认。"
     }
   ]
 }

@@ -53,4 +53,4 @@ for (const entry of board.entries) {
   }
 }
 const counts = getPelicanCounts(board.entries);
-console.log(`鹈鹕数据校验通过：${counts.total} 份作品，${counts.ranked} 份已评分，${counts.provisional} 份材料待确认；本地原作和统一媒体资源有效。`);
+console.log(`鹈鹕数据校验通过：${counts.total} 份作品，原作和历史媒体记录有效；当前页面仅展示 HTML，不评分和排名。`);

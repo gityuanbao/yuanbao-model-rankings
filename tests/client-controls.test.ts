@@ -15,6 +15,7 @@ import * as performance from '../src/lib/performance';
 import * as performanceRender from '../src/lib/performance-render';
 import * as pelican from '../src/lib/pelican';
 import * as pelicanRender from '../src/lib/pelican-render';
+import * as pelicanShowcase from '../src/lib/pelican-showcase';
 
 // Execute the real clients with deterministic DOM/event/timer doubles. This covers
 // the input -> filter -> history/share integration, not just query serialization.
@@ -117,6 +118,7 @@ function client(board: typeof boards[number], hash = '', pelicanData: unknown = 
   const elements = new Map<string, ElementDouble>();
   const element = (id: string) => { if (!elements.has(id)) elements.set(id, new ElementDouble(id)); return elements.get(id)!; };
   element('main').dataset.base = '/';
+  element('pelican-showcase-data').textContent = JSON.stringify(pelicanShowcase.getPelicanShowcaseEntries(pelican.pelicanSchema.parse(pelicanData)));
   const provider = element('provider-openai'); provider.value = 'openai';
   const categories = ['text', 'code', 'vision', 'agent'].map(category => { const button = element(`category-${category}`); button.dataset.performanceCategory = category; return button; });
   const methodLink = element('method-link');
@@ -141,7 +143,8 @@ function client(board: typeof boards[number], hash = '', pelicanData: unknown = 
   let copied = '', clock = 0, timerId = 0;
   const timers = new Map<number, { at: number; callback: () => void }>();
   const context = vm.createContext({
-    ...ranking, ...urlState, ...priceRender, ...performance, ...performanceRender, ...pelican, ...pelicanRender,
+    ...ranking, ...urlState, ...priceRender, ...performance, ...performanceRender, ...pelican, ...pelicanRender, ...pelicanShowcase,
+    mountPelicanThumbnails: () => () => {},
     catalog, performanceBoards, performanceCategories, data: pelicanData, document, window, location,
     URL, URLSearchParams, Map, HTMLVideoElement: VideoElementDouble, Option: class { constructor(public textContent: string, public value: string) {} },
     history: { replaceState: navigate, pushState: navigate },
@@ -253,99 +256,53 @@ test('性能评分说明可通过普通点击、首次 hash 和后续 hash 直�
   assert.equal(method.open, true);
 });
 
-test('鹈鹕榜：筛选重绘仅恢复仍可见作品已展开的评分明细', async () => {
+test('鹈鹕作品展示：筛选重绘保留可见作品的测试记录，空结果可恢复', async () => {
   const fixture = fixtureBoard([pelicanFixture('openai-pending', 'openai'), pelicanFixture('moonshot-pending', 'moonshot')]);
   const app = client(boards[2], '', fixture);
-  const tiers = app.element('pelican-tiers');
-  const before = tiers.querySelectorAll('.pelican-assessment');
-  assert.equal(before.length, fixture.entries.length);
-  const retainedId = before[0].closest('[data-model-id]')!.dataset.modelId;
+  const works = app.element('pelican-works');
+  const before = works.querySelectorAll('.pelican-test-record');
+  assert.equal(before.length, 2);
   before[0].open = true;
   app.provider.checked = true;
   await app.provider.emit('change');
-  const after = tiers.querySelectorAll('.pelican-assessment');
-  const retained = after.find(detail => detail.closest('[data-model-id]')!.dataset.modelId === retainedId)!;
-  assert.notEqual(retained, before[0], '重绘必须创建新节点，不能依赖旧节点状态');
-  assert.equal(retained.open, true);
-  assert.equal(after.filter(detail => detail.open).length, 1);
-  assert.equal(app.element('pelican-order').disabled, true);
-  assert.match(app.element('pelican-summary').textContent, /按提交顺序展示，暂不排名/);
+  const after = works.querySelectorAll('.pelican-test-record');
+  assert.equal(after.length, 1);
+  assert.equal(after[0].open, true);
+  assert.notEqual(after[0], before[0]);
+  assert.match(app.element('pelican-summary').textContent, /暂不评分和排名/);
   await app.type('no matching model'); app.tick(250);
-  assert.equal(tiers.querySelectorAll('.pelican-assessment').length, 0);
+  assert.equal(works.querySelectorAll('.pelican-test-record').length, 0);
   assert.equal(app.element('pelican-empty').hidden, false);
   assert.equal(app.element('pelican-list').hidden, true);
+  await app.element('pelican-empty-reset').emit('click');
+  assert.equal(works.querySelectorAll('.pelican-test-record').length, 2);
+  assert.equal(app.element('pelican-empty').hidden, true);
 });
 
-test('鹈鹕榜：作品媒体出错显示可读反馈，加载恢复后消失且不改变观察分', async () => {
-  const app = client(boards[2], '', fixtureBoard([pelicanFixture('scored-video', 'openai', 'scored')]));
-  const tiers = app.element('pelican-tiers');
-  const video = tiers.querySelectorAll('[data-pelican-video]')[0];
-  assert.ok(video instanceof VideoElementDouble);
-  const fallback = video.closest('.pelican-media')!.querySelector('[data-pelican-media-error]');
-  const htmlBefore = tiers.innerHTML;
-  assert.equal(fallback.hidden, true);
-  await app.document.emit('error', { target: video });
-  assert.equal(fallback.hidden, false);
-  assert.equal(tiers.innerHTML, htmlBefore, '媒体故障不可重写作品评分或名单');
-  await app.document.emit('loadeddata', { target: video });
-  assert.equal(fallback.hidden, true);
-  await app.document.emit('error', { target: new ElementDouble('unrelated-image') });
-  assert.equal(fallback.hidden, true, '非作品视频的事件不可触发当前作品反馈');
-});
-
-test('鹈鹕榜：混合成绩筛到待核验作品时同步移除档位列，重置后恢复', async () => {
-  const mixed = fixtureBoard([pelicanFixture('scored', 'openai', 'scored'), pelicanFixture('pending', 'moonshot')]);
-  const app = client(boards[2], '', mixed);
-  const header = app.element('pelican-list').querySelector('.pelican-column-head');
-  assert.equal(header.classList.contains('pelican-column-head-pending'), false);
-  assert.match(header.innerHTML, /<span>档位<\/span>/);
-  assert.equal(app.element('pelican-order').disabled, false);
-  await app.type('Kimi'); app.tick(250);
-  assert.equal(header.classList.contains('pelican-column-head-pending'), true);
-  assert.doesNotMatch(header.innerHTML, /档位/);
-  assert.match(header.innerHTML, /模型与评分.*测试作品/);
-  assert.equal(app.element('pelican-order').disabled, true);
-  assert.deepEqual([...app.element('pelican-tiers').innerHTML.matchAll(/id="tier-([a-z]+)"/g)].map(match => match[1]), ['hang', 'top', 'good', 'npc', 'la'], '待核验结果仍保留完整从夯到拉标尺');
-  await app.element('pelican-reset').emit('click');
-  assert.equal(header.classList.contains('pelican-column-head-pending'), false);
-  assert.match(header.innerHTML, /<span>档位<\/span>/);
-  assert.equal(app.element('pelican-order').disabled, false);
-});
-
-test('鹈鹕榜：AI已评分作品支持反序、组合筛选、分享和历史恢复，待核验作品不参与排名', async () => {
+test('鹈鹕作品展示：原有分数和旧排序链接不影响提交顺序，筛选与分享正确恢复', async () => {
   const mixed = fixtureBoard([
-    pelicanFixture('pending', 'moonshot'), pelicanFixture('winner', 'openai', 'scored'),
-    pelicanFixture('runner-up', 'openai', 'scored', 90), pelicanFixture('third', 'moonshot', 'scored', 75),
+    pelicanFixture('pending', 'moonshot'), pelicanFixture('runner-up', 'openai', 'scored', 90),
+    pelicanFixture('winner', 'openai', 'scored'), pelicanFixture('third', 'moonshot', 'scored', 75),
   ]);
   const app = client(boards[2], '#pelican-method', mixed);
-  const tierIds = () => app.element('pelican-tiers').querySelectorAll('[data-model-id]').map(row => row.dataset.modelId);
-  assert.deepEqual(tierIds(), ['winner', 'runner-up', 'third', 'pending']);
-  assert.match(app.element('pelican-summary').textContent, /3 份已评分作品，从夯到拉；另有 1 份作品待核验/);
-  const leaderHtml = app.element('pelican-leaders').innerHTML;
-  app.element('pelican-order').value = 'asc';
-  await app.element('pelican-order').emit('change');
-  assert.deepEqual(tierIds(), ['third', 'runner-up', 'winner', 'pending']);
-  assert.equal(app.element('pelican-leaders').innerHTML, leaderHtml, '反序不改变领先作品');
-  assert.match(app.element('pelican-summary').textContent, /从拉到夯/);
-  await app.type('GPT');
-  app.provider.checked = true;
-  app.document.activeElement = app.provider;
-  await app.provider.emit('change');
-  app.tick(250);
-  assert.deepEqual(tierIds(), ['runner-up', 'winner']);
-  assert.equal(app.element('pelican-count').textContent, '2');
+  const ids = () => app.element('pelican-works').querySelectorAll('[data-model-id]').map(row => row.dataset.modelId);
+  assert.deepEqual(ids(), ['pending', 'runner-up', 'winner', 'third']);
+  assert.doesNotMatch(app.element('pelican-works').innerHTML, /<video|pelican-score|tier-hang|第一名|观察分/);
+  app.location.search = '?order=asc'; await app.window.emit('popstate');
+  assert.deepEqual(ids(), ['pending', 'runner-up', 'winner', 'third']);
+  await app.type('GPT'); app.provider.checked = true;
+  app.document.activeElement = app.provider; await app.provider.emit('change'); app.tick(250);
+  assert.deepEqual(ids(), ['runner-up', 'winner']);
   await app.element('pelican-share').emit('click');
   const shared = new URL(app.copied());
-  assert.equal(shared.searchParams.get('order'), 'asc');
+  assert.equal(shared.searchParams.has('order'), false);
   assert.equal(shared.searchParams.get('q'), 'GPT');
   assert.equal(shared.searchParams.get('providers'), 'openai');
   assert.equal(shared.hash, '#pelican-method');
   await app.element('pelican-reset').emit('click');
-  assert.deepEqual(tierIds(), ['winner', 'runner-up', 'third', 'pending']);
-  app.location.search = shared.search;
-  await app.window.emit('popstate');
-  assert.deepEqual(tierIds(), ['runner-up', 'winner']);
-  assert.equal(app.element('pelican-order').value, 'asc');
+  assert.deepEqual(ids(), ['pending', 'runner-up', 'winner', 'third']);
+  app.location.search = shared.search; await app.window.emit('popstate');
+  assert.deepEqual(ids(), ['runner-up', 'winner']);
   assert.equal(app.provider.checked, true);
   assert.equal(app.element('pelican-search').value, 'GPT');
 });

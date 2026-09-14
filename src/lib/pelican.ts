@@ -54,6 +54,7 @@ export const pelicanV3EntrySchema = z.object({
   name: nonempty,
   providerId: z.enum(providerIds),
   ruleVersion: z.literal('3.0'),
+  showcaseNote: nonempty.optional(),
   media: z.object({
     type: z.literal('video'),
     src: z.string().regex(/^media\/pelican\/[a-z0-9]+(?:-[a-z0-9]+)*\.mp4$/),
