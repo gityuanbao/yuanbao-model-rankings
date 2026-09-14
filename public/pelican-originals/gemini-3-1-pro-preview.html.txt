@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>骑自行车的白色猫咪</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a252c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        .canvas-container {
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: #a2d9ff;
+        }
+
+        /* 骑行微小颠簸动画 */
+        @keyframes bump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(2px); }
+        }
+
+        .rider-group {
+            animation: bump 0.4s linear infinite;
+        }
+    </style>
+</head>
+<body>
+
+<div class="canvas-container">
+    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <!-- 云朵模板 -->
+            <g id="cloud">
+                <circle cx="20" cy="20" r="20" fill="#ffffff" />
+                <circle cx="50" cy="10" r="25" fill="#ffffff" />
+                <circle cx="80" cy="20" r="20" fill="#ffffff" />
+                <rect x="20" y="10" width="60" height="30" fill="#ffffff" />
+            </g>
+            
+            <!-- 草地无缝贴图 -->
+            <pattern id="grass" x="0" y="0" width="100" height="20" patternUnits="userSpaceOnUse">
+                <polygon points="15,20 10,5 20,20" fill="#60a859" />
+                <polygon points="65,20 60,10 70,20" fill="#60a859" />
+                <polygon points="90,20 87,12 93,20" fill="#60a859" />
+            </pattern>
+        </defs>
+
+        <!-- ================= 背景层 ================= -->
+        <!-- 天空背景已经在容器CSS中设置，这里添加太阳 -->
+        <circle cx="430" cy="70" r="25" fill="#ffd700" />
+        <circle cx="430" cy="70" r="35" fill="#ffd700" opacity="0.3">
+            <animate attributeName="r" values="35; 42; 35" dur="3s" repeatCount="indefinite" />
+        </circle>
+
+        <!-- 移动的云朵 -->
+        <use href="#cloud" y="40" opacity="0.9">
+            <animate attributeName="x" from="500" to="-150" dur="14s" repeatCount="indefinite" linear />
+        </use>
+        <use href="#cloud" y="90" opacity="0.6" transform="scale(0.75)">
+            <animate attributeName="x" from="700" to="-200" dur="22s" repeatCount="indefinite" linear />
+        </use>
+        <use href="#cloud" y="20" opacity="0.4" transform="scale(0.5)">
+            <animate attributeName="x" from="1000" to="-300" dur="30s" repeatCount="indefinite" linear />
+        </use>
+
+        <!-- 远处的山脉 (带视差滚动效果) -->
+        <g fill="#8bcaf2">
+            <animateTransform attributeName="transform" type="translate" from="0 0" to="-300 0" dur="15s" repeatCount="indefinite" linear />
+            <polygon points="0,345 150,150 300,345" />
+            <polygon points="300,345 450,150 600,345" />
+            <polygon points="600,345 750,150 900,345" />
+        </g>
+        <g fill="#7abbed">
+            <animateTransform attributeName="transform" type="translate" from="0 0" to="-300 0" dur="10s" repeatCount="indefinite" linear />
+            <polygon points="100,345 250,180 400,345" />
+            <polygon points="400,345 550,180 700,345" />
+            <polygon points="700,345 850,180 1000,345" />
+        </g>
+
+        <!-- 速度线/风 (增强骑行感) -->
+        <g stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.5">
+            <line y1="130" y2="130">
+                <animate attributeName="x1" from="500" to="-100" dur="1s" repeatCount="indefinite" />
+                <animate attributeName="x2" from="570" to="-30" dur="1s" repeatCount="indefinite" />
+            </line>
+            <line y1="210" y2="210">
+                <animate attributeName="x1" from="600" to="-100" dur="1.3s" repeatCount="indefinite" />
+                <animate attributeName="x2" from="640" to="-60" dur="1.3s" repeatCount="indefinite" />
+            </line>
+        </g>
+
+        <!-- 地面 -->
+        <rect y="345" width="500" height="55" fill="#82c97c" />
+        <!-- 滚动的草地细节 -->
+        <rect y="325" width="600" height="20" fill="url(#grass)">
+            <animateTransform attributeName="transform" type="translate" from="0 0" to="-100 0" dur="0.6s" repeatCount="indefinite" linear />
+        </rect>
+
+        <!-- ================= 角色与自行车层 (带轻微上下颠簸) ================= -->
+        <g class="rider-group">
+            
+            <!-- 【内侧层】远离镜头的腿和踏板 -->
+            <!-- 远侧曲柄和踏板 -->
+            <line x1="230" y1="300" x2="230" y2="275" stroke="#7f8c8d" stroke-width="5" stroke-linecap="round" />
+            <line x1="220" y1="275" x2="240" y2="275" stroke="#2c3e50" stroke-width="6" stroke-linecap="round" />
+            <!-- 远侧后腿 -->
+            <path d="M 190 130 Q 230 180 230 275" fill="none" stroke="#e0e0e0" stroke-width="18" stroke-linecap="round"/>
+            <!-- 远侧前腿 -->
+            <path d="M 280 100 Q 300 130 320 135" fill="none" stroke="#e0e0e0" stroke-width="15" stroke-linecap="round"/>
+            <!-- 飘动的猫尾巴 (放后面) -->
+            <path d="M 170 145 Q 110 60 140 30" fill="none" stroke="#ffffff" stroke-width="15" stroke-linecap="round">
+                <animate attributeName="d" 
+                         values="M 170 145 Q 110 60 140 30; M 170 145 Q 130 50 160 20; M 170 145 Q 110 60 140 30" 
+                         dur="1.5s" repeatCount="indefinite" />
+            </path>
+
+
+            <!-- 【中间层】自行车主体 -->
+            <!-- 链条 -->
+            <line x1="120" y1="293" x2="230" y2="293" stroke="#34495e" stroke-width="2" />
+            <line x1="120" y1="307" x2="230" y2="307" stroke="#34495e" stroke-width="2" />
+
+            <!-- 后轮 -->
+            <g>
+                <circle cx="120" cy="300" r="45" fill="none" stroke="#2c3e50" stroke-width="8" />
+                <circle cx="120" cy="300" r="41" fill="none" stroke="#ecf0f1" stroke-width="2" />
+                <!-- 旋转的辐条 -->
+                <g stroke="#bdc3c7" stroke-width="2">
+                    <animateTransform attributeName="transform" type="rotate" from="0 120 300" to="360 120 300" dur="0.6s" repeatCount="indefinite" linear />
+                    <line x1="120" y1="255" x2="120" y2="345" />
+                    <line x1="75" y1="300" x2="165" y2="300" />
+                    <line x1="88" y1="268" x2="152" y2="332" />
+                    <line x1="88" y1="332" x2="152" y2="268" />
+                </g>
+                <circle cx="120" cy="300" r="6" fill="#7f8c8d" />
+            </g>
+
+            <!-- 前轮 -->
+            <g>
+                <circle cx="380" cy="300" r="45" fill="none" stroke="#2c3e50" stroke-width="8" />
+                <circle cx="380" cy="300" r="41" fill="none" stroke="#ecf0f1" stroke-width="2" />
+                <!-- 旋转的辐条 -->
+                <g stroke="#bdc3c7" stroke-width="2">
+                    <animateTransform attributeName="transform" type="rotate" from="0 380 300" to="360 380 300" dur="0.6s" repeatCount="indefinite" linear />
+                    <line x1="380" y1="255" x2="380" y2="345" />
+                    <line x1="335" y1="300" x2="425" y2="300" />
+                    <line x1="348" y1="268" x2="412" y2="332" />
+                    <line x1="348" y1="332" x2="412" y2="268" />
+                </g>
+                <circle cx="380" cy="300" r="6" fill="#7f8c8d" />
+            </g>
+
+            <!-- 自行车车架 (红色) -->
+            <g stroke="#e74c3c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <polygon points="120,300 230,300 180,180" />
+                <polygon points="230,300 330,180 180,180" />
+                <!-- 前叉 -->
+                <line x1="330" y1="180" x2="380" y2="300" />
+            </g>
+
+            <!-- 牙盘 (齿轮) -->
+            <circle cx="230" cy="300" r="18" fill="none" stroke="#2c3e50" stroke-width="4" />
+
+            <!-- 座管与把立管 -->
+            <line x1="180" y1="180" x2="172" y2="150" stroke="#bdc3c7" stroke-width="6" stroke-linecap="round" />
+            <line x1="330" y1="180" x2="320" y2="140" stroke="#bdc3c7" stroke-width="6" stroke-linecap="round" />
+
+            <!-- 车座 -->
+            <path d="M 150 150 Q 172 145 190 150" fill="none" stroke="#2c3e50" stroke-width="12" stroke-linecap="round" />
+            
+            <!-- 车把与握把 -->
+            <path d="M 290 145 Q 320 135 340 145" fill="none" stroke="#2c3e50" stroke-width="8" stroke-linecap="round" />
+            <line x1="290" y1="145" x2="305" y2="140" stroke="#f1c40f" stroke-width="10" stroke-linecap="round" />
+
+
+            <!-- 【外侧层】靠近镜头的猫咪身体、腿和装饰 -->
+            
+            <!-- 飘动的红围巾尾部 -->
+            <path d="M 275 95 Q 240 85 200 95" fill="none" stroke="#ff5252" stroke-width="10" stroke-linecap="round">
+                <animate attributeName="d" 
+                         values="M 275 95 Q 240 85 200 95; M 275 95 Q 230 110 190 90; M 275 95 Q 240 85 200 95" 
+                         dur="0.8s" repeatCount="indefinite" />
+            </path>
+
+            <!-- 近侧曲柄和踏板 -->
+            <line x1="230" y1="300" x2="230" y2="325" stroke="#7f8c8d" stroke-width="5" stroke-linecap="round" />
+            <line x1="220" y1="325" x2="240" y2="325" stroke="#2c3e50" stroke-width="6" stroke-linecap="round" />
+
+            <!-- 猫咪身体 (流线型趴着) -->
+            <path d="M 160 145 C 150 90, 240 70, 280 90 C 300 110, 280 145, 250 150 C 210 155, 170 160, 160 145 Z" fill="#ffffff" />
+
+            <!-- 近侧后腿 -->
+            <path d="M 180 130 Q 220 200 230 325" fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+            
+            <!-- 近侧前腿 -->
+            <path d="M 270 110 Q 290 140 305 140" fill="none" stroke="#ffffff" stroke-width="15" stroke-linecap="round"/>
+
+            <!-- 猫咪头部基础 -->
+            <circle cx="290" cy="70" r="32" fill="#ffffff" />
+
+            <!-- 猫耳朵 -->
+            <polygon points="270,45 275,10 295,40" fill="#ffffff" />
+            <polygon points="295,40 315,10 320,45" fill="#ffffff" />
+            <!-- 内耳粉色 -->
+            <polygon points="274,40 277,20 290,40" fill="#ffb6c1" />
+            <polygon points="299,40 312,20 316,40" fill="#ffb6c1" />
+
+            <!-- 五官细节 -->
+            <!-- 眼睛 -->
+            <circle cx="285" cy="65" r="4" fill="#333333" />
+            <circle cx="305" cy="65" r="4" fill="#333333" />
+            <!-- 脸颊红晕 -->
+            <circle cx="273" cy="73" r="5" fill="#ffb6c1" opacity="0.7" />
+            <circle cx="317" cy="73" r="5" fill="#ffb6c1" opacity="0.7" />
+            <!-- 鼻子 -->
+            <polygon points="292,72 298,72 295,76" fill="#ffb6c1" />
+            <!-- 嘴巴 (可爱的w形状) -->
+            <path d="M 290 78 Q 292.5 82 295 78 Q 297.5 82 300 78" fill="none" stroke="#333333" stroke-width="1.5" stroke-linecap="round" />
+
+            <!-- 胡须 -->
+            <g stroke="#cccccc" stroke-width="1.5" stroke-linecap="round">
+                <!-- 左边 -->
+                <line x1="268" y1="70" x2="250" y2="66" />
+                <line x1="268" y1="75" x2="250" y2="75" />
+                <line x1="268" y1="80" x2="250" y2="84" />
+                <!-- 右边 -->
+                <line x1="322" y1="70" x2="340" y2="66" />
+                <line x1="322" y1="75" x2="340" y2="75" />
+                <line x1="322" y1="80" x2="340" y2="84" />
+            </g>
+
+            <!-- 脖子上的红围巾打结处 -->
+            <path d="M 265 85 Q 290 105 310 85" fill="none" stroke="#ff5252" stroke-width="9" stroke-linecap="round" />
+            <path d="M 275 92 L 285 105 L 270 110 Z" fill="#ff5252" />
+
+        </g>
+    </svg>
+</div>
+
+</body>
+</html>

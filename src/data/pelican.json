@@ -11,8 +11,8 @@
         "type": "video",
         "src": "media/pelican/gpt-6-astra.mp4",
         "poster": "media/pelican/gpt-6-astra.webp",
-        "width": 1138,
-        "height": 986
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "GPT-6 Astra",
@@ -31,7 +31,7 @@
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -154,18 +154,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 70 行的主场景为内联 SVG（viewBox 0 0 1200 660）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/gpt-6-astra.html.txt",
+        "download": "pelican-originals/gpt-6-astra.zip",
+        "sha256": "24f1460f937cd7c582223d9761ea504e8a49614628a434d301a507cbfefbb4cc",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -177,8 +185,8 @@
         "type": "video",
         "src": "media/pelican/claude-fable-5-1.mp4",
         "poster": "media/pelican/claude-fable-5-1.webp",
-        "width": 1280,
-        "height": 792
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "Claude Fable 5.1",
@@ -197,7 +205,7 @@
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -317,18 +325,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 49 行的主场景为内联 SVG（viewBox 0 0 800 500）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/claude-fable-5-1.html.txt",
+        "download": "pelican-originals/claude-fable-5-1.zip",
+        "sha256": "966b426ea435029ab3303d1b8b2ef8a5fb4a94ab20faac074ee0e47c22c72ddb",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -340,8 +356,8 @@
         "type": "video",
         "src": "media/pelican/gemini-3-8-flash.mp4",
         "poster": "media/pelican/gemini-3-8-flash.webp",
-        "width": 1280,
-        "height": 702
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "Gemini 3.8 Flash",
@@ -360,7 +376,7 @@
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -481,18 +497,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 130 行的主场景为内联 SVG（viewBox 0 0 800 580）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/gemini-3-8-flash.html.txt",
+        "download": "pelican-originals/gemini-3-8-flash.zip",
+        "sha256": "f99f8c6f41e25ff297c25919c6cce1dd570c73b9bba50d617572d6192df142a2",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -504,8 +528,8 @@
         "type": "video",
         "src": "media/pelican/deepseek-v4-1-flash.mp4",
         "poster": "media/pelican/deepseek-v4-1-flash.webp",
-        "width": 878,
-        "height": 824
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "DeepSeek V4.1 Flash",
@@ -519,6 +543,7 @@
         "promptStatus": "unknown",
         "promptText": null,
         "notes": [
+          "本次 DeepSeek V4.1 Flash 与 DeepSeek V4 Pro 0813 的 HTML 及压缩包逐字节相同，待确认附件是否放重复；两份材料均保留，暂不合并成已评分结果。",
           "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
           "截图型号标签：DeepSeek-V41-Flash。"
         ]
@@ -648,17 +673,25 @@
           {
             "id": "html_render",
             "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "reason": "所收 HTML 可正常显示，但原作对应关系待确认，本项暂不合并计分。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
             "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "reason": "所收 HTML 的主体为 SVG，但原作对应关系待确认，本项暂不合并计分。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/deepseek-v4-1-flash.html.txt",
+        "download": "pelican-originals/deepseek-v4-1-flash.zip",
+        "sha256": "e95ee3ada62c5f42495e3eea93b6acf29e2bf0669ea70b46fe2dda588bc186c8",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -670,8 +703,8 @@
         "type": "video",
         "src": "media/pelican/qwen3-8-max-0902.mp4",
         "poster": "media/pelican/qwen3-8-max-0902.webp",
-        "width": 1280,
-        "height": 772
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "Qwen3.8 Max 0902",
@@ -691,7 +724,7 @@
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -812,18 +845,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 72 行的主场景为内联 SVG（viewBox 0 0 800 500）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/qwen3-8-max-0902.html.txt",
+        "download": "pelican-originals/qwen3-8-max-0902.zip",
+        "sha256": "17918813e46a85500b5d76dac47637c8c377474e7360bcb07050de30a07812a0",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -835,8 +876,8 @@
         "type": "video",
         "src": "media/pelican/kimi-k3.mp4",
         "poster": "media/pelican/kimi-k3.webp",
-        "width": 1010,
-        "height": 878
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "Kimi K3",
@@ -855,7 +896,7 @@
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -974,18 +1015,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 89 行的主场景为内联 SVG（viewBox 0 0 900 520）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/kimi-k3.html.txt",
+        "download": "pelican-originals/kimi-k3.zip",
+        "sha256": "07228ef3c5bdde43ed7327117f398d74b3764805a1c0008f58ebc6d6848d7afe",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -997,8 +1046,8 @@
         "type": "video",
         "src": "media/pelican/glm-5-3.mp4",
         "poster": "media/pelican/glm-5-3.webp",
-        "width": 1010,
-        "height": 942
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "GLM-5.3",
@@ -1014,11 +1063,11 @@
         "notes": [
           "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
           "截图型号标签：GLM-5.3。",
-          "实际提示词措辞与统一题目有差异，本作品仅作观察展示，暂不参加同题正式排名。"
+          "实际提示词措辞与统一题目有差异，提示词措辞有差异；当前为 AI 作品评分，尚未经源宝复核。"
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -1136,18 +1185,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 63 行的主场景为内联 SVG（viewBox 0 0 900 620）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/glm-5-3.html.txt",
+        "download": "pelican-originals/glm-5-3.zip",
+        "sha256": "b24e33daca456440ced51b23c706d9ee2bad2efee2dc9895475e4861e0c209e0",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -1159,8 +1216,8 @@
         "type": "video",
         "src": "media/pelican/doubao-seed-2-1-pro.mp4",
         "poster": "media/pelican/doubao-seed-2-1-pro.webp",
-        "width": 1280,
-        "height": 1144
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "Doubao Seed 2.1 Pro",
@@ -1179,7 +1236,7 @@
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -1302,18 +1359,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 109 行的主场景为内联 SVG（viewBox 0 0 960 600）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/doubao-seed-2-1-pro.html.txt",
+        "download": "pelican-originals/doubao-seed-2-1-pro.zip",
+        "sha256": "3dc833d29a14e24837ba9782d09365d5bf2612223fc4b51bd0f8326cdb89c707",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -1325,8 +1390,8 @@
         "type": "video",
         "src": "media/pelican/minimax-m3.mp4",
         "poster": "media/pelican/minimax-m3.webp",
-        "width": 1280,
-        "height": 830
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "MiniMax M3",
@@ -1345,7 +1410,7 @@
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -1463,18 +1528,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 192 行的主场景为内联 SVG（viewBox 0 0 800 500）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/minimax-m3.html.txt",
+        "download": "pelican-originals/minimax-m3.zip",
+        "sha256": "02b0bc55381c031f53ed31eb66bec8f3a1d312451c0b4b90df5c1ab312272485",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -1486,8 +1559,8 @@
         "type": "video",
         "src": "media/pelican/grok-4-6.mp4",
         "poster": "media/pelican/grok-4-6.webp",
-        "width": 1020,
-        "height": 820
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "Grok 4.6",
@@ -1506,7 +1579,7 @@
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -1627,18 +1700,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 157 行的主场景为内联 SVG（viewBox 0 0 1200 675）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/grok-4-6.html.txt",
+        "download": "pelican-originals/grok-4-6.zip",
+        "sha256": "0d5c398f4fd0ec04cb7e821fb2ea86524f12e5835763a547e354cff78a0e074d",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -1650,8 +1731,8 @@
         "type": "video",
         "src": "media/pelican/gpt-5-6-sol.mp4",
         "poster": "media/pelican/gpt-5-6-sol.webp",
-        "width": 688,
-        "height": 884
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "GPT-5.6 Sol",
@@ -1670,7 +1751,7 @@
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -1793,18 +1874,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 81 行的主场景为内联 SVG（viewBox 0 0 1200 640）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/gpt-5-6-sol.html.txt",
+        "download": "pelican-originals/gpt-5-6-sol.zip",
+        "sha256": "829f766abfd917ba8a46ee5bb7b489099b85dde24aff2b2387fcb00a30b5a9c2",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -1816,8 +1905,8 @@
         "type": "video",
         "src": "media/pelican/claude-opus-5.mp4",
         "poster": "media/pelican/claude-opus-5.webp",
-        "width": 578,
-        "height": 530
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "Claude Opus 5",
@@ -1836,7 +1925,7 @@
         ]
       },
       "assessment": {
-        "status": "provisional",
+        "status": "scored",
         "reviewedAt": "2026-09-14",
         "reviewer": "AI",
         "criteria": [
@@ -1959,18 +2048,26 @@
           },
           {
             "id": "html_render",
-            "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "score": 5,
+            "reason": "在浏览器实际打开本次提交的原始 HTML，猫与自行车主体正常显示；与对应 GIF 为同一作品。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
-            "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "score": 5,
+            "reason": "原文件第 37 行的主场景为内联 SVG（viewBox 0 0 900 560）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/claude-opus-5.html.txt",
+        "download": "pelican-originals/claude-opus-5.zip",
+        "sha256": "7456ee05d38f2fb5dd13d5b335d345d4de80cc96170f4db0449ef7c801adc478",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -1982,8 +2079,8 @@
         "type": "video",
         "src": "media/pelican/gemini-3-1-pro-preview.mp4",
         "poster": "media/pelican/gemini-3-1-pro-preview.webp",
-        "width": 1280,
-        "height": 902
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "Gemini 3.1 Pro Preview",
@@ -1997,6 +2094,7 @@
         "promptStatus": "unknown",
         "promptText": null,
         "notes": [
+          "补交 HTML 为山景、红色自行车，与原 GIF 的道路、橙色自行车画面不一致，待确认以哪份作品为准；当前画面观察仍依据原 GIF。",
           "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
           "截图未显示型号与档位，仍需补充测试记录。"
         ]
@@ -2124,17 +2222,25 @@
           {
             "id": "html_render",
             "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "reason": "所收 HTML 可正常显示，但原作对应关系待确认，本项暂不合并计分。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
             "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "reason": "所收 HTML 的主体为 SVG，但原作对应关系待确认，本项暂不合并计分。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/gemini-3-1-pro-preview.html.txt",
+        "download": "pelican-originals/gemini-3-1-pro-preview.zip",
+        "sha256": "e1d3515d18ba4bdf06a0ad273b95b8b5cb5743a7e6be50e0bb93c042484d464d",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     },
     {
@@ -2146,8 +2252,8 @@
         "type": "video",
         "src": "media/pelican/deepseek-v4-pro-0813.mp4",
         "poster": "media/pelican/deepseek-v4-pro-0813.webp",
-        "width": 1140,
-        "height": 1072
+        "width": 960,
+        "height": 720
       },
       "test": {
         "modelLabel": "DeepSeek V4 Pro 0813",
@@ -2161,6 +2267,7 @@
         "promptStatus": "exact",
         "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
         "notes": [
+          "本次 DeepSeek V4 Pro 0813 与 DeepSeek V4.1 Flash 的 HTML 及压缩包逐字节相同，待确认附件是否放重复；两份材料均保留，暂不合并成已评分结果。",
           "型号按回传表对应；平台与档位仅转录截图可见标签，未验证平台实际调用的后台型号。",
           "截图型号标签：DeepSeek-V4-Pro。",
           "0813 后缀来自回传表，截图未显示具体日期版本。"
@@ -2291,17 +2398,25 @@
           {
             "id": "html_render",
             "score": null,
-            "reason": "尚未收到原始 HTML 或完整代码，GIF 不能替代原作运行核验。",
+            "reason": "所收 HTML 可正常显示，但原作对应关系待确认，本项暂不合并计分。",
             "evidenceTimes": []
           },
           {
             "id": "svg_source",
             "score": null,
-            "reason": "尚未收到原始代码，无法确认主体由 SVG 绘制；不根据截图中的模型自述给分。",
+            "reason": "所收 HTML 的主体为 SVG，但原作对应关系待确认，本项暂不合并计分。",
             "evidenceTimes": []
           }
         ],
         "ownerConfirmed": false
+      },
+      "artifact": {
+        "src": "pelican-originals/deepseek-v4-pro-0813.html.txt",
+        "download": "pelican-originals/deepseek-v4-pro-0813.zip",
+        "sha256": "e95ee3ada62c5f42495e3eea93b6acf29e2bf0669ea70b46fe2dda588bc186c8",
+        "htmlVerifiedAt": "2026-09-14",
+        "svgVerified": true,
+        "runStatus": "passed"
       }
     }
   ]

@@ -1,0 +1,1354 @@
+{
+  "schemaVersion": 1,
+  "receivedAt": "2026-09-14",
+  "ruleVersion": "3.0",
+  "sourceFolder": "源宝鹈鹕测试简明手册 (1)",
+  "mappingSource": "源宝鹈鹕测试简明手册.md 的“本批必测模型”14 行附件链接；按新手册重新匹配，没有沿用旧截图编号。",
+  "sourceManualSha256": "1949b827bd5b836e652d1a8be98b3fa6cb438573de2b12b2b1a1b1cb96f5137b",
+  "promptText": "来一段白色猫咪骑自行车的html网页，用svg绘制",
+  "ruleNote": "手册附带旧 v2 剧情评分，已被已确认的白猫 v3 规则取代，未回退到旧规则。",
+  "extraction": {
+    "method": "Python zipfile 解包至仓库 .artifact-work；保留文件原始字节，逐文件 SHA256。",
+    "checks": [
+      "拒绝绝对路径",
+      "拒绝 .. 路径段",
+      "拒绝反斜杠与冒号路径",
+      "拒绝符号链接",
+      "单包解压大小上限 200 MB",
+      "已存在文件内容不同则拒绝覆盖"
+    ],
+    "originalDownloadFilesModified": false
+  },
+  "summary": {
+    "submittedEntries": 14,
+    "uniqueArchiveHashes": 13,
+    "uniqueEntryHtmlHashes": 13,
+    "selfContainedEntries": 14,
+    "browserRunsPerformedByThisReview": 0,
+    "htmlRenderScoresAssignedByThisReview": 0
+  },
+  "entries": [
+    {
+      "id": "gpt-6-astra",
+      "model": "GPT-6 Astra",
+      "sourceZip": "图片和附件/白猫骑行.zip",
+      "sourceZipSha256": "5ca66db1664c58e093dcc0817574a4c0af12eee51651d22a256097b419a3ddac",
+      "sourceGif": "图片和附件/astra.gif",
+      "sourceScreenshot": "图片和附件/image 5.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/gpt-6-astra",
+      "members": [
+        {
+          "path": "白猫骑行.html",
+          "bytes": 28568,
+          "sha256": "24f1460f937cd7c582223d9761ea504e8a49614628a434d301a507cbfefbb4cc"
+        }
+      ],
+      "entryPath": "白猫骑行.html",
+      "sourceHtmlSha256": "24f1460f937cd7c582223d9761ea504e8a49614628a434d301a507cbfefbb4cc",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 1,
+        "inlineStyleElements": 1,
+        "svgElements": 5,
+        "mainSvgLine": 70,
+        "mainSvgViewBox": "0 0 1200 660",
+        "geometryElementsInDocument": {
+          "path": 73,
+          "circle": 20,
+          "ellipse": 12,
+          "rect": 0,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 0
+        },
+        "smilAnimationElements": 0,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": true,
+        "usesAnimationFrame": true,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 70 行的主场景为内联 SVG（viewBox 0 0 1200 660）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 70,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": []
+    },
+    {
+      "id": "claude-fable-5-1",
+      "model": "Claude Fable 5.1",
+      "sourceZip": "图片和附件/white-cat-bicycle 2.zip",
+      "sourceZipSha256": "86f0befa4ba8840504a1c1371044fb26f7bcb4e882ff5b3252ad0cbbffe8529f",
+      "sourceGif": "图片和附件/fable。1.gif",
+      "sourceScreenshot": "图片和附件/image 3.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/claude-fable-5-1",
+      "members": [
+        {
+          "path": "white-cat-bicycle.html",
+          "bytes": 26217,
+          "sha256": "966b426ea435029ab3303d1b8b2ef8a5fb4a94ab20faac074ee0e47c22c72ddb"
+        }
+      ],
+      "entryPath": "white-cat-bicycle.html",
+      "sourceHtmlSha256": "966b426ea435029ab3303d1b8b2ef8a5fb4a94ab20faac074ee0e47c22c72ddb",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 0,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 49,
+        "mainSvgViewBox": "0 0 800 500",
+        "geometryElementsInDocument": {
+          "path": 79,
+          "circle": 13,
+          "ellipse": 38,
+          "rect": 4,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 5
+        },
+        "smilAnimationElements": 25,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 49 行的主场景为内联 SVG（viewBox 0 0 800 500）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 49,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": []
+    },
+    {
+      "id": "gemini-3-8-flash",
+      "model": "Gemini 3.8 Flash",
+      "sourceZip": "图片和附件/white_cat_cycling.zip",
+      "sourceZipSha256": "0df1f84300f4c75e999948cdbacd2f7159ea3d9d85417520d15bcbf3aa4af905",
+      "sourceGif": "图片和附件/gemini1.gif",
+      "sourceScreenshot": "图片和附件/image 10.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/gemini-3-8-flash",
+      "members": [
+        {
+          "path": "index.html",
+          "bytes": 12305,
+          "sha256": "f99f8c6f41e25ff297c25919c6cce1dd570c73b9bba50d617572d6192df142a2"
+        },
+        {
+          "path": "cat_riding_bicycle.html",
+          "bytes": 12305,
+          "sha256": "f99f8c6f41e25ff297c25919c6cce1dd570c73b9bba50d617572d6192df142a2"
+        },
+        {
+          "path": "README.md",
+          "bytes": 669,
+          "sha256": "0654d31c310246833b9440eb04c8c40b52d843a53c04e90cdf50415692403f0b"
+        }
+      ],
+      "entryPath": "index.html",
+      "sourceHtmlSha256": "f99f8c6f41e25ff297c25919c6cce1dd570c73b9bba50d617572d6192df142a2",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 0,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 130,
+        "mainSvgViewBox": "0 0 800 580",
+        "geometryElementsInDocument": {
+          "path": 18,
+          "circle": 12,
+          "ellipse": 6,
+          "rect": 2,
+          "polygon": 3,
+          "polyline": 0,
+          "line": 22
+        },
+        "smilAnimationElements": 0,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 130 行的主场景为内联 SVG（viewBox 0 0 800 580）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 130,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": [
+        {
+          "code": "duplicate-entry-alias",
+          "message": "index.html 与 cat_riding_bicycle.html 字节完全相同，选择 index.html 为入口，不当作两份作品。"
+        }
+      ]
+    },
+    {
+      "id": "deepseek-v4-1-flash",
+      "model": "DeepSeek V4.1 Flash",
+      "sourceZip": "图片和附件/white-cat-bicycle 1.zip",
+      "sourceZipSha256": "2a36b3ae1987fa4a549486753ad6b0425b9c8b1caa2e837aed00bcf252483271",
+      "sourceGif": "图片和附件/v41.gif",
+      "sourceScreenshot": "图片和附件/image 6.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/deepseek-v4-1-flash",
+      "members": [
+        {
+          "path": "white-cat-bicycle/preview.png",
+          "bytes": 261931,
+          "sha256": "24697809e2ad152426b8fa25d4345844cefbc3af3059fb2c091d6920c2ea8e54"
+        },
+        {
+          "path": "white-cat-bicycle/README.md",
+          "bytes": 2279,
+          "sha256": "b61eab4c5dfec323360789de1fce6d19cd4969ff5b922a2a3a9925622e33448b"
+        },
+        {
+          "path": "white-cat-bicycle/white-cat-bicycle.html",
+          "bytes": 23143,
+          "sha256": "e95ee3ada62c5f42495e3eea93b6acf29e2bf0669ea70b46fe2dda588bc186c8"
+        }
+      ],
+      "entryPath": "white-cat-bicycle/white-cat-bicycle.html",
+      "sourceHtmlSha256": "e95ee3ada62c5f42495e3eea93b6acf29e2bf0669ea70b46fe2dda588bc186c8",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 0,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 157,
+        "mainSvgViewBox": "0 0 900 600",
+        "geometryElementsInDocument": {
+          "path": 62,
+          "circle": 32,
+          "ellipse": 22,
+          "rect": 26,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 12
+        },
+        "smilAnimationElements": 8,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 157 行的主场景为内联 SVG（viewBox 0 0 900 600）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 157,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": [
+        {
+          "code": "duplicate-submitted-archive",
+          "message": "手册中两款 DeepSeek 模型指向不同 ZIP 文件名，但两个 ZIP 字节完全相同，且 HTML、README、preview 均相同。保留用户原始映射；需要确认是否两条结果确实共用该原作。仅记录附件重复事实，不据此推断模型行为。",
+          "otherId": "deepseek-v4-pro-0813"
+        },
+        {
+          "code": "unverified-readme-claims",
+          "message": "README 中的 Chrome 检查与动作精度属于随附自述，未作为本站实测证据。"
+        }
+      ]
+    },
+    {
+      "id": "qwen3-8-max-0902",
+      "model": "Qwen3.8 Max 0902",
+      "sourceZip": "图片和附件/white-cat-bicycle121.zip",
+      "sourceZipSha256": "5d9c701de663887871ef3dee57d095003f239f04b4b061fa9f4f49661ebcf6c5",
+      "sourceGif": "图片和附件/千问1.gif",
+      "sourceScreenshot": "图片和附件/image 13.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/qwen3-8-max-0902",
+      "members": [
+        {
+          "path": "white-cat-bicycle.html",
+          "bytes": 17927,
+          "sha256": "17918813e46a85500b5d76dac47637c8c377474e7360bcb07050de30a07812a0"
+        }
+      ],
+      "entryPath": "white-cat-bicycle.html",
+      "sourceHtmlSha256": "17918813e46a85500b5d76dac47637c8c377474e7360bcb07050de30a07812a0",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 0,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 72,
+        "mainSvgViewBox": "0 0 800 500",
+        "geometryElementsInDocument": {
+          "path": 16,
+          "circle": 34,
+          "ellipse": 23,
+          "rect": 11,
+          "polygon": 4,
+          "polyline": 0,
+          "line": 38
+        },
+        "smilAnimationElements": 20,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 72 行的主场景为内联 SVG（viewBox 0 0 800 500）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 72,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": []
+    },
+    {
+      "id": "kimi-k3",
+      "model": "Kimi K3",
+      "sourceZip": "图片和附件/white-cat-bike.zip",
+      "sourceZipSha256": "173f208a748109bd32be021213424fcab312ed68a90a02984afb41052bd923b5",
+      "sourceGif": "图片和附件/k3.gif",
+      "sourceScreenshot": "图片和附件/image 7.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/kimi-k3",
+      "members": [
+        {
+          "path": "white-cat-bike.html",
+          "bytes": 13259,
+          "sha256": "07228ef3c5bdde43ed7327117f398d74b3764805a1c0008f58ebc6d6848d7afe"
+        }
+      ],
+      "entryPath": "white-cat-bike.html",
+      "sourceHtmlSha256": "07228ef3c5bdde43ed7327117f398d74b3764805a1c0008f58ebc6d6848d7afe",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 0,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 89,
+        "mainSvgViewBox": "0 0 900 520",
+        "geometryElementsInDocument": {
+          "path": 22,
+          "circle": 20,
+          "ellipse": 10,
+          "rect": 5,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 33
+        },
+        "smilAnimationElements": 5,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 89 行的主场景为内联 SVG（viewBox 0 0 900 520）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 89,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": []
+    },
+    {
+      "id": "glm-5-3",
+      "model": "GLM-5.3",
+      "sourceZip": "图片和附件/white-cat-bicycle 3.zip",
+      "sourceZipSha256": "7f26ae0e98334ea4a8084958d85328c49661794877615939b0e2fd560f35c96a",
+      "sourceGif": "图片和附件/glm.gif",
+      "sourceScreenshot": "图片和附件/image 12.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/glm-5-3",
+      "members": [
+        {
+          "path": "index.html",
+          "bytes": 11975,
+          "sha256": "b24e33daca456440ced51b23c706d9ee2bad2efee2dc9895475e4861e0c209e0"
+        }
+      ],
+      "entryPath": "index.html",
+      "sourceHtmlSha256": "b24e33daca456440ced51b23c706d9ee2bad2efee2dc9895475e4861e0c209e0",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 0,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 63,
+        "mainSvgViewBox": "0 0 900 620",
+        "geometryElementsInDocument": {
+          "path": 25,
+          "circle": 28,
+          "ellipse": 9,
+          "rect": 6,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 33
+        },
+        "smilAnimationElements": 0,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 63 行的主场景为内联 SVG（viewBox 0 0 900 620）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 63,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": []
+    },
+    {
+      "id": "doubao-seed-2-1-pro",
+      "model": "Doubao Seed 2.1 Pro",
+      "sourceZip": "图片和附件/white-cat-bike.zip（白猫骑行 SVG 网页压缩包） (1).zip",
+      "sourceZipSha256": "917ed2044089b453505676b524c1af2e49754986634eb0448ed582368bdea8d8",
+      "sourceGif": "图片和附件/doubao111.gif",
+      "sourceScreenshot": "图片和附件/image 9.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/doubao-seed-2-1-pro",
+      "members": [
+        {
+          "path": "white-cat-bike/index.html",
+          "bytes": 30867,
+          "sha256": "3dc833d29a14e24837ba9782d09365d5bf2612223fc4b51bd0f8326cdb89c707"
+        }
+      ],
+      "entryPath": "white-cat-bike/index.html",
+      "sourceHtmlSha256": "3dc833d29a14e24837ba9782d09365d5bf2612223fc4b51bd0f8326cdb89c707",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 1,
+        "inlineStyleElements": 1,
+        "svgElements": 2,
+        "mainSvgLine": 109,
+        "mainSvgViewBox": "0 0 960 600",
+        "geometryElementsInDocument": {
+          "path": 50,
+          "circle": 22,
+          "ellipse": 37,
+          "rect": 8,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 3
+        },
+        "smilAnimationElements": 0,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [
+          {
+            "element": "link",
+            "attribute": "href",
+            "line": 7,
+            "mediaType": "image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%239ad68f'/%3E%3Cpath d='M18 27 L13 10 L30 20 Z' fill='white'/%3E%3Cpath d='M46 27 L51 10 L34 20 Z' fill='white'/%3E%3Ccircle cx='32' cy='35' r='18' fill='white'/%3E%3Ccircle cx='26' cy='33' r='2.6' fill='%232d3138'/%3E%3Ccircle cx='38' cy='33' r='2.6' fill='%232d3138'/%3E%3Cpath d='M30 39 L34 39 L32 42.5 Z' fill='%23ff9fb5'/%3E%3C/svg%3E"
+          }
+        ],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": true,
+        "usesAnimationFrame": true,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 109 行的主场景为内联 SVG（viewBox 0 0 960 600）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 109,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": []
+    },
+    {
+      "id": "minimax-m3",
+      "model": "MiniMax M3",
+      "sourceZip": "图片和附件/cat-cycling.zip",
+      "sourceZipSha256": "85f4fd6bdc7c825f1e09705b981094a904762e57dd6d21ca81396491cf3479f9",
+      "sourceGif": "图片和附件/千问.gif",
+      "sourceScreenshot": "图片和附件/image 2.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/minimax-m3",
+      "members": [
+        {
+          "path": "cat-cycling/cat-cycling/cat-cycling.html",
+          "bytes": 17218,
+          "sha256": "02b0bc55381c031f53ed31eb66bec8f3a1d312451c0b4b90df5c1ab312272485"
+        }
+      ],
+      "entryPath": "cat-cycling/cat-cycling/cat-cycling.html",
+      "sourceHtmlSha256": "02b0bc55381c031f53ed31eb66bec8f3a1d312451c0b4b90df5c1ab312272485",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 0,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 192,
+        "mainSvgViewBox": "0 0 800 500",
+        "geometryElementsInDocument": {
+          "path": 21,
+          "circle": 14,
+          "ellipse": 19,
+          "rect": 4,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 25
+        },
+        "smilAnimationElements": 0,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 192 行的主场景为内联 SVG（viewBox 0 0 800 500）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 192,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": []
+    },
+    {
+      "id": "grok-4-6",
+      "model": "Grok 4.6",
+      "sourceZip": "图片和附件/白色猫咪骑自行车.zip",
+      "sourceZipSha256": "0a5ddec770c7d64ce60151422dabcb826e75d261d357c9e4b96f3fc64cbea4e5",
+      "sourceGif": "图片和附件/grok.gif",
+      "sourceScreenshot": "图片和附件/image 11.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/grok-4-6",
+      "members": [
+        {
+          "path": "index.html",
+          "bytes": 19180,
+          "sha256": "0d5c398f4fd0ec04cb7e821fb2ea86524f12e5835763a547e354cff78a0e074d"
+        }
+      ],
+      "entryPath": "index.html",
+      "sourceHtmlSha256": "0d5c398f4fd0ec04cb7e821fb2ea86524f12e5835763a547e354cff78a0e074d",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 1,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 157,
+        "mainSvgViewBox": "0 0 1200 675",
+        "geometryElementsInDocument": {
+          "path": 40,
+          "circle": 23,
+          "ellipse": 31,
+          "rect": 14,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 14
+        },
+        "smilAnimationElements": 0,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 157 行的主场景为内联 SVG（viewBox 0 0 1200 675）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 157,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": []
+    },
+    {
+      "id": "gpt-5-6-sol",
+      "model": "GPT-5.6 Sol",
+      "sourceZip": "图片和附件/white-cat-bicycle 4.zip",
+      "sourceZipSha256": "9a772ca416ab6317d18984004c1f40389d722a7d9db33c9b327cfc5a14e60dfd",
+      "sourceGif": "图片和附件/5.6sss.gif",
+      "sourceScreenshot": "图片和附件/image 8.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/gpt-5-6-sol",
+      "members": [
+        {
+          "path": "white-cat-bicycle/index.html",
+          "bytes": 22315,
+          "sha256": "829f766abfd917ba8a46ee5bb7b489099b85dde24aff2b2387fcb00a30b5a9c2"
+        }
+      ],
+      "entryPath": "white-cat-bicycle/index.html",
+      "sourceHtmlSha256": "829f766abfd917ba8a46ee5bb7b489099b85dde24aff2b2387fcb00a30b5a9c2",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 1,
+        "inlineStyleElements": 1,
+        "svgElements": 4,
+        "mainSvgLine": 81,
+        "mainSvgViewBox": "0 0 1200 640",
+        "geometryElementsInDocument": {
+          "path": 47,
+          "circle": 24,
+          "ellipse": 16,
+          "rect": 3,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 0
+        },
+        "smilAnimationElements": 0,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": true,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 81 行的主场景为内联 SVG（viewBox 0 0 1200 640）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 81,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": []
+    },
+    {
+      "id": "claude-opus-5",
+      "model": "Claude Opus 5",
+      "sourceZip": "图片和附件/白色猫咪骑自行车 1.zip",
+      "sourceZipSha256": "24f139a0cc439f5c02d2f6033332d3bb87de4516ad1e524d067908a67bff954f",
+      "sourceGif": "图片和附件/opus.gif",
+      "sourceScreenshot": "图片和附件/image 4.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/claude-opus-5",
+      "members": [
+        {
+          "path": "白色猫咪骑自行车.html",
+          "bytes": 18405,
+          "sha256": "7456ee05d38f2fb5dd13d5b335d345d4de80cc96170f4db0449ef7c801adc478"
+        }
+      ],
+      "entryPath": "白色猫咪骑自行车.html",
+      "sourceHtmlSha256": "7456ee05d38f2fb5dd13d5b335d345d4de80cc96170f4db0449ef7c801adc478",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 0,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 37,
+        "mainSvgViewBox": "0 0 900 560",
+        "geometryElementsInDocument": {
+          "path": 43,
+          "circle": 31,
+          "ellipse": 13,
+          "rect": 2,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 25
+        },
+        "smilAnimationElements": 24,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 37 行的主场景为内联 SVG（viewBox 0 0 900 560）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 37,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": []
+    },
+    {
+      "id": "gemini-3-1-pro-preview",
+      "model": "Gemini 3.1 Pro Preview",
+      "sourceZip": "图片和附件/cat_bike_animation.zip",
+      "sourceZipSha256": "50e62537dda9f4c7d6662dc4fd373c914657cc510d6edfb73da20cda1bc903f2",
+      "sourceGif": "图片和附件/gemini2.gif",
+      "sourceScreenshot": "图片和附件/image.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/gemini-3-1-pro-preview",
+      "members": [
+        {
+          "path": "cat_on_bike.html",
+          "bytes": 12257,
+          "sha256": "e1d3515d18ba4bdf06a0ad273b95b8b5cb5743a7e6be50e0bb93c042484d464d"
+        }
+      ],
+      "entryPath": "cat_on_bike.html",
+      "sourceHtmlSha256": "e1d3515d18ba4bdf06a0ad273b95b8b5cb5743a7e6be50e0bb93c042484d464d",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 0,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 42,
+        "mainSvgViewBox": "0 0 500 400",
+        "geometryElementsInDocument": {
+          "path": 12,
+          "circle": 17,
+          "ellipse": 0,
+          "rect": 3,
+          "polygon": 16,
+          "polyline": 0,
+          "line": 26
+        },
+        "smilAnimationElements": 15,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 42 行的主场景为内联 SVG（viewBox 0 0 500 400）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 42,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": [
+        {
+          "code": "visual-reassessment-required",
+          "message": "源码 viewBox 为 500×400，耳尖 y=10 位于画布内；两条后腿分别连接到固定踏板 (230,275)/(230,325)。此前 GIF 观察中的裁切与踩踏扣分不可直接套用，需运行这份原作对照。",
+          "lines": [
+            42,
+            116,
+            119,
+            198,
+            205,
+            214,
+            215
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deepseek-v4-pro-0813",
+      "model": "DeepSeek V4 Pro 0813",
+      "sourceZip": "图片和附件/white-cat-bicycle.zip",
+      "sourceZipSha256": "2a36b3ae1987fa4a549486753ad6b0425b9c8b1caa2e837aed00bcf252483271",
+      "sourceGif": "图片和附件/deepppv4pro.gif",
+      "sourceScreenshot": "图片和附件/image 1.png",
+      "extractedDirectory": ".artifact-work/pelican-html-20260914/source/deepseek-v4-pro-0813",
+      "members": [
+        {
+          "path": "white-cat-bicycle/preview.png",
+          "bytes": 261931,
+          "sha256": "24697809e2ad152426b8fa25d4345844cefbc3af3059fb2c091d6920c2ea8e54"
+        },
+        {
+          "path": "white-cat-bicycle/README.md",
+          "bytes": 2279,
+          "sha256": "b61eab4c5dfec323360789de1fce6d19cd4969ff5b922a2a3a9925622e33448b"
+        },
+        {
+          "path": "white-cat-bicycle/white-cat-bicycle.html",
+          "bytes": 23143,
+          "sha256": "e95ee3ada62c5f42495e3eea93b6acf29e2bf0669ea70b46fe2dda588bc186c8"
+        }
+      ],
+      "entryPath": "white-cat-bicycle/white-cat-bicycle.html",
+      "sourceHtmlSha256": "e95ee3ada62c5f42495e3eea93b6acf29e2bf0669ea70b46fe2dda588bc186c8",
+      "encoding": {
+        "name": "UTF-8",
+        "strictDecodePassed": true,
+        "replacementCharacters": 0
+      },
+      "htmlStructure": {
+        "doctypePresent": true,
+        "htmlEndPresent": true,
+        "bodyEndPresent": true,
+        "scriptElements": 0,
+        "inlineStyleElements": 1,
+        "svgElements": 1,
+        "mainSvgLine": 157,
+        "mainSvgViewBox": "0 0 900 600",
+        "geometryElementsInDocument": {
+          "path": 62,
+          "circle": 32,
+          "ellipse": 22,
+          "rect": 26,
+          "polygon": 0,
+          "polyline": 0,
+          "line": 12
+        },
+        "smilAnimationElements": 8,
+        "duplicateIds": []
+      },
+      "dependencies": {
+        "externalResourceReferences": [],
+        "relativeResourceReferences": [],
+        "missingLocalResources": [],
+        "missingFragmentReferences": [],
+        "embeddedDataResources": [],
+        "fontSource": "CSS 系统字体栈；未发现远程字体请求。",
+        "entryIsSelfContained": true
+      },
+      "staticSecurityReview": {
+        "scope": "扫描完整 HTML 标签、属性和 CSS 引用；阅读全部内联 JavaScript。未运行原作。",
+        "externalScriptElements": [],
+        "inlineEventHandlerAttributes": [],
+        "activeEmbedElements": {
+          "iframe": 0,
+          "object": 0,
+          "embed": 0,
+          "form": 0
+        },
+        "observedJavaScriptCapabilities": {
+          "network": [],
+          "storage": [],
+          "crossWindowOrNavigation": [],
+          "dynamicCode": []
+        },
+        "usesWebAudio": false,
+        "usesAnimationFrame": false,
+        "result": "静态检查未发现外部加载、导航、跨窗口通信或存储功能；并非运行通过或安全保证。"
+      },
+      "svgAssessmentSuggestion": {
+        "criterion": "svg_source",
+        "score": 5,
+        "max": 5,
+        "status": "static-source-checked",
+        "reason": "原文件第 157 行的主场景为内联 SVG（viewBox 0 0 900 600）；猫、自行车和背景由 path/circle/ellipse/line 等几何元素构成，未使用 canvas 或外部图片替代主体。",
+        "evidenceLine": 157,
+        "requirementBeforeUse": "先在浏览器确认该 HTML 与对应模型提交作品相符；此建议仅对所收文件源码成立。"
+      },
+      "htmlRenderAssessmentSuggestion": {
+        "criterion": "html_render",
+        "score": null,
+        "status": "awaiting-browser-check",
+        "reason": "本清单只做静态分析，HTML 运行分须由浏览器实际运行后确认。"
+      },
+      "warnings": [
+        {
+          "code": "duplicate-submitted-archive",
+          "message": "手册中两款 DeepSeek 模型指向不同 ZIP 文件名，但两个 ZIP 字节完全相同，且 HTML、README、preview 均相同。保留用户原始映射；需要确认是否两条结果确实共用该原作。仅记录附件重复事实，不据此推断模型行为。",
+          "otherId": "deepseek-v4-1-flash"
+        },
+        {
+          "code": "unverified-readme-claims",
+          "message": "README 中的 Chrome 检查与动作精度属于随附自述，未作为本站实测证据。"
+        }
+      ]
+    }
+  ]
+}

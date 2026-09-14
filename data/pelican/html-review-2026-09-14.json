@@ -1,0 +1,164 @@
+{
+  "ruleVersion": "3.0",
+  "reviewedAt": "2026-09-14",
+  "reviewer": "AI",
+  "scope": "在站内受限 iframe 中逐个打开14份原始HTML，以960×720视口观察实际渲染，并与原GIF、原静态源码核对。画面9项沿用前次逐帧观察；新增HTML运行与SVG源码2项。并非源宝复核或对模型后台身份的证明。",
+  "priorVisualReview": "reviews-2026-09-14.json",
+  "sourceIntake": "html-intake-2026-09-14.json",
+  "entries": [
+    {
+      "id": "gpt-6-astra",
+      "sourceHtmlSha256": "24f1460f937cd7c582223d9761ea504e8a49614628a434d301a507cbfefbb4cc",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/gpt-6-astra.png",
+      "total": 100
+    },
+    {
+      "id": "claude-fable-5-1",
+      "sourceHtmlSha256": "966b426ea435029ab3303d1b8b2ef8a5fb4a94ab20faac074ee0e47c22c72ddb",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/claude-fable-5-1.png",
+      "total": 90
+    },
+    {
+      "id": "gemini-3-8-flash",
+      "sourceHtmlSha256": "f99f8c6f41e25ff297c25919c6cce1dd570c73b9bba50d617572d6192df142a2",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/gemini-3-8-flash.png",
+      "total": 90
+    },
+    {
+      "id": "deepseek-v4-1-flash",
+      "sourceHtmlSha256": "e95ee3ada62c5f42495e3eea93b6acf29e2bf0669ea70b46fe2dda588bc186c8",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": null,
+      "assessmentStatus": "provisional",
+      "reason": "本次 DeepSeek V4.1 Flash 与 DeepSeek V4 Pro 0813 的 HTML 及压缩包逐字节相同，待确认附件是否放重复；两份材料均保留，暂不合并成已评分结果。",
+      "screenshot": ".artifact-work/pelican-html-20260914/deepseek-v4-1-flash.png",
+      "total": null
+    },
+    {
+      "id": "qwen3-8-max-0902",
+      "sourceHtmlSha256": "17918813e46a85500b5d76dac47637c8c377474e7360bcb07050de30a07812a0",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/qwen3-8-max-0902.png",
+      "total": 95
+    },
+    {
+      "id": "kimi-k3",
+      "sourceHtmlSha256": "07228ef3c5bdde43ed7327117f398d74b3764805a1c0008f58ebc6d6848d7afe",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/kimi-k3.png",
+      "total": 90
+    },
+    {
+      "id": "glm-5-3",
+      "sourceHtmlSha256": "b24e33daca456440ced51b23c706d9ee2bad2efee2dc9895475e4861e0c209e0",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/glm-5-3.png",
+      "total": 90
+    },
+    {
+      "id": "doubao-seed-2-1-pro",
+      "sourceHtmlSha256": "3dc833d29a14e24837ba9782d09365d5bf2612223fc4b51bd0f8326cdb89c707",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/doubao-seed-2-1-pro.png",
+      "total": 100
+    },
+    {
+      "id": "minimax-m3",
+      "sourceHtmlSha256": "02b0bc55381c031f53ed31eb66bec8f3a1d312451c0b4b90df5c1ab312272485",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/minimax-m3.png",
+      "total": 85
+    },
+    {
+      "id": "grok-4-6",
+      "sourceHtmlSha256": "0d5c398f4fd0ec04cb7e821fb2ea86524f12e5835763a547e354cff78a0e074d",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/grok-4-6.png",
+      "total": 85
+    },
+    {
+      "id": "gpt-5-6-sol",
+      "sourceHtmlSha256": "829f766abfd917ba8a46ee5bb7b489099b85dde24aff2b2387fcb00a30b5a9c2",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/gpt-5-6-sol.png",
+      "total": 100
+    },
+    {
+      "id": "claude-opus-5",
+      "sourceHtmlSha256": "7456ee05d38f2fb5dd13d5b335d345d4de80cc96170f4db0449ef7c801adc478",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": true,
+      "assessmentStatus": "scored",
+      "reason": "原作运行正常、SVG实现及与原GIF对应关系均已核对。",
+      "screenshot": ".artifact-work/pelican-html-20260914/claude-opus-5.png",
+      "total": 100
+    },
+    {
+      "id": "gemini-3-1-pro-preview",
+      "sourceHtmlSha256": "e1d3515d18ba4bdf06a0ad273b95b8b5cb5743a7e6be50e0bb93c042484d464d",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": false,
+      "assessmentStatus": "provisional",
+      "reason": "补交 HTML 为山景、红色自行车，与原 GIF 的道路、橙色自行车画面不一致，待确认以哪份作品为准；当前画面观察仍依据原 GIF。",
+      "screenshot": ".artifact-work/pelican-html-20260914/gemini-3-1-pro-preview.png",
+      "total": null
+    },
+    {
+      "id": "deepseek-v4-pro-0813",
+      "sourceHtmlSha256": "e95ee3ada62c5f42495e3eea93b6acf29e2bf0669ea70b46fe2dda588bc186c8",
+      "browserRender": "passed",
+      "svgSource": "verified",
+      "htmlMatchesPriorGif": null,
+      "assessmentStatus": "provisional",
+      "reason": "本次 DeepSeek V4 Pro 0813 与 DeepSeek V4.1 Flash 的 HTML 及压缩包逐字节相同，待确认附件是否放重复；两份材料均保留，暂不合并成已评分结果。",
+      "screenshot": ".artifact-work/pelican-html-20260914/deepseek-v4-pro-0813.png",
+      "total": null
+    }
+  ]
+}

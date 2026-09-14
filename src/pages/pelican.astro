@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PelicanMethod from '../components/PelicanMethod.astro';
+import PelicanOriginal from '../components/PelicanOriginal.astro';
 import { catalog } from '../lib/catalog';
 import { defaultPelicanFilters, getPelicanCounts, getPelicanRows, pelicanSchema } from '../lib/pelican';
 import { renderPelicanLeaders, renderPelicanTiers } from '../lib/pelican-render';
@@ -14,13 +15,13 @@ const rows = getPelicanRows(board, catalog, defaultPelicanFilters);
 const counts = getPelicanCounts(rows);
 const providers = catalog.providers;
 ---
-<Layout title="鹈鹕测试榜 · 源宝模型排行榜" description="鹈鹕测试，从夯到拉排名。查看白猫骑车 v3 的模型作品、画面初评、统一提示词与评分依据。正式档位待原作核验，仅供娱乐。">
+<Layout title="鹈鹕测试榜 · 源宝模型排行榜" description="鹈鹕测试，从夯到拉排名。查看白猫骑车 v3 的模型作品、画面初评、统一提示词与评分依据。根据原作评分从夯到拉定档，仅供娱乐。">
   <main id="main" class="page-shell pelican-page" data-base={base}>
     <section class="page-intro" aria-labelledby="page-title">
       <div class="intro-copy"><h1 id="page-title">鹈鹕测试，<span>从夯到拉排名</span></h1><p>仅供娱乐</p></div>
       <div class="provider-gallery" aria-label="鹈鹕测试榜模型厂商">{providers.map(provider => <a class="provider-gallery-item" data-pelican-provider={provider.id} href={`${pathFor(base, 'pelican/')}?providers=${provider.id}#ranking-title`} aria-label={`查看${provider.shortName}鹈鹕测试`} title={provider.name}><Fragment set:html={mark(catalog, provider.id, base)} /><span class="provider-tooltip" aria-hidden="true">{provider.shortName}</span></a>)}</div>
     </section>
-    <section id="pelican-leaders" class="champions" aria-label={counts.verified ? '当前筛选的领先模型' : '当前筛选的作品与核验进度'} set:html={renderPelicanLeaders(rows, catalog, base, board.entries.length > 0)} />
+    <section id="pelican-leaders" class="champions" aria-label={counts.ranked ? '当前筛选的领先模型' : '当前筛选的作品与核验进度'} set:html={renderPelicanLeaders(rows, catalog, base, board.entries.length > 0)} />
     <div class="board-layout">
       <aside class="filters-sidebar" aria-label="筛选鹈鹕测试榜">
         <details id="pelican-filters" open>
@@ -40,9 +41,10 @@ const providers = catalog.providers;
           <h2 id="ranking-title"><span id="pelican-board-title">鹈鹕测试榜</span> <span class="count-pill" id="pelican-count">{rows.length}</span></h2>
           <button id="pelican-share" class="outline-button" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9M11 5H5v14h14v-6"/></svg>分享当前榜单</button>
         </div>
-        <div class="ranking-controls pelican-controls"><span class="pelican-batch">白猫骑车 · v3.0</span><a class="pelican-method-link" data-pelican-method-link href="#pelican-method" aria-controls="pelican-method">测试与评分说明</a><label class="sort-control" for="pelican-order"><select id="pelican-order" aria-label="档位排序方向" disabled={counts.verified === 0} title={counts.verified ? '正式成绩按档位排序' : '正式成绩核验后可按档位排序'}><option value="desc">从夯到拉</option><option value="asc">从拉到夯</option></select></label></div>
+        <div class="ranking-controls pelican-controls"><span class="pelican-batch">白猫骑车 · v3.0</span><a class="pelican-method-link" data-pelican-method-link href="#pelican-method" aria-controls="pelican-method">测试与评分说明</a><label class="sort-control" for="pelican-order"><select id="pelican-order" aria-label="档位排序方向" disabled={counts.ranked === 0} title={counts.ranked ? '作品得分按档位排序' : '评分证据齐全后可按档位排序'}><option value="desc">从夯到拉</option><option value="asc">从拉到夯</option></select></label></div>
+        <p class="pelican-ranking-note">按本次作品评分从夯到拉排列，同分并列。AI 评分与测试记录可展开查看。</p>
         <div id="pelican-list">
-          <div class:list={['pelican-column-head', { 'pelican-column-head-pending': counts.verified === 0 }]} aria-hidden="true">{counts.verified > 0 && <span>档位</span>}<span>模型与评分</span><span>测试作品</span></div>
+          <div class:list={['pelican-column-head', { 'pelican-column-head-pending': counts.ranked === 0 }]} aria-hidden="true">{counts.ranked > 0 && <span>档位</span>}<span>模型与评分</span><span>测试作品</span></div>
           <div class="pelican-tiers" id="pelican-tiers" data-order="desc" set:html={renderPelicanTiers(rows, catalog, base, defaultPelicanFilters.order)} />
         </div>
         <div id="pelican-empty" class="empty-state" hidden><div class="empty-icon" aria-hidden="true">⌕</div><h3>没有找到符合条件的模型</h3><p>{board.entries.length ? '试试其他模型名称，或减少筛选条件。' : '当前尚未录入测试结果，收到测试表格后会更新。'}</p><button type="button" class="outline-button" id="pelican-empty-reset">清除筛选</button></div>
@@ -52,6 +54,7 @@ const providers = catalog.providers;
     </div>
     <noscript><p class="data-footnote">当前显示默认鹈鹕测试榜。启用 JavaScript 后可使用搜索、筛选和排序。</p></noscript>
   </main>
+  <PelicanOriginal />
   <div id="pelican-toast" class="toast" role="status" aria-live="polite" hidden></div>
   <dialog id="pelican-share-dialog"><div class="dialog-heading"><h2>分享当前榜单</h2><button id="pelican-close-share" type="button" aria-label="关闭分享窗口">×</button></div><p>复制下方链接，筛选条件和排序方向将一并保留。</p><input id="pelican-share-url" type="text" readonly aria-label="当前榜单分享链接" /><button id="pelican-select-share" class="primary-button" type="button">选中链接</button></dialog>
 </Layout>

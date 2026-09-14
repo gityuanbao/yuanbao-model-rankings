@@ -61,6 +61,14 @@ export const pelicanV3EntrySchema = z.object({
     width: z.number().int().positive(),
     height: z.number().int().positive(),
   }).strict(),
+  artifact: z.object({
+    src: z.string().regex(/^pelican-originals\/[a-z0-9]+(?:-[a-z0-9]+)*\.html\.txt$/),
+    download: z.string().regex(/^pelican-originals\/[a-z0-9]+(?:-[a-z0-9]+)*\.zip$/),
+    sha256: z.string().regex(/^[a-f0-9]{64}$/),
+    htmlVerifiedAt: dateSchema.nullable(),
+    svgVerified: z.boolean(),
+    runStatus: z.enum(['pending', 'passed', 'failed']),
+  }).strict().optional(),
   test: z.object({
     modelLabel: nonempty,
     platform: nonempty.nullable(),
@@ -75,7 +83,7 @@ export const pelicanV3EntrySchema = z.object({
     notes: z.array(nonempty).default([]),
   }).strict(),
   assessment: z.object({
-    status: z.enum(['provisional', 'verified']),
+    status: z.enum(['provisional', 'scored', 'verified']),
     reviewedAt: dateSchema,
     reviewer: z.literal('AI'),
     criteria: z.array(criterionSchema).length(pelicanCriteria.length),
@@ -94,12 +102,32 @@ export const pelicanV3EntrySchema = z.object({
     if (entry.assessment.status === 'provisional' && criterion.kind === 'technical' && item.score !== null) {
       ctx.addIssue({ code: 'custom', path: [...path, 'score'], message: '待原作核验的作品不能先确认网页与 SVG 分数' });
     }
-    if (entry.assessment.status === 'verified' && item.score === null) {
-      ctx.addIssue({ code: 'custom', path: [...path, 'score'], message: '正式成绩必须完成全部评分项' });
+    if (entry.assessment.status !== 'provisional' && item.score === null) {
+      ctx.addIssue({ code: 'custom', path: [...path, 'score'], message: '参与作品排序需要完成全部评分项' });
     }
   });
   if (entry.media.src !== `media/pelican/${entry.id}.mp4` || entry.media.poster !== `media/pelican/${entry.id}.webp`) {
     ctx.addIssue({ code: 'custom', path: ['media'], message: '媒体文件名必须与作品 ID 一致' });
+  }
+  if (entry.artifact && (entry.artifact.src !== `pelican-originals/${entry.id}.html.txt` || entry.artifact.download !== `pelican-originals/${entry.id}.zip`)) {
+    ctx.addIssue({ code: 'custom', path: ['artifact'], message: '原作文件名必须与作品 ID 一致' });
+  }
+  if (entry.assessment.status !== 'provisional') {
+    if (!entry.artifact) {
+      ctx.addIssue({ code: 'custom', path: ['artifact'], message: '完整作品评分需要原始 HTML、运行核验与 SVG 核验记录' });
+    } else {
+      if (entry.artifact.htmlVerifiedAt === null || entry.artifact.runStatus === 'pending') {
+        ctx.addIssue({ code: 'custom', path: ['artifact'], message: '完整作品评分需要已完成的原作运行核验及核验日期' });
+      }
+      const html = entry.assessment.criteria.find(item => item.id === 'html_render');
+      const svg = entry.assessment.criteria.find(item => item.id === 'svg_source');
+      if (entry.artifact.runStatus === 'failed' && html?.score !== 0) {
+        ctx.addIssue({ code: 'custom', path: ['assessment', 'criteria'], message: '已确认无法运行的原作不能获得网页展示分' });
+      }
+      if (!entry.artifact.svgVerified && svg?.score !== 0) {
+        ctx.addIssue({ code: 'custom', path: ['assessment', 'criteria'], message: '未确认主体使用 SVG 的原作不能获得 SVG 分数' });
+      }
+    }
   }
   if (entry.test.promptStatus === 'variant' && entry.test.promptText === null) {
     ctx.addIssue({ code: 'custom', path: ['test', 'promptText'], message: '题目有差异时必须记录实际提示词' });
@@ -137,13 +165,14 @@ export type PelicanEntry = PelicanBoard['entries'][number];
 export type PelicanV3Entry = z.infer<typeof pelicanV3EntrySchema>;
 export function isPelicanV3Entry(entry: PelicanEntry): entry is PelicanV3Entry { return 'ruleVersion' in entry; }
 export function isPelicanVerified(entry: PelicanEntry) { return !isPelicanV3Entry(entry) || entry.assessment.status === 'verified'; }
+export function isPelicanRankable(entry: PelicanEntry) { return !isPelicanV3Entry(entry) || entry.assessment.status !== 'provisional'; }
 
 export function getPelicanScore(entry: PelicanV3Entry) {
   const visual = entry.assessment.criteria.filter(item => pelicanCriteria.find(criterion => criterion.id === item.id)!.kind === 'visual');
   return {
     visual: visual.every(item => item.score !== null) ? visual.reduce((sum, item) => sum + item.score!, 0) : null,
     visualCompleted: visual.filter(item => item.score !== null).length,
-    total: entry.assessment.status === 'verified' ? entry.assessment.criteria.reduce((sum, item) => sum + item.score!, 0) : null,
+    total: isPelicanRankable(entry) ? entry.assessment.criteria.reduce((sum, item) => sum + item.score!, 0) : null,
   };
 }
 
@@ -155,7 +184,9 @@ export function getPelicanTier(entry: PelicanEntry) {
 
 export function getPelicanCounts(rows: PelicanEntry[]) {
   const verified = rows.filter(isPelicanVerified).length;
-  return { total: rows.length, provisional: rows.length - verified, verified };
+  const ranked = rows.filter(isPelicanRankable).length;
+  const scored = rows.filter(entry => isPelicanV3Entry(entry) && entry.assessment.status === 'scored').length;
+  return { total: rows.length, provisional: rows.length - ranked, verified, ranked, scored };
 }
 
 export interface PelicanFilters { providers: string[]; query: string; order: 'asc' | 'desc' }
@@ -200,13 +231,13 @@ export function getPelicanRows(board: PelicanBoard, catalog: Catalog, filters: P
     return (!filters.providers.length || filters.providers.includes(entry.providerId)) &&
       matches(entry.name, provider.name, provider.shortName, entry.providerId, isPelicanV3Entry(entry) ? entry.test.modelLabel : '');
   });
-  const formal = matched.filter(isPelicanVerified).sort((a, b) => filters.order === 'asc' ? compareFormal(b, a) : compareFormal(a, b));
-  // Unverified observations are never ranked, including when the formal board is reversed.
-  return [...formal, ...matched.filter(entry => !isPelicanVerified(entry))];
+  const ranked = matched.filter(isPelicanRankable).sort((a, b) => filters.order === 'asc' ? compareFormal(b, a) : compareFormal(a, b));
+  // Evidence-incomplete observations retain submission order after all complete scores.
+  return [...ranked, ...matched.filter(entry => !isPelicanRankable(entry))];
 }
 
 export function getPelicanRankGroups(rows: PelicanEntry[]) {
-  const sorted = rows.filter(isPelicanVerified).sort(compareFormal);
+  const sorted = rows.filter(isPelicanRankable).sort(compareFormal);
   const groups: Array<{ rank: number; entries: PelicanEntry[] }> = [];
   sorted.forEach((entry, index) => {
     const previous = sorted[index - 1];

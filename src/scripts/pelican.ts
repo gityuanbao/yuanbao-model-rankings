@@ -17,26 +17,26 @@ function render(animate = true) {
   const rows = getPelicanRows(board, catalog, state);
   const counts = getPelicanCounts(rows);
   const columnHead = byId('pelican-list').querySelector<HTMLElement>('.pelican-column-head')!;
-  columnHead.classList.toggle('pelican-column-head-pending', !counts.verified);
-  columnHead.innerHTML = `${counts.verified ? '<span>档位</span>' : ''}<span>模型与评分</span><span>测试作品</span>`;
+  columnHead.classList.toggle('pelican-column-head-pending', !counts.ranked);
+  columnHead.innerHTML = `${counts.ranked ? '<span>档位</span>' : ''}<span>模型与评分</span><span>测试作品</span>`;
   const tiers = byId('pelican-tiers');
   const expanded = [...tiers.querySelectorAll<HTMLDetailsElement>('.pelican-assessment[open]')].map(detail => detail.closest<HTMLElement>('[data-model-id]')!.dataset.modelId);
   tiers.innerHTML = renderPelicanTiers(rows, catalog, base, state.order);
   tiers.querySelectorAll<HTMLDetailsElement>('.pelican-assessment').forEach(detail => detail.open = expanded.includes(detail.closest<HTMLElement>('[data-model-id]')!.dataset.modelId));
   tiers.dataset.order = state.order;
   byId('pelican-leaders').innerHTML = renderPelicanLeaders(rows, catalog, base, board.entries.length > 0);
-  byId('pelican-leaders').setAttribute('aria-label', counts.verified ? '当前筛选的领先正式成绩，同分并列' : '当前筛选的作品和核验状态');
+  byId('pelican-leaders').setAttribute('aria-label', counts.ranked ? '当前筛选的领先作品，同分并列' : '当前筛选的作品和核验状态');
   byId('pelican-count').textContent = String(rows.length);
-  byId('pelican-summary').textContent = counts.verified
-    ? `显示 ${counts.verified} 份正式成绩，${state.order === 'desc' ? '从夯到拉' : '从拉到夯'}${counts.provisional ? `；另有 ${counts.provisional} 份作品待核验` : ''}`
+  byId('pelican-summary').textContent = counts.ranked
+    ? `显示 ${counts.ranked} 份已评分作品，${state.order === 'desc' ? '从夯到拉' : '从拉到夯'}${counts.provisional ? `；另有 ${counts.provisional} 份作品待核验` : ''}`
     : `显示 ${counts.provisional} 份待核验作品，按提交顺序展示，暂不排名`;
   const empty = rows.length === 0 && (board.entries.length > 0 || !!state.query || state.providers.length > 0);
   byId('pelican-empty').hidden = !empty;
   byId('pelican-list').hidden = empty;
   byId<HTMLInputElement>('pelican-all').checked = !state.providers.length;
   byId<HTMLSelectElement>('pelican-order').value = state.order;
-  byId<HTMLSelectElement>('pelican-order').disabled = !counts.verified;
-  byId<HTMLSelectElement>('pelican-order').title = counts.verified ? '正式成绩的档位顺序；待核验作品始终按提交顺序展示' : '正式成绩核验后可按档位排序';
+  byId<HTMLSelectElement>('pelican-order').disabled = !counts.ranked;
+  byId<HTMLSelectElement>('pelican-order').title = counts.ranked ? '作品评分的档位顺序；待核验作品始终按提交顺序展示' : '评分证据齐全后可按档位排序';
   if (document.activeElement !== search && !searchInput.composing) search.value = state.query;
   document.querySelectorAll<HTMLInputElement>('[name="pelican-provider"]').forEach(input => input.checked = state.providers.includes(input.value));
   if (animate) animateRows(positions);

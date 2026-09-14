@@ -75,15 +75,15 @@ test('鹈鹕榜筛选 URL 能恢复搜索、厂商和方向，排除未知参数
   assert.equal(parsePelicanFilters('?q=' + 'a'.repeat(200)).query.length, 100);
 });
 
-test('无正式数据时用状态卡，不足三名时不虚构额外名次', () => {
+test('无已评分数据时用状态卡，不足三名时不虚构额外名次', () => {
   const empty = renderPelicanLeaders([], catalog, '/', false);
   assert.equal((empty.match(/class="champion-card /g) ?? []).length, 3);
-  for (const label of ['本次作品', '待原作核验', '正式上榜']) assert.ok(empty.includes(label));
+  for (const label of ['本次作品', '材料待确认', '已评分作品']) assert.ok(empty.includes(label));
   assert.doesNotMatch(empty, /<img|href=|fixture/);
   assert.doesNotMatch(empty, /第一名|第二名|第三名/);
   const partial = renderPelicanLeaders(board.entries.slice(0, 1), catalog, '/', true);
   assert.equal((partial.match(/class="champion-card /g) ?? []).length, 3);
-  assert.equal((partial.match(/暂无更多独立名次/g) ?? []).length, 2);
+  assert.equal((partial.match(/暂无更多作品/g) ?? []).length, 2);
 });
 
 test('等级列保持五档、支持反向展示，过滤后不输出数字名次或未选模型', () => {

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小白猫骑自行车</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #dbeafe 0%, #fef3c7 75%, #bbf7d0 100%);
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .header {
+            margin-bottom: 12px;
+            text-align: center;
+            color: #334155;
+            user-select: none;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            color: #0f766e;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .scene {
+            width: 100%;
+            max-width: 820px;
+            padding: 10px 20px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 20px 30px rgba(15, 118, 110, 0.12));
+        }
+
+        /* 轮子自转 */
+        .wheel-rotate {
+            transform-origin: 0 0;
+            animation: spin 1.2s linear infinite;
+        }
+
+        /* 踏板齿盘旋转 */
+        .crank-rotate {
+            transform-origin: 390px 420px;
+            animation: spin 1.2s linear infinite;
+        }
+
+        /* 车身与小猫整体上下微颠簸 */
+        .rider-bounce {
+            animation: bounce 0.6s ease-in-out infinite alternate;
+        }
+
+        /* 猫咪尾巴灵动摆动 */
+        .tail-wag {
+            transform-origin: 310px 320px;
+            animation: wag 1.2s ease-in-out infinite alternate;
+        }
+
+        /* 地面虚线快速后退产生行进速度感 */
+        .road-dashes {
+            stroke-dasharray: 24 28;
+            animation: moveRoad 0.5s linear infinite;
+        }
+
+        /* 云朵匀速飘过 */
+        .cloud-1 {
+            animation: floatClouds 22s linear infinite;
+        }
+        .cloud-2 {
+            animation: floatClouds 30s linear infinite;
+            animation-delay: -12s;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-4px); }
+        }
+
+        @keyframes wag {
+            0% { transform: rotate(-6deg); }
+            100% { transform: rotate(14deg); }
+        }
+
+        @keyframes moveRoad {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -52; }
+        }
+
+        @keyframes floatClouds {
+            from { transform: translateX(850px); }
+            to { transform: translateX(-260px); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>小白猫的骑行日记</h1>
+    <p>迎着微风，快乐出发！</p>
+</div>
+
+<div class="scene">
+    <svg viewBox="0 0 800 580" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <!-- 柔和阴影 -->
+            <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+                <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.12"/>
+            </filter>
+
+            <!-- 自行车轮毂模板（中心在0,0） -->
+            <g id="wheel">
+                <!-- 轮胎外胎 -->
+                <circle cx="0" cy="0" r="62" fill="none" stroke="#334155" stroke-width="12"/>
+                <!-- 轮圈金属边 -->
+                <circle cx="0" cy="0" r="55" fill="none" stroke="#cbd5e1" stroke-width="3"/>
+                <!-- 辐条 -->
+                <line x1="-55" y1="0" x2="55" y2="0" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="0" y1="-55" x2="0" y2="55" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="-39" y1="-39" x2="39" y2="39" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="-39" y1="39" x2="39" y2="-39" stroke="#94a3b8" stroke-width="2"/>
+                <!-- 轮轴心 -->
+                <circle cx="0" cy="0" r="10" fill="#0d9488"/>
+                <circle cx="0" cy="0" r="5" fill="#f8fafc"/>
+            </g>
+        </defs>
+
+        <!-- 背景云朵 -->
+        <g opacity="0.65">
+            <g class="cloud-1">
+                <path d="M 0 90 q 20 -28 50 -18 q 30 -28 60 0 q 30 0 30 25 q 0 25 -30 25 l -100 0 z" fill="#ffffff"/>
+            </g>
+            <g class="cloud-2">
+                <path d="M 0 150 q 15 -20 40 -15 q 25 -25 50 0 q 25 0 25 20 q 0 20 -25 20 l -80 0 z" fill="#ffffff"/>
+            </g>
+        </g>
+
+        <!-- 地面与跑道虚线 -->
+        <line x1="30" y1="485" x2="770" y2="485" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+        <line class="road-dashes" x1="30" y1="510" x2="770" y2="510" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+
+        <!-- 地面接触阴影 -->
+        <ellipse cx="260" cy="485" rx="55" ry="6" fill="#475569" opacity="0.2"/>
+        <ellipse cx="540" cy="485" rx="55" ry="6" fill="#475569" opacity="0.2"/>
+
+        <!-- ==================== 自行车车轮 ==================== -->
+        <!-- 后轮 -->
+        <g transform="translate(260, 420)">
+            <g class="wheel-rotate">
+                <use href="#wheel"/>
+            </g>
+        </g>
+
+        <!-- 前轮 -->
+        <g transform="translate(540, 420)">
+            <g class="wheel-rotate">
+                <use href="#wheel"/>
+            </g>
+        </g>
+
+        <!-- ==================== 颠簸组（车身 + 骑手猫咪） ==================== -->
+        <g class="rider-bounce">
+
+            <!-- 后泥板 -->
+            <path d="M 205 420 A 66 66 0 0 1 315 378" fill="none" stroke="#2dd4bf" stroke-width="7" stroke-linecap="round"/>
+
+            <!-- 自行车车架管线 -->
+            <g stroke="#0d9488" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+                <!-- 后平叉 -->
+                <line x1="260" y1="420" x2="390" y2="420" stroke="#14b8a6"/>
+                <!-- 后上叉 -->
+                <line x1="260" y1="420" x2="335" y2="320"/>
+                <!-- 立管 -->
+                <line x1="390" y1="420" x2="335" y2="300"/>
+                <!-- 下管 -->
+                <line x1="390" y1="420" x2="495" y2="310"/>
+                <!-- 上管 -->
+                <line x1="335" y1="320" x2="495" y2="310"/>
+                <!-- 前叉 -->
+                <line x1="495" y1="310" x2="540" y2="420"/>
+                <!-- 车把立管 -->
+                <line x1="495" y1="310" x2="485" y2="250"/>
+            </g>
+
+            <!-- 车把与握把 -->
+            <path d="M 465 255 Q 495 240 520 260" fill="none" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 465 255 L 455 260" fill="none" stroke="#f43f5e" stroke-width="8" stroke-linecap="round"/>
+
+            <!-- 座垫 -->
+            <path d="M 310 295 C 320 290, 360 290, 365 300 C 355 306, 330 306, 310 295 Z" fill="#78350f"/>
+            <path d="M 330 304 L 335 320" stroke="#334155" stroke-width="5" stroke-linecap="round"/>
+
+            <!-- 车篮子 -->
+            <rect x="515" y="260" width="45" height="35" rx="5" fill="#fef08a" stroke="#d97706" stroke-width="3"/>
+            <line x1="515" y1="272" x2="560" y2="272" stroke="#d97706" stroke-width="2"/>
+            <line x1="515" y1="284" x2="560" y2="284" stroke="#d97706" stroke-width="2"/>
+            <line x1="530" y1="260" x2="530" y2="295" stroke="#d97706" stroke-width="2"/>
+            <line x1="545" y1="260" x2="545" y2="295" stroke="#d97706" stroke-width="2"/>
+
+            <!-- 车篮里的小花 -->
+            <circle cx="538" cy="252" r="5" fill="#ec4899"/>
+            <circle cx="538" cy="252" r="2" fill="#fde047"/>
+
+            <!-- 猫咪尾巴（带摆动动效） -->
+            <g class="tail-wag">
+                <path d="M 310 320 Q 240 330 245 270 Q 250 240 270 245 Q 280 250 265 280 Q 255 310 315 328" 
+                      fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+            </g>
+
+            <!-- ==================== 小白猫身体 ==================== -->
+            <!-- 猫咪后腿与脚踏触点 -->
+            <ellipse cx="370" cy="370" rx="20" ry="32" transform="rotate(-25 370 370)" fill="#f8fafc"/>
+            <ellipse cx="380" cy="405" rx="12" ry="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+
+            <!-- 猫咪身体 -->
+            <path d="M 315 330 C 310 270, 360 240, 420 260 C 450 275, 455 315, 435 345 C 405 370, 330 370, 315 330 Z" 
+                  fill="#ffffff" stroke="#f1f5f9" stroke-width="2" filter="url(#shadow)"/>
+
+            <!-- 猫咪前臂爪子（握把处） -->
+            <path d="M 420 280 Q 455 275 470 260" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round"/>
+            <circle cx="470" cy="260" r="8" fill="#ffffff"/>
+
+            <!-- 领口红色蝴蝶结 -->
+            <polygon points="435,248 448,240 448,256" fill="#ef4444"/>
+            <polygon points="435,248 422,240 422,256" fill="#ef4444"/>
+            <circle cx="435" cy="248" r="3.5" fill="#facc15"/>
+
+            <!-- 猫咪头部 -->
+            <g transform="translate(10, -5)">
+                <!-- 圆圆的猫头 -->
+                <circle cx="435" cy="195" r="42" fill="#ffffff" stroke="#f1f5f9" stroke-width="1.5"/>
+
+                <!-- 左耳 -->
+                <path d="M 400 170 L 390 120 L 425 158 Z" fill="#ffffff" stroke="#f1f5f9" stroke-linejoin="round"/>
+                <path d="M 402 165 L 396 130 L 420 158 Z" fill="#fbcfe8"/>
+
+                <!-- 右耳 -->
+                <path d="M 450 160 L 475 125 L 472 172 Z" fill="#ffffff" stroke="#f1f5f9" stroke-linejoin="round"/>
+                <path d="M 455 160 L 470 135 L 468 168 Z" fill="#fbcfe8"/>
+
+                <!-- 眯眯笑眼 -->
+                <path d="M 422 195 Q 430 188 438 195" fill="none" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 452 195 Q 460 188 468 195" fill="none" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+
+                <!-- 粉嫩小腮红 -->
+                <ellipse cx="418" cy="207" rx="6" ry="3.5" fill="#fda4af" opacity="0.75"/>
+                <ellipse cx="472" cy="207" rx="6" ry="3.5" fill="#fda4af" opacity="0.75"/>
+
+                <!-- 小鼻子与三瓣嘴 -->
+                <polygon points="445,200 449,200 447,203" fill="#f43f5e"/>
+                <path d="M 442 206 Q 447 210 447 203 Q 447 210 452 206" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- 猫胡须 -->
+                <line x1="410" y1="202" x2="390" y2="200" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="412" y1="208" x2="392" y2="212" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="478" y1="202" x2="498" y2="200" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="476" y1="208" x2="496" y2="212" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+            </g>
+
+            <!-- 右侧前爪（握在把手前方） -->
+            <path d="M 445 285 Q 475 275 490 265" fill="none" stroke="#ffffff" stroke-width="13" stroke-linecap="round"/>
+            <circle cx="490" cy="265" r="7" fill="#ffffff" stroke="#f1f5f9" stroke-width="1"/>
+
+            <!-- 曲柄与脚踏板（带旋转动效） -->
+            <g class="crank-rotate">
+                <line x1="390" y1="420" x2="408" y2="440" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+                <rect x="400" y="438" width="16" height="6" rx="2" fill="#334155"/>
+            </g>
+            <!-- 中轴保护盘 -->
+            <circle cx="390" cy="420" r="14" fill="#0f766e"/>
+            <circle cx="390" cy="420" r="7" fill="#cbd5e1"/>
+
+        </g>
+    </svg>
+</div>
+
+</body>
+</html>

@@ -96,6 +96,23 @@ const boards = [
   { name: '鹈鹕榜', file: 'pelican', pathname: '/pelican/', search: 'pelican-search', provider: 'pelican-provider', reset: 'pelican-reset', share: 'pelican-share', panel: 'pelican-filters' },
 ] as const;
 
+function pelicanFixture(id: string, providerId: pelican.PelicanV3Entry['providerId'], status: 'provisional' | 'scored' = 'provisional', total = 100): pelican.PelicanV3Entry {
+  let remaining = total;
+  const criteria = pelican.pelicanCriteria.map(criterion => {
+    const score = status === 'provisional' && criterion.kind === 'technical' ? null : Math.min(remaining, criterion.maximum);
+    if (score !== null) remaining -= score;
+    return { id: criterion.id, score, reason: '测试夹具的对应观察依据', evidenceTimes: criterion.kind === 'visual' ? [0] : [] };
+  });
+  return pelican.pelicanV3EntrySchema.parse({
+    id, name: `${providerId === 'openai' ? 'GPT' : 'Kimi'} ${id}`, providerId, ruleVersion: '3.0',
+    media: { type: 'video', src: `media/pelican/${id}.mp4`, poster: `media/pelican/${id}.webp`, width: 1280, height: 960 },
+    ...(status === 'scored' ? { artifact: { src: `pelican-originals/${id}.html.txt`, download: `pelican-originals/${id}.zip`, sha256: 'a'.repeat(64), htmlVerifiedAt: '2026-09-14', svgVerified: true, runStatus: 'passed' } } : {}),
+    test: { modelLabel: `原始型号 ${id}`, platform: null, effort: null, date: null, tools: 'unknown', codeModified: null, identityStatus: 'submitted' },
+    assessment: { status, reviewedAt: '2026-09-14', reviewer: 'AI', ownerConfirmed: false, criteria },
+  });
+}
+const fixtureBoard = (entries: pelican.PelicanV3Entry[]) => pelican.pelicanSchema.parse({ schemaVersion: 2, ruleVersion: '3.0', entries });
+
 function client(board: typeof boards[number], hash = '', pelicanData: unknown = data) {
   const elements = new Map<string, ElementDouble>();
   const element = (id: string) => { if (!elements.has(id)) elements.set(id, new ElementDouble(id)); return elements.get(id)!; };
@@ -237,10 +254,11 @@ test('性能评分说明可通过普通点击、首次 hash 和后续 hash 直�
 });
 
 test('鹈鹕榜：筛选重绘仅恢复仍可见作品已展开的评分明细', async () => {
-  const app = client(boards[2]);
+  const fixture = fixtureBoard([pelicanFixture('openai-pending', 'openai'), pelicanFixture('moonshot-pending', 'moonshot')]);
+  const app = client(boards[2], '', fixture);
   const tiers = app.element('pelican-tiers');
   const before = tiers.querySelectorAll('.pelican-assessment');
-  assert.equal(before.length, data.entries.length);
+  assert.equal(before.length, fixture.entries.length);
   const retainedId = before[0].closest('[data-model-id]')!.dataset.modelId;
   before[0].open = true;
   app.provider.checked = true;
@@ -259,7 +277,7 @@ test('鹈鹕榜：筛选重绘仅恢复仍可见作品已展开的评分明细',
 });
 
 test('鹈鹕榜：作品媒体出错显示可读反馈，加载恢复后消失且不改变观察分', async () => {
-  const app = client(boards[2]);
+  const app = client(boards[2], '', fixtureBoard([pelicanFixture('scored-video', 'openai', 'scored')]));
   const tiers = app.element('pelican-tiers');
   const video = tiers.querySelectorAll('[data-pelican-video]')[0];
   assert.ok(video instanceof VideoElementDouble);
@@ -276,15 +294,7 @@ test('鹈鹕榜：作品媒体出错显示可读反馈，加载恢复后消失�
 });
 
 test('鹈鹕榜：混合成绩筛到待核验作品时同步移除档位列，重置后恢复', async () => {
-  const source = pelican.pelicanSchema.parse(data);
-  const formal = structuredClone(source.entries.find(entry => entry.providerId === 'openai'))!;
-  assert.ok(pelican.isPelicanV3Entry(formal));
-  formal.assessment.status = 'verified';
-  formal.assessment.ownerConfirmed = true;
-  for (const criterion of formal.assessment.criteria) if (criterion.score === null) criterion.score = pelican.pelicanCriteria.find(item => item.id === criterion.id)!.maximum;
-  formal.test = { ...formal.test, platform: '测试平台', effort: '最高', date: '2026-09-14', tools: 'none', codeModified: false, identityStatus: 'verified', firstAttempt: true, promptStatus: 'exact', promptText: pelican.pelicanPrompt };
-  const pending = source.entries.find(entry => entry.providerId === 'moonshot')!;
-  const mixed = pelican.pelicanSchema.parse({ schemaVersion: 2, ruleVersion: '3.0', entries: [formal, pending] });
+  const mixed = fixtureBoard([pelicanFixture('scored', 'openai', 'scored'), pelicanFixture('pending', 'moonshot')]);
   const app = client(boards[2], '', mixed);
   const header = app.element('pelican-list').querySelector('.pelican-column-head');
   assert.equal(header.classList.contains('pelican-column-head-pending'), false);
@@ -295,8 +305,47 @@ test('鹈鹕榜：混合成绩筛到待核验作品时同步移除档位列，�
   assert.doesNotMatch(header.innerHTML, /档位/);
   assert.match(header.innerHTML, /模型与评分.*测试作品/);
   assert.equal(app.element('pelican-order').disabled, true);
+  assert.deepEqual([...app.element('pelican-tiers').innerHTML.matchAll(/id="tier-([a-z]+)"/g)].map(match => match[1]), ['hang', 'top', 'good', 'npc', 'la'], '待核验结果仍保留完整从夯到拉标尺');
   await app.element('pelican-reset').emit('click');
   assert.equal(header.classList.contains('pelican-column-head-pending'), false);
   assert.match(header.innerHTML, /<span>档位<\/span>/);
   assert.equal(app.element('pelican-order').disabled, false);
+});
+
+test('鹈鹕榜：AI已评分作品支持反序、组合筛选、分享和历史恢复，待核验作品不参与排名', async () => {
+  const mixed = fixtureBoard([
+    pelicanFixture('pending', 'moonshot'), pelicanFixture('winner', 'openai', 'scored'),
+    pelicanFixture('runner-up', 'openai', 'scored', 90), pelicanFixture('third', 'moonshot', 'scored', 75),
+  ]);
+  const app = client(boards[2], '#pelican-method', mixed);
+  const tierIds = () => app.element('pelican-tiers').querySelectorAll('[data-model-id]').map(row => row.dataset.modelId);
+  assert.deepEqual(tierIds(), ['winner', 'runner-up', 'third', 'pending']);
+  assert.match(app.element('pelican-summary').textContent, /3 份已评分作品，从夯到拉；另有 1 份作品待核验/);
+  const leaderHtml = app.element('pelican-leaders').innerHTML;
+  app.element('pelican-order').value = 'asc';
+  await app.element('pelican-order').emit('change');
+  assert.deepEqual(tierIds(), ['third', 'runner-up', 'winner', 'pending']);
+  assert.equal(app.element('pelican-leaders').innerHTML, leaderHtml, '反序不改变领先作品');
+  assert.match(app.element('pelican-summary').textContent, /从拉到夯/);
+  await app.type('GPT');
+  app.provider.checked = true;
+  app.document.activeElement = app.provider;
+  await app.provider.emit('change');
+  app.tick(250);
+  assert.deepEqual(tierIds(), ['runner-up', 'winner']);
+  assert.equal(app.element('pelican-count').textContent, '2');
+  await app.element('pelican-share').emit('click');
+  const shared = new URL(app.copied());
+  assert.equal(shared.searchParams.get('order'), 'asc');
+  assert.equal(shared.searchParams.get('q'), 'GPT');
+  assert.equal(shared.searchParams.get('providers'), 'openai');
+  assert.equal(shared.hash, '#pelican-method');
+  await app.element('pelican-reset').emit('click');
+  assert.deepEqual(tierIds(), ['winner', 'runner-up', 'third', 'pending']);
+  app.location.search = shared.search;
+  await app.window.emit('popstate');
+  assert.deepEqual(tierIds(), ['runner-up', 'winner']);
+  assert.equal(app.element('pelican-order').value, 'asc');
+  assert.equal(app.provider.checked, true);
+  assert.equal(app.element('pelican-search').value, 'GPT');
 });
