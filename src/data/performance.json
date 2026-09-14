@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "sourceId": "arena-text-style-control",
-  "publishedAt": "2026-09-11",
-  "retrievedAt": "2026-09-12T08:31:46.694Z",
-  "retrieval": "reviewed-official-page",
+  "publishedAt": "2026-09-13",
+  "retrievedAt": "2026-09-14T04:34:10.258Z",
+  "retrieval": "official-page",
   "sourceUrl": "https://arena.ai/leaderboard/text",
-  "sourceRowCount": 401,
+  "sourceRowCount": 402,
   "models": [
     {
       "id": "claude-fable-5",
@@ -18,7 +18,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 29683,
+      "votes": 30057,
       "sourceRank": 1
     },
     {
@@ -33,7 +33,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 71992,
+      "votes": 71993,
       "sourceRank": 2
     },
     {
@@ -48,7 +48,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 59992,
+      "votes": 60002,
       "sourceRank": 3
     },
     {
@@ -57,14 +57,14 @@
       "name": "Claude Fable 5.1",
       "mode": "Max",
       "sourceModel": "claude-fable-5.1-max",
-      "score": 1501,
+      "score": 1498,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
       "uncertainty": 8,
       "preliminary": false,
-      "votes": 5447,
-      "sourceRank": 4
+      "votes": 5783,
+      "sourceRank": 5
     },
     {
       "id": "arena-claude-opus-4-6-0b03295f",
@@ -77,7 +77,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 75898,
+      "votes": 75878,
       "sourceRank": 6
     },
     {
@@ -91,7 +91,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 61138,
+      "votes": 61128,
       "sourceRank": 7
     },
     {
@@ -106,8 +106,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 41777,
-      "sourceRank": 9
+      "votes": 42617,
+      "sourceRank": 10
     },
     {
       "id": "gemini-3-8-flash-high",
@@ -121,8 +121,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 9,
       "preliminary": true,
-      "votes": 5094,
-      "sourceRank": 10
+      "votes": 5076,
+      "sourceRank": 9
     },
     {
       "id": "arena-gemini-3-7-flash-high-0acab277",
@@ -136,8 +136,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 8,
       "preliminary": true,
-      "votes": 5645,
-      "sourceRank": 11
+      "votes": 5640,
+      "sourceRank": 12
     },
     {
       "id": "arena-claude-opus-5-max-ae70a72a",
@@ -149,9 +149,9 @@
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
-      "uncertainty": 6,
+      "uncertainty": 5,
       "preliminary": false,
-      "votes": 20296,
+      "votes": 20706,
       "sourceRank": 14
     },
     {
@@ -166,37 +166,22 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 106483,
-      "sourceRank": 13
+      "votes": 106951,
+      "sourceRank": 15
     },
     {
       "id": "arena-gemini-3-pro-613b1a09",
       "providerId": "google",
       "name": "Gemini 3 Pro",
       "sourceModel": "gemini-3-pro",
-      "score": 1486,
+      "score": 1485,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 40653,
+      "votes": 40654,
       "sourceRank": 16
-    },
-    {
-      "id": "glm-5-3-max",
-      "providerId": "zhipu",
-      "name": "GLM-5.3",
-      "mode": "Max",
-      "sourceModel": "glm-5.3-max",
-      "score": 1486,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 7,
-      "preliminary": false,
-      "votes": 10559,
-      "sourceRank": 15
     },
     {
       "id": "kimi-k3-max",
@@ -210,22 +195,37 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 20911,
+      "votes": 20987,
       "sourceRank": 17
     },
     {
-      "id": "arena-claude-opus-4-8-high-378c631e",
-      "providerId": "anthropic",
-      "name": "Claude Opus-4.8",
-      "mode": "High",
-      "sourceModel": "claude-opus-4-8-high",
-      "score": 1482,
+      "id": "glm-5-3-max",
+      "providerId": "zhipu",
+      "name": "GLM-5.3",
+      "mode": "Max",
+      "sourceModel": "glm-5.3-max",
+      "score": 1483,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
-      "uncertainty": 4,
+      "uncertainty": 6,
       "preliminary": false,
-      "votes": 52123,
+      "votes": 10960,
+      "sourceRank": 19
+    },
+    {
+      "id": "gpt-5-6-sol-xhigh",
+      "providerId": "openai",
+      "name": "GPT-5.6 Sol",
+      "mode": "xHigh",
+      "sourceModel": "gpt-5.6-sol-xhigh",
+      "score": 1483,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 5,
+      "preliminary": false,
+      "votes": 27069,
       "sourceRank": 18
     },
     {
@@ -240,23 +240,23 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 64953,
+      "votes": 64924,
       "sourceRank": 20
     },
     {
-      "id": "gpt-5-6-sol-xhigh",
-      "providerId": "openai",
-      "name": "GPT-5.6 Sol",
-      "mode": "xHigh",
-      "sourceModel": "gpt-5.6-sol-xhigh",
-      "score": 1482,
+      "id": "arena-claude-opus-4-8-high-378c631e",
+      "providerId": "anthropic",
+      "name": "Claude Opus-4.8",
+      "mode": "High",
+      "sourceModel": "claude-opus-4-8-high",
+      "score": 1481,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
-      "uncertainty": 5,
+      "uncertainty": 4,
       "preliminary": false,
-      "votes": 26611,
-      "sourceRank": 19
+      "votes": 52535,
+      "sourceRank": 21
     },
     {
       "id": "qwen-3-8-max",
@@ -269,8 +269,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 6,
       "preliminary": false,
-      "votes": 16263,
-      "sourceRank": 21
+      "votes": 16670,
+      "sourceRank": 22
     },
     {
       "id": "arena-gemini-3-6-flash-high-a33b6891",
@@ -278,14 +278,29 @@
       "name": "Gemini 3.6 Flash",
       "mode": "High",
       "sourceModel": "gemini-3.6-flash-high",
-      "score": 1479,
+      "score": 1480,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 25953,
-      "sourceRank": 22
+      "votes": 26445,
+      "sourceRank": 23
+    },
+    {
+      "id": "arena-gpt-6-astra-max-ab30e9c2",
+      "providerId": "openai",
+      "name": "GPT-6 Astra",
+      "mode": "Max",
+      "sourceModel": "gpt-6-astra-max",
+      "score": 1480,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 12,
+      "preliminary": false,
+      "votes": 2693,
+      "sourceRank": 24
     },
     {
       "id": "arena-gemini-3-5-flash-high-b047c6ec",
@@ -299,23 +314,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 37808,
-      "sourceRank": 23
-    },
-    {
-      "id": "arena-gpt-6-astra-max-ab30e9c2",
-      "providerId": "openai",
-      "name": "GPT-6 Astra",
-      "mode": "Max",
-      "sourceModel": "gpt-6-astra-max",
-      "score": 1478,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 13,
-      "preliminary": false,
-      "votes": 2059,
-      "sourceRank": 24
+      "votes": 38257,
+      "sourceRank": 25
     },
     {
       "id": "arena-gpt-5-2-chat-latest-20260210-30aef8d0",
@@ -328,8 +328,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 34173,
-      "sourceRank": 26
+      "votes": 34176,
+      "sourceRank": 27
     },
     {
       "id": "arena-gpt-5-4-high-be938869",
@@ -343,8 +343,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 60538,
-      "sourceRank": 25
+      "votes": 60537,
+      "sourceRank": 26
     },
     {
       "id": "gpt-5-5",
@@ -357,8 +357,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 66349,
-      "sourceRank": 27
+      "votes": 66317,
+      "sourceRank": 28
     },
     {
       "id": "arena-grok-4-20-beta1-4d84ba35",
@@ -371,8 +371,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 26595,
-      "sourceRank": 29
+      "votes": 26599,
+      "sourceRank": 30
     },
     {
       "id": "glm-5-3-flash",
@@ -385,8 +385,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 9479,
-      "sourceRank": 28
+      "votes": 10038,
+      "sourceRank": 29
     },
     {
       "id": "arena-gemini-3-5-flash-medium-b6550be8",
@@ -398,10 +398,10 @@
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
-      "uncertainty": 5,
+      "uncertainty": 4,
       "preliminary": false,
-      "votes": 36151,
-      "sourceRank": 30
+      "votes": 36627,
+      "sourceRank": 31
     },
     {
       "id": "arena-gemini-3-flash-9542d5c0",
@@ -414,8 +414,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 30239,
-      "sourceRank": 32
+      "votes": 30225,
+      "sourceRank": 33
     },
     {
       "id": "arena-gpt-5-5-instant-aa18d1f5",
@@ -428,8 +428,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 25827,
-      "sourceRank": 31
+      "votes": 25850,
+      "sourceRank": 32
     },
     {
       "id": "arena-claude-opus-4-5-20251101-high-32k-b662d02c",
@@ -443,8 +443,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 36240,
-      "sourceRank": 34
+      "votes": 36239,
+      "sourceRank": 36
     },
     {
       "id": "arena-claude-opus-4-8-47a46a22",
@@ -457,7 +457,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 52970,
+      "votes": 53446,
       "sourceRank": 35
     },
     {
@@ -472,7 +472,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 66208,
-      "sourceRank": 36
+      "sourceRank": 37
     },
     {
       "id": "arena-qwen3-7-max-preview-335caf9c",
@@ -486,7 +486,7 @@
       "uncertainty": 10,
       "preliminary": false,
       "votes": 3705,
-      "sourceRank": 33
+      "sourceRank": 34
     },
     {
       "id": "arena-glm-5-2-max-364b5b0c",
@@ -500,8 +500,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 36471,
-      "sourceRank": 37
+      "votes": 36798,
+      "sourceRank": 38
     },
     {
       "id": "arena-grok-4-20-beta-0309-reasoning-4744892a",
@@ -515,7 +515,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 62168,
-      "sourceRank": 38
+      "sourceRank": 39
     },
     {
       "id": "arena-grok-4-20-multi-agent-beta-0309-d37ac2ee",
@@ -528,8 +528,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 60775,
-      "sourceRank": 39
+      "votes": 60777,
+      "sourceRank": 40
     },
     {
       "id": "arena-claude-opus-4-5-20251101-7c148407",
@@ -542,21 +542,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 70012,
-      "sourceRank": 40
-    },
-    {
-      "id": "grok-4-5",
-      "providerId": "xai",
-      "name": "Grok 4.5",
-      "sourceModel": "grok-4.5",
-      "score": 1469,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 5,
-      "preliminary": false,
-      "votes": 29617,
+      "votes": 70013,
       "sourceRank": 41
     },
     {
@@ -570,7 +556,21 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 37063,
+      "votes": 37058,
+      "sourceRank": 43
+    },
+    {
+      "id": "grok-4-5",
+      "providerId": "xai",
+      "name": "Grok 4.5",
+      "sourceModel": "grok-4.5",
+      "score": 1468,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 5,
+      "preliminary": false,
+      "votes": 30103,
       "sourceRank": 42
     },
     {
@@ -584,8 +584,22 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 63529,
-      "sourceRank": 45
+      "votes": 63526,
+      "sourceRank": 46
+    },
+    {
+      "id": "glm-5-1",
+      "providerId": "zhipu",
+      "name": "GLM-5.1",
+      "sourceModel": "glm-5.1",
+      "score": 1466,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 4,
+      "preliminary": false,
+      "votes": 48901,
+      "sourceRank": 47
     },
     {
       "id": "gpt-5-6-terra-xhigh",
@@ -599,8 +613,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 27655,
-      "sourceRank": 44
+      "votes": 28119,
+      "sourceRank": 45
     },
     {
       "id": "arena-grok-4-1-thinking-ea840f13",
@@ -613,8 +627,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 64154,
-      "sourceRank": 47
+      "votes": 64152,
+      "sourceRank": 48
     },
     {
       "id": "arena-qwen3-5-max-preview-ce5caf1d",
@@ -627,22 +641,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 21469,
-      "sourceRank": 48
-    },
-    {
-      "id": "glm-5-1",
-      "providerId": "zhipu",
-      "name": "GLM-5.1",
-      "sourceModel": "glm-5.1",
-      "score": 1465,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 4,
-      "preliminary": false,
-      "votes": 48503,
-      "sourceRank": 46
+      "votes": 21476,
+      "sourceRank": 49
     },
     {
       "id": "deepseek-v4-pro-high",
@@ -650,14 +650,14 @@
       "name": "DeepSeek V4 Pro",
       "mode": "High · 2026-08-13",
       "sourceModel": "deepseek-v4-pro-high-20260813",
-      "score": 1462,
+      "score": 1463,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 8623,
-      "sourceRank": 49
+      "votes": 9008,
+      "sourceRank": 50
     },
     {
       "id": "claude-sonnet-5-high",
@@ -671,21 +671,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 34889,
-      "sourceRank": 50
-    },
-    {
-      "id": "kimi-k2-6",
-      "providerId": "moonshot",
-      "name": "Kimi K2.6",
-      "sourceModel": "kimi-k2.6",
-      "score": 1461,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 5,
-      "preliminary": false,
-      "votes": 37497,
+      "votes": 35301,
       "sourceRank": 51
     },
     {
@@ -699,7 +685,21 @@
       "scorePrecision": "rounded",
       "uncertainty": 8,
       "preliminary": false,
-      "votes": 5190,
+      "votes": 5186,
+      "sourceRank": 53
+    },
+    {
+      "id": "kimi-k2-6",
+      "providerId": "moonshot",
+      "name": "Kimi K2.6",
+      "sourceModel": "kimi-k2.6",
+      "score": 1460,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 5,
+      "preliminary": false,
+      "votes": 37502,
       "sourceRank": 52
     },
     {
@@ -713,8 +713,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 66335,
-      "sourceRank": 53
+      "votes": 66340,
+      "sourceRank": 54
     },
     {
       "id": "arena-gemini-3-flash-thinking-minimal-a9806d9f",
@@ -727,8 +727,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 85820,
-      "sourceRank": 54
+      "votes": 85799,
+      "sourceRank": 55
     },
     {
       "id": "arena-glm-5-343fb7bd",
@@ -741,8 +741,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 27600,
-      "sourceRank": 55
+      "votes": 27605,
+      "sourceRank": 56
     },
     {
       "id": "deepseek-v4-pro",
@@ -755,21 +755,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 54142,
-      "sourceRank": 56
-    },
-    {
-      "id": "gemini-3-5-flash-lite",
-      "providerId": "google",
-      "name": "Gemini 3.5 Flash Lite",
-      "sourceModel": "gemini-3.5-flash-lite",
-      "score": 1457,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 5,
-      "preliminary": false,
-      "votes": 25717,
+      "votes": 54130,
       "sourceRank": 57
     },
     {
@@ -784,7 +770,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 80965,
+      "votes": 80980,
       "sourceRank": 58
     },
     {
@@ -799,8 +785,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 6,
       "preliminary": false,
-      "votes": 15017,
-      "sourceRank": 60
+      "votes": 15521,
+      "sourceRank": 63
     },
     {
       "id": "doubao-seed-2-pro",
@@ -813,8 +799,22 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 74155,
-      "sourceRank": 62
+      "votes": 74159,
+      "sourceRank": 61
+    },
+    {
+      "id": "gemini-3-5-flash-lite",
+      "providerId": "google",
+      "name": "Gemini 3.5 Flash Lite",
+      "sourceModel": "gemini-3.5-flash-lite",
+      "score": 1456,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 5,
+      "preliminary": false,
+      "votes": 26165,
+      "sourceRank": 59
     },
     {
       "id": "hunyuan-3",
@@ -827,8 +827,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 8023,
-      "sourceRank": 59
+      "votes": 8047,
+      "sourceRank": 60
     },
     {
       "id": "qwen-3-7-plus",
@@ -841,8 +841,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 39366,
-      "sourceRank": 61
+      "votes": 39334,
+      "sourceRank": 62
     },
     {
       "id": "arena-claude-sonnet-4-5-20250929-efcf3085",
@@ -855,8 +855,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 79619,
-      "sourceRank": 63
+      "votes": 79628,
+      "sourceRank": 65
     },
     {
       "id": "arena-deepseek-v4-pro-high-preview-9c74022b",
@@ -869,8 +869,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 51494,
-      "sourceRank": 65
+      "votes": 51485,
+      "sourceRank": 66
     },
     {
       "id": "arena-gpt-5-1-high-d92c1f5b",
@@ -884,7 +884,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 40277,
+      "votes": 40284,
       "sourceRank": 64
     },
     {
@@ -893,14 +893,14 @@
       "name": "GPT-5.6 Luna",
       "mode": "xHigh",
       "sourceModel": "gpt-5.6-luna-xhigh",
-      "score": 1453,
+      "score": 1452,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 28112,
-      "sourceRank": 66
+      "votes": 28547,
+      "sourceRank": 67
     },
     {
       "id": "arena-gemma-4-31b-f3e5e631",
@@ -913,8 +913,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 8,
       "preliminary": false,
-      "votes": 5891,
-      "sourceRank": 67
+      "votes": 5894,
+      "sourceRank": 68
     },
     {
       "id": "arena-claude-opus-4-1-20250805-thinking-16k-966e2d32",
@@ -927,8 +927,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 48809,
-      "sourceRank": 69
+      "votes": 48811,
+      "sourceRank": 70
     },
     {
       "id": "arena-kimi-k2-5-thinking-cd746d28",
@@ -942,7 +942,7 @@
       "uncertainty": 3,
       "preliminary": false,
       "votes": 70513,
-      "sourceRank": 68
+      "sourceRank": 69
     },
     {
       "id": "arena-ernie-5-0-preview-1203-94a580d1",
@@ -956,7 +956,7 @@
       "uncertainty": 7,
       "preliminary": false,
       "votes": 9561,
-      "sourceRank": 71
+      "sourceRank": 72
     },
     {
       "id": "arena-gpt-5-3-chat-latest-f7b1f7a0",
@@ -969,8 +969,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 32717,
-      "sourceRank": 70
+      "votes": 32727,
+      "sourceRank": 71
     },
     {
       "id": "arena-claude-opus-4-1-20250805-7a604dbb",
@@ -983,8 +983,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 75903,
-      "sourceRank": 74
+      "votes": 75913,
+      "sourceRank": 75
     },
     {
       "id": "arena-gpt-5-4-mini-high-b76f285e",
@@ -998,8 +998,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 59376,
-      "sourceRank": 73
+      "votes": 59387,
+      "sourceRank": 74
     },
     {
       "id": "ernie-5-0",
@@ -1013,21 +1013,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 34861,
-      "sourceRank": 75
-    },
-    {
-      "id": "gemini-2-5-pro",
-      "providerId": "google",
-      "name": "Gemini 2.5 Pro",
-      "sourceModel": "gemini-2.5-pro",
-      "score": 1446,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 2,
-      "preliminary": false,
-      "votes": 122548,
+      "votes": 34860,
       "sourceRank": 76
     },
     {
@@ -1042,6 +1028,20 @@
       "uncertainty": 6,
       "preliminary": false,
       "votes": 14547,
+      "sourceRank": 78
+    },
+    {
+      "id": "gemini-2-5-pro",
+      "providerId": "google",
+      "name": "Gemini 2.5 Pro",
+      "sourceModel": "gemini-2.5-pro",
+      "score": 1445,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 2,
+      "preliminary": false,
+      "votes": 122554,
       "sourceRank": 77
     },
     {
@@ -1055,8 +1055,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 80675,
-      "sourceRank": 79
+      "votes": 80677,
+      "sourceRank": 80
     },
     {
       "id": "arena-qwen3-6-plus-60e88823",
@@ -1069,8 +1069,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 45318,
-      "sourceRank": 78
+      "votes": 45319,
+      "sourceRank": 79
     },
     {
       "id": "grok-4-3",
@@ -1083,8 +1083,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 66842,
-      "sourceRank": 80
+      "votes": 66801,
+      "sourceRank": 81
     },
     {
       "id": "arena-glm-4-7-070a6e92",
@@ -1097,22 +1097,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 6,
       "preliminary": false,
-      "votes": 11892,
+      "votes": 11893,
       "sourceRank": 83
-    },
-    {
-      "id": "minimax-m3",
-      "providerId": "minimax",
-      "name": "MiniMax M3",
-      "sourceModel": "minimax-m3",
-      "score": 1442,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 4,
-      "preliminary": false,
-      "votes": 48130,
-      "sourceRank": 82
     },
     {
       "id": "qwen-3-5-397b",
@@ -1125,8 +1111,22 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 76643,
-      "sourceRank": 81
+      "votes": 77007,
+      "sourceRank": 82
+    },
+    {
+      "id": "minimax-m3",
+      "providerId": "minimax",
+      "name": "MiniMax M3",
+      "sourceModel": "minimax-m3",
+      "score": 1441,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 4,
+      "preliminary": false,
+      "votes": 48540,
+      "sourceRank": 84
     },
     {
       "id": "arena-gpt-5-1-e7ee8b01",
@@ -1139,8 +1139,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 42992,
-      "sourceRank": 85
+      "votes": 42982,
+      "sourceRank": 86
     },
     {
       "id": "arena-deepseek-v4-flash-high-preview-bdb2e2cf",
@@ -1153,8 +1153,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 48595,
-      "sourceRank": 86
+      "votes": 48597,
+      "sourceRank": 87
     },
     {
       "id": "arena-gemma-4-26b-a4b-bb78fd3d",
@@ -1168,7 +1168,7 @@
       "uncertainty": 8,
       "preliminary": false,
       "votes": 5804,
-      "sourceRank": 87
+      "sourceRank": 88
     },
     {
       "id": "arena-gpt-5-2-high-5bc20802",
@@ -1182,7 +1182,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 47539,
+      "votes": 47538,
       "sourceRank": 89
     },
     {
@@ -1190,14 +1190,14 @@
       "providerId": "alibaba",
       "name": "Qwen3.8-27b",
       "sourceModel": "qwen3.8-27b",
-      "score": 1438,
+      "score": 1437,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
-      "uncertainty": 7,
+      "uncertainty": 6,
       "preliminary": false,
-      "votes": 10256,
-      "sourceRank": 88
+      "votes": 10697,
+      "sourceRank": 90
     },
     {
       "id": "arena-gpt-5-2-131e2083",
@@ -1210,8 +1210,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 78963,
-      "sourceRank": 90
+      "votes": 78967,
+      "sourceRank": 91
     },
     {
       "id": "deepseek-v4-flash",
@@ -1224,8 +1224,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 48890,
-      "sourceRank": 91
+      "votes": 48887,
+      "sourceRank": 92
     },
     {
       "id": "arena-gpt-5-high-ed8872fe",
@@ -1239,8 +1239,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 31424,
-      "sourceRank": 94
+      "votes": 31428,
+      "sourceRank": 95
     },
     {
       "id": "arena-qwen3-max-preview-4ac57804",
@@ -1254,7 +1254,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 27194,
-      "sourceRank": 93
+      "sourceRank": 94
     },
     {
       "id": "arena-glm-5v-turbo-d2cac3f4",
@@ -1267,8 +1267,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 9367,
-      "sourceRank": 96
+      "votes": 9361,
+      "sourceRank": 97
     },
     {
       "id": "arena-gemini-3-1-flash-lite-preview-993fbcd8",
@@ -1281,8 +1281,22 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 60409,
-      "sourceRank": 97
+      "votes": 60405,
+      "sourceRank": 98
+    },
+    {
+      "id": "arena-o3-2025-04-16-4da66fd0",
+      "providerId": "openai",
+      "name": "o3-2025-04-16",
+      "sourceModel": "o3-2025-04-16",
+      "score": 1432,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 4,
+      "preliminary": false,
+      "votes": 58579,
+      "sourceRank": 99
     },
     {
       "id": "arena-kimi-k2-5-instant-2c66300b",
@@ -1295,22 +1309,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 7990,
-      "sourceRank": 99
-    },
-    {
-      "id": "arena-o3-2025-04-16-4da66fd0",
-      "providerId": "openai",
-      "name": "o3-2025-04-16",
-      "sourceModel": "o3-2025-04-16",
-      "score": 1431,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 4,
-      "preliminary": false,
-      "votes": 58569,
-      "sourceRank": 98
+      "votes": 7987,
+      "sourceRank": 100
     },
     {
       "id": "arena-grok-4-1-fast-reasoning-147539bd",
@@ -1323,8 +1323,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 55355,
-      "sourceRank": 100
+      "votes": 55363,
+      "sourceRank": 101
     },
     {
       "id": "arena-kimi-k2-thinking-turbo-30951c3e",
@@ -1337,8 +1337,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 61079,
-      "sourceRank": 101
+      "votes": 61088,
+      "sourceRank": 102
     },
     {
       "id": "arena-gpt-5-chat-f1f59935",
@@ -1351,8 +1351,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 30961,
-      "sourceRank": 104
+      "votes": 30957,
+      "sourceRank": 105
     },
     {
       "id": "arena-claude-opus-4-20250514-thinking-16k-35413170",
@@ -1365,8 +1365,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 35727,
-      "sourceRank": 106
+      "votes": 35735,
+      "sourceRank": 107
     },
     {
       "id": "arena-deepseek-v3-2-c4e6a3d9",
@@ -1379,8 +1379,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 46464,
-      "sourceRank": 110
+      "votes": 46458,
+      "sourceRank": 111
     },
     {
       "id": "arena-deepseek-v3-2-exp-thinking-af621e8b",
@@ -1393,8 +1393,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 8908,
-      "sourceRank": 109
+      "votes": 8905,
+      "sourceRank": 110
     },
     {
       "id": "arena-glm-4-6-539581ed",
@@ -1407,8 +1407,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 35065,
-      "sourceRank": 111
+      "votes": 35061,
+      "sourceRank": 112
     },
     {
       "id": "arena-qwen3-max-2025-09-23-5365deb1",
@@ -1421,8 +1421,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 8937,
-      "sourceRank": 112
+      "votes": 8939,
+      "sourceRank": 113
     },
     {
       "id": "arena-qwen3-235b-a22b-instruct-2507-b19a6f6a",
@@ -1435,8 +1435,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 95656,
-      "sourceRank": 113
+      "votes": 95670,
+      "sourceRank": 114
     },
     {
       "id": "arena-deepseek-v3-2-exp-0616c0a5",
@@ -1449,8 +1449,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 6,
       "preliminary": false,
-      "votes": 11756,
-      "sourceRank": 115
+      "votes": 11760,
+      "sourceRank": 116
     },
     {
       "id": "arena-deepseek-v3-2-thinking-92f62a55",
@@ -1463,8 +1463,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 40496,
-      "sourceRank": 114
+      "votes": 40499,
+      "sourceRank": 115
     },
     {
       "id": "arena-deepseek-r1-0528-eb7d8ad9",
@@ -1477,8 +1477,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 6,
       "preliminary": false,
-      "votes": 18089,
-      "sourceRank": 116
+      "votes": 18091,
+      "sourceRank": 117
     },
     {
       "id": "arena-ernie-5-0-preview-1022-b272d09f",
@@ -1491,8 +1491,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 9,
       "preliminary": false,
-      "votes": 4662,
-      "sourceRank": 117
+      "votes": 4663,
+      "sourceRank": 118
     },
     {
       "id": "arena-grok-4-fast-chat-b90c95dd",
@@ -1505,8 +1505,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 8,
       "preliminary": false,
-      "votes": 6334,
-      "sourceRank": 118
+      "votes": 6335,
+      "sourceRank": 119
     },
     {
       "id": "arena-kimi-k2-0711-preview-e5668c48",
@@ -1519,8 +1519,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 27027,
-      "sourceRank": 120
+      "votes": 27029,
+      "sourceRank": 121
     },
     {
       "id": "arena-kimi-k2-0905-preview-013c8ee4",
@@ -1533,8 +1533,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 11566,
-      "sourceRank": 119
+      "votes": 11568,
+      "sourceRank": 120
     },
     {
       "id": "arena-deepseek-v3-1-da84ac0c",
@@ -1547,8 +1547,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 6,
       "preliminary": false,
-      "votes": 14604,
-      "sourceRank": 122
+      "votes": 14607,
+      "sourceRank": 123
     },
     {
       "id": "arena-deepseek-v3-1-terminus-thinking-5831445f",
@@ -1562,7 +1562,7 @@
       "uncertainty": 10,
       "preliminary": false,
       "votes": 3369,
-      "sourceRank": 121
+      "sourceRank": 122
     },
     {
       "id": "arena-qwen3-5-122b-a10b-eeba4e35",
@@ -1575,8 +1575,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 28349,
-      "sourceRank": 123
+      "votes": 28359,
+      "sourceRank": 124
     },
     {
       "id": "arena-deepseek-v3-1-thinking-db6883d2",
@@ -1589,8 +1589,22 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 11462,
-      "sourceRank": 124
+      "votes": 11460,
+      "sourceRank": 125
+    },
+    {
+      "id": "arena-claude-haiku-4-5-20251001-09d0ceca",
+      "providerId": "anthropic",
+      "name": "Claude Haiku-4.5-20251001",
+      "sourceModel": "claude-haiku-4-5-20251001",
+      "score": 1415,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 3,
+      "preliminary": false,
+      "votes": 129278,
+      "sourceRank": 129
     },
     {
       "id": "arena-deepseek-v3-1-terminus-5593af89",
@@ -1604,7 +1618,7 @@
       "uncertainty": 10,
       "preliminary": false,
       "votes": 3611,
-      "sourceRank": 125
+      "sourceRank": 127
     },
     {
       "id": "arena-minimax-m2-7-1e8d2e47",
@@ -1617,22 +1631,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 68700,
+      "votes": 69169,
       "sourceRank": 126
-    },
-    {
-      "id": "arena-claude-haiku-4-5-20251001-09d0ceca",
-      "providerId": "anthropic",
-      "name": "Claude Haiku-4.5-20251001",
-      "sourceModel": "claude-haiku-4-5-20251001",
-      "score": 1414,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 3,
-      "preliminary": false,
-      "votes": 128838,
-      "sourceRank": 129
     },
     {
       "id": "arena-claude-opus-4-20250514-2b453e41",
@@ -1645,8 +1645,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 42837,
-      "sourceRank": 131
+      "votes": 42845,
+      "sourceRank": 132
     },
     {
       "id": "arena-gpt-4-1-2025-04-14-0ff1a2be",
@@ -1659,8 +1659,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 49934,
-      "sourceRank": 128
+      "votes": 49941,
+      "sourceRank": 130
     },
     {
       "id": "arena-qwen3-vl-235b-a22b-instruct-a015ac8a",
@@ -1674,7 +1674,7 @@
       "uncertainty": 7,
       "preliminary": false,
       "votes": 11219,
-      "sourceRank": 130
+      "sourceRank": 131
     },
     {
       "id": "arena-hunyuan-hy3-preview-a656fd53",
@@ -1687,8 +1687,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 8,
       "preliminary": false,
-      "votes": 6606,
-      "sourceRank": 133
+      "votes": 6614,
+      "sourceRank": 134
     },
     {
       "id": "arena-grok-3-preview-02-24-e0d816d5",
@@ -1701,8 +1701,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 32409,
-      "sourceRank": 134
+      "votes": 32414,
+      "sourceRank": 135
     },
     {
       "id": "arena-glm-4-5-4445f1cf",
@@ -1715,8 +1715,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 23707,
-      "sourceRank": 135
+      "votes": 23712,
+      "sourceRank": 136
     },
     {
       "id": "arena-grok-4-0709-307581d1",
@@ -1729,8 +1729,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 39299,
-      "sourceRank": 136
+      "votes": 39297,
+      "sourceRank": 137
     },
     {
       "id": "arena-gemini-2-5-flash-de40daba",
@@ -1743,8 +1743,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 2,
       "preliminary": false,
-      "votes": 122716,
-      "sourceRank": 137
+      "votes": 122732,
+      "sourceRank": 138
     },
     {
       "id": "arena-qwen3-5-27b-a1d62004",
@@ -1757,8 +1757,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 27228,
-      "sourceRank": 139
+      "votes": 27227,
+      "sourceRank": 140
     },
     {
       "id": "arena-grok-4-fast-reasoning-1935a8da",
@@ -1771,8 +1771,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 17971,
-      "sourceRank": 140
+      "votes": 17975,
+      "sourceRank": 142
     },
     {
       "id": "arena-gemini-2-5-flash-preview-09-2025-8fc6a21d",
@@ -1785,8 +1785,22 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 32362,
-      "sourceRank": 142
+      "votes": 32364,
+      "sourceRank": 143
+    },
+    {
+      "id": "arena-qwen3-235b-a22b-no-thinking-1b444108",
+      "providerId": "alibaba",
+      "name": "Qwen3-235b a22b no Thinking",
+      "sourceModel": "qwen3-235b-a22b-no-thinking",
+      "score": 1403,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 5,
+      "preliminary": false,
+      "votes": 37389,
+      "sourceRank": 144
     },
     {
       "id": "arena-gpt-5-4-nano-high-449a97cb",
@@ -1800,8 +1814,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 58427,
-      "sourceRank": 144
+      "votes": 58424,
+      "sourceRank": 146
     },
     {
       "id": "arena-o1-2024-12-17-3c32ce4c",
@@ -1818,20 +1832,6 @@
       "sourceRank": 145
     },
     {
-      "id": "arena-qwen3-235b-a22b-no-thinking-1b444108",
-      "providerId": "alibaba",
-      "name": "Qwen3-235b a22b no Thinking",
-      "sourceModel": "qwen3-235b-a22b-no-thinking",
-      "score": 1402,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 5,
-      "preliminary": false,
-      "votes": 37381,
-      "sourceRank": 143
-    },
-    {
       "id": "arena-claude-sonnet-4-20250514-thinking-32k-c9e1ac6c",
       "providerId": "anthropic",
       "name": "Claude Sonnet-4-20250514 Thinking-32k",
@@ -1842,8 +1842,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 33935,
-      "sourceRank": 147
+      "votes": 33944,
+      "sourceRank": 148
     },
     {
       "id": "arena-qwen3-235b-a22b-thinking-2507-922cb1df",
@@ -1856,8 +1856,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 8797,
-      "sourceRank": 148
+      "votes": 8796,
+      "sourceRank": 149
     },
     {
       "id": "arena-qwen3-next-80b-a3b-instruct-193ca537",
@@ -1870,8 +1870,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 22527,
-      "sourceRank": 149
+      "votes": 22529,
+      "sourceRank": 150
     },
     {
       "id": "arena-deepseek-r1-28616143",
@@ -1885,7 +1885,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 18524,
-      "sourceRank": 150
+      "sourceRank": 151
     },
     {
       "id": "arena-qwen3-5-flash-365e9c53",
@@ -1898,8 +1898,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 58185,
-      "sourceRank": 151
+      "votes": 58193,
+      "sourceRank": 152
     },
     {
       "id": "arena-deepseek-v3-0324-83a05331",
@@ -1912,8 +1912,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 44781,
-      "sourceRank": 152
+      "votes": 44787,
+      "sourceRank": 153
     },
     {
       "id": "arena-hunyuan-vision-1-5-thinking-8e9f074e",
@@ -1927,7 +1927,7 @@
       "uncertainty": 12,
       "preliminary": false,
       "votes": 2171,
-      "sourceRank": 154
+      "sourceRank": 155
     },
     {
       "id": "arena-qwen3-5-35b-a3b-f1f11460",
@@ -1940,8 +1940,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 29033,
-      "sourceRank": 155
+      "votes": 29043,
+      "sourceRank": 156
     },
     {
       "id": "arena-qwen3-vl-235b-a22b-thinking-1e7fa125",
@@ -1955,7 +1955,7 @@
       "uncertainty": 7,
       "preliminary": false,
       "votes": 7780,
-      "sourceRank": 153
+      "sourceRank": 154
     },
     {
       "id": "arena-claude-sonnet-4-20250514-8cb50e5c",
@@ -1968,8 +1968,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 38952,
-      "sourceRank": 160
+      "votes": 38966,
+      "sourceRank": 161
     },
     {
       "id": "arena-o4-mini-2025-04-16-a358ef05",
@@ -1982,8 +1982,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 44632,
-      "sourceRank": 159
+      "votes": 44639,
+      "sourceRank": 160
     },
     {
       "id": "arena-gpt-5-mini-high-0c8e0d88",
@@ -1997,8 +1997,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 26567,
-      "sourceRank": 162
+      "votes": 26569,
+      "sourceRank": 163
     },
     {
       "id": "arena-minimax-m2-5-83599668",
@@ -2011,8 +2011,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 40852,
-      "sourceRank": 161
+      "votes": 40843,
+      "sourceRank": 162
     },
     {
       "id": "arena-claude-3-7-sonnet-20250219-thinking-32k-178d9c23",
@@ -2025,21 +2025,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 38083,
-      "sourceRank": 164
-    },
-    {
-      "id": "arena-hunyuan-t1-20250711-57c93748",
-      "providerId": "tencent",
-      "name": "混元 t1-20250711",
-      "sourceModel": "hunyuan-t1-20250711",
-      "score": 1388,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 9,
-      "preliminary": false,
-      "votes": 4581,
+      "votes": 38081,
       "sourceRank": 165
     },
     {
@@ -2054,21 +2040,35 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 31122,
-      "sourceRank": 163
+      "sourceRank": 164
     },
     {
       "id": "arena-qwen3-coder-480b-a35b-instruct-203da5d5",
       "providerId": "alibaba",
       "name": "Qwen3-coder-480b a35b Instruct",
       "sourceModel": "qwen3-coder-480b-a35b-instruct",
-      "score": 1387,
+      "score": 1388,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 25091,
+      "votes": 25089,
       "sourceRank": 166
+    },
+    {
+      "id": "arena-hunyuan-t1-20250711-57c93748",
+      "providerId": "tencent",
+      "name": "混元 t1-20250711",
+      "sourceModel": "hunyuan-t1-20250711",
+      "score": 1387,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 9,
+      "preliminary": false,
+      "votes": 4580,
+      "sourceRank": 167
     },
     {
       "id": "arena-minimax-m2-1-preview-5f02e334",
@@ -2081,8 +2081,22 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 16623,
-      "sourceRank": 169
+      "votes": 16622,
+      "sourceRank": 170
+    },
+    {
+      "id": "arena-gpt-4-1-mini-2025-04-14-483479e4",
+      "providerId": "openai",
+      "name": "GPT-4.1-mini-2025-04-14",
+      "sourceModel": "gpt-4.1-mini-2025-04-14",
+      "score": 1383,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 4,
+      "preliminary": false,
+      "votes": 38631,
+      "sourceRank": 172
     },
     {
       "id": "arena-hunyuan-turbos-20250416-d0e28194",
@@ -2095,21 +2109,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 10584,
-      "sourceRank": 170
-    },
-    {
-      "id": "arena-gpt-4-1-mini-2025-04-14-483479e4",
-      "providerId": "openai",
-      "name": "GPT-4.1-mini-2025-04-14",
-      "sourceModel": "gpt-4.1-mini-2025-04-14",
-      "score": 1382,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 4,
-      "preliminary": false,
-      "votes": 38627,
+      "votes": 10586,
       "sourceRank": 171
     },
     {
@@ -2123,8 +2123,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 23220,
-      "sourceRank": 172
+      "votes": 23222,
+      "sourceRank": 173
     },
     {
       "id": "arena-gemini-2-5-flash-lite-preview-09-2025-no-thinking-92a42f50",
@@ -2137,8 +2137,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 46374,
-      "sourceRank": 173
+      "votes": 46382,
+      "sourceRank": 174
     },
     {
       "id": "arena-glm-4-6v-491a02d2",
@@ -2151,7 +2151,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 11,
       "preliminary": false,
-      "votes": 2761,
+      "votes": 2762,
       "sourceRank": 175
     },
     {
@@ -2165,8 +2165,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 32209,
-      "sourceRank": 178
+      "votes": 32216,
+      "sourceRank": 179
     },
     {
       "id": "arena-qwen3-235b-a22b-b4441d4f",
@@ -2179,8 +2179,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 25861,
-      "sourceRank": 177
+      "votes": 25865,
+      "sourceRank": 178
     },
     {
       "id": "arena-claude-3-5-sonnet-20241022-ce8041ab",
@@ -2193,7 +2193,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 87692,
+      "votes": 87694,
       "sourceRank": 180
     },
     {
@@ -2207,8 +2207,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 32418,
-      "sourceRank": 179
+      "votes": 32417,
+      "sourceRank": 181
     },
     {
       "id": "arena-glm-4-5-air-28a804d3",
@@ -2222,7 +2222,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 30367,
-      "sourceRank": 181
+      "sourceRank": 182
     },
     {
       "id": "arena-claude-3-7-sonnet-20250219-afc6dcfc",
@@ -2235,8 +2235,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 42446,
-      "sourceRank": 182
+      "votes": 42448,
+      "sourceRank": 183
     },
     {
       "id": "arena-qwen3-next-80b-a3b-thinking-9f371e2f",
@@ -2249,7 +2249,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 6,
       "preliminary": false,
-      "votes": 13379,
+      "votes": 13380,
       "sourceRank": 184
     },
     {
@@ -2263,8 +2263,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 6,
       "preliminary": false,
-      "votes": 11495,
-      "sourceRank": 185
+      "votes": 11491,
+      "sourceRank": 186
     },
     {
       "id": "arena-gemma-3-27b-it-db16c37b",
@@ -2277,8 +2277,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 46418,
-      "sourceRank": 186
+      "votes": 46422,
+      "sourceRank": 187
     },
     {
       "id": "arena-grok-3-mini-high-12a272c4",
@@ -2292,8 +2292,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 15535,
-      "sourceRank": 189
+      "votes": 15536,
+      "sourceRank": 190
     },
     {
       "id": "arena-minimax-m1-f1390058",
@@ -2306,8 +2306,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 34024,
-      "sourceRank": 188
+      "votes": 34030,
+      "sourceRank": 189
     },
     {
       "id": "arena-o3-mini-high-f1748771",
@@ -2322,7 +2322,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 18589,
-      "sourceRank": 190
+      "sourceRank": 191
     },
     {
       "id": "arena-gemini-2-0-flash-001-723041c7",
@@ -2335,8 +2335,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 43348,
-      "sourceRank": 192
+      "votes": 43351,
+      "sourceRank": 193
     },
     {
       "id": "arena-deepseek-v3-9d12a9fe",
@@ -2350,7 +2350,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 21770,
-      "sourceRank": 193
+      "sourceRank": 194
     },
     {
       "id": "arena-grok-3-mini-beta-bc926377",
@@ -2363,8 +2363,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 20840,
-      "sourceRank": 194
+      "votes": 20837,
+      "sourceRank": 195
     },
     {
       "id": "arena-gemini-2-0-flash-lite-preview-02-05-7757868f",
@@ -2378,7 +2378,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 24955,
-      "sourceRank": 198
+      "sourceRank": 199
     },
     {
       "id": "arena-glm-4-5v-f502df81",
@@ -2391,8 +2391,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 8,
       "preliminary": false,
-      "votes": 4816,
-      "sourceRank": 199
+      "votes": 4817,
+      "sourceRank": 200
     },
     {
       "id": "arena-gpt-oss-120b-82386b4b",
@@ -2405,7 +2405,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 29948,
+      "votes": 29955,
       "sourceRank": 201
     },
     {
@@ -2420,7 +2420,7 @@
       "uncertainty": 3,
       "preliminary": false,
       "votes": 55606,
-      "sourceRank": 202
+      "sourceRank": 203
     },
     {
       "id": "arena-hunyuan-turbos-20250226-5549d580",
@@ -2434,7 +2434,7 @@
       "uncertainty": 12,
       "preliminary": false,
       "votes": 2220,
-      "sourceRank": 205
+      "sourceRank": 206
     },
     {
       "id": "arena-o3-mini-dfc32530",
@@ -2447,8 +2447,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 56652,
-      "sourceRank": 206
+      "votes": 56655,
+      "sourceRank": 207
     },
     {
       "id": "arena-qwen3-32b-24574482",
@@ -2462,7 +2462,7 @@
       "uncertainty": 9,
       "preliminary": false,
       "votes": 3926,
-      "sourceRank": 208
+      "sourceRank": 209
     },
     {
       "id": "arena-gpt-4o-2024-05-13-373b2ee1",
@@ -2476,7 +2476,7 @@
       "uncertainty": 3,
       "preliminary": false,
       "votes": 112881,
-      "sourceRank": 211
+      "sourceRank": 212
     },
     {
       "id": "arena-minimax-m2-1d1b96dc",
@@ -2489,8 +2489,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 8,
       "preliminary": false,
-      "votes": 6752,
-      "sourceRank": 213
+      "votes": 6753,
+      "sourceRank": 214
     },
     {
       "id": "arena-qwen-plus-0125-2ed62a6e",
@@ -2504,7 +2504,7 @@
       "uncertainty": 8,
       "preliminary": false,
       "votes": 5819,
-      "sourceRank": 212
+      "sourceRank": 213
     },
     {
       "id": "arena-claude-3-5-sonnet-20240620-f85a9cf8",
@@ -2518,7 +2518,7 @@
       "uncertainty": 3,
       "preliminary": false,
       "votes": 82419,
-      "sourceRank": 216
+      "sourceRank": 217
     },
     {
       "id": "arena-glm-4-plus-0111-7255b6c2",
@@ -2532,7 +2532,7 @@
       "uncertainty": 8,
       "preliminary": false,
       "votes": 5760,
-      "sourceRank": 217
+      "sourceRank": 218
     },
     {
       "id": "arena-gemma-3-12b-it-18497a05",
@@ -2546,7 +2546,7 @@
       "uncertainty": 10,
       "preliminary": false,
       "votes": 3829,
-      "sourceRank": 218
+      "sourceRank": 220
     },
     {
       "id": "arena-hunyuan-turbo-0110-cbf3412a",
@@ -2560,7 +2560,7 @@
       "uncertainty": 12,
       "preliminary": false,
       "votes": 2290,
-      "sourceRank": 220
+      "sourceRank": 221
     },
     {
       "id": "arena-gpt-5-nano-high-7f1ceebf",
@@ -2574,8 +2574,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 7,
       "preliminary": false,
-      "votes": 8127,
-      "sourceRank": 221
+      "votes": 8128,
+      "sourceRank": 222
     },
     {
       "id": "arena-o1-mini-973c6eb0",
@@ -2589,7 +2589,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 51981,
-      "sourceRank": 222
+      "sourceRank": 223
     },
     {
       "id": "arena-gemini-advanced-0514-c4695742",
@@ -2603,7 +2603,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 50148,
-      "sourceRank": 225
+      "sourceRank": 226
     },
     {
       "id": "arena-grok-2-2024-08-13-1d43fb5d",
@@ -2617,7 +2617,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 63498,
-      "sourceRank": 226
+      "sourceRank": 227
     },
     {
       "id": "arena-qwq-32b-380d4187",
@@ -2630,8 +2630,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 4,
       "preliminary": false,
-      "votes": 25087,
-      "sourceRank": 224
+      "votes": 25090,
+      "sourceRank": 225
     },
     {
       "id": "arena-gpt-4o-2024-08-06-494a14f4",
@@ -2645,7 +2645,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 45499,
-      "sourceRank": 227
+      "sourceRank": 228
     },
     {
       "id": "arena-qwen3-30b-a3b-41a4ee31",
@@ -2658,8 +2658,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 26087,
-      "sourceRank": 235
+      "votes": 26089,
+      "sourceRank": 237
     },
     {
       "id": "arena-hunyuan-large-2025-02-10-94d04f7c",
@@ -2673,7 +2673,7 @@
       "uncertainty": 10,
       "preliminary": false,
       "votes": 3738,
-      "sourceRank": 237
+      "sourceRank": 238
     },
     {
       "id": "arena-claude-3-5-haiku-20241022-162eda99",
@@ -2686,8 +2686,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 3,
       "preliminary": false,
-      "votes": 68961,
-      "sourceRank": 238
+      "votes": 68964,
+      "sourceRank": 239
     },
     {
       "id": "arena-gemini-1-5-pro-001-7c5fe2b0",
@@ -2701,7 +2701,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 79138,
-      "sourceRank": 240
+      "sourceRank": 241
     },
     {
       "id": "arena-gpt-4-turbo-2024-04-09-1a000e12",
@@ -2715,7 +2715,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 98114,
-      "sourceRank": 239
+      "sourceRank": 240
     },
     {
       "id": "arena-deepseek-v2-5-1210-7ad15274",
@@ -2729,7 +2729,7 @@
       "uncertainty": 8,
       "preliminary": false,
       "votes": 6795,
-      "sourceRank": 241
+      "sourceRank": 242
     },
     {
       "id": "arena-claude-3-opus-20240229-3f1e86a6",
@@ -2743,7 +2743,7 @@
       "uncertainty": 3,
       "preliminary": false,
       "votes": 194909,
-      "sourceRank": 243
+      "sourceRank": 244
     },
     {
       "id": "arena-gpt-4-1-nano-2025-04-14-8af19257",
@@ -2757,7 +2757,7 @@
       "uncertainty": 8,
       "preliminary": false,
       "votes": 6103,
-      "sourceRank": 242
+      "sourceRank": 243
     },
     {
       "id": "arena-glm-4-plus-b5e2478b",
@@ -2771,7 +2771,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 26126,
-      "sourceRank": 247
+      "sourceRank": 248
     },
     {
       "id": "arena-gpt-4o-mini-2024-07-18-27bebe76",
@@ -2785,7 +2785,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 68697,
-      "sourceRank": 249
+      "sourceRank": 251
     },
     {
       "id": "arena-qwen-max-0919-1d90d0ea",
@@ -2799,7 +2799,7 @@
       "uncertainty": 6,
       "preliminary": false,
       "votes": 16478,
-      "sourceRank": 248
+      "sourceRank": 249
     },
     {
       "id": "arena-gemma-3n-e4b-it-885dccde",
@@ -2812,8 +2812,8 @@
       "scorePrecision": "rounded",
       "uncertainty": 5,
       "preliminary": false,
-      "votes": 22079,
-      "sourceRank": 252
+      "votes": 22082,
+      "sourceRank": 253
     },
     {
       "id": "arena-gpt-oss-20b-ca1fe4e9",
@@ -2827,7 +2827,7 @@
       "uncertainty": 6,
       "preliminary": false,
       "votes": 10393,
-      "sourceRank": 251
+      "sourceRank": 252
     },
     {
       "id": "arena-qwen2-5-plus-1127-3e255a67",
@@ -2841,7 +2841,7 @@
       "uncertainty": 6,
       "preliminary": false,
       "votes": 10187,
-      "sourceRank": 253
+      "sourceRank": 254
     },
     {
       "id": "arena-gpt-4-0125-preview-f8b4f0f3",
@@ -2855,7 +2855,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 93439,
-      "sourceRank": 257
+      "sourceRank": 258
     },
     {
       "id": "arena-gpt-4-1106-preview-9e986778",
@@ -2869,7 +2869,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 100105,
-      "sourceRank": 258
+      "sourceRank": 259
     },
     {
       "id": "arena-hunyuan-standard-2025-02-10-84b2fe34",
@@ -2883,7 +2883,7 @@
       "uncertainty": 10,
       "preliminary": false,
       "votes": 3904,
-      "sourceRank": 259
+      "sourceRank": 260
     },
     {
       "id": "arena-gemini-1-5-flash-002-e635d29b",
@@ -2897,7 +2897,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 34902,
-      "sourceRank": 260
+      "sourceRank": 261
     },
     {
       "id": "arena-grok-2-mini-2024-08-13-5687ada9",
@@ -2925,7 +2925,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 24572,
-      "sourceRank": 263
+      "sourceRank": 264
     },
     {
       "id": "arena-gemma-3-4b-it-6284f1a9",
@@ -2939,7 +2939,7 @@
       "uncertainty": 9,
       "preliminary": false,
       "votes": 4171,
-      "sourceRank": 269
+      "sourceRank": 270
     },
     {
       "id": "arena-qwen2-5-72b-instruct-990261d9",
@@ -2953,7 +2953,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 39406,
-      "sourceRank": 271
+      "sourceRank": 272
     },
     {
       "id": "arena-hunyuan-large-vision-999e9c3a",
@@ -2966,7 +2966,7 @@
       "scorePrecision": "rounded",
       "uncertainty": 9,
       "preliminary": false,
-      "votes": 5258,
+      "votes": 5259,
       "sourceRank": 274
     },
     {
@@ -2981,7 +2981,7 @@
       "uncertainty": 3,
       "preliminary": false,
       "votes": 75754,
-      "sourceRank": 278
+      "sourceRank": 279
     },
     {
       "id": "arena-gpt-4-0314-03bb5d49",
@@ -2995,7 +2995,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 54173,
-      "sourceRank": 280
+      "sourceRank": 281
     },
     {
       "id": "arena-gemini-1-5-flash-001-8d882ce6",
@@ -3009,7 +3009,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 62833,
-      "sourceRank": 282
+      "sourceRank": 284
     },
     {
       "id": "arena-claude-3-sonnet-20240229-f3040325",
@@ -3023,7 +3023,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 109284,
-      "sourceRank": 287
+      "sourceRank": 288
     },
     {
       "id": "arena-gpt-4-0613-41a8859a",
@@ -3037,7 +3037,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 88723,
-      "sourceRank": 292
+      "sourceRank": 293
     },
     {
       "id": "arena-glm-4-0520-df4d615c",
@@ -3051,7 +3051,7 @@
       "uncertainty": 7,
       "preliminary": false,
       "votes": 9788,
-      "sourceRank": 294
+      "sourceRank": 295
     },
     {
       "id": "arena-qwen2-5-coder-32b-instruct-26cc286e",
@@ -3065,7 +3065,7 @@
       "uncertainty": 8,
       "preliminary": false,
       "votes": 5432,
-      "sourceRank": 296
+      "sourceRank": 297
     },
     {
       "id": "arena-gemma-2-9b-it-993b5739",
@@ -3079,7 +3079,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 54611,
-      "sourceRank": 298
+      "sourceRank": 299
     },
     {
       "id": "arena-deepseek-coder-v2-04eb984f",
@@ -3093,7 +3093,21 @@
       "uncertainty": 6,
       "preliminary": false,
       "votes": 15147,
-      "sourceRank": 299
+      "sourceRank": 300
+    },
+    {
+      "id": "arena-qwen2-72b-instruct-cf7a9fed",
+      "providerId": "alibaba",
+      "name": "Qwen2-72b Instruct",
+      "sourceModel": "qwen2-72b-instruct",
+      "score": 1262,
+      "lower": null,
+      "upper": null,
+      "scorePrecision": "rounded",
+      "uncertainty": 5,
+      "preliminary": false,
+      "votes": 37325,
+      "sourceRank": 301
     },
     {
       "id": "arena-claude-3-haiku-20240307-ddff2371",
@@ -3107,21 +3121,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 117701,
-      "sourceRank": 302
-    },
-    {
-      "id": "arena-qwen2-72b-instruct-cf7a9fed",
-      "providerId": "alibaba",
-      "name": "Qwen2-72b Instruct",
-      "sourceModel": "qwen2-72b-instruct",
-      "score": 1261,
-      "lower": null,
-      "upper": null,
-      "scorePrecision": "rounded",
-      "uncertainty": 5,
-      "preliminary": false,
-      "votes": 37325,
-      "sourceRank": 300
+      "sourceRank": 303
     },
     {
       "id": "arena-gemini-1-5-flash-8b-001-a2eada17",
@@ -3135,7 +3135,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 35558,
-      "sourceRank": 304
+      "sourceRank": 305
     },
     {
       "id": "arena-gemini-pro-dev-api-61e87352",
@@ -3149,7 +3149,7 @@
       "uncertainty": 7,
       "preliminary": false,
       "votes": 18354,
-      "sourceRank": 312
+      "sourceRank": 313
     },
     {
       "id": "arena-qwen1-5-110b-chat-b4638a21",
@@ -3163,7 +3163,7 @@
       "uncertainty": 6,
       "preliminary": false,
       "votes": 26195,
-      "sourceRank": 313
+      "sourceRank": 314
     },
     {
       "id": "arena-hunyuan-standard-256k-a971d1d0",
@@ -3177,7 +3177,7 @@
       "uncertainty": 12,
       "preliminary": false,
       "votes": 2728,
-      "sourceRank": 316
+      "sourceRank": 317
     },
     {
       "id": "arena-qwen1-5-72b-chat-5cc5438e",
@@ -3191,7 +3191,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 39302,
-      "sourceRank": 315
+      "sourceRank": 316
     },
     {
       "id": "arena-gpt-3-5-turbo-0125-554e3dab",
@@ -3205,7 +3205,7 @@
       "uncertainty": 5,
       "preliminary": false,
       "votes": 66207,
-      "sourceRank": 320
+      "sourceRank": 321
     },
     {
       "id": "arena-gemini-pro-60f50563",
@@ -3219,7 +3219,7 @@
       "uncertainty": 12,
       "preliminary": false,
       "votes": 6390,
-      "sourceRank": 322
+      "sourceRank": 323
     },
     {
       "id": "arena-gpt-3-5-turbo-1106-cab1e891",
@@ -3233,7 +3233,7 @@
       "uncertainty": 9,
       "preliminary": false,
       "votes": 16619,
-      "sourceRank": 330
+      "sourceRank": 331
     },
     {
       "id": "arena-qwen1-5-32b-chat-854528ca",
@@ -3247,7 +3247,7 @@
       "uncertainty": 6,
       "preliminary": false,
       "votes": 21741,
-      "sourceRank": 331
+      "sourceRank": 332
     },
     {
       "id": "arena-gemma-2-2b-it-ce0baa55",
@@ -3261,7 +3261,7 @@
       "uncertainty": 4,
       "preliminary": false,
       "votes": 46616,
-      "sourceRank": 332
+      "sourceRank": 333
     },
     {
       "id": "arena-qwen1-5-14b-chat-99a76e32",
@@ -3275,21 +3275,21 @@
       "uncertainty": 7,
       "preliminary": false,
       "votes": 17839,
-      "sourceRank": 336
+      "sourceRank": 337
     },
     {
       "id": "arena-deepseek-llm-67b-chat-45bcb69e",
       "providerId": "deepseek",
       "name": "DeepSeek llm-67b chat",
       "sourceModel": "deepseek-llm-67b-chat",
-      "score": 1184,
+      "score": 1185,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
       "uncertainty": 11,
       "preliminary": false,
       "votes": 4932,
-      "sourceRank": 338
+      "sourceRank": 339
     },
     {
       "id": "arena-gemma-1-1-7b-it-9f677752",
@@ -3303,7 +3303,7 @@
       "uncertainty": 6,
       "preliminary": false,
       "votes": 23893,
-      "sourceRank": 344
+      "sourceRank": 345
     },
     {
       "id": "arena-qwq-32b-preview-4178c8e8",
@@ -3317,21 +3317,21 @@
       "uncertainty": 11,
       "preliminary": false,
       "votes": 3231,
-      "sourceRank": 358
+      "sourceRank": 359
     },
     {
       "id": "arena-qwen1-5-7b-chat-c753cf89",
       "providerId": "alibaba",
       "name": "Qwen1.5-7b chat",
       "sourceModel": "qwen1.5-7b-chat",
-      "score": 1143,
+      "score": 1144,
       "lower": null,
       "upper": null,
       "scorePrecision": "rounded",
       "uncertainty": 10,
       "preliminary": false,
       "votes": 4737,
-      "sourceRank": 365
+      "sourceRank": 366
     },
     {
       "id": "arena-palm-2-1b610e8d",
@@ -3345,7 +3345,7 @@
       "uncertainty": 9,
       "preliminary": false,
       "votes": 8554,
-      "sourceRank": 370
+      "sourceRank": 371
     },
     {
       "id": "arena-qwen-14b-chat-903aa4b4",
@@ -3359,7 +3359,7 @@
       "uncertainty": 11,
       "preliminary": false,
       "votes": 4964,
-      "sourceRank": 369
+      "sourceRank": 370
     },
     {
       "id": "arena-gemma-7b-it-0b0cbd2a",
@@ -3373,7 +3373,7 @@
       "uncertainty": 9,
       "preliminary": false,
       "votes": 8925,
-      "sourceRank": 371
+      "sourceRank": 372
     },
     {
       "id": "arena-gemma-1-1-2b-it-ed86c1d5",
@@ -3387,7 +3387,7 @@
       "uncertainty": 8,
       "preliminary": false,
       "votes": 10854,
-      "sourceRank": 380
+      "sourceRank": 381
     },
     {
       "id": "arena-gemma-2b-it-d6404f0e",
@@ -3401,7 +3401,7 @@
       "uncertainty": 11,
       "preliminary": false,
       "votes": 4780,
-      "sourceRank": 386
+      "sourceRank": 387
     },
     {
       "id": "arena-qwen1-5-4b-chat-ea371652",
@@ -3415,7 +3415,7 @@
       "uncertainty": 9,
       "preliminary": false,
       "votes": 7597,
-      "sourceRank": 387
+      "sourceRank": 388
     }
   ]
 }
