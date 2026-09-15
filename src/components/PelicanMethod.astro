@@ -1,12 +1,12 @@
 ---
 import prompt from '../../docs/鹈鹕测试_统一提示词_v3.0.txt?raw';
-import { pelicanCriteria } from '../lib/pelican';
+import { pelicanManualCriteria } from '../lib/pelican-manual';
 
 ---
 <details id="pelican-method" class="pelican-method">
   <summary id="pelican-method-summary">测试说明与提示词 <span class="method-version">v3.0 · 白猫骑车</span></summary>
   <div class="method-content">
-    <p class="method-intro">给模型一句“白猫骑车”的题目，看看它们各自会做出什么。当前只展示提交的 HTML 作品，暂不评分和排名；展示顺序不代表好坏。后续由源宝提供排名后再更新。</p>
+    <p class="method-intro">给模型一句“白猫骑车”的题目，看看它们各自会做出什么。当前采用源宝回传的人工评分，按总分从高到低排列；同分并列，展示先后沿用提交顺序。左侧竖线从夯到拉表示排序方向，不另设分数档位。</p>
     <section aria-labelledby="pelican-how-title">
       <h3 id="pelican-how-title">我们怎么测</h3>
       <ul>
@@ -17,16 +17,16 @@ import { pelicanCriteria } from '../lib/pelican';
       <p>页面型号按回传表记录。本次作品只供娱乐，不代表模型的综合能力。</p>
     </section>
     <section aria-labelledby="pelican-score-title">
-      <h3 id="pelican-score-title">打分表 · 满分 100 分</h3>
-      <p>沿用白猫骑车的 11 项标准，作为后续评判参考。当前尚未公布作品评分和排名，等源宝提供排名后再更新。</p>
+      <h3 id="pelican-score-title">打分表 · 满分 10 分</h3>
+      <p>五项各 2 分，由源宝人工评判。只评价这次提交的作品，点击模型下的“五项评分”可以查看明细。</p>
       <table class="method-score-table">
-        <caption class="sr-only">大模型科目三打分表，11 项合计 100 分</caption>
+        <caption class="sr-only">大模型科目三打分表，五项各 2 分，合计 10 分</caption>
         <thead><tr><th scope="col">评分项</th><th scope="col">满分</th><th scope="col">看什么</th></tr></thead>
-        <tbody>{pelicanCriteria.map(item => <tr><th scope="row">{item.label}</th><td>{item.maximum}</td><td>{item.description}</td></tr>)}</tbody>
-        <tfoot><tr><th scope="row">合计</th><td>100</td><td>只评价本次提交的作品。</td></tr></tfoot>
+        <tbody>{pelicanManualCriteria.map(item => <tr><th scope="row">{item.label}</th><td>{item.maximum}</td><td>{item.description}</td></tr>)}</tbody>
+        <tfoot><tr><th scope="row">合计</th><td>10</td><td>五项相加，不额外加权。</td></tr></tfoot>
       </table>
-      <p><strong>每项只给零分、半分或满分。</strong>10 分项给 0 / 5 / 10；5 分项给 0 / 2.5 / 5。没做到给零分，基本做到但有明显问题给半分，达成要求给满分。</p>
-      <p>同一个问题不重复扣分。静态作品不额外扣分，合理遮挡、卡通夸张和简洁背景不扣分；缺少材料或预览加载失败不算零分。</p>
+      <p><strong>每项以 0.5 分递增。</strong>2 分：完整合理；1.5 分：少量小问题；1 分：基本成立，有明显缺陷；0.5 分：问题较多；0 分：完全没做到。</p>
+      <p>同一问题只在最相关的一项扣分。当前提示词没有要求动画，静态作品看骑姿与脚踏关系，不因缺少动画扣分；有动画时，再检查动作是否协调。合理遮挡和简洁背景不扣分；缺少材料或预览加载失败不算零分。</p>
     </section>
     <details id="pelican-prompt" class="method-prompt">
       <summary>查看完整测试提示词</summary>

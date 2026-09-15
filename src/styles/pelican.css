@@ -151,7 +151,26 @@ dialog.pelican-original-dialog { box-sizing: border-box; width: min(1030px, calc
 }
 .pelican-pending-reason { color: var(--muted); font-size: 12px; line-height: 1.65; margin: 8px 0 0; }
 
-/* The current board is a submission-order showcase, without a rank column. */
+/* Manual scores use one continuous high-to-low rail, retaining HTML previews. */
+.pelican-ranked-showcase { position: relative; --manual-rail-width: 58px; }
+.pelican-ranked-showcase > .pelican-showcase { margin-left: var(--manual-rail-width); }
+.pelican-rank-rail { position: absolute; inset: 26px auto 26px 16px; width: 30px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.pelican-rank-rail > span { display: grid; place-items: center; width: 30px; height: 34px; flex-shrink: 0; border-radius: 10px; font-size: 18px; font-weight: 650; background: #fff0eb; color: #ac4935; }
+.pelican-rank-rail > span:last-child { color: #4e6d99; background: #edf3fb; }
+.pelican-rank-rail > i { display: block; width: 4px; flex: 1; min-height: 32px; border-radius: 99px; background: linear-gradient(#ec7667, #eda05d 25%, #dfbe5b 50%, #80b692 75%, #7f9fc9); }
+.pelican-manual-score { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.pelican-manual-score strong { color: var(--ink); font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.pelican-manual-score strong > span { color: var(--muted); font-size: 13px; font-weight: 400; }
+.pelican-tied { color: var(--muted); font-size: 11px; background: #f5f5f7; padding: 4px 7px; border-radius: 6px; }
+.pelican-manual-detail { margin-top: 6px; font-size: 12px; }
+.pelican-manual-detail > summary { cursor: pointer; display: list-item; width: fit-content; padding: 10px 0; color: var(--muted); }
+.pelican-manual-detail > summary:hover { color: var(--blue); }
+.pelican-manual-detail > summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 3px; }
+.pelican-manual-detail dl { margin: 4px 0 0; }
+.pelican-manual-detail dl > div { display: flex; gap: 12px; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.pelican-manual-detail dt { color: var(--muted); }
+.pelican-manual-detail dd { margin: 0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pelican-unscored > h3 { padding: 18px 26px 0; font-size: 14px; }
 .pelican-showcase-entry { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 32px; padding: 26px; align-items: center; }
 .pelican-showcase-entry + .pelican-showcase-entry { border-top: 1px solid var(--line); }
 .pelican-work-info { min-width: 0; }
@@ -174,6 +193,10 @@ dialog.pelican-original-dialog { box-sizing: border-box; width: min(1030px, calc
   .pelican-showcase-entry { grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: 20px; }
 }
 @media (max-width: 640px) {
+  .pelican-ranked-showcase { --manual-rail-width: 38px; }
+  .pelican-rank-rail { left: 6px; width: 26px; top: 20px; bottom: 20px; }
+  .pelican-rank-rail > span { width: 26px; font-size: 16px; }
+  .pelican-ranked-showcase .pelican-showcase-entry { padding-left: 12px; padding-right: 14px; }
   .pelican-showcase-entry { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 20px 18px; }
   .pelican-showcase .pelican-model { min-height: 42px; }
   .pelican-showcase .pelican-model h3 { font-size: 15px; }

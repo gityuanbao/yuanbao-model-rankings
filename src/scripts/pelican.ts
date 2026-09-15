@@ -23,7 +23,7 @@ function render(animate = true) {
   works.innerHTML = renderPelicanShowcase(rows, catalog, base);
   disposePreviews = mountPelicanThumbnails(works);
   byId('pelican-count').textContent = String(rows.length);
-  byId('pelican-summary').textContent = `显示 ${rows.length} 份 HTML 作品，按提交顺序展示，暂不评分和排名`;
+  byId('pelican-summary').textContent = `显示 ${rows.length} 份 HTML 作品，人工总分从高到低，从夯到拉；未评分作品不参与排名`;
   const empty = rows.length === 0 && (entries.length > 0 || !!state.query || state.providers.length > 0);
   byId('pelican-empty').hidden = !empty;
   byId('pelican-list').hidden = empty;

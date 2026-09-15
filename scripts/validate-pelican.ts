@@ -9,6 +9,7 @@ import reviews from '../data/pelican/reviews-2026-09-14.json';
 import htmlIntake from '../data/pelican/html-intake-2026-09-14.json';
 import htmlReviews from '../data/pelican/html-review-2026-09-14.json';
 import { getPelicanCounts, isPelicanV3Entry, pelicanSchema } from '../src/lib/pelican';
+import { getManualTotal, pelicanManualBoard } from '../src/lib/pelican-manual';
 
 const board = pelicanSchema.parse(data);
 const intake = new Map(submissions.entries.map(entry => [entry.id, entry]));
@@ -53,4 +54,10 @@ for (const entry of board.entries) {
   }
 }
 const counts = getPelicanCounts(board.entries);
-console.log(`鹈鹕数据校验通过：${counts.total} 份作品，原作和历史媒体记录有效；当前页面仅展示 HTML，不评分和排名。`);
+for (const result of pelicanManualBoard.entries) {
+  const entry = board.entries.find(entry => entry.id === result.id);
+  assert.ok(entry, `${result.id} 人工评分必须对应已收录作品`);
+  assert.equal(entry.name, result.name, '人工评分型号必须与回传表一致');
+  assert.equal(getManualTotal(result.scores), result.submittedTotal, '人工总分必须与五项得分一致');
+}
+console.log(`大模型科目三校验通过：${counts.total} 份作品，${pelicanManualBoard.entries.length} 份人工评分；原作和历史记录有效，按 10 分制人工成绩排名。`);

@@ -266,7 +266,7 @@ test('大模型科目三：筛选更新作品且不显示测试记录，空结�
   app.provider.checked = true;
   await app.provider.emit('change');
   assert.deepEqual(ids(), ['openai-pending']);
-  assert.match(app.element('pelican-summary').textContent, /暂不评分和排名/);
+  assert.match(app.element('pelican-summary').textContent, /未评分作品不参与排名/);
   await app.type('no matching model'); app.tick(250);
   assert.deepEqual(ids(), []);
   assert.equal(app.element('pelican-empty').hidden, false);
@@ -276,7 +276,7 @@ test('大模型科目三：筛选更新作品且不显示测试记录，空结�
   assert.equal(app.element('pelican-empty').hidden, true);
 });
 
-test('鹈鹕作品展示：原有分数和旧排序链接不影响提交顺序，筛选与分享正确恢复', async () => {
+test('未收到人工成绩的作品：历史 AI 分数和旧排序链接不生成排名，筛选与分享正确恢复', async () => {
   const mixed = fixtureBoard([
     pelicanFixture('pending', 'moonshot'), pelicanFixture('runner-up', 'openai', 'scored', 90),
     pelicanFixture('winner', 'openai', 'scored'), pelicanFixture('third', 'moonshot', 'scored', 75),
@@ -302,4 +302,26 @@ test('鹈鹕作品展示：原有分数和旧排序链接不影响提交顺序�
   assert.deepEqual(ids(), ['runner-up', 'winner']);
   assert.equal(app.provider.checked, true);
   assert.equal(app.element('pelican-search').value, 'GPT');
+});
+
+test('人工评分榜：筛选、旧升序链接、重置与分享恢复均保持降序和同分顺序', async () => {
+  const app = client(boards[2]);
+  const ids = () => app.element('pelican-works').querySelectorAll('[data-model-id]').map(row => row.dataset.modelId);
+  const initial = ids();
+  assert.deepEqual(initial.slice(0, 4), ['gpt-6-astra', 'gpt-5-6-sol', 'deepseek-v4-1-flash', 'deepseek-v4-pro-0813']);
+  assert.equal(initial.at(-1), 'minimax-m3');
+  app.location.search = '?order=asc'; await app.window.emit('popstate');
+  assert.deepEqual(ids(), initial);
+  app.provider.checked = true; await app.provider.emit('change');
+  assert.deepEqual(ids(), ['gpt-6-astra', 'gpt-5-6-sol']);
+  await app.type('Sol'); app.tick(250);
+  assert.deepEqual(ids(), ['gpt-5-6-sol']);
+  await app.element('pelican-share').emit('click');
+  const shared = new URL(app.copied());
+  assert.equal(shared.searchParams.get('q'), 'Sol');
+  assert.equal(shared.searchParams.has('order'), false);
+  await app.element('pelican-reset').emit('click');
+  assert.deepEqual(ids(), initial);
+  app.location.search = shared.search; await app.window.emit('popstate');
+  assert.deepEqual(ids(), ['gpt-5-6-sol']);
 });

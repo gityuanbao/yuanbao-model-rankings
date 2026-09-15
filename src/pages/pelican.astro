@@ -4,17 +4,18 @@ import PelicanMethod from '../components/PelicanMethod.astro';
 import PelicanOriginal from '../components/PelicanOriginal.astro';
 import { catalog } from '../lib/catalog';
 import { pelicanSchema } from '../lib/pelican';
-import { getPelicanShowcaseEntries, renderPelicanShowcase } from '../lib/pelican-showcase';
+import { getPelicanShowcaseEntries, getPelicanShowcaseRows, renderPelicanShowcase } from '../lib/pelican-showcase';
+import { defaultPelicanFilters } from '../lib/pelican';
 import { mark, pathFor } from '../lib/render';
 import data from '../data/pelican.json';
 import '../styles/pelican.css';
 
 const base = import.meta.env.BASE_URL;
 const board = pelicanSchema.parse(data);
-const rows = getPelicanShowcaseEntries(board);
+const rows = getPelicanShowcaseRows(getPelicanShowcaseEntries(board), catalog, defaultPelicanFilters);
 const providers = catalog.providers;
 ---
-<Layout title="大模型科目三 · 源宝模型排行榜" description="查看白猫骑车 HTML 原作，小窗预览、点击放大。当前按提交顺序展示，暂不评分和排名，仅供娱乐。">
+<Layout title="大模型科目三 · 源宝模型排行榜" description="白猫骑车 HTML 作品，从夯到拉。按源宝人工评分从高到低排列，五项各 2 分、满分 10 分，仅供娱乐。">
   <main id="main" class="page-shell pelican-page" data-base={base}>
     <section class="page-intro" aria-labelledby="page-title">
       <div class="intro-copy"><h1 id="page-title">大模型科目三，<span>从夯到拉</span></h1><p>仅供娱乐</p></div>
@@ -36,14 +37,14 @@ const providers = catalog.providers;
       </aside>
       <section class="ranking-panel pelican-board" aria-labelledby="ranking-title">
         <div class="ranking-header">
-          <h2 id="ranking-title"><span id="pelican-board-title">测试作品</span> <span class="count-pill" id="pelican-count">{rows.length}</span></h2>
+          <h2 id="ranking-title"><span id="pelican-board-title">作品排行榜</span> <span class="count-pill" id="pelican-count">{rows.length}</span></h2>
           <button id="pelican-share" class="outline-button" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9M11 5H5v14h14v-6"/></svg>分享当前榜单</button>
         </div>
         <div class="ranking-controls pelican-controls"><span class="pelican-batch">白猫骑车 · v3.0</span><a class="pelican-method-link" data-pelican-method-link href="#pelican-method" aria-controls="pelican-method">测试说明与提示词</a></div>
-        <p class="pelican-ranking-note">按提交顺序展示，暂不评分和排名。点击作品可放大查看。</p>
+        <p class="pelican-ranking-note">源宝人工评分 · 满分 10 分 · 从高到低，同分并列。点击作品可放大查看。</p>
         <div id="pelican-list"><div id="pelican-works" set:html={renderPelicanShowcase(rows, catalog, base)} /></div>
         <div id="pelican-empty" class="empty-state" hidden><div class="empty-icon" aria-hidden="true">⌕</div><h3>没有找到符合条件的模型</h3><p>{board.entries.length ? '试试其他模型名称，或减少筛选条件。' : '当前尚未录入测试结果，收到测试表格后会更新。'}</p><button type="button" class="outline-button" id="pelican-empty-reset">清除筛选</button></div>
-        <p class="sr-only" id="pelican-summary" role="status" aria-live="polite">显示 {rows.length} 份 HTML 作品，按提交顺序展示</p>
+        <p class="sr-only" id="pelican-summary" role="status" aria-live="polite">显示 {rows.length} 份 HTML 作品，人工总分从高到低，从夯到拉</p>
         <PelicanMethod />
       </section>
     </div>
