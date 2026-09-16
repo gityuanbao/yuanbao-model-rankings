@@ -7187,6 +7187,1330 @@
           "sourceRank": 141
         }
       ]
+    },
+    {
+      "schemaVersion": 1,
+      "publishedAt": "2026-09-15",
+      "retrievedAt": "2026-09-16T05:12:29.460Z",
+      "retrieval": "official-page",
+      "sourceRowCount": 46,
+      "sourceId": "arena-agent",
+      "sourceUrl": "https://arena.ai/leaderboard/agent",
+      "models": [
+        {
+          "id": "claude-fable-5-1-max",
+          "providerId": "anthropic",
+          "name": "Claude Fable 5.1",
+          "mode": "Max",
+          "sourceModel": "Claude Fable 5.1 (Max)",
+          "sourceRank": 1,
+          "sessions": 13320,
+          "signals": {
+            "netImprovement": {
+              "value": 13.71,
+              "uncertainty": 1.72
+            },
+            "confirmedSuccess": {
+              "value": 19.83,
+              "uncertainty": 2.75
+            },
+            "praiseVsComplaint": {
+              "value": 31.83,
+              "uncertainty": 6.86
+            },
+            "steerability": {
+              "value": 3.88,
+              "uncertainty": 3.61
+            },
+            "bashRecovery": {
+              "value": 12.62,
+              "uncertainty": 0.76
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "arena-gpt-6-astra-max-ab30e9c2",
+          "providerId": "openai",
+          "name": "GPT-6 Astra",
+          "mode": "Max",
+          "sourceModel": "GPT 6 Astra (Max)",
+          "sourceRank": 2,
+          "sessions": 10372,
+          "signals": {
+            "netImprovement": {
+              "value": 11.54,
+              "uncertainty": 2.1
+            },
+            "confirmedSuccess": {
+              "value": 17.7,
+              "uncertainty": 3.26
+            },
+            "praiseVsComplaint": {
+              "value": 32.79,
+              "uncertainty": 8.37
+            },
+            "steerability": {
+              "value": 0.47,
+              "uncertainty": 4.67
+            },
+            "bashRecovery": {
+              "value": 7.28,
+              "uncertainty": 1.11
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "claude-opus-5-high",
+          "providerId": "anthropic",
+          "name": "Claude Opus 5",
+          "mode": "High",
+          "sourceModel": "Claude Opus 5 (High)",
+          "sourceRank": 3,
+          "sessions": 24794,
+          "signals": {
+            "netImprovement": {
+              "value": 10.25,
+              "uncertainty": 1.41
+            },
+            "confirmedSuccess": {
+              "value": 9.24,
+              "uncertainty": 2.94
+            },
+            "praiseVsComplaint": {
+              "value": 18.66,
+              "uncertainty": 5.22
+            },
+            "steerability": {
+              "value": 11.04,
+              "uncertainty": 2.75
+            },
+            "bashRecovery": {
+              "value": 11.98,
+              "uncertainty": 0.77
+            },
+            "toolHallucination": {
+              "value": 0.33,
+              "uncertainty": 0.04
+            }
+          }
+        },
+        {
+          "id": "arena-claude-opus-5-max-ae70a72a",
+          "providerId": "anthropic",
+          "name": "Claude Opus-5",
+          "mode": "Max",
+          "sourceModel": "Claude Opus 5 (Max)",
+          "sourceRank": 4,
+          "sessions": 19934,
+          "signals": {
+            "netImprovement": {
+              "value": 10.16,
+              "uncertainty": 1.55
+            },
+            "confirmedSuccess": {
+              "value": 12.41,
+              "uncertainty": 3.04
+            },
+            "praiseVsComplaint": {
+              "value": 18.15,
+              "uncertainty": 5.77
+            },
+            "steerability": {
+              "value": 6.83,
+              "uncertainty": 3.05
+            },
+            "bashRecovery": {
+              "value": 13.08,
+              "uncertainty": 0.77
+            },
+            "toolHallucination": {
+              "value": 0.35,
+              "uncertainty": 0.04
+            }
+          }
+        },
+        {
+          "id": "arena-claude-fable-5-high-ff9fa55a",
+          "providerId": "anthropic",
+          "name": "Claude Fable-5",
+          "mode": "High",
+          "sourceModel": "Claude Fable 5 (High)",
+          "sourceRank": 5,
+          "sessions": 38293,
+          "signals": {
+            "netImprovement": {
+              "value": 8.81,
+              "uncertainty": 1.25
+            },
+            "confirmedSuccess": {
+              "value": 5.97,
+              "uncertainty": 2.66
+            },
+            "praiseVsComplaint": {
+              "value": 18.07,
+              "uncertainty": 4.46
+            },
+            "steerability": {
+              "value": 10.6,
+              "uncertainty": 2.28
+            },
+            "bashRecovery": {
+              "value": 9.06,
+              "uncertainty": 1.28
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "arena-claude-opus-4-8-high-be005364",
+          "providerId": "anthropic",
+          "name": "Claude Opus-4.8",
+          "mode": "High",
+          "sourceModel": "Claude Opus 4.8 (High)",
+          "sourceRank": 6,
+          "sessions": 39731,
+          "signals": {
+            "netImprovement": {
+              "value": 8.19,
+              "uncertainty": 1.27
+            },
+            "confirmedSuccess": {
+              "value": 6.28,
+              "uncertainty": 2.47
+            },
+            "praiseVsComplaint": {
+              "value": 16.23,
+              "uncertainty": 4.59
+            },
+            "steerability": {
+              "value": 11.06,
+              "uncertainty": 2.22
+            },
+            "bashRecovery": {
+              "value": 7.49,
+              "uncertainty": 1.51
+            },
+            "toolHallucination": {
+              "value": 0.12,
+              "uncertainty": 0.31
+            }
+          }
+        },
+        {
+          "id": "gpt-5-6-sol-xhigh",
+          "providerId": "openai",
+          "name": "GPT-5.6 Sol",
+          "mode": "xHigh",
+          "sourceModel": "GPT 5.6 Sol (xHigh)",
+          "sourceRank": 7,
+          "sessions": 32207,
+          "signals": {
+            "netImprovement": {
+              "value": 7.1,
+              "uncertainty": 1.28
+            },
+            "confirmedSuccess": {
+              "value": 3.74,
+              "uncertainty": 2.61
+            },
+            "praiseVsComplaint": {
+              "value": 20.48,
+              "uncertainty": 4.62
+            },
+            "steerability": {
+              "value": 6.62,
+              "uncertainty": 2.41
+            },
+            "bashRecovery": {
+              "value": 4.3,
+              "uncertainty": 0.93
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "kimi-k3-max",
+          "providerId": "moonshot",
+          "name": "Kimi K3",
+          "mode": "Max",
+          "sourceModel": "Kimi K3 (Max)",
+          "sourceRank": 8,
+          "sessions": 108615,
+          "signals": {
+            "netImprovement": {
+              "value": 6.22,
+              "uncertainty": 0.62
+            },
+            "confirmedSuccess": {
+              "value": 11.91,
+              "uncertainty": 1.28
+            },
+            "praiseVsComplaint": {
+              "value": 11.79,
+              "uncertainty": 2.18
+            },
+            "steerability": {
+              "value": 1.99,
+              "uncertainty": 1.28
+            },
+            "bashRecovery": {
+              "value": 5.03,
+              "uncertainty": 0.52
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "claude-sonnet-5-high",
+          "providerId": "anthropic",
+          "name": "Claude Sonnet 5",
+          "mode": "High",
+          "sourceModel": "Claude Sonnet 5 (High)",
+          "sourceRank": 9,
+          "sessions": 30631,
+          "signals": {
+            "netImprovement": {
+              "value": 5.97,
+              "uncertainty": 1.62
+            },
+            "confirmedSuccess": {
+              "value": 2.88,
+              "uncertainty": 3.34
+            },
+            "praiseVsComplaint": {
+              "value": 11.03,
+              "uncertainty": 5.77
+            },
+            "steerability": {
+              "value": 8.39,
+              "uncertainty": 3.38
+            },
+            "bashRecovery": {
+              "value": 7.36,
+              "uncertainty": 1.06
+            },
+            "toolHallucination": {
+              "value": 0.18,
+              "uncertainty": 0.1
+            }
+          }
+        },
+        {
+          "id": "arena-gpt-5-5-xhigh-333efa32",
+          "providerId": "openai",
+          "name": "GPT-5.5",
+          "mode": "xHigh",
+          "sourceModel": "GPT 5.5 (xHigh)",
+          "sourceRank": 10,
+          "sessions": 53054,
+          "signals": {
+            "netImprovement": {
+              "value": 5.03,
+              "uncertainty": 0.92
+            },
+            "confirmedSuccess": {
+              "value": 0.61,
+              "uncertainty": 2.02
+            },
+            "praiseVsComplaint": {
+              "value": 9.14,
+              "uncertainty": 3.18
+            },
+            "steerability": {
+              "value": 6.61,
+              "uncertainty": 1.77
+            },
+            "bashRecovery": {
+              "value": 9.63,
+              "uncertainty": 1.25
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "arena-hy4-preview-7c1e5ed7",
+          "providerId": "tencent",
+          "name": "混元 Hy4 Preview",
+          "sourceModel": "Hy4 preview",
+          "sourceRank": 11,
+          "sessions": 38074,
+          "signals": {
+            "netImprovement": {
+              "value": 5.01,
+              "uncertainty": 1.02
+            },
+            "confirmedSuccess": {
+              "value": 9.85,
+              "uncertainty": 1.98
+            },
+            "praiseVsComplaint": {
+              "value": 8.76,
+              "uncertainty": 3.77
+            },
+            "steerability": {
+              "value": 1.23,
+              "uncertainty": 2.16
+            },
+            "bashRecovery": {
+              "value": 7.44,
+              "uncertainty": 0.56
+            },
+            "toolHallucination": {
+              "value": 0.23,
+              "uncertainty": 0.06
+            }
+          }
+        },
+        {
+          "id": "arena-deepseek-v4-1-flash-max-757163d7",
+          "providerId": "deepseek",
+          "name": "DeepSeek V4.1 Flash",
+          "mode": "Max",
+          "sourceModel": "Deepseek V4.1 Flash (Max)",
+          "sourceRank": 12,
+          "sessions": 20080,
+          "signals": {
+            "netImprovement": {
+              "value": 4.88,
+              "uncertainty": 1.33
+            },
+            "confirmedSuccess": {
+              "value": 13.35,
+              "uncertainty": 2.49
+            },
+            "praiseVsComplaint": {
+              "value": 4.76,
+              "uncertainty": 4.56
+            },
+            "steerability": {
+              "value": 1.63,
+              "uncertainty": 3.4
+            },
+            "bashRecovery": {
+              "value": 7.63,
+              "uncertainty": 0.71
+            },
+            "toolHallucination": {
+              "value": 0.29,
+              "uncertainty": 0.05
+            }
+          }
+        },
+        {
+          "id": "gemini-3-8-flash-high",
+          "providerId": "google",
+          "name": "Gemini 3.8 Flash",
+          "mode": "High",
+          "sourceModel": "Gemini 3.8 Flash (High)",
+          "sourceRank": 13,
+          "sessions": 12534,
+          "signals": {
+            "netImprovement": {
+              "value": 4.71,
+              "uncertainty": 1.91
+            },
+            "confirmedSuccess": {
+              "value": 9.3,
+              "uncertainty": 3.7
+            },
+            "praiseVsComplaint": {
+              "value": 13.34,
+              "uncertainty": 6.7
+            },
+            "steerability": {
+              "value": 1.22,
+              "uncertainty": 4.83
+            },
+            "bashRecovery": {
+              "value": 1.91,
+              "uncertainty": 1.59
+            },
+            "toolHallucination": {
+              "value": 0.22,
+              "uncertainty": 0.19
+            }
+          }
+        },
+        {
+          "id": "arena-glm-5-2-max-364b5b0c",
+          "providerId": "zhipu",
+          "name": "GLM-5.2",
+          "mode": "Max",
+          "sourceModel": "GLM 5.2 (Max)",
+          "sourceRank": 14,
+          "sessions": 76766,
+          "signals": {
+            "netImprovement": {
+              "value": 4.37,
+              "uncertainty": 0.69
+            },
+            "confirmedSuccess": {
+              "value": 4.9,
+              "uncertainty": 1.5
+            },
+            "praiseVsComplaint": {
+              "value": 9.76,
+              "uncertainty": 2.42
+            },
+            "steerability": {
+              "value": 4.88,
+              "uncertainty": 1.31
+            },
+            "bashRecovery": {
+              "value": 1.93,
+              "uncertainty": 0.73
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "arena-deepseek-v4-pro-high-0813-75f974ac",
+          "providerId": "deepseek",
+          "name": "DeepSeek V4 Pro high-(0813)",
+          "sourceModel": "DeepSeek V4 Pro (High) (0813)",
+          "sourceRank": 16,
+          "sessions": 47602,
+          "signals": {
+            "netImprovement": {
+              "value": 4.14,
+              "uncertainty": 0.79
+            },
+            "confirmedSuccess": {
+              "value": 6.81,
+              "uncertainty": 1.64
+            },
+            "praiseVsComplaint": {
+              "value": 5.94,
+              "uncertainty": 2.8
+            },
+            "steerability": {
+              "value": 1.37,
+              "uncertainty": 1.64
+            },
+            "bashRecovery": {
+              "value": 6.22,
+              "uncertainty": 0.59
+            },
+            "toolHallucination": {
+              "value": 0.36,
+              "uncertainty": 0.04
+            }
+          }
+        },
+        {
+          "id": "qwen-3-8-max",
+          "providerId": "alibaba",
+          "name": "Qwen3.8 Max",
+          "sourceModel": "Qwen3.8 Max",
+          "sourceRank": 17,
+          "sessions": 31489,
+          "signals": {
+            "netImprovement": {
+              "value": 3.3,
+              "uncertainty": 0.84
+            },
+            "confirmedSuccess": {
+              "value": 5.83,
+              "uncertainty": 1.82
+            },
+            "praiseVsComplaint": {
+              "value": 4.2,
+              "uncertainty": 2.87
+            },
+            "steerability": {
+              "value": 3.63,
+              "uncertainty": 1.75
+            },
+            "bashRecovery": {
+              "value": 4.11,
+              "uncertainty": 0.81
+            },
+            "toolHallucination": {
+              "value": 1.25,
+              "uncertainty": 0.38
+            }
+          }
+        },
+        {
+          "id": "glm-5-3-max",
+          "providerId": "zhipu",
+          "name": "GLM-5.3",
+          "mode": "Max",
+          "sourceModel": "GLM 5.3 (Max)",
+          "sourceRank": 18,
+          "sessions": 73287,
+          "signals": {
+            "netImprovement": {
+              "value": 3.05,
+              "uncertainty": 0.62
+            },
+            "confirmedSuccess": {
+              "value": 8.48,
+              "uncertainty": 1.36
+            },
+            "praiseVsComplaint": {
+              "value": 5.54,
+              "uncertainty": 2.12
+            },
+            "steerability": {
+              "value": 1.86,
+              "uncertainty": 1.18
+            },
+            "bashRecovery": {
+              "value": 0.99,
+              "uncertainty": 0.58
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "grok-4-5",
+          "providerId": "xai",
+          "name": "Grok 4.5",
+          "sourceModel": "Grok 4.5",
+          "sourceRank": 19,
+          "sessions": 38146,
+          "signals": {
+            "netImprovement": {
+              "value": 2.92,
+              "uncertainty": 0.99
+            },
+            "confirmedSuccess": {
+              "value": 1.88,
+              "uncertainty": 2.27
+            },
+            "praiseVsComplaint": {
+              "value": 0.1,
+              "uncertainty": 3.33
+            },
+            "steerability": {
+              "value": 5.86,
+              "uncertainty": 2.02
+            },
+            "bashRecovery": {
+              "value": 6.59,
+              "uncertainty": 1.22
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "gpt-5-5",
+          "providerId": "openai",
+          "name": "GPT-5.5",
+          "sourceModel": "GPT 5.5",
+          "sourceRank": 20,
+          "sessions": 81254,
+          "signals": {
+            "netImprovement": {
+              "value": 2.67,
+              "uncertainty": 0.81
+            },
+            "confirmedSuccess": {
+              "value": 2.01,
+              "uncertainty": 1.77
+            },
+            "praiseVsComplaint": {
+              "value": 5.42,
+              "uncertainty": 2.73
+            },
+            "steerability": {
+              "value": 3.2,
+              "uncertainty": 1.48
+            },
+            "bashRecovery": {
+              "value": 6.36,
+              "uncertainty": 1.19
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "arena-grok-4-6-xhigh-56ed2b88",
+          "providerId": "xai",
+          "name": "Grok 4.6",
+          "mode": "xHigh",
+          "sourceModel": "Grok 4.6 (xHigh)",
+          "sourceRank": 21,
+          "sessions": 22548,
+          "signals": {
+            "netImprovement": {
+              "value": 2.01,
+              "uncertainty": 1.05
+            },
+            "confirmedSuccess": {
+              "value": 2.55,
+              "uncertainty": 2.53
+            },
+            "praiseVsComplaint": {
+              "value": 0.88,
+              "uncertainty": 3.38
+            },
+            "steerability": {
+              "value": 4.74,
+              "uncertainty": 2.13
+            },
+            "bashRecovery": {
+              "value": 6.59,
+              "uncertainty": 0.91
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "arena-deepseek-v4-flash-high-20260731-db11bf99",
+          "providerId": "deepseek",
+          "name": "DeepSeek V4 Flash high-(20260731)",
+          "sourceModel": "Deepseek V4 Flash (High) (20260731)",
+          "sourceRank": 22,
+          "sessions": 64482,
+          "signals": {
+            "netImprovement": {
+              "value": 1.8,
+              "uncertainty": 0.73
+            },
+            "confirmedSuccess": {
+              "value": 3.25,
+              "uncertainty": 1.61
+            },
+            "praiseVsComplaint": {
+              "value": 3.54,
+              "uncertainty": 2.53
+            },
+            "steerability": {
+              "value": 0.41,
+              "uncertainty": 1.5
+            },
+            "bashRecovery": {
+              "value": 1.45,
+              "uncertainty": 0.6
+            },
+            "toolHallucination": {
+              "value": 0.34,
+              "uncertainty": 0.04
+            }
+          }
+        },
+        {
+          "id": "gpt-5-6-terra-xhigh",
+          "providerId": "openai",
+          "name": "GPT-5.6 Terra",
+          "mode": "xHigh",
+          "sourceModel": "GPT 5.6 Terra (xHigh)",
+          "sourceRank": 23,
+          "sessions": 20301,
+          "signals": {
+            "netImprovement": {
+              "value": 1.44,
+              "uncertainty": 1.11
+            },
+            "confirmedSuccess": {
+              "value": 4.44,
+              "uncertainty": 2.54
+            },
+            "praiseVsComplaint": {
+              "value": 3.28,
+              "uncertainty": 3.74
+            },
+            "steerability": {
+              "value": 4.93,
+              "uncertainty": 2.18
+            },
+            "bashRecovery": {
+              "value": 3.05,
+              "uncertainty": 1.38
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "arena-gpt-5-4-high-be938869",
+          "providerId": "openai",
+          "name": "GPT-5.4",
+          "mode": "High",
+          "sourceModel": "GPT 5.4 (High)",
+          "sourceRank": 24,
+          "sessions": 80406,
+          "signals": {
+            "netImprovement": {
+              "value": 1.26,
+              "uncertainty": 0.8
+            },
+            "confirmedSuccess": {
+              "value": 1.63,
+              "uncertainty": 1.83
+            },
+            "praiseVsComplaint": {
+              "value": 0.41,
+              "uncertainty": 2.71
+            },
+            "steerability": {
+              "value": 2.55,
+              "uncertainty": 1.59
+            },
+            "bashRecovery": {
+              "value": 4.62,
+              "uncertainty": 1.01
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "glm-5-3-flash",
+          "providerId": "zhipu",
+          "name": "GLM-5.3 Flash",
+          "sourceModel": "GLM 5.3 Flash",
+          "sourceRank": 25,
+          "sessions": 43164,
+          "signals": {
+            "netImprovement": {
+              "value": 1.15,
+              "uncertainty": 0.67
+            },
+            "confirmedSuccess": {
+              "value": 8.24,
+              "uncertainty": 1.47
+            },
+            "praiseVsComplaint": {
+              "value": 1.61,
+              "uncertainty": 2.18
+            },
+            "steerability": {
+              "value": 0.15,
+              "uncertainty": 1.4
+            },
+            "bashRecovery": {
+              "value": 4.63,
+              "uncertainty": 0.69
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "arena-qwen3-8-flash-next-9b17db7a",
+          "providerId": "alibaba",
+          "name": "Qwen3.8 Flash next",
+          "sourceModel": "Qwen3.8 Flash Next",
+          "sourceRank": 26,
+          "sessions": 57458,
+          "signals": {
+            "netImprovement": {
+              "value": 0.07,
+              "uncertainty": 0.76
+            },
+            "confirmedSuccess": {
+              "value": 8.92,
+              "uncertainty": 1.54
+            },
+            "praiseVsComplaint": {
+              "value": 1.73,
+              "uncertainty": 2.61
+            },
+            "steerability": {
+              "value": 4.7,
+              "uncertainty": 1.73
+            },
+            "bashRecovery": {
+              "value": 2,
+              "uncertainty": 0.48
+            },
+            "toolHallucination": {
+              "value": 0.87,
+              "uncertainty": 0.1
+            }
+          }
+        },
+        {
+          "id": "gpt-5-6-luna-xhigh",
+          "providerId": "openai",
+          "name": "GPT-5.6 Luna",
+          "mode": "xHigh",
+          "sourceModel": "GPT 5.6 Luna (xHigh)",
+          "sourceRank": 27,
+          "sessions": 29186,
+          "signals": {
+            "netImprovement": {
+              "value": 0.44,
+              "uncertainty": 0.84
+            },
+            "confirmedSuccess": {
+              "value": 4.99,
+              "uncertainty": 1.99
+            },
+            "praiseVsComplaint": {
+              "value": 3.39,
+              "uncertainty": 2.64
+            },
+            "steerability": {
+              "value": 2.12,
+              "uncertainty": 1.78
+            },
+            "bashRecovery": {
+              "value": 3.7,
+              "uncertainty": 0.99
+            },
+            "toolHallucination": {
+              "value": 0.37,
+              "uncertainty": 0.03
+            }
+          }
+        },
+        {
+          "id": "arena-gemini-3-7-flash-high-0acab277",
+          "providerId": "google",
+          "name": "Gemini 3.7 Flash",
+          "mode": "High",
+          "sourceModel": "Gemini 3.7 Flash (High)",
+          "sourceRank": 28,
+          "sessions": 48195,
+          "signals": {
+            "netImprovement": {
+              "value": 0.6,
+              "uncertainty": 0.65
+            },
+            "confirmedSuccess": {
+              "value": 2.88,
+              "uncertainty": 1.57
+            },
+            "praiseVsComplaint": {
+              "value": 3.52,
+              "uncertainty": 2.03
+            },
+            "steerability": {
+              "value": 0.28,
+              "uncertainty": 1.34
+            },
+            "bashRecovery": {
+              "value": 2.08,
+              "uncertainty": 0.7
+            },
+            "toolHallucination": {
+              "value": 0.03,
+              "uncertainty": 0.3
+            }
+          }
+        },
+        {
+          "id": "arena-qwen-3-8-27b-87256d73",
+          "providerId": "alibaba",
+          "name": "Qwen-3.8-27b",
+          "sourceModel": "Qwen 3.8 27B",
+          "sourceRank": 29,
+          "sessions": 37257,
+          "signals": {
+            "netImprovement": {
+              "value": 0.64,
+              "uncertainty": 0.72
+            },
+            "confirmedSuccess": {
+              "value": 4.31,
+              "uncertainty": 1.65
+            },
+            "praiseVsComplaint": {
+              "value": 2.11,
+              "uncertainty": 2.36
+            },
+            "steerability": {
+              "value": 0.08,
+              "uncertainty": 1.56
+            },
+            "bashRecovery": {
+              "value": 5.2,
+              "uncertainty": 0.69
+            },
+            "toolHallucination": {
+              "value": 0.3,
+              "uncertainty": 0.15
+            }
+          }
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "providerId": "deepseek",
+          "name": "DeepSeek V4 Pro",
+          "sourceModel": "DeepSeek V4 Pro",
+          "sourceRank": 30,
+          "sessions": 35465,
+          "signals": {
+            "netImprovement": {
+              "value": 0.71,
+              "uncertainty": 0.93
+            },
+            "confirmedSuccess": {
+              "value": 1.71,
+              "uncertainty": 2.22
+            },
+            "praiseVsComplaint": {
+              "value": 2.74,
+              "uncertainty": 3.16
+            },
+            "steerability": {
+              "value": 2.13,
+              "uncertainty": 1.79
+            },
+            "bashRecovery": {
+              "value": 3.16,
+              "uncertainty": 0.85
+            },
+            "toolHallucination": {
+              "value": 0.15,
+              "uncertainty": 0.11
+            }
+          }
+        },
+        {
+          "id": "arena-claude-sonnet-4-6-fa1923de",
+          "providerId": "anthropic",
+          "name": "Claude Sonnet-4.6",
+          "sourceModel": "Claude Sonnet 4.6",
+          "sourceRank": 31,
+          "sessions": 39452,
+          "signals": {
+            "netImprovement": {
+              "value": 1.52,
+              "uncertainty": 1.12
+            },
+            "confirmedSuccess": {
+              "value": 5.78,
+              "uncertainty": 2.74
+            },
+            "praiseVsComplaint": {
+              "value": 2.17,
+              "uncertainty": 3.47
+            },
+            "steerability": {
+              "value": 5.01,
+              "uncertainty": 2.13
+            },
+            "bashRecovery": {
+              "value": 5.04,
+              "uncertainty": 1.61
+            },
+            "toolHallucination": {
+              "value": 0.33,
+              "uncertainty": 0.05
+            }
+          }
+        },
+        {
+          "id": "arena-qwen3-7-max-7f8cac68",
+          "providerId": "alibaba",
+          "name": "Qwen3.7 Max",
+          "sourceModel": "Qwen3.7 Max",
+          "sourceRank": 34,
+          "sessions": 38392,
+          "signals": {
+            "netImprovement": {
+              "value": 3.63,
+              "uncertainty": 0.84
+            },
+            "confirmedSuccess": {
+              "value": 6.41,
+              "uncertainty": 2.1
+            },
+            "praiseVsComplaint": {
+              "value": 7.92,
+              "uncertainty": 2.44
+            },
+            "steerability": {
+              "value": 2.75,
+              "uncertainty": 1.53
+            },
+            "bashRecovery": {
+              "value": 0.83,
+              "uncertainty": 1.65
+            },
+            "toolHallucination": {
+              "value": 0.21,
+              "uncertainty": 0.2
+            }
+          }
+        },
+        {
+          "id": "hunyuan-3",
+          "providerId": "tencent",
+          "name": "混元 Hy3",
+          "sourceModel": "Hy3",
+          "sourceRank": 35,
+          "sessions": 27371,
+          "signals": {
+            "netImprovement": {
+              "value": 5.23,
+              "uncertainty": 1.16
+            },
+            "confirmedSuccess": {
+              "value": 10.6,
+              "uncertainty": 2.68
+            },
+            "praiseVsComplaint": {
+              "value": 6.79,
+              "uncertainty": 3.47
+            },
+            "steerability": {
+              "value": 1.77,
+              "uncertainty": 2.39
+            },
+            "bashRecovery": {
+              "value": 3.93,
+              "uncertainty": 2.15
+            },
+            "toolHallucination": {
+              "value": 3.09,
+              "uncertainty": 1.18
+            }
+          }
+        },
+        {
+          "id": "minimax-m3",
+          "providerId": "minimax",
+          "name": "MiniMax M3",
+          "sourceModel": "Minimax M3",
+          "sourceRank": 37,
+          "sessions": 39156,
+          "signals": {
+            "netImprovement": {
+              "value": 5.76,
+              "uncertainty": 0.83
+            },
+            "confirmedSuccess": {
+              "value": 12.04,
+              "uncertainty": 2.21
+            },
+            "praiseVsComplaint": {
+              "value": 11.84,
+              "uncertainty": 2.44
+            },
+            "steerability": {
+              "value": 6.58,
+              "uncertainty": 1.68
+            },
+            "bashRecovery": {
+              "value": 1.64,
+              "uncertainty": 0.9
+            },
+            "toolHallucination": {
+              "value": 0.01,
+              "uncertainty": 0.14
+            }
+          }
+        },
+        {
+          "id": "gemini-3-1-pro-preview",
+          "providerId": "google",
+          "name": "Gemini 3.1 Pro",
+          "mode": "Preview",
+          "sourceModel": "Gemini 3.1 Pro Preview",
+          "sourceRank": 38,
+          "sessions": 86017,
+          "signals": {
+            "netImprovement": {
+              "value": 5.81,
+              "uncertainty": 0.8
+            },
+            "confirmedSuccess": {
+              "value": 5.51,
+              "uncertainty": 1.79
+            },
+            "praiseVsComplaint": {
+              "value": 0.41,
+              "uncertainty": 2.36
+            },
+            "steerability": {
+              "value": 3.55,
+              "uncertainty": 1.36
+            },
+            "bashRecovery": {
+              "value": 20.4,
+              "uncertainty": 1.69
+            },
+            "toolHallucination": {
+              "value": 0.03,
+              "uncertainty": 0.31
+            }
+          }
+        },
+        {
+          "id": "arena-gemini-3-6-flash-high-a33b6891",
+          "providerId": "google",
+          "name": "Gemini 3.6 Flash",
+          "mode": "High",
+          "sourceModel": "Gemini 3.6 Flash (High)",
+          "sourceRank": 39,
+          "sessions": 20773,
+          "signals": {
+            "netImprovement": {
+              "value": 5.94,
+              "uncertainty": 1.03
+            },
+            "confirmedSuccess": {
+              "value": 6.83,
+              "uncertainty": 2.53
+            },
+            "praiseVsComplaint": {
+              "value": 7.42,
+              "uncertainty": 3.03
+            },
+            "steerability": {
+              "value": 3.37,
+              "uncertainty": 2.04
+            },
+            "bashRecovery": {
+              "value": 12.38,
+              "uncertainty": 1.64
+            },
+            "toolHallucination": {
+              "value": 0.32,
+              "uncertainty": 0.07
+            }
+          }
+        },
+        {
+          "id": "qwen-3-7-plus",
+          "providerId": "alibaba",
+          "name": "Qwen3.7 Plus",
+          "sourceModel": "Qwen3.7 Plus",
+          "sourceRank": 40,
+          "sessions": 20905,
+          "signals": {
+            "netImprovement": {
+              "value": 6.08,
+              "uncertainty": 1.21
+            },
+            "confirmedSuccess": {
+              "value": 7.15,
+              "uncertainty": 2.98
+            },
+            "praiseVsComplaint": {
+              "value": 12.5,
+              "uncertainty": 3.29
+            },
+            "steerability": {
+              "value": 5.38,
+              "uncertainty": 2.36
+            },
+            "bashRecovery": {
+              "value": 4.36,
+              "uncertainty": 2.61
+            },
+            "toolHallucination": {
+              "value": 1.03,
+              "uncertainty": 0.41
+            }
+          }
+        },
+        {
+          "id": "arena-minimax-m2-7-1e8d2e47",
+          "providerId": "minimax",
+          "name": "MiniMax M2.7",
+          "sourceModel": "Minimax M2.7",
+          "sourceRank": 44,
+          "sessions": 37764,
+          "signals": {
+            "netImprovement": {
+              "value": 14.02,
+              "uncertainty": 1.07
+            },
+            "confirmedSuccess": {
+              "value": 18.02,
+              "uncertainty": 2.56
+            },
+            "praiseVsComplaint": {
+              "value": 19.39,
+              "uncertainty": 2.65
+            },
+            "steerability": {
+              "value": 6.58,
+              "uncertainty": 2.24
+            },
+            "bashRecovery": {
+              "value": 26.31,
+              "uncertainty": 2.74
+            },
+            "toolHallucination": {
+              "value": 0.18,
+              "uncertainty": 0.13
+            }
+          }
+        },
+        {
+          "id": "gemini-3-5-flash-lite",
+          "providerId": "google",
+          "name": "Gemini 3.5 Flash Lite",
+          "sourceModel": "Gemini 3.5 Flash Lite",
+          "sourceRank": 45,
+          "sessions": 23248,
+          "signals": {
+            "netImprovement": {
+              "value": 15.35,
+              "uncertainty": 1.31
+            },
+            "confirmedSuccess": {
+              "value": 17.63,
+              "uncertainty": 2.99
+            },
+            "praiseVsComplaint": {
+              "value": 16.15,
+              "uncertainty": 2.99
+            },
+            "steerability": {
+              "value": 12.76,
+              "uncertainty": 2.35
+            },
+            "bashRecovery": {
+              "value": 28.71,
+              "uncertainty": 3.72
+            },
+            "toolHallucination": {
+              "value": 1.5,
+              "uncertainty": 0.64
+            }
+          }
+        }
+      ]
     }
   ]
 }
