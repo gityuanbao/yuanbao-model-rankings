@@ -8,6 +8,8 @@ import { catalog } from '../src/lib/catalog';
 import { performanceBoards } from '../src/lib/performance-data';
 import { performanceCategories } from '../src/lib/performance-categories';
 import data from '../src/data/pelican.json';
+import { pelicanHtmlBoard } from '../src/lib/pelican-html';
+import { pelicanManualBoard } from '../src/lib/pelican-manual';
 import * as ranking from '../src/lib/ranking';
 import * as urlState from '../src/lib/url-state';
 import * as priceRender from '../src/lib/render';
@@ -118,7 +120,7 @@ function client(board: typeof boards[number], hash = '', pelicanData: unknown = 
   const elements = new Map<string, ElementDouble>();
   const element = (id: string) => { if (!elements.has(id)) elements.set(id, new ElementDouble(id)); return elements.get(id)!; };
   element('main').dataset.base = '/';
-  element('pelican-showcase-data').textContent = JSON.stringify(pelicanShowcase.getPelicanShowcaseEntries(pelican.pelicanSchema.parse(pelicanData)));
+  element('pelican-showcase-data').textContent = JSON.stringify(pelicanShowcase.getPelicanShowcaseEntries(pelican.pelicanSchema.parse(pelicanData), pelicanManualBoard, pelicanData === data ? pelicanHtmlBoard.entries : []));
   const provider = element('provider-openai'); provider.value = 'openai';
   const categories = ['text', 'code', 'vision', 'agent'].map(category => { const button = element(`category-${category}`); button.dataset.performanceCategory = category; return button; });
   const methodLink = element('method-link');
@@ -313,9 +315,9 @@ test('人工评分榜：筛选、旧升序链接、重置与分享恢复均保�
   app.location.search = '?order=asc'; await app.window.emit('popstate');
   assert.deepEqual(ids(), initial);
   app.provider.checked = true; await app.provider.emit('change');
-  assert.deepEqual(ids(), ['gpt-6-astra', 'gpt-5-6-sol']);
+  assert.deepEqual(ids(), ['gpt-6-astra', 'gpt-5-6-sol', 'gpt-6-sol', 'gpt-6-luna']);
   await app.type('Sol'); app.tick(250);
-  assert.deepEqual(ids(), ['gpt-5-6-sol']);
+  assert.deepEqual(ids(), ['gpt-5-6-sol', 'gpt-6-sol']);
   await app.element('pelican-share').emit('click');
   const shared = new URL(app.copied());
   assert.equal(shared.searchParams.get('q'), 'Sol');
@@ -323,5 +325,5 @@ test('人工评分榜：筛选、旧升序链接、重置与分享恢复均保�
   await app.element('pelican-reset').emit('click');
   assert.deepEqual(ids(), initial);
   app.location.search = shared.search; await app.window.emit('popstate');
-  assert.deepEqual(ids(), ['gpt-5-6-sol']);
+  assert.deepEqual(ids(), ['gpt-5-6-sol', 'gpt-6-sol']);
 });

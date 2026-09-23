@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import data from '../../data/pelican/manual-scores-2026-09-15.json';
+import additionalData from '../../data/pelican/manual-scores-2026-09-23.json';
 
 export const pelicanManualCriteria = [
   { id: 'cat', label: '猫是否合理', maximum: 2, description: '能认出是白猫，身体与四肢连接自然，坐在车上、前爪扶把，骑姿合理。' },
@@ -29,7 +30,10 @@ export const pelicanManualSchema = z.object({
   rubricVersion: z.literal('manual-10-v1'),
   receivedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   reviewer: z.literal('源宝'),
-  source: z.object({ file: z.string().min(1), sheet: z.string().min(1), sha256: z.string().regex(/^[a-f0-9]{64}$/) }).strict(),
+  source: z.union([
+    z.object({ file: z.string().min(1), sheet: z.string().min(1), sha256: z.string().regex(/^[a-f0-9]{64}$/) }).strict(),
+    z.object({ kind: z.literal('chat-table'), file: z.string().min(1), sha256: z.string().regex(/^[a-f0-9]{64}$/), totals: z.literal('sum-of-five-scores') }).strict(),
+  ]),
   entries: z.array(pelicanManualEntrySchema),
 }).strict().superRefine((board, ctx) => {
   const ids = new Set<string>();
@@ -48,4 +52,10 @@ export function getManualTotal(scores: PelicanManualScores) {
 }
 
 // New manual marks are separate from the archived 100-point AI assessments.
-export const pelicanManualBoard = pelicanManualSchema.parse(data);
+export const pelicanManualBatches = [data, additionalData].map(batch => pelicanManualSchema.parse(batch));
+export function combinePelicanManualBatches(batches: Array<z.infer<typeof pelicanManualSchema>>) {
+  const entries = batches.flatMap(batch => batch.entries);
+  if (new Set(entries.map(entry => entry.id)).size !== entries.length) throw new Error('人工评分批次不能重复收录同一模型');
+  return { entries };
+}
+export const pelicanManualBoard = combinePelicanManualBatches(pelicanManualBatches);

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "3.0",
+  "receivedAt": "2026-09-23",
+  "entries": [
+    {
+      "id": "claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "providerId": "anthropic",
+      "sourceFile": "claude opus5.5.html",
+      "artifact": {
+        "src": "pelican-originals/claude-opus-5-5.html.txt",
+        "download": "pelican-originals/claude-opus-5-5.zip",
+        "sha256": "bedb8bc96efc14e69cc0bb729c5f63b914b3c99ce37a8afa74153452a3a161fc",
+        "zipSha256": "416b8a2520d725d12ccfa0740578788a8ee7add5c9ea71924d3da8a63f284802",
+        "archiveOrigin": "packaged-original-html"
+      }
+    },
+    {
+      "id": "gpt-6-sol",
+      "name": "GPT-6 Sol",
+      "providerId": "openai",
+      "sourceFile": "猫猫骑自行车6sol.html",
+      "artifact": {
+        "src": "pelican-originals/gpt-6-sol.html.txt",
+        "download": "pelican-originals/gpt-6-sol.zip",
+        "sha256": "17d97d58fdaad2207627edfdea9f86a3a8ac697dd758a287163f00ca3fa58855",
+        "zipSha256": "363a3622fdc8a34ec9f5eae236629a3a3f1973258cb141b07f2fd557d4faea5b",
+        "archiveOrigin": "packaged-original-html"
+      }
+    },
+    {
+      "id": "gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "providerId": "openai",
+      "sourceFile": "猫猫骑自行车6luna.html",
+      "artifact": {
+        "src": "pelican-originals/gpt-6-luna.html.txt",
+        "download": "pelican-originals/gpt-6-luna.zip",
+        "sha256": "e868be85e76d4996a08cee7b627fb3c89a7a04495bd7e84f92aa626cc26a2268",
+        "zipSha256": "3155f07f7651e5c0020bad7bc84e79b060213cb7239b3008eeba0ed2087511a7",
+        "archiveOrigin": "packaged-original-html"
+      }
+    }
+  ]
+}

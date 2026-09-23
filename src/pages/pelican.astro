@@ -4,6 +4,8 @@ import PelicanMethod from '../components/PelicanMethod.astro';
 import PelicanOriginal from '../components/PelicanOriginal.astro';
 import { catalog } from '../lib/catalog';
 import { pelicanSchema } from '../lib/pelican';
+import { pelicanHtmlBoard } from '../lib/pelican-html';
+import { pelicanManualBoard } from '../lib/pelican-manual';
 import { getPelicanShowcaseEntries, getPelicanShowcaseRows, renderPelicanShowcase } from '../lib/pelican-showcase';
 import { defaultPelicanFilters } from '../lib/pelican';
 import { mark, pathFor } from '../lib/render';
@@ -12,7 +14,8 @@ import '../styles/pelican.css';
 
 const base = import.meta.env.BASE_URL;
 const board = pelicanSchema.parse(data);
-const rows = getPelicanShowcaseRows(getPelicanShowcaseEntries(board), catalog, defaultPelicanFilters);
+const entries = getPelicanShowcaseEntries(board, pelicanManualBoard, pelicanHtmlBoard.entries);
+const rows = getPelicanShowcaseRows(entries, catalog, defaultPelicanFilters);
 const providers = catalog.providers;
 ---
 <Layout title="大模型科目三 · 源宝模型排行榜" description="白猫骑车 HTML 作品，从夯到拉。按源宝人工评分从高到低排列，五项各 2 分、满分 10 分，仅供娱乐。">
@@ -30,7 +33,7 @@ const providers = catalog.providers;
             <label class="search-box"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="pelican-search" type="search" aria-label="搜索模型或厂商" placeholder="搜索模型或厂商" maxlength="100" /></label>
             <fieldset class="provider-filter"><legend>主流厂商 <span>{providers.length}</span></legend>
               <label class="checkbox-row all-providers"><input type="checkbox" id="pelican-all" checked /><span>全部厂商</span><span class="filter-count">{rows.length}</span></label>
-              {providers.map(provider => <label class="checkbox-row"><input type="checkbox" name="pelican-provider" value={provider.id} /><Fragment set:html={mark(catalog, provider.id, base)} /><span>{provider.shortName}</span><span class="filter-count">{board.entries.filter(entry => entry.providerId === provider.id).length}</span></label>)}
+              {providers.map(provider => <label class="checkbox-row"><input type="checkbox" name="pelican-provider" value={provider.id} /><Fragment set:html={mark(catalog, provider.id, base)} /><span>{provider.shortName}</span><span class="filter-count">{entries.filter(entry => entry.providerId === provider.id).length}</span></label>)}
             </fieldset>
           </div>
         </details>
@@ -43,7 +46,7 @@ const providers = catalog.providers;
         <div class="ranking-controls pelican-controls"><span class="pelican-batch">白猫骑车 · v3.0</span><a class="pelican-method-link" data-pelican-method-link href="#pelican-method" aria-controls="pelican-method">测试说明与提示词</a></div>
         <p class="pelican-ranking-note">源宝人工评分 · 满分 10 分 · 从高到低，同分并列。点击作品可放大查看。</p>
         <div id="pelican-list"><div id="pelican-works" set:html={renderPelicanShowcase(rows, catalog, base)} /></div>
-        <div id="pelican-empty" class="empty-state" hidden><div class="empty-icon" aria-hidden="true">⌕</div><h3>没有找到符合条件的模型</h3><p>{board.entries.length ? '试试其他模型名称，或减少筛选条件。' : '当前尚未录入测试结果，收到测试表格后会更新。'}</p><button type="button" class="outline-button" id="pelican-empty-reset">清除筛选</button></div>
+        <div id="pelican-empty" class="empty-state" hidden><div class="empty-icon" aria-hidden="true">⌕</div><h3>没有找到符合条件的模型</h3><p>{entries.length ? '试试其他模型名称，或减少筛选条件。' : '当前尚未录入测试结果，收到测试表格后会更新。'}</p><button type="button" class="outline-button" id="pelican-empty-reset">清除筛选</button></div>
         <p class="sr-only" id="pelican-summary" role="status" aria-live="polite">显示 {rows.length} 份 HTML 作品，人工总分从高到低，从夯到拉</p>
         <PelicanMethod />
       </section>

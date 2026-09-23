@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6ef">
+  <title>骑车去吹风 · 白猫骑自行车 SVG 动画</title>
+  <style>
+    :root { color-scheme: light; --ink: #243e4b; --muted: #6b858b; --coral: #ed8e74; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 28px; background: #f8f6ef; color: var(--ink); font-family: ui-rounded, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif; }
+    main { width: min(1120px, 100%); }
+    header { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding: 0 8px 21px; }
+    .eyebrow { margin: 0 0 7px; color: #d27962; font-size: 12px; font-weight: 800; letter-spacing: .22em; }
+    h1 { margin: 0; font-size: clamp(27px, 4vw, 43px); letter-spacing: -.045em; line-height: 1.15; }
+    header p:last-child { margin: 9px 0 0; color: var(--muted); font-size: 14px; }
+    .pill { align-self: center; flex: none; border: 1px solid #dbe8e2; border-radius: 999px; padding: 9px 15px; color: #638779; font-size: 12px; font-weight: 700; background: #fffdf7; }
+    .scene { overflow: hidden; border: 1px solid #dce9e3; border-radius: 24px; background: #dff4ef; box-shadow: 0 24px 70px #436c5c16, 0 3px 10px #436c5c0d; }
+    svg { display: block; width: 100%; height: auto; }
+    .controls { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 20px 7px 0; color: var(--muted); font-size: 13px; }
+    .controlGroup { display: flex; align-items: center; gap: 16px; }
+    button { min-width: 92px; border: 0; border-radius: 999px; padding: 11px 19px; background: var(--ink); color: white; font: 700 13px inherit; cursor: pointer; box-shadow: 0 5px 13px #243e4b24; }
+    button:hover { background: #355a67; }
+    button:focus-visible, input:focus-visible { outline: 3px solid #eea287; outline-offset: 3px; }
+    label { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+    input[type=range] { accent-color: var(--coral); width: 105px; cursor: pointer; }
+    .cloud1 { animation: drift 19s ease-in-out infinite alternate; }
+    .cloud2 { animation: drift 25s ease-in-out infinite alternate-reverse; }
+    .scarf { transform-box: fill-box; transform-origin: 90% 45%; animation: flutter .85s ease-in-out infinite alternate; }
+    .tail { transform-box: fill-box; transform-origin: 90% 75%; animation: tail .75s ease-in-out infinite alternate; }
+    .cat-body { animation: bob .36s ease-in-out infinite alternate; }
+    .roadMarks { animation: road .95s linear infinite; }
+    .wind { animation: breeze 1.3s ease-in-out infinite; }
+    .wind.two { animation-delay: -.48s; }
+    .wind.three { animation-delay: -.9s; }
+    @keyframes drift { to { transform: translateX(33px); } }
+    @keyframes flutter { to { transform: rotate(-9deg) translateY(3px); } }
+    @keyframes tail { to { transform: rotate(9deg); } }
+    @keyframes bob { to { transform: translateY(2px); } }
+    @keyframes road { to { transform: translateX(-120px); } }
+    @keyframes breeze { 0%,100% { opacity: .12; transform: translateX(25px); } 45% { opacity: .75; transform: translateX(-12px); } }
+    .paused * { animation-play-state: paused !important; }
+    @media (max-width: 620px) { body { padding: 14px; align-items: center; } header { padding: 0 2px 17px; } .pill { display: none; } .scene { border-radius: 16px; } .controls { flex-wrap: wrap; padding-top: 16px; } .controls > span { order: 2; width: 100%; } }
+    @media (prefers-reduced-motion: reduce) { .scene * { animation: none !important; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div><p class="eyebrow">A LITTLE SVG ADVENTURE</p><h1>骑车去吹风</h1><p>一只白猫、两只车轮，和一个慢悠悠的下午。</p></div>
+    <span class="pill">✦ 手绘感 · 纯 SVG 动画</span>
+  </header>
+  <div class="scene" id="scene">
+    <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svgTitle svgDesc">
+      <title id="svgTitle">白猫骑自行车的二维动画</title>
+      <desc id="svgDesc">白猫围着橘色围巾，在明亮的乡间骑着珊瑚色自行车，车轮和双腿持续运动，云与风轻轻飘过。</desc>
+      <defs>
+        <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#dcf2ee"/><stop offset="1" stop-color="#f9f5d9"/></linearGradient>
+        <linearGradient id="roadGrad" x2="0" y2="1"><stop stop-color="#e7d9bf"/><stop offset="1" stop-color="#d5c2a7"/></linearGradient>
+        <pattern id="grain" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="1" cy="2" r=".6" fill="#ffffff" opacity=".25"/></pattern>
+        <filter id="shadow" x="-50%" y="-80%" width="200%" height="300%"><feGaussianBlur stdDeviation="9"/></filter>
+        <g id="flower"><path d="M0 0v18" stroke="#557f67" stroke-width="2.5" stroke-linecap="round"/><path d="M0 11q-8-8-9-4M0 13q7-8 10-6" fill="none" stroke="#557f67" stroke-width="2"/><circle cy="-2" r="5.5" fill="#fff8ed"/><circle cy="-2" r="2" fill="#efb86e"/></g>
+        <g id="bush"><path d="M-30 0q-7-16 8-23 8-24 23-17 13-17 23-4 18-1 16 21 13 9 7 23Z" fill="#96baa0"/><path d="M-21-10q22-8 49-2" fill="none" stroke="#b9d1a8" stroke-width="3" opacity=".6"/></g>
+      </defs>
+      <!-- sky and distant landscape -->
+      <path fill="url(#sky)" d="M0 0h960v600H0z"/>
+      <circle cx="781" cy="111" r="50" fill="#ffdf9b" opacity=".85"/>
+      <circle cx="781" cy="111" r="69" fill="#fff4cb" opacity=".23"/>
+      <g class="cloud1" fill="#fffefa" opacity=".82"><ellipse cx="163" cy="114" rx="51" ry="14"/><circle cx="144" cy="104" r="20"/><circle cx="175" cy="98" r="27"/><circle cx="207" cy="109" r="17"/></g>
+      <g class="cloud2" fill="#fffefa" opacity=".7"><ellipse cx="619" cy="81" rx="39" ry="11"/><circle cx="600" cy="76" r="17"/><circle cx="628" cy="68" r="19"/></g>
+      <path d="M0 342Q92 264 175 315T348 321Q438 261 524 320T694 313Q836 250 960 341v178H0Z" fill="#b4d9c7"/>
+      <path d="M0 389Q172 309 290 374T538 366Q683 306 788 369T960 376v151H0Z" fill="#8dbda8"/>
+      <path d="M0 460Q134 418 277 447T568 436Q782 413 960 465v91H0Z" fill="#b6caa0"/>
+      <path d="M0 483q181-26 351-9t321-8q157-19 288 18v66H0Z" fill="#a5bf8c"/>
+      <g opacity=".58"><use href="#bush" x="62" y="482" transform="translate(62 482) scale(.75) translate(-62 -482)"/><use href="#bush" x="144" y="478"/><use href="#bush" x="804" y="479"/><use href="#bush" x="916" y="486"/></g>
+      <path d="M0 533Q468 529 960 533v67H0Z" fill="url(#roadGrad)"/>
+      <path d="M0 535Q460 531 960 535" stroke="#fbf4d8" stroke-width="5" fill="none" opacity=".8"/>
+      <g class="roadMarks" fill="#fff7dd" opacity=".68"><rect x="-90" y="573" width="72" height="5" rx="3"/><rect x="30" y="573" width="72" height="5" rx="3"/><rect x="150" y="573" width="72" height="5" rx="3"/><rect x="270" y="573" width="72" height="5" rx="3"/><rect x="390" y="573" width="72" height="5" rx="3"/><rect x="510" y="573" width="72" height="5" rx="3"/><rect x="630" y="573" width="72" height="5" rx="3"/><rect x="750" y="573" width="72" height="5" rx="3"/><rect x="870" y="573" width="72" height="5" rx="3"/><rect x="990" y="573" width="72" height="5" rx="3"/></g>
+      <g opacity=".88"><use href="#flower" x="77" y="509"/><use href="#flower" x="117" y="517" transform="rotate(12 117 517)"/><use href="#flower" x="842" y="514"/><use href="#flower" x="872" y="509" transform="rotate(-10 872 509)"/><use href="#flower" x="901" y="521"/></g>
+      <path d="M229 548q250 15 535 0" stroke="#6e765e" stroke-width="18" opacity=".18" filter="url(#shadow)" fill="none"/>
+      <!-- wheels: tires stay fixed while spokes rotate -->
+      <g fill="none"><circle cx="300" cy="445" r="96" stroke="#273c49" stroke-width="14"/><circle cx="300" cy="445" r="84" stroke="#fdf9ea" stroke-width="4"/><circle cx="690" cy="445" r="96" stroke="#273c49" stroke-width="14"/><circle cx="690" cy="445" r="84" stroke="#fdf9ea" stroke-width="4"/></g>
+      <g id="rearSpokes" stroke="#8ba7a1" stroke-width="2.2" opacity=".8"><path d="M300 361v168M216 445h168M241 386l118 118M359 386 241 504M268 367l64 156M223 413l154 64M332 367l-64 156M377 413l-154 64"/><circle cx="300" cy="445" r="9" fill="#f8eedb" stroke="#344e56" stroke-width="3"/></g>
+      <g id="frontSpokes" stroke="#8ba7a1" stroke-width="2.2" opacity=".8"><path d="M690 361v168M606 445h168M631 386l118 118M749 386 631 504M658 367l64 156M613 413l154 64M722 367l-64 156M767 413l-154 64"/><circle cx="690" cy="445" r="9" fill="#f8eedb" stroke="#344e56" stroke-width="3"/></g>
+      <!-- far leg is behind the bicycle -->
+      <path id="farLeg" fill="none" stroke="#e3eeeb" stroke-width="27" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse id="farPaw" rx="19" ry="13" fill="#e3eeeb" stroke="#c5dad5" stroke-width="2"/>
+      <!-- bicycle frame -->
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M300 445 420 305 485 438 300 445M420 305 626 305 485 438M626 305 690 445" stroke="#304d55" stroke-width="14"/>
+        <path d="M300 445 420 305 485 438 300 445M420 305 626 305 485 438" stroke="#e9896e" stroke-width="9"/>
+        <path d="M626 305 690 445" stroke="#e9896e" stroke-width="8"/>
+        <path d="M420 305 412 283" stroke="#304d55" stroke-width="9"/>
+        <path d="M625 307 613 277q-1-14 13-14h47" stroke="#304d55" stroke-width="9"/>
+        <path d="M661 263h24" stroke="#e9896e" stroke-width="12"/>
+      </g>
+      <path d="M375 286q7-14 34-13h45q10 0 11 10-30 8-83 8-11 0-7-5Z" fill="#304d55"/>
+      <path d="M587 327l40-15" stroke="#f8ddac" stroke-width="4" opacity=".8"/>
+      <circle cx="485" cy="438" r="29" fill="#f5cf94" stroke="#304d55" stroke-width="6"/>
+      <circle cx="485" cy="438" r="18" fill="#e9896e" stroke="#fff3d6" stroke-width="2"/>
+      <g id="cranks" stroke="#304d55" stroke-width="7" stroke-linecap="round"><path d="M485 438h53M485 438h-53"/><path d="M526 438h25M419 438h25" stroke-width="9"/></g>
+      <!-- cat silhouette, tail, body, scarf and face -->
+      <g class="tail"><path d="M419 263q-41 11-65-9-17-14-36-6-15 8-8 22 6 12 20 7" fill="none" stroke="#d3e4e0" stroke-width="32" stroke-linecap="round"/><path d="M419 259q-40 11-65-9-16-13-32-5" fill="none" stroke="#fffdf8" stroke-width="24" stroke-linecap="round"/></g>
+      <g class="cat-body">
+        <path d="M414 280q-24-41-3-75 16-30 54-33 41-3 56 42 13 40-14 70-32 29-75 20-15-3-18-24Z" fill="#d5e5e1" stroke="#afc9c5" stroke-width="2"/>
+        <path d="M417 273q-22-46 6-75 17-18 45-18 32 5 43 37 13 37-13 62-30 25-67 16-13-2-14-22Z" fill="#fffefa"/>
+        <path d="M449 219q-18 30-6 58" fill="none" stroke="#e5efeb" stroke-width="8" stroke-linecap="round"/>
+      </g>
+      <path id="nearLegOutline" fill="none" stroke="#bcd4d0" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="nearLeg" fill="none" stroke="#fffefa" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse id="nearPaw" rx="20" ry="13" fill="#fffefa" stroke="#c5d9d4" stroke-width="2"/>
+      <!-- reaching arms -->
+      <path d="M489 224q29 10 49 40l37 22 76-13" fill="none" stroke="#bcd4d0" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M489 221q27 12 47 40l38 20 76-12" fill="none" stroke="#fffefa" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse cx="656" cy="270" rx="16" ry="12" fill="#fffefa" stroke="#c5d9d4" stroke-width="2" transform="rotate(-18 656 270)"/>
+      <!-- scarf tails behind the head -->
+      <g class="scarf"><path d="M505 225q-31 5-54-9l-33 1q-11 0-14 9 30 1 45 13 29 18 57 1Z" fill="#d87562"/><path d="M474 230q-23 8-47 1l-25 14q21 12 47 7 25-5 40-15Z" fill="#f19c7c"/><path d="M413 245q12 4 23 3" stroke="#f7bea1" stroke-width="3" stroke-linecap="round"/></g>
+      <!-- ears and head -->
+      <path d="M499 146 490 82q0-9 9-6l39 30M557 105l41-38q8-6 11 4l-3 77" fill="#fffefa" stroke="#c1d5d0" stroke-width="3" stroke-linejoin="round"/>
+      <path d="m503 127-5-37 26 24M574 112l25-30-1 41" fill="#f4c4bb"/>
+      <path d="M491 167q-2-36 26-57 22-18 54-12 42 5 56 43 13 38-9 68-19 27-57 30-45 3-67-27-14-18-3-45Z" fill="#fffefa" stroke="#c1d5d0" stroke-width="3"/>
+      <path d="M511 122q26-20 58-12" fill="none" stroke="#ffffff" stroke-width="9" opacity=".85" stroke-linecap="round"/>
+      <ellipse cx="515" cy="188" rx="18" ry="11" fill="#f9d8cf" opacity=".67"/>
+      <ellipse cx="611" cy="187" rx="18" ry="11" fill="#f9d8cf" opacity=".67"/>
+      <path d="M513 159q12-13 24 0M577 158q13-13 24 0" stroke="#304d55" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="m551 178 10 6 10-6q-5-8-10-8t-10 8Z" fill="#ed9c91"/>
+      <path d="M561 184v6q-6 8-13 3m13-3q7 8 14 2" stroke="#304d55" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="m515 181-36-9m35 15-38 3m36 5-32 15m105-29 36-10m-35 16 38 3m-35 5 32 15" stroke="#819b9d" stroke-width="2" stroke-linecap="round"/>
+      <path d="M511 221q28 28 70 16" fill="none" stroke="#e9896e" stroke-width="11" stroke-linecap="round"/>
+      <circle cx="541" cy="241" r="7" fill="#f5bd83"/>
+      <!-- tiny motion marks -->
+      <g fill="none" stroke="#fffefa" stroke-width="4" stroke-linecap="round"><path class="wind" d="M148 279h48m-34 14h23"/><path class="wind two" d="M183 329h56m-21 14h38"/><path class="wind three" d="M752 246h43m-17 14h40"/></g>
+      <path fill="url(#grain)" d="M0 0h960v600H0z" pointer-events="none"/>
+    </svg>
+  </div>
+  <div class="controls">
+    <span>✳ 今天的目的地：有风的地方</span>
+    <div class="controlGroup">
+      <label for="speed">速度 <input id="speed" type="range" min="0.4" max="2.3" step="0.1" value="1" aria-label="骑行速度"><output id="speedValue">1.0×</output></label>
+      <button type="button" id="toggle" aria-pressed="false">暂停 Ⅱ</button>
+    </div>
+  </div>
+</main>
+<script>
+  (() => {
+    const scene = document.getElementById('scene');
+    const svg = scene.querySelector('svg');
+    const speedInput = document.getElementById('speed');
+    const speedValue = document.getElementById('speedValue');
+    const toggle = document.getElementById('toggle');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const parts = Object.fromEntries(['farLeg','farPaw','nearLeg','nearLegOutline','nearPaw','rearSpokes','frontSpokes','cranks'].map(id => [id, svg.getElementById(id)]));
+    const C = { x: 485, y: 438 }, R = 53;
+    let angle = -.65, last = 0, paused = reduced.matches, speed = 1;
+
+    // Two-bone inverse kinematics keeps each paw on its pedal throughout a revolution.
+    function leg(hip, foot, upper, lower) {
+      const dx = foot.x - hip.x, dy = foot.y - hip.y;
+      const distance = Math.hypot(dx, dy);
+      const d = Math.min(Math.max(distance, Math.abs(upper - lower) + .01), upper + lower - .01);
+      const ux = dx / distance, uy = dy / distance;
+      const a = (upper * upper - lower * lower + d * d) / (2 * d);
+      const h = Math.sqrt(Math.max(0, upper * upper - a * a));
+      const knee = { x: hip.x + ux * a + uy * h, y: hip.y + uy * a - ux * h };
+      return `M${hip.x.toFixed(1)} ${hip.y.toFixed(1)} L${knee.x.toFixed(1)} ${knee.y.toFixed(1)} L${foot.x.toFixed(1)} ${foot.y.toFixed(1)}`;
+    }
+    function position() {
+      const near = { x: C.x + R * Math.cos(angle), y: C.y + R * Math.sin(angle) };
+      const far = { x: C.x - R * Math.cos(angle), y: C.y - R * Math.sin(angle) };
+      const n = leg({x: 449, y: 284}, near, 112, 112);
+      parts.nearLeg.setAttribute('d', n);
+      parts.nearLegOutline.setAttribute('d', n);
+      parts.farLeg.setAttribute('d', leg({x: 425, y: 286}, far, 113, 113));
+      for (const [paw, point] of [[parts.nearPaw, near], [parts.farPaw, far]]) {
+        paw.setAttribute('cx', point.x.toFixed(1));
+        paw.setAttribute('cy', point.y.toFixed(1));
+        paw.setAttribute('transform', `rotate(-15 ${point.x.toFixed(1)} ${point.y.toFixed(1)})`);
+      }
+      const deg = angle * 180 / Math.PI;
+      parts.cranks.setAttribute('transform', `rotate(${deg} ${C.x} ${C.y})`);
+      parts.rearSpokes.setAttribute('transform', `rotate(${deg * 1.9} 300 445)`);
+      parts.frontSpokes.setAttribute('transform', `rotate(${deg * 1.9} 690 445)`);
+    }
+    function frame(time) {
+      if (!last) last = time;
+      const dt = Math.min((time - last) / 1000, .05);
+      last = time;
+      if (!paused) { angle += dt * 2.7 * speed; position(); }
+      requestAnimationFrame(frame);
+    }
+    function refresh() {
+      scene.classList.toggle('paused', paused);
+      toggle.textContent = paused ? '播放 ▶' : '暂停 Ⅱ';
+      toggle.setAttribute('aria-pressed', String(paused));
+    }
+    speedInput.addEventListener('input', () => {
+      speed = Number(speedInput.value);
+      speedValue.value = `${speed.toFixed(1)}×`;
+      scene.style.setProperty('--speed', speed);
+      scene.querySelectorAll('.roadMarks, .scarf, .tail, .cat-body, .wind').forEach(el => {
+        const base = el.classList.contains('roadMarks') ? .95 : el.classList.contains('scarf') ? .85 : el.classList.contains('tail') ? .75 : el.classList.contains('cat-body') ? .36 : 1.3;
+        el.style.animationDuration = `${base / speed}s`;
+      });
+    });
+    toggle.addEventListener('click', () => { paused = !paused; refresh(); });
+    reduced.addEventListener('change', e => { paused = e.matches; refresh(); });
+    position(); refresh(); requestAnimationFrame(frame);
+  })();
+</script>
+</body>
+</html>

@@ -8,8 +8,10 @@ import presentation from '../data/pelican/presentation-2026-09-14.json';
 import reviews from '../data/pelican/reviews-2026-09-14.json';
 import htmlIntake from '../data/pelican/html-intake-2026-09-14.json';
 import htmlReviews from '../data/pelican/html-review-2026-09-14.json';
-import { getPelicanCounts, isPelicanV3Entry, pelicanSchema } from '../src/lib/pelican';
-import { getManualTotal, pelicanManualBoard } from '../src/lib/pelican-manual';
+import { isPelicanV3Entry, pelicanSchema } from '../src/lib/pelican';
+import { getManualTotal, pelicanManualBoard, pelicanManualBatches } from '../src/lib/pelican-manual';
+import { pelicanHtmlBoard } from '../src/lib/pelican-html';
+import { getPelicanShowcaseEntries } from '../src/lib/pelican-showcase';
 
 const board = pelicanSchema.parse(data);
 const intake = new Map(submissions.entries.map(entry => [entry.id, entry]));
@@ -53,11 +55,30 @@ for (const entry of board.entries) {
     assert.ok(criterion.evidenceTimes.every(time => time < source.durationMs / 1000), `${entry.id}/${criterion.id} 证据超出录屏时长`);
   }
 }
-const counts = getPelicanCounts(board.entries);
+for (const entry of pelicanHtmlBoard.entries) {
+  for (const [path, sha] of [[entry.artifact.src, entry.artifact.sha256], [entry.artifact.download, entry.artifact.zipSha256]]) {
+    const bytes = await readFile(resolve('public', path));
+    assert.ok(bytes.length > 0, `${entry.id} 原作不能为空`);
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), sha, `${entry.id} 原作必须与入库记录一致`);
+  }
+}
+for (const batch of pelicanManualBatches) {
+  if ('kind' in batch.source && batch.source.kind === 'chat-table') {
+    const source = await readFile(batch.source.file);
+    assert.equal(createHash('sha256').update(source).digest('hex'), batch.source.sha256, '回传评分表必须与源记录一致');
+    const rows = source.toString('utf8').trim().split('\n').slice(2);
+    assert.equal(rows.length, batch.entries.length);
+    for (const entry of batch.entries) {
+      const cells = rows[entry.sourceRow - 1]?.split('|').slice(1, -1).map(cell => cell.trim());
+      assert.deepEqual(cells, [entry.name, ...Object.values(entry.scores).map(String)], '人工分数必须忠实于回传表格');
+    }
+  }
+}
+const entries = getPelicanShowcaseEntries(board, pelicanManualBoard, pelicanHtmlBoard.entries);
 for (const result of pelicanManualBoard.entries) {
-  const entry = board.entries.find(entry => entry.id === result.id);
+  const entry = entries.find(entry => entry.id === result.id);
   assert.ok(entry, `${result.id} 人工评分必须对应已收录作品`);
   assert.equal(entry.name, result.name, '人工评分型号必须与回传表一致');
   assert.equal(getManualTotal(result.scores), result.submittedTotal, '人工总分必须与五项得分一致');
 }
-console.log(`大模型科目三校验通过：${counts.total} 份作品，${pelicanManualBoard.entries.length} 份人工评分；原作和历史记录有效，按 10 分制人工成绩排名。`);
+console.log(`大模型科目三校验通过：${entries.length} 份作品，${pelicanManualBoard.entries.length} 份人工评分；原作和历史记录有效，按 10 分制人工成绩排名。`);

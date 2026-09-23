@@ -1,19 +1,22 @@
 import type { Catalog } from './schema';
 import type { PelicanBoard, PelicanFilters } from './pelican';
+import type { PelicanHtmlEntry } from './pelican-html';
 import { modelSearch } from './search';
 import { escapeHtml as e, mark, pathFor } from './render';
 import { getManualTotal, pelicanManualBoard, pelicanManualCriteria } from './pelican-manual';
 
 // Only this projection is sent to the showcase page. Historic scores and GIF
 // references remain in the intake archive, outside the browser's page data.
-export function getPelicanShowcaseEntries(board: PelicanBoard, manual = pelicanManualBoard) {
+export function getPelicanShowcaseEntries(board: PelicanBoard, manual = pelicanManualBoard, additional: PelicanHtmlEntry[] = []) {
   const marks = new Map(manual.entries.map(entry => [entry.id, entry]));
-  return board.entries.flatMap(entry => 'ruleVersion' in entry ? [{
+  const sourceEntries = [...board.entries.filter(entry => 'ruleVersion' in entry), ...additional];
+  if (new Set(sourceEntries.map(entry => entry.id)).size !== sourceEntries.length) throw new Error('作品 ID 不能跨批次重复');
+  return sourceEntries.map(entry => ({
     id: entry.id, name: entry.name, providerId: entry.providerId,
     artifact: entry.artifact ? { src: entry.artifact.src, download: entry.artifact.download } : null,
-    note: entry.showcaseNote ?? null,
+    note: 'showcaseNote' in entry ? entry.showcaseNote ?? null : null,
     manual: marks.has(entry.id) ? { scores: marks.get(entry.id)!.scores, total: getManualTotal(marks.get(entry.id)!.scores) } : null,
-  }] : []);
+  }));
 }
 export type PelicanShowcaseEntry = ReturnType<typeof getPelicanShowcaseEntries>[number];
 
